@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body, nav, ul, li, h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --cor-principal: #FF8500;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul{
+    font-family: 'Sora', sans-serif;
+}
+
+.Titulo{
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;   
+}
+.legenda {
+    display: inline-block;
+    color: #727272;
+    /* margin-top: 0.5em; */
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 200;
+}
+
+header{
+    background-color: #000;
+    padding-right: 24px;
+    height: 140px;
+    border-radius: 0px 0px 24px 24px;
+
+    display: grid;
+    grid-template-rows: 80px 50px;
+    grid-template-columns: 80% 25%;
+    /* row-gap: 15px; */
+    /* column-gap: 20px; */
+    position: relative;
+}
+header > img{
+    position: absolute;
+    left: 5vw;
+    top: 2vh;
+}
+#fixed{
+    position: fixed;
+    width: 100vw;
+    height: 80px;
+    background-color: #000;
+    top: 0;
+    z-index: 2;
+}
+#fixed img{
+    margin-left: 24px;
+    margin-top: 10px;
+}
+#topo{
+    width: 100vw;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 24px 24px 0 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: 3;
+}
+#pesquisa{
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    /* padding: 24px; */
+}
+#pesquisa > img{
+    position: absolute;
+    align-self: center;
+    top: 15px;
+    left: 40px;
+}
+#pesquisa input[type="search"]{
+    text-align: center;
+    font-size: 1rem;
+
+    width: 90%;
+    height: 48px;
+    margin-left: 24px;
+
+    background: #FFFFFF;
+    border-radius: 100px;
+    border: none;
+
+    outline: none;
+}
+#filtro{
+    grid-column: 2;
+    grid-row: 2;
+    border-radius: 100%;
+    background-color: #fff;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    position: absolute;
+    right: 24px;
+    /* justify-self: ; */
+    justify-content: center;
+    align-content: center;
+    /* margin-right: 24px; */
+}
+#filtro > img{
+    width: 25px;
+}
+#painel_menu{
+    position: absolute;
+
+    top: 0em;
+    right: 0em;
+
+    z-index: 999;
+}
+#painel_menu input{
+    /* display: none; */
+    opacity: 0;
+
+    width: 45px;
+    height: 35px;
+
+    position: absolute;
+    right: 2em;
+    top: 3vh;
+
+    z-index: 99;
+}
+#painel_menu span{
+    display: block;
+
+    position: absolute;
+    right: 24px;
+    top: 3vh;
+
+    width: 45px;
+    height: 5px;
+    border-radius: 100px;
+
+    background-color: #fff;
+
+    z-index: 6;
+
+    transform-origin: 4px 0px;
+    transition: transform 0.7s ease;
+}
+#painel_menu span:nth-child(2){
+    position: absolute;
+    margin-top: 12px;
+    width: 35px;
+}
+#painel_menu span:nth-child(3){
+    position: absolute;
+    margin-top: 24px;
+}
+/* Animação do menu hamburger */
+#painel_menu span:last-child(2){
+    transform-origin: 0% 100%;
+}
+#painel_menu input:checked ~ span{
+    opacity: 1;
+    transform: rotate(45deg);
+}
+#painel_menu input:checked ~ span:nth-child(2){
+    transform: translateX(15px);
+    opacity: 0;
+    /* transform: scale(0.2, 0.2); */
+}
+#painel_menu input:checked ~ span:nth-child(3){
+    transform: rotate(-45deg);
+    margin-top: 25px;
+
+}
+#painel_menu input:checked ~ ul{
+    transform: none;
+}
+#painel_menu input:checked ~ #modal_box{
+    display: block;
+    /* visibility: visible; */
+    transition: all 0.5s;
+}
+#modal_box{
+    display: none;
+    /* visibility: hidden; */
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rgba(0, 0, 0);
+    
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 42px;
+    position: relative;
+}
+main > section{
+    width: calc(100% - 48px);
+}
