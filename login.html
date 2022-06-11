@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reset.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- <link href="https: //fonts.googleapis.com/css2? família= Sora:wght@500;600 & display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/84b2985f50.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <section class="inicio">
+    <img src="img/Logo 2.svg" alt="" id="logotipo">
+  </section>
+
+  <main>
+    <section>
+      <section class="Entrar">
+        <h1> Bem vindo; </h1>
+      </section>
+    
+      <form action="" method="post">
+    
+        <div class="inputs-container">
+          <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+    
+        <div class="inputs-container">
+          <div class="input-icon" id="senha-icon"><img src="img/senha-icon.svg" alt=""></div>
+          <input type="password" name="Senha" placeholder="Senha" id="password" required>
+          <img src="img/mostrar-senha.svg" id="icon-mostrar-senha" alt="">
+        </div>
+    
+        <button class="btn"> <span>Continuar</span> </button>
+    
+    
+        <section class="ou">
+          <span> ou </span>
+        </section>
+    
+        <button class="face2">
+          <!-- <section class="logof"> -->
+          <i class="fa-brands fa-facebook logof"></i>
+          <!-- </section> -->
+          <span id="cont-face">Continuar com Facebook</span>
+        </button>
+    
+        <button class="google2">
+          <section class="logog">
+            <img src="img/google-logo.svg">
+          </section>
+          <span id="cont-google">Continuar com Google</span>
+        </button>
+    
+        <button class="apple2">
+          <section class="logoa">
+            <i class="fa-brands fa-apple"></i>
+          </section>
+          <span id="cont-apple">Continuar com Apple</span>
+        </button>
+    
+    
+    
+        <div class="cadastro">
+          <span> Não tem uma conta? <a href=""> Cadastrar-se </a></span>
+        </div>
+    
+      </form>
+    </section>
+  </main>
+
+  <script src="js/scriptLogin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body, nav, ul, li, h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul{
+    font-family: 'Sora', sans-serif;
+}
+
+header{
+    background-color: #000;
+    padding-right: 24px;
+    height: 90px;
+    /* border-radius: 0px 0px 24px 24px; */
+    position: relative;
+}
+#logo{
+    margin-top: 10px;
+    /* margin-left: 24px; */
+}
+header > div{
+    display: flex;
+    justify-content: space-between;
+    /* width: 1160px; */
+    margin: 0 16px;
+}
+
+#menu_hamburguer{
+    width: 40px;
+    height: 40px;
+    background-color: purple;
+}
+#painel_menu{
+    position: absolute;
+
+    top: 0em;
+    right: 0em;
+
+    z-index: 999;
+}
+#painel_menu input{
+    /* display: none; */
+    opacity: 0;
+
+    width: 45px;
+    height: 35px;
+
+    position: absolute;
+    right: 2em;
+    top: 3vh;
+
+    z-index: 99;
+}
+#painel_menu span{
+    display: block;
+
+    position: absolute;
+    right: 24px;
+    top: 3vh;
+
+    width: 45px;
+    height: 5px;
+    border-radius: 100px;
+
+    background-color: #fff;
+
+    z-index: 6;
+
+    transform-origin: 4px 0px;
+    transition: transform 0.7s ease;
+}
+#painel_menu span:nth-child(2){
+    position: absolute;
+    margin-top: 12px;
+    width: 35px;
+}
+#painel_menu span:nth-child(3){
+    position: absolute;
+    margin-top: 24px;
+}
+/* Animação do menu hamburger */
+#painel_menu span:last-child(2){
+    transform-origin: 0% 100%;
+}
+#painel_menu input:checked ~ span{
+    opacity: 1;
+    transform: rotate(45deg);
+}
+#painel_menu input:checked ~ span:nth-child(2){
+    transform: translateX(15px);
+    opacity: 0;
+    /* transform: scale(0.2, 0.2); */
+}
+#painel_menu input:checked ~ span:nth-child(3){
+    transform: rotate(-45deg);
+    margin-top: 25px;
+
+}
+#painel_menu input:checked ~ ul{
+    transform: none;
+}
+#painel_menu input:checked ~ #modal_box{
+    display: block;
+    /* visibility: visible; */
+    transition: all 0.5s;
+}
+#modal_box{
+    display: none;
+    /* visibility: hidden; */
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rgba(0, 0, 0);
+    
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+section{
+    display: flex;
+    justify-content: center;
+    border-radius: 24px 24px 0px 0px;
+    position: relative;
+    z-index: 199;
+    top: -20px;
+    background: white;
+}
+
+section > div{
+    width: 1160px;
+    margin: 0 16px;
+}
+
+#container_plan{
+    margin: 42px 0;
+}
+
+#container_plan > div:first-child{
+    display: flex;
+    align-items: center;
+}
+
+#container_plan > div:first-child img{
+    margin-right: 20.88px;
+}
+
+#container_plan h3{
+    font-size: 24px;
+}
+
+.plans{
+    max-width: 314px;
+    background: #F2F2F2;
+    border: solid #CECECE;
+    border-radius: 12px;
+    padding: 28px 35px;
+    margin-top: 30px;
+}
+
+.plans h5{
+    font-size: 16px;
+    font-weight: 400;
+    color: #727272;
+}
+
+.rank_plans{
+    position: relative;
+}
+
+.rank_plans img{
+    position: absolute;
+    right: 0;
+    top: -31px;
+}
+
+.informations_plans{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+}
+
+.plans ul h3{
+    margin: 13px 0 18px 0;
+}
+
+.plans ul h3 span{
+    font-size: .7em;
+}
+
+.informations_plans ul li{
+    margin:1px 0 0 25px;
+    color: #FF8500;
+}
+
+.informations_plans ul li span{
+    color: #727272;
+}
+
+.informations_plans mark{
+    color: #FF8500;
+    background: none;
+}
+
+.informations_plans button{
+    font-weight: bolder;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+    background: #FF8500;
+    padding: 14px 25px;
+    border-radius: 100px;
+}

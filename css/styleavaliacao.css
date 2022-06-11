@@ -1,0 +1,158 @@
+section > div{
+    display: flex;
+}
+#titulo_avaliacao > img{
+    margin-right: 10px;
+}
+
+
+.achou{
+    display: inline-block;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 1em;
+}
+
+
+#comentario{
+    display: flex;
+    margin-top: 2em;
+    width: 100%;
+    position: relative;
+}
+#limite-crt{
+    position: absolute;
+    right: 0;
+}
+
+#Deixar{
+    margin-left: 10px;
+    margin-top: 0;
+}
+
+.comente{
+  /* position: absolute; */
+  /* margin-left: -50vw; */
+  height: 25px;
+  width: 25px;
+}
+
+
+
+
+.avaliacao{
+    display: flex;
+    margin-top: 1em;
+    width: 0;
+}
+
+.star-icon{
+    list-style-type: none;
+    border: 1px solid none;
+    cursor: pointer;
+    color: var(--cor-principal);
+    font-size: 45px;
+    margin-right: 12px;
+    /* margin-left: -2vw;
+    padding-left: 2vw;
+    margin-top: 0.2em; */
+}
+
+.star-icon::before{
+    /* content:"\2605" */
+    /* content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='100' width='100'><circle cx='50' cy='50' r='40' stroke='black' stroke-width='3' fill='red' /></svg>"); */
+    content: url('../img/star.svg');
+}
+
+.star-icon.ativo ~ .star-icon::before{
+  /* content:"\2606"; */
+  content: url("../img/star_none.svg");
+}
+
+.avaliacao:hover .star-icon::before{
+    content: "\2605";
+    content: url("../img/star.svg");    
+}
+
+.star-icon:hover ~ .star-icon::before{
+    /* content:"\2606"; */
+    content: url("../img/star_none.svg");
+}
+
+#quadrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vw;
+    height: 275px;
+    width: 100%;
+    background-color: rgba(1, 1, 1, 0.3);
+    border-radius: 12px;
+}
+#addinput {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--cor-principal);
+    color: white;
+    height: 2.8em;
+    width: 60%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    box-shadow: 0px 4px 4px 0px #00000026;
+}
+input[type="file"] {
+    display: none;
+}
+
+
+#comentar{
+    /* position: absolute; */
+    border-radius: 12px;
+    width: 97%;
+    margin-top: 1.5em;
+    height: 4em;
+    font-size: 18px;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 200;
+    color: #727272;
+    padding-left: 3%;
+    padding-top: 3%;
+
+}
+
+.concluir{
+    position: relative;
+    margin-top: 1.5em;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--cor-principal);
+    color: white;
+    height: 4em;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    box-shadow: 0px 4px 4px 0px #00000026;
+}
+.concluir span{
+    font-size: 1rem;
+}
+.concluir:hover{
+    background-color: white;
+    color: var(--cor-principal);
+   border: 1px solid  var(--cor-principal) ;
+   }
+
+#Addimg:hover{
+    background-color: white;
+    color: var(--cor-principal);
+   border: 1px solid  var(--cor-principal) ;
+}   
+
