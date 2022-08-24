@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notificações</title>
+
+    <!-- LINKS CSS -->
+    <!-- <link rel="stylesheet" href="css/styleavaliacao.css"> -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/styleHistorico.css">
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script_menu.js"></script>
+</head>
+
+<body>
+    <header id="normal_header">
+        <div id="fixed">
+            <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+
+            <div id="container-pesquisa" class="container_fixed">
+                <div id="pesquisa">
+                    <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
+                    <input type="search" name="barra-pesquisa" id="barra-pesquisa" placeholder="Estou buscando...">
+                    <div id="filtro-s" class="filtro-s filtro"><img src="img/filtro-icon.svg" alt=""></div>
+                </div>
+            </div>
+            
+            <div id="menu_hamburger">
+                <nav>
+                    <div id="painel_menu">
+                        <input type="checkbox" name="" id="check_menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+
+            <div id="modal_box">
+
+                <div id="dados_usuario">
+                    <div class="foto">
+                        <div id="inputs_foto">
+                            <div class="circle_foto">
+                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
+                            </div>
+                            <!-- <div id="foto"></div> -->
+                            <label for="add-img" id="addinput-p"><img src="img/add-foto.svg" alt="logo"></label>
+                            <input type="file" name="add-img" id="add-img-p">
+                        </div>
+                    </div>
+                    <h3 class="nome_usuario">Sebastião Silva</h3>
+                    <span class="email_usuario">sebastiãosilva@outlook.com</span>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="opcoes">
+                    <a href="./editar_perfil.html">
+                        <div id="editar-perfil" class="opcao">
+                            <img src="img/user_icon_branco.svg" alt="">
+                            <span>Editar Perfil</span>
+                        </div>
+                    </a>
+                    <a href="./historico.html">
+                        <div id="historico" class="opcao">
+                            <img src="img/file_icon_branco.svg" alt="">
+                            <span>Historico</span>
+                        </div>
+                    </a>
+                    <a href="./favoritos.html">
+                        <div id="favoritos" class="opcao">
+                            <img src="img/favorito_icon_branco.svg" alt="">
+                            <span>Favoritos</span>
+                        </div>
+                    </a>
+                    <a href="./notificacoes.html">
+                        <div id="notificacoes" class="opcao">
+                            <img src="img/notificacao_icon.svg" alt="">
+                            <span>Notificações</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="suas_oficinas">
+                    <div id="opcao_suas-oficinas" class="opcao">
+                        <img src="img/config_icon.svg" alt="">
+                        <span>Suas Oficinas</span>
+                    </div>
+                    <a href="./oficina.html">
+                        <div class="oficina opcao">
+                            <div id="foto_oficina_menu"></div>
+                            <span>Oficina do Tião</span>
+                            <span class="tipo_plano" id="plano_ouro">ouro</span>
+                        </div>
+                    </a>
+                    <div class="oficina opcao">
+                        <div id="foto_oficina_menu"></div>
+                        <span>Los Santos Customs</span>
+                        <span class="tipo_plano" id="plano_prata">Prata</span>
+                    </div>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="logout">
+                    <div id="opcao-logout" class="opcao">
+                        <img src="img/user_icon_laranja.svg" alt="">
+                        <span>Sair</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div id="topo" class="topo"></div>
+
+    <main>
+        <section>
+
+            <div class="titulos">
+                <h1 class="titulo"> Notificações </h1>
+                <span class="legenda">Mais recentes</span>
+            </div>
+
+            <div id="seus_produtos">
+
+
+                <div class="box_produto">
+                    <div class="content">
+                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                        <div class="infos_produto">
+                            <span class="tipo_produto">Mensagem</span>
+                            <p class="txt-notificacao">
+                                O produto Tinta Automotiva Pu Branco Brilhante foi
+                                removido da plataforma por
+                                desobedecer algumas regras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box_produto">
+                    <div class="content">
+                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                        <div class="infos_produto">
+                            <span class="tipo_produto">Mensagem</span>
+                            <p class="txt-notificacao">
+                                O produto Tinta Automotiva Pu Branco Brilhante foi
+                                removido da plataforma por
+                                desobedecer algumas regras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box_produto">
+                    <div class="content">
+                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                        <div class="infos_produto">
+                            <span class="tipo_produto">Mensagem</span>
+                            <p class="txt-notificacao">
+                                O produto Tinta Automotiva Pu Branco Brilhante foi
+                                removido da plataforma por
+                                desobedecer algumas regras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box_produto">
+                    <div class="content">
+                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                        <div class="infos_produto">
+                            <span class="tipo_produto">Mensagem</span>
+                            <p class="txt-notificacao">
+                                O produto Tinta Automotiva Pu Branco Brilhante foi
+                                removido da plataforma por
+                                desobedecer algumas regras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box_produto">
+                    <div class="content">
+                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                        <div class="infos_produto">
+                            <span class="tipo_produto">Mensagem</span>
+                            <p class="txt-notificacao">
+                                O produto Tinta Automotiva Pu Branco Brilhante foi
+                                removido da plataforma por
+                                desobedecer algumas regras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

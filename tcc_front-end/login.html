@@ -5,83 +5,165 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Login</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <!-- LINKS CSS -->
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/style.css">
 
-
+  <!-- LINKS PARA O GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- <link href="https: //fonts.googleapis.com/css2? família= Sora:wght@500;600 & display=swap" rel="stylesheet"> -->
+  <!-- FONTS -->
+  <!-- GOTHIC-A1 -->
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+  <!-- SORA -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@300&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- LINKS JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/84b2985f50.js" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function(){
+      $(".up-main").click(function(){
+        $('main').slideUp('slow');
+        $('main').css('top', '200px');
+        $('main').css('z-index', '99999');
+        $('main').css('display', 'flex');
+        $('main').css('padding', '0 !important');
+        $('.Titulo').css('margin', '30px auto');
+        $('#infos-login').css('display', 'flex');
+        $('#cta-main').css('display', 'none');
+      });
+    })
+  </script>
 </head>
 
 <body>
 
-  <section class="inicio">
-    <img src="img/Logo 2.svg" alt="" id="logotipo">
-  </section>
+  <div id="container">
+    <section class="saiba-mais">
+      <div id="modal_saiba-mais"></div>
+      <div id="container_saiba-mais">
+        <img src="img/Logo Oficinas Web 1 1.svg" alt="">
+        <div id="infos-login">
+          <span>Seja muito bem vindo, venha expandir o seu negocio conosco.</span>
+          <span>Oficinas web é uma solução que busca aproximar mecanicos e clientes.</span>
+        </div>
+        <h1>Busca um Mecânico?</h1>
+        <p>
+          Na plataforma voce encontra o mecanico mais proximo da sua residencia com a melhor qualidade e com os melhores
+          preços do mercado.
+        </p>
+        <br>
+        <p>
+          Alem disso você encontra produtos e serviços de acordo com a sua necessidade com aquele preçinho camarada que a
+          gente gosta.
+        </p>
+        <div>
+          <a href="./todas_oficinas.html"><button id="ver-oficinas">Ver Oficinas</button></a>
+          <a href="./todos_produtos.html"><button id="ver-produtos">Ver Produtos</button></a>
+        </div>
+        <div id="menu-inf">
+          <ul>
+            <li class="shadow_btn"><a href="./index.html">Home</a></li>
+            <li class="shadow_btn"><a href="./planos.html">Planos</a></li>
+            <li class="shadow_btn"><a href="./todas_oficinas.html">Oficinas</a></li>
+            <li class="shadow_btn"><a href="./todos_produtos.html">Produtos</a></li>
+          </ul>
+        </div>
 
-  <main>
-    <section>
-      <section class="Entrar">
-        <h1> Bem vindo; </h1>
-      </section>
-    
-      <form action="" method="post">
-    
-        <div class="inputs-container">
-          <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
-          <input type="email" name="email" placeholder="Email" required>
+        <div id="cta-main">
+          <section>
+            <div id="top_login">
+              <img src="img/up_arrow.svg" alt="" class="up-main">
+            </div>
+            <section class="Entrar">
+              <h1 class="Titulo"> Fazer Login </h1>
+            </section>
         </div>
-    
-        <div class="inputs-container">
-          <div class="input-icon" id="senha-icon"><img src="img/senha-icon.svg" alt=""></div>
-          <input type="password" name="Senha" placeholder="Senha" id="password" required>
-          <img src="img/mostrar-senha.svg" id="icon-mostrar-senha" alt="">
-        </div>
-    
-        <button class="btn"> <span>Continuar</span> </button>
-    
-    
-        <section class="ou">
-          <span> ou </span>
-        </section>
-    
-        <button class="face2">
-          <!-- <section class="logof"> -->
-          <i class="fa-brands fa-facebook logof"></i>
-          <!-- </section> -->
-          <span id="cont-face">Continuar com Facebook</span>
-        </button>
-    
-        <button class="google2">
-          <section class="logog">
-            <img src="img/google-logo.svg">
-          </section>
-          <span id="cont-google">Continuar com Google</span>
-        </button>
-    
-        <button class="apple2">
-          <section class="logoa">
-            <i class="fa-brands fa-apple"></i>
-          </section>
-          <span id="cont-apple">Continuar com Apple</span>
-        </button>
-    
-    
-    
-        <div class="cadastro">
-          <span> Não tem uma conta? <a href=""> Cadastrar-se </a></span>
-        </div>
-    
-      </form>
+
+      </div>
     </section>
-  </main>
+
+    <main>
+      <section>
+        <section class="Entrar">
+          <h1 class="Titulo"> Fazer Login </h1>
+        </section>
+
+        <div id="line_orange">
+
+        </div>
+        <span class="title">
+          Seja muito bem vindo, venha expandir o seu negocio conosco.
+        </span>
+        <!-- <br>
+        <br> -->
+        <span class="explicacao">
+          Oficinas web é uma solução que busca aproximar mecanicos e clientes.
+        </span>
+
+        <form action="" method="post">
+
+          <div class="inputs-container">
+            <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
+            <input type="email" name="email" placeholder="Email" class="inputs inputs_with_icon" required>
+          </div>
+
+          <div class="inputs-container">
+            <div class="input-icon" id="senha-icon"><img src="img/senha-icon.svg" alt=""></div>
+            <input type="password" name="Senha" placeholder="Senha" id="password" class="inputs inputs_with_icon"
+              required>
+            <img src="img/mostrar-senha.svg" id="icon-mostrar-senha" alt="">
+          </div>
+
+          <button class="btn default_btn"> <span>Continuar</span> </button>
+
+
+          <section class="ou">
+            <span> ou </span>
+          </section>
+
+          <section id="outras_formas">
+            <button class="face2 shadow_btn login-rede">
+              <!-- <section class="logof"> -->
+              <i class="fa-brands fa-facebook logof"></i>
+              <!-- </section> -->
+              <span id="cont-face">Continuar com Facebook</span>
+            </button>
+
+            <button class="google2 shadow_btn login-rede">
+              <section class="logog">
+                <img src="img/google-logo.svg">
+              </section>
+              <span id="cont-google">Continuar com Google</span>
+            </button>
+
+            <button class="apple2 shadow_btn login-rede">
+              <section class="logoa">
+                <i class="fa-brands fa-apple"></i>
+              </section>
+              <span id="cont-apple">Continuar com Apple</span>
+            </button>
+          </section>
+
+
+
+          <div class="cadastro">
+            <span> Não tem uma conta? <a href="cad_visitante.html"> Cadastrar-se </a></span>
+          </div>
+
+        </form>
+      </section>
+    </main>
+  </div>
 
   <script src="js/scriptLogin.js"></script>
 </body>

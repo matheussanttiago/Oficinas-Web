@@ -1,126 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
-body, nav, ul, li, h1, h2, h3, h4, h5, h6, p{
-    margin: 0;
-    padding: 0;
-}
 
-h1, h2, h3, h4, h5, h6, p, ul{
-    font-family: 'Sora', sans-serif;
-}
-
-header{
-    background-color: #000;
-    padding-right: 24px;
-    height: 90px;
-    /* border-radius: 0px 0px 24px 24px; */
-    position: relative;
-}
-#logo{
-    margin-top: 10px;
-    /* margin-left: 24px; */
-}
-header > div{
-    display: flex;
-    justify-content: space-between;
-    /* width: 1160px; */
-    margin: 0 16px;
-}
-
-#menu_hamburguer{
-    width: 40px;
-    height: 40px;
-    background-color: purple;
-}
-#painel_menu{
-    position: absolute;
-
-    top: 0em;
-    right: 0em;
-
-    z-index: 999;
-}
-#painel_menu input{
-    /* display: none; */
-    opacity: 0;
-
-    width: 45px;
-    height: 35px;
-
-    position: absolute;
-    right: 2em;
-    top: 3vh;
-
-    z-index: 99;
-}
-#painel_menu span{
-    display: block;
-
-    position: absolute;
-    right: 24px;
-    top: 3vh;
-
-    width: 45px;
-    height: 5px;
-    border-radius: 100px;
-
-    background-color: #fff;
-
-    z-index: 6;
-
-    transform-origin: 4px 0px;
-    transition: transform 0.7s ease;
-}
-#painel_menu span:nth-child(2){
-    position: absolute;
-    margin-top: 12px;
-    width: 35px;
-}
-#painel_menu span:nth-child(3){
-    position: absolute;
-    margin-top: 24px;
-}
-/* Animação do menu hamburger */
-#painel_menu span:last-child(2){
-    transform-origin: 0% 100%;
-}
-#painel_menu input:checked ~ span{
-    opacity: 1;
-    transform: rotate(45deg);
-}
-#painel_menu input:checked ~ span:nth-child(2){
-    transform: translateX(15px);
-    opacity: 0;
-    /* transform: scale(0.2, 0.2); */
-}
-#painel_menu input:checked ~ span:nth-child(3){
-    transform: rotate(-45deg);
-    margin-top: 25px;
-
-}
-#painel_menu input:checked ~ ul{
-    transform: none;
-}
-#painel_menu input:checked ~ #modal_box{
-    display: block;
-    /* visibility: visible; */
-    transition: all 0.5s;
-}
-#modal_box{
-    display: none;
-    /* visibility: hidden; */
-
-    height: 100vh;
-    width: 100vw;
-
-    background-color: rgba(0, 0, 0);
-    
-    position: relative;
-    z-index: 2;
-    top: 0;
-    left: 0;
-}
-section{
+/* section{
     display: flex;
     justify-content: center;
     border-radius: 24px 24px 0px 0px;
@@ -128,43 +9,96 @@ section{
     z-index: 199;
     top: -20px;
     background: white;
-}
+} */
 
-section > div{
+/* section > div{
     width: 1160px;
     margin: 0 16px;
-}
+} */
 
-#container_plan{
-    margin: 42px 0;
-}
+/* main > section{
+    display: flex;
+    justify-content: center;
+} */
+
+/* #container_plan{
+    display: flex;
+} */
 
 #container_plan > div:first-child{
     display: flex;
     align-items: center;
 }
 
-#container_plan > div:first-child img{
+/* #container_plan > div:first-child img{
     margin-right: 20.88px;
-}
+} */
 
 #container_plan h3{
     font-size: 24px;
 }
 
 .plans{
-    max-width: 314px;
+    /* max-width: 314px; */
     background: #F2F2F2;
-    border: solid #CECECE;
+    border: 3px solid;
     border-radius: 12px;
     padding: 28px 35px;
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#basico{
+    border: solid #FF8500;
+}
+#basico h5{
+    color: #FF8500;
+}
+
+#prata{
+    border: solid #C0C0C0;
+}
+#prata h5{
+    color: #727272;
+}
+#prata button{
+    background-color: #C0C0C0;
+}
+#prata mark{
+    color: #000;
+    background: none;
+}
+
+#ouro{
+    border: solid #DAA520;
+}
+#ouro h5{
+    color: #DAA520;
+}
+#ouro button{
+    background-color: #DAA520;
+}
+#ouro mark{
+    color: #DAA520;
+    background: none;
+}
+
+#diamante{
+    border: solid #00C3CF;
+}
+#diamante h5{
+    color: #00C3CF;
+}
+#diamante button{
+    background-color: #00C3CF;
+}
+#diamante mark{
+    color: #00C3CF;
+    background: none;
 }
 
 .plans h5{
     font-size: 16px;
     font-weight: 400;
-    color: #727272;
 }
 
 .rank_plans{
@@ -201,17 +135,43 @@ section > div{
     color: #727272;
 }
 
-.informations_plans mark{
-    color: #FF8500;
-    background: none;
-}
-
 .informations_plans button{
     font-weight: bolder;
     font-size: 18px;
     border: none;
-    color: #fff;
     background: #FF8500;
+    color: #fff;
     padding: 14px 25px;
     border-radius: 100px;
+}
+
+@media screen and (min-width:  700px) {
+    #all_plans{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* gap: 20px; */
+    }
+    main{
+        max-width: 1116px;
+        margin: 0 auto;
+    }
+    .plans{
+        height: auto;
+        width: 40%;
+    }
+    .informations_plans ul li{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .informations_plans{
+        display: block;
+    }
+    .informations_plans button{
+        width: 100%;
+        margin-top: 50px;
+    }
+    #btn-gratuito{
+        margin-top: 81px;
+    }
 }

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adicionar Cartão</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="css/default.css">
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <link rel="stylesheet" href="css/cartao.css">
+    <link rel="stylesheet" href="css/formaPagamento.css">
+    <link rel="stylesheet" href="css/stylePlanos.css">
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="js/script_cartao.js"></script>
+    <script src="js/script_menu.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#finish').click(function () {
+                $('.pop-up').css('display', 'flex');
+                $('#modal').show();
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+<div id="modal"></div>
+    <header id="normal_header">
+        <div id="fixed">
+            <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+
+            <div id="container-pesquisa" class="container_fixed">
+                <div id="pesquisa">
+                    <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
+                    <input type="search" name="barra-pesquisa" id="barra-pesquisa" placeholder="Estou buscando...">
+                    <div id="filtro-s" class="filtro-s filtro"><img src="img/filtro-icon.svg" alt=""></div>
+                </div>
+            </div>
+            
+            <nav>
+                <div id="painel_menu">
+                    <input type="checkbox" name="" id="check_menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <div id="modal_box">
+
+                <div id="dados_usuario">
+                    <div class="foto">
+                        <div id="inputs_foto">
+                            <div class="circle_foto">
+                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="opcoes_dados-usuario">
+                        <img src="img/user_icon_branco.svg" alt="">
+                        <h3 class="nome_usuario">Login / Criar Conta</h3>
+                    </div>
+                </div>
+
+                <hr>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="topo" class="topo"></div>
+
+    <main>
+        <section id="sec-forma_pgmt">
+
+            <div class="titulo_arrow">
+                <img src="img/arrow_left.svg" alt="flecha virada para esquerda" onclick="window.history.back()">
+                <h1 class="titulo"> Pagamento </h1>
+            </div>
+            <div class="frase_pgt">
+                <div class="bold"><span>Forma de Pagamento</span></div>
+                <div><a href="#" class="btn_add_cartao">Adicionar Cartão</a></div>
+            </div>
+
+
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logos_paypal.svg" alt="logo PayPal">
+                <h3 class="nome_forma">Paypal</h3></div>
+                <label class="container">
+                    <input type="radio" name="option-pgt" id="opcao-paypal">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logo_google-pay.svg" alt="logo Google Pay">
+                <h3 class="nome_forma">Google Pay</h3></div>
+                <label class="container">
+                    <input type="radio" name="option-pgt" id="opcao-google">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logo_apple-pay.svg" alt="logo Apple Pay">
+                <h3 class="nome_forma">Apple Pay</h3></div>
+                <label class="container">
+                    <input type="radio" name="option-pgt" id="opcao-apple">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logo_samsung-pay.svg" alt="logo Samsung Pay">
+                <h3 class="nome_forma">Samsung Pay</h3></div>
+                <label class="container">
+                    <input type="radio" name="option-pgt" id="opcao-samsung">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <span class="frase_pgm"><b>Pagar com cartão de Credito/Debito</b></span>
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logos_mastercard.svg" alt="logo Mastercard">
+                <h3 class="nome_forma">**** **** **** 0007</h3></div>
+                <label class="container">
+                    <input type="radio" name="option-pgt" id="opcao-cartao">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <button class="btn" id="next-step"> <span>Continuar</span> </button>
+
+        </section>
+
+        <section id="plano">
+
+            <div class="titulo_arrow">
+                <img src="img/arrow_left.svg" alt="flecha virada para esquerda" onclick="window.history.back()" class="voltar_alterar">
+                <h1 class="titulo titulo-pgmt"> Pagamento </h1>
+            </div>
+
+            <div class="plans" id="prata">
+                <div class="rank_plans">
+                    <h5>Prata</h5>
+                    <img src="img/flag_silver.svg" alt="rank bronze">
+                </div>
+                <div class="informations_plans">
+                    <ul>
+                        <h3>R$ 29,90 <span>/ Mês</span></h3>
+                        <li><mark>Avaliação de 30 dias</mark></li>
+                        <li><span>Perfil da oficina</span></li>
+                        <li><span>Visibiladade baixa</span></li>
+                        <li><span>10 serviços</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="frase_pgt">
+                <div class="bold"><span>Forma de Pagamento</span></div>
+                <div><a href="./forma_pagamento.html" class="btn_alterar">Alterar</a></div>
+            </div>
+
+
+            <div class="opcao_pgmt">
+                <div class="opcoes_pagamento"><img class="icon_pagamento" src="./img/logos_paypal.svg" alt="logo PayPal" id="img-escolhida">
+                <h3 class="nome_forma" id="forma-escolhida">Paypal</h3></div>
+            </div>
+    
+            <button class="btn" id="finish"> <span>Continuar</span> </button>
+
+        </section>
+
+        <section id='cartao_section1'>
+
+                <div class="titulo_arrow">
+                  <img src="img/arrow_left.svg" alt="flecha virada para esquerda" onclick="window.history.back()" class="voltar">
+                  <h1 class="titulo"> Adicionar Cartão </h1>
+                </div>
+          
+                <div id="container-cartao">
+                  <div id="quadrado">
+                    <label for="add-img" id="addinput"></label>
+          
+                    <img src="" alt="" id="teste">
+                    <!-- <button id="Addimg"> Adicionar imagem </button> -->
+                  </div>
+          
+          
+                  <div class="form_doc">
+          
+                    <input type="" name="" placeholder="Nome impresso no cartão" id="password" class="inputs" required>
+                    <input type="" name="" placeholder="Número do cartão" id="password" class="inputs" required>
+          
+                    <div class="btnpequeno">
+                      <input type="date" name="Data de validade" data-date-format="MMM YYYY" placeholder="Data de validade"
+                        id="validade" required class="inputs">
+                      <input type="" name="CVV" placeholder="Código CVV" id="cvv" class="inputs" required>
+                    </div>
+                    <button class="btn"> <span>Adicionar cartão</span> </button>
+          
+                  </div>
+                </div>
+          
+              </section>
+
+              <div class="pop-up">
+                <img src="img/img_pop-up.svg" alt="">
+                <h3>Pagamento Concluido!</h3>
+
+                <p>sua conta já está pronta para usar</p>
+
+                <button class="primeira-opcao-btn"><a href="./dashboard.html">Ir para oficina</a></button>
+            </div>
+    </main>
+</body>
+
+</html>

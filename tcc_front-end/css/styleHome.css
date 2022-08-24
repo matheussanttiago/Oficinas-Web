@@ -7,6 +7,8 @@ section{
 }
 main{
     position: relative;
+    margin: auto;
+    max-width: 1116px;
 }
 hr{
     width: calc(100% - 2px);
@@ -15,12 +17,13 @@ hr{
 
 /* ----------------- SESSÃO DE OFICICNAS ----------------- */
 #oficinas{
-    display: grid;
+    /* display: grid;
     grid-template-rows: 45px 300px 32px 250px 48px;
-    row-gap: 25px;
+    row-gap: 25px; */
     align-items: center;
-    width: calc(100% - 24px);
-    padding-left: 24px;
+    width: 100%;
+
+    margin-bottom: 35px !important;
 }
 #titulos{
     grid-row: 1;
@@ -30,17 +33,17 @@ hr{
 }
 #carrossel{
     display: flex;
-    overflow-y: auto;
     width: 100%;
+    margin-top: 20px;
 }
 .carrossel_oficinas{
-    width: calc(100% - 24px);
+    /* width: calc(100% - 24px); */
     justify-self: start;
     display: flex;
     flex-direction: column;
     position: relative;
 
-    margin: 0 20px 0px 0;
+    margin: 0 0px 0px 0;
 }
 .img_ofc{
     width: 342px;
@@ -54,6 +57,12 @@ hr{
     position: absolute;
     top: 0;
     border-radius: 24px;
+}
+@media screen and (max-width: 400px) {
+    .img_ofc, .modal_oficina{
+        width: 312px;
+        height: 270px;
+    }
 }
 .carrossel_infos{
     position: absolute;
@@ -94,21 +103,30 @@ hr{
 .star-icon_oficinas img{
     width: 20px;
 }
-#oficinas nav{
+#carousel_oficinas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nav_tipos-veiculos{
     display: flex;
     overflow: auto;
-    width: 100%;
+    width: calc(100% - 24px);
+    max-width: 500px;
+    justify-self: center;
+    gap: 10px;
+    margin: 0 auto 35px 24px;
 }
-#oficinas nav div{
+.nav_tipos-veiculos div{
     width: 100%;
     background-color: rgba(51, 51, 51, 0.8);
     height: 32px;
     border-radius: 24px;
-    margin-left: 10px;
-    margin-right: 24px;
-    /* padding: 2px 10px 2px 10px; */
+    /* margin-left: 10px;
+    margin-right: 24px; */
+    padding: 2px 10px 2px 10px;
 
-    font-family: 'Gothic A1';
+    font-family: 'Sora';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -119,24 +137,50 @@ hr{
     align-items: center;
     justify-items: center;
     justify-content: center;
+    cursor: pointer;
 }
-#oficinas nav div:nth-child(1){
+@media screen and (min-width: 600px) {
+    .nav_tipos-veiculos{
+        justify-self: center;
+        margin-left: auto;
+    }
+    .nav_tipos-veiculos div{
+        height: 40px;
+        margin-right: 0;
+    }
+}
+.nav_tipos-veiculos div:nth-child(1){
     background-color: var(--cor-principal);
     margin-left: 0;
 }
-#tipos_oficinas{
-    width: 100%;
-    overflow: auto;
+.nav_tipos-veiculos::-webkit-scrollbar{
+    display: none;
 }
-#ofc_carros, #ofc_bikes{
+#tipos_oficinas{
+    /* display: flex; */
+    width: 100%;
+    /* overflow: auto; */
+}
+#ofc_carros,#ofc_vans, #ofc_bikes, #ofc_caminhoes{
     display: none;
 }
 .tipos_ofc{
-    display: flex;
+    /* display: flex;
+    justify-content: center; */
+    width: 100%;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    /* gap: 10px; */
 }
-.espec_oficinas{
-    width: 168px;
+.content_oficinas, .content_produtos{
+    width: 152px;
+    margin: auto;
 }
+/* .espec_oficinas{
+    width: 170px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+} */
 .espec_oficinas img{
     border-radius: 12px;
 }
@@ -146,6 +190,14 @@ hr{
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+
+    white-space: nowrap;
+    width: 100%;
+    max-width: 152px;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .espec_oficinas p{
     font-family: 'Gothic A1';
@@ -153,18 +205,38 @@ hr{
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    max-width: 152px;
+    color: #727272;
 }
-#oficinas button{
+#carousel_oficinas button{
     border: 3px solid var(--cor-principal);
     background-color: #fff;
     border-radius: 100px;
-    height: 100%;
+    height: 48px;
     width: calc(100% - 24px);
+    max-width: 700px;
     justify-self: start;
     color: var(--cor-principal);
     font-weight: 400;
     font-size: 18px;
     font-family: 'Gothic A1', sans-serif;
+    margin-top: 20px !important;
+    margin: auto;
+}
+@media screen and (min-width: 700px) {
+    #carousel_oficinas button{
+        justify-self: center;
+    }
+}
+
+#tipos_oficinas::-webkit-scrollbar {
+    display: none;
+}
+#carrossel::-webkit-scrollbar {
+    display: none;
+}
+.produtos_destaque::-webkit-scrollbar {
+    display: none;
 }
 
 /* ----------------- SESSÃO DE SERVIÇOS ----------------- */
@@ -180,6 +252,7 @@ hr{
 #titulos_servicos button,
 #titulos_produtos button{
     width: 30%;
+    max-width: 200px;
     background-color: #F2F2F2;
     height: 36px;
     border-radius: 24px;
@@ -201,7 +274,15 @@ hr{
     justify-self: center;
     justify-content: center;
 }
+#box_servicos{
+    flex-direction: column;
+    /* align-items: center; */
+}
 .melhores-servicos{
+    max-width: 800px;
+    margin: auto;
+}
+/* .melhores-servicos{
     display: grid;
     grid-template-rows: 24px 48px;
     grid-template-columns: 20% 50% 30%;
@@ -210,8 +291,9 @@ hr{
     margin-top: 20px;
 
     height: auto;
+    max-width: 480px;
 
-    /* border-bottom: 1px solid #0F0F0F; */
+    border-bottom: 1px solid #0F0F0F;
 }
 .melhores-servicos h5{
     grid-column: 2;
@@ -226,9 +308,12 @@ hr{
 .melhores-servicos button{
     grid-column: 3;
     grid-row: 1;
-    margin-right: 24px;
+    margin-right: 0;
+
+    justify-self: center;
 
     height: 28px;
+    width: 76px;
     border-radius: 4px;
 
     outline: none;
@@ -252,7 +337,7 @@ hr{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-}
+} */
 #foto-servico{
     grid-column: 1;
     grid-row: 1 2;
@@ -265,19 +350,27 @@ hr{
 
     align-self: center;
     justify-self: end;
-    margin-right: 24px;
+    /* margin-right: 24px; */
 }
 
 
 /* ----------------- SESSÃO DE PRODUTOS ----------------- */
 .produtos_destaque{
-    overflow: auto;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    width: 100%;
+    /* gap: 10px; */
+    /* overflow: auto; */
     margin-top: 20px;
 }
-.produto{
+/* @media screen and (min-width: 1000px) {
+    .produtos_destaque{
+        margin-left: 13px;
+    }
+} */
+/* .produto{
     width: 170px;
-    margin-right: 20px;
-}
+} */
 .produtos_destaque img{
     border-radius: 12px;
 }
@@ -286,7 +379,7 @@ hr{
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    color: #0F0F0F;
+    color: #727272;
     
     margin-top: 5px;
     margin-bottom: 5px;
@@ -319,21 +412,25 @@ hr{
 
 /* ----------------- SESSÃO DE VER PLANOS ----------------- */
 #ver_planos{
-    display: grid;
-    grid-template-rows: 38px 42px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: grid;
+    grid-template-rows: 38px 42px 30px; */
 }
 #ilustracao{
-    grid-row-start: 1;
-    grid-row-end: 3;
+    /* grid-row-start: 1;
+    grid-row-end: 3; */
+    width: 100%;
+    max-width: 300px;
 }
 #ver_planos h3{
     grid-row: 1;
-    align-self: end;
     justify-self: start;
 
-    font-family: 'Gothic A1';
+    font-family: 'Sora';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 18px;
 }
 #ver_planos span{
@@ -341,31 +438,88 @@ hr{
     align-self: center;
     justify-self: start;
 
-    font-family: 'Gothic A1';
+    font-family: 'Sora';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
+    color: #727272;
+    max-width: 500px;
 }
 #ver_planos button{
-    grid-row: 3;
+    /* grid-row: 3; */
 
-    background: linear-gradient(44.46deg, var(--cor-principal) 10%, var(--cor-principal) 86.44%);
+    background: linear-gradient(44.46deg, #e27d10 10%, #FF8500 86.44%);
     opacity: 0.8;
+    /* Shadow/Inner default */
+    
+    box-shadow: inset 0px 2px 8px rgba(180, 188, 203, 0.4);
+    border-radius: 100px;
     color: #fff;
-    width: 135px;
+    width: 125px;
+    height: 30px;
     border-radius: 24px;
     outline: none;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: end;
 
+    position: relative;
     grid-column: 2;
     justify-self: end;
 }
 #avancar_icon{
-    grid-row: 3;
-    grid-column: 2;
+    /* grid-row: 3; */
+    /* grid-column: 2; */
+    /* position: absolute; */
     align-self: center;
+    /* right: 3px; */
     justify-self: end;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     z-index: 2;
+}
+#infos-planos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* #btn-plans{
+    width: auto;
+    position: relative;
+    display: flex;
+} */
+
+@media screen and (min-width: 480px) {
+    #linha_mobile{
+        display: none;
+    }
+    #ver_panos{
+        display: block;
+    }
+    #ver_planos h3{
+        font-size: 32px;
+    }
+    #ver_planos span{
+        font-size: 20px;
+    }
+    #ver_planos button{
+        width: 140px;
+        height: 40px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #oficinas{
+        width: calc(100% - 24px);
+        padding-left: 24px;
+        margin-bottom: 25px !important;
+    }
+    .nav_tipos-veiculos{
+        margin-bottom: 25px !important;
+        gap: 10px;
+    }
+    .nav_tipos-veiculos div{
+        margin: 0 !important;
+    }
 }
 

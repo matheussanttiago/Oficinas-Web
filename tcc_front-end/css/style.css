@@ -1,7 +1,16 @@
+/* body{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+#container{
+  height: 100%;
+} */
+
 body{
   height: 100vh;
   width: 100vw;
-  background-color: #000;
+  background-color: black;
 }
 
   .inicio{
@@ -10,6 +19,8 @@ body{
     justify-content: center;
   
     width: 100vw;
+    max-width: 800px;
+    margin: auto;
   }
   #logotipo{
     width: 80%;
@@ -19,26 +30,29 @@ body{
     width: auto;
   } */
   main{
-    position: absolute;
+    position: relative;
     /* margin-top: 25vw; */
     height: auto;
     background-color: #fff;
     border-radius: 24px 24px 0 0;
-    padding: 42px 0 42px 0;
+    /* padding: 42px 0 42px 0; */
+    max-width: 800px;
+    margin: auto;
   }
   
   .Entrar h1{
     font-weight: bolder;
     font-family: "Sora", sans-serif;
-    margin-left: 5vw;
     margin-bottom: 1em;
-    font-size: 2rem;
+    font-size: 25px !important;
+    text-align: center;
+    margin-top: 25px !important;
   }
   
   form{
     height: 60%;
-    width: 90vw;
-    padding: 0 5vw 0 5vw;
+    width: 100%;
+    /* padding: 0 5vw 0 5vw; */
   
     margin: 0;
     border: 0;
@@ -124,6 +138,7 @@ body{
   #cont-face {
     text-align: center;
     margin: auto 42px auto 21px;
+    
     /* margin: auto; */
   }
   
@@ -143,6 +158,7 @@ body{
     font-weight: 550;
     text-align: center ;
     font-family: "Sora", sans-serif;
+    font-weight: 600;
     /* padding-left: 4em; */
     
     display: flex;
@@ -150,11 +166,12 @@ body{
     align-items: center;
     /* justify-content: center; */
   }
+  .inputs_with_icon{
+    padding-left: 60px;
+    width: calc(100% - 60px);
+  }
   
-  
-  input[type=email] {
-    /* margin-top: 2em; */
-    /* margin-left: 19%; */
+  /* input[type=email] {
     position: relative;
     height: 3.5em;
     width: 82%;
@@ -169,12 +186,8 @@ body{
   }
   
   #password {
-    /* margin-top: 1em; */
-    /* margin-left: 20%; */
     position: relative;
     height: 3.5em;
-    /* width: 77%; */
-    /* width: 82%; */
     width: 82%;
     border-radius: 12px;
     border: none;
@@ -184,7 +197,7 @@ body{
     color: #727272;
     font-size: 1.13rem;
     outline: none;
-  }
+  } */
   ::-ms-reveal{
     display: none;
   }
@@ -234,18 +247,285 @@ body{
   .input-icon{
     height: 2em;
     display: flex;
-    width: 10%;
+    width: 60px;
     /* margin-top: 20px; */
-    margin-left: 1%;
+    /* margin-left: 1%; */
     /* border: 1px solid #FF8500; */
     border-radius: 12px 0 0 12px;
     align-items: center;
     align-self: center;
-    padding-left: 5%;
-    background-color:  #F2F2F2;
-    z-index: 9;
+    justify-content: center;
+    /* padding-left: 5%; */
+    /* background-color:  #F2F2F2; */
+    z-index: 2;
     position: absolute;
   }
   .input-icon img{
     width: 25px;
   }
+
+@media screen and (min-width: 480px) {
+  #container{
+    justify-content: center;
+  }
+  .Entrar{
+    display: none;
+  }
+  #line_orange{
+    background-color: #FF8500;
+    width: 60px;
+    height: 5px;
+    margin-bottom: 15px;
+    border-radius: 100px;
+  }
+  .title{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+  }
+  .explicacao{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 24px;
+  }
+  .inicio{
+    display: none;
+  }
+  main{
+    width: 40%;
+    max-width: 488px;
+    margin: 0;
+    top: 0;
+    border-radius: 0 24px 24px 0;
+    padding: 43px 50px;
+  }
+  main > section{
+    width: 100%;
+  }
+  #container{
+    display: flex;
+    /* position: absolute; */
+    width: 90%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 90vh; */
+  }
+  .inputs, .btn, .login-rede{
+    height: 60px;
+  }
+  .login-rede, .btn, .inputs-container{
+    margin-top: 15px !important;
+  }
+  .inputs-container{
+    position: relative;
+  }
+  #icon-mostrar-senha{
+    position: absolute;
+    right: 13.25px;
+    width: 30px;
+  }
+
+
+  /* .inicio{
+    display: none
+  }
+  body{
+    display: flex;
+    background-image: url('../img/oficinas/baixados5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+  }
+  main{
+    top: 0;
+    border-radius: 4px;
+    max-width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .input-icon{
+    height: 3em;
+    width: 60px;
+  }
+  input[type="email"], #password{
+    height: 3em;
+    width: calc(100% - 20px);
+    padding-left: 60px;
+  }
+  #icon-mostrar-senha{
+    right: 50px;
+  }
+  .btn{
+    height: 3.3em;
+  }
+  .face2, .google2, .apple2{
+    height: 3em;
+    width: 30%;
+  }
+  .face2 span, .google2 span, .apple2 span{
+    display: none;
+  }
+  #outras_formas{
+    display: flex;
+    justify-content: space-between;
+  } */
+}
+@media screen and (max-width: 864px) {
+  .saiba-mais{
+      width: 100%;
+      height: 100%;
+      /* padding: 54px 0 45px 80px; */
+      background-image: url("../img/fundo_saiba-mais.jpg");
+      background-size: cover;
+      position: relative;
+      display: block !important;
+    }
+    #modal_saiba-mais{
+      background-color: black;
+      opacity: 70%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+    #container_saiba-mais{
+      z-index: 2;
+      position: relative;
+      /* height: calc(100% - 100px); */
+      padding: 27px 24px 0px 24px;
+    }
+    .saiba-mais h1{
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 35px;
+      line-height: 24px;
+      color: #fff;
+  
+      margin-bottom: 50px;
+      margin-top: 77px;
+    }
+    .explicacao, .title{
+      display: none;
+    }
+    #menu-inf{
+      position: absolute;
+      bottom: 43px;
+      width: calc(100% - 139px);
+    }
+    .saiba-mais ul li{
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #fff;
+    }
+    .saiba-mais button{
+      height: 60px;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #FF8500;
+      box-shadow: 0px 4px 10px rgba(255, 133, 0, 0.25);
+      border-radius: 12px;
+  
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+  
+      text-align: center;
+  
+      color: white;
+  
+      transition: background-color .4s;
+    }
+  
+    .saiba-mais div a:nth-child(1) button{
+      background: #FF8500;
+      margin-bottom: 20px;
+    }
+    .saiba-mais div a:nth-child(2) button:hover{
+      background: #FF8500;
+    }
+  
+    .saiba-mais ul{
+      display: none;
+    }
+    #infos-login{
+      flex-direction: column;
+      gap: 5px;
+    }
+    #infos-login span:nth-child(1){
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      /* or 133% */
+
+
+      color: #FFFFFF;
+    }
+    #infos-login span:nth-child(2){
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 24px;
+      /* or 133% */
+      
+      
+      color: #FFFFFF;
+    }
+
+    .saiba-mais p:nth-of-type(2) {
+      margin-bottom: 96px;
+  }
+
+    #top_login{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      border-bottom: 2px solid #F2F2F2;
+      margin-bottom: 25px;
+    }
+    /* main{
+      display: none;
+      padding-top: 0px !important;
+    } */
+    main{
+      position: absolute;
+      display: none;
+      /* bottom: 0; */
+    }
+    #cta-main{
+      background-color: #fff;
+      position: relative;
+      left: -24px;
+      margin-bottom: 0;
+      width: calc(100% + 48px);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 40px 40px 0px 0px;
+      margin-top: 60px;
+      height: auto;
+    }
+    #cta-main h1{
+      color: black;
+    }
+}
+@media screen and (min-height: 881px) {
+  main{
+    bottom: 0;
+  }
+}

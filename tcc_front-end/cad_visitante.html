@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/styleCadVisitante.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script_cadastro.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="normal_header">
+            <div id="fixed">
+                <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+    
+            </div>
+        </header>
+    
+        <div id="topo" class="topo"></div>
+    
+        <section class="saiba-mais">
+            <div id="modal_saiba-mais"></div>
+            <div id="container_saiba-mais">
+              <img src="img/Logo Oficinas Web 1 1.svg" alt="">
+              <h1>Busca um Mecânico?</h1>
+              <p>
+                Na plataforma voce encontra o mecanico mais proximo da sua residencia com a melhor qualidade e com os melhores
+                preços do mercado.
+              </p>
+              <br>
+              <p>
+                Alem disso você encontra produtos e serviços de acordo com a sua necessidade com aquele preçinho camarada que a
+                gente gosta.
+              </p>
+              <div>
+                <a href="./todas_oficinas.html"><button id="ver-oficinas">Ver Oficinas</button></a>
+                <a href="./todos_produtos.html"><button id="ver-produtos">Ver Produtos</button></a>
+              </div>
+              <div id="menu-inf">
+                <ul>
+                  <li class="shadow_btn"><a href="./index.html">Home</a></li>
+                  <li class="shadow_btn"><a href="./planos.html">Planos</a></li>
+                  <li class="shadow_btn"><a href="./todas_oficinas.html">Oficinas</a></li>
+                  <li class="shadow_btn"><a href="./todos_produtos.html">Produtos</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          
+        <main>
+            <section class="cad_visitante">
+                <div id="line_orange"></div>
+                <div class="titulo_arrow">
+                    <img src="img/arrow_left.svg" alt="logo" onclick="window.history.back()">
+                    <h1 class="titulo">Criar sua conta</h1>
+                </div>
+    
+                <div id="tipo_conta">
+                    <h3 class="fisica">Pessoa fisica</h3>
+                    <h3 class="juridica">Pessoa juridica</h3>
+                </div>
+    
+                <div class="foto">
+                    <div id="inputs_foto">
+                        <div class="circle_foto">
+                            <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-f">
+                        </div>
+                        <!-- <div id="foto"></div> -->
+                        <label for="add-img-f" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
+                        <input type="file" name="add-img" id="add-img-f">
+                    </div>
+                </div>
+    
+                <div>
+                    <form action="nome">
+                        <input id="nome" class="inputs" placeholder="Nome" type="text">
+                        <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
+                        <div>
+                            <input id="celular" class="inputs phone-mask" placeholder="Celular" type="text">
+                            <input id="email" class="inputs" placeholder="Email" type="text">
+                        </div>
+                        <div>
+                            <input id="senha" class="inputs" placeholder="Senha" type="text">
+                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="text">
+                        </div>
+                    </form>
+                    <div id="termos" class="cadastro">
+                        <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
+                                Privacidade
+                            </a></p>
+                    </div>
+                    <button class="btn default_btn"> <span>Continuar</span> </button>
+    
+                    <div class="cadastro">
+                        <span> Já possui uma conta? <a href="login.html"> Entre </a></span>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="cad_proprietario">
+                <div id="line_orange"></div>
+                <div class="titulo_arrow">
+                    <img src="img/arrow_left.svg" alt="logo">
+                    <h1 class="titulo">Criar sua conta</h1>
+                </div>
+    
+                <div id="tipo_conta">
+                    <h3 class="fisica">Pessoa fisica</h3>
+                    <h3 class="juridica">Pessoa juridica</h3>
+                </div>
+    
+                <div class="foto">
+                    <div id="inputs_foto">
+                        <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-j">
+                        <!-- <div id="foto"></div> -->
+                        <label for="add-img-j" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
+                        <input type="file" name="add-img" id="add-img-j">
+                    </div>
+                </div>
+    
+                <div>
+                    <form action="nome" class="form_pessoa-juridica">
+                        <div>
+                            <input id="nome" class="inputs nome-juridica" placeholder="Nome" type="text">
+                            <input id="cpf" class="inputs cpf-juridica" placeholder="CPF" type="text">
+                        </div>
+                        <div>
+                            <input id="celular" class="inputs phone-juridica phone-mask" placeholder="Celular" type="text">
+                            <input id="email" class="inputs email-juridica" placeholder="Email" type="text">
+                        </div>
+                        <div>
+                            <input id="senha" class="inputs" placeholder="Senha" type="text">
+                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="text">
+                        </div>
+                    </form>
+                    <div id="termos" class="cadastro">
+                        <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
+                                Privacidade
+                            </a></p>
+                    </div>
+                    <button class="btn default_btn"> <span>Continuar</span> </button>
+    
+                    <div class="cadastro">
+                        <span> Já possui uma conta? <a href="login.html"> Entre </a></span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

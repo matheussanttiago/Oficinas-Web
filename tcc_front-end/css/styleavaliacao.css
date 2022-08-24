@@ -1,10 +1,21 @@
-section > div{
+/* section > div{
     display: flex;
-}
+} */
 #titulo_avaliacao > img{
     margin-right: 10px;
 }
-
+body{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#anunciante{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#anunciante > div:nth-child(1){
+    margin-bottom: 20px;
+}
 
 .achou{
     display: inline-block;
@@ -12,12 +23,13 @@ section > div{
     font-family: "Sora", sans-serif;
     font-size: 1.5rem;
     margin-top: 1em;
+    width: 100%;
 }
 
 
 #comentario{
     display: flex;
-    margin-top: 2em;
+    margin-top: 1em;
     width: 100%;
     position: relative;
 }
@@ -84,8 +96,9 @@ section > div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4vw;
-    height: 275px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 300px;
     width: 100%;
     background-color: rgba(1, 1, 1, 0.3);
     border-radius: 12px;
@@ -116,7 +129,7 @@ input[type="file"] {
     /* position: absolute; */
     border-radius: 12px;
     width: 97%;
-    margin-top: 1.5em;
+    margin-top: 1em;
     height: 4em;
     font-size: 18px;
     font-family: 'Gothic A1', sans-serif;
@@ -124,7 +137,7 @@ input[type="file"] {
     color: #727272;
     padding-left: 3%;
     padding-top: 3%;
-
+    resize: vertical;
 }
 
 .concluir{
@@ -144,11 +157,6 @@ input[type="file"] {
 .concluir span{
     font-size: 1rem;
 }
-.concluir:hover{
-    background-color: white;
-    color: var(--cor-principal);
-   border: 1px solid  var(--cor-principal) ;
-   }
 
 #Addimg:hover{
     background-color: white;
@@ -156,3 +164,129 @@ input[type="file"] {
    border: 1px solid  var(--cor-principal) ;
 }   
 
+#pop-up_avaliacao{
+    position: absolute;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    width: calc(100% - 48px);
+    padding: 0 24px;
+    /* height: 100vh; */
+}
+
+/* main{
+    max-width: 700px;
+    margin: 10px auto auto auto;
+} */
+
+/* iframe{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+} */
+
+@media screen and (min-width: 481px) {
+    #modal{
+        display: none;
+        background-color: black;
+        opacity: 50%;
+        position: absolute;
+        /* top: auto; */
+        bottom: -110px;
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+    }
+    #pop-up_avaliacao{
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* bottom: auto; */
+
+        /* left: auto; */
+        /* right: 20px; */
+        z-index: 8100;
+        background-color: white;
+        padding: 35px 50px 35px 50px;
+        /* width: 50%; */
+        /* max-width: 580px; */
+        max-width: 440px;
+        font-size: 16px;
+        height: auto;
+        /* height: 95vh;
+        max-height: 700px; */
+        overflow: auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+    }
+    #pop-up_avaliacao > div{
+        height: auto;
+        /* width: calc(100% - 100px); */
+    }
+    #pop-up_avaliacao > .titulo_arrow{
+        margin-top: 0;
+    }
+    #quadrado{
+        height: 222px;
+        /* max-height: 270px; */
+        /* width: 430px; */
+        width: 100%;
+        /* max-width: 480px; */
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #comentar{
+        height: 90px;
+    }
+    .titulo {
+        font-size: 20px;
+        /* margin-top: 0; */
+    }
+    .titulo_arrow > img{
+        margin-top: 0;
+    }
+    .avaliacao{
+        width: 16px;
+    }
+    
+    #concluir{
+        height: 3.3em;
+    }
+}
+@media screen and (min-width: 1441px) {
+    #pop-up_avaliacao{
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* bottom: auto; */
+
+        /* left: auto; */
+        /* right: 20px; */
+        z-index: 8100;
+        background-color: white;
+        padding: 60px 50px 60px 50px;
+        /* width: 50%; */
+        /* max-width: 580px; */
+        max-width: 440px;
+        font-size: 16px;
+        height: auto;
+        /* height: 95vh;
+        max-height: 700px; */
+        overflow: auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+    }
+    #quadrado{
+        height: 270px;
+        /* width: 480px; */
+        margin-bottom: 1em;
+    }
+}

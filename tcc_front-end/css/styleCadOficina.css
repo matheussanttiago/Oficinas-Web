@@ -1,0 +1,163 @@
+.foto{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+}
+#add_foto_oficina{
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+  #inputs_foto{
+    position: relative;
+  }
+  .input-icon{
+    height: 2em;
+    display: flex;
+    width: 60px;
+    /* margin-top: 20px; */
+    /* margin-left: 1%; */
+    /* border: 1px solid #FF8500; */
+    border-radius: 12px 0 0 12px;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    /* padding-left: 5%; */
+    /* background-color:  #F2F2F2; */
+    z-index: 2;
+    position: absolute;
+  }
+  .input-icon img{
+    width: 18px;
+  }
+  .inputs-container{
+    display: flex;
+    align-items: center;
+  }
+
+#box-inputs_end{
+    display: none;
+    flex-direction: column;
+    row-gap: 5%;
+}
+#inputs_end-box1{
+  display: flex;
+  column-gap: 5%;
+  margin-top: 1em;
+}
+#endereco, #numero{
+  width: 47.5%;
+}
+#inputs_end-box2{
+  display: flex;
+  column-gap: 5%;
+  margin-top: .5em;
+}
+.inputs_end{
+  position: relative;
+  height: 40px;
+  width: 33%;
+  border-radius: 12px;
+  border: none;
+  background-color:  #F2F2F2;
+  /* padding-left: 20px; */
+  text-align: center;
+  font-family: 'Gothic A1', sans-serif;
+  color: #727272;
+  font-size: 1.13rem;
+  outline: none;
+}
+.inputs_end:focus{
+  border: 2px solid var(--cor-principal);
+}
+
+.btn {
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  color: #FF8500;
+  border: 3px solid #FF8500;
+  height: 60px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: "Sora", sans-serif;
+}
+.btn span{
+  font-size: 20px;
+}
+main{
+  max-width: 1116px;
+  margin: 20px auto;
+}
+
+#addinput {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: none;
+  background-color: var(--cor-principal);
+  color: white;
+  height: 60px;
+  width: 60%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: "Sora", sans-serif;
+  box-shadow: 0px 4px 4px 0px #00000026;
+  margin: 3em auto 180px auto;
+}
+input[type="file"] {
+  display: none;
+}
+#fotos_title{
+  font-size: 20px;
+  margin-top: 1em;
+}
+#sec_fotos{
+  width: 100%;
+}
+.txt_area{
+  height: calc(60px - 22px);
+  padding-top: 22px;
+  max-height: 185px;
+  resize: none;
+}
+@media screen and (max-width: 756px) {
+  .txt_area{
+    height: calc(60px - 22px);
+    padding-top: 22px;
+    max-height: none;
+    resize: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .row{
+    display: flex;
+    justify-content: space-between;
+  }
+  .inputs-container{
+    width: 49%;
+  }
+  .row input{
+    border-radius: 5px;
+  }
+  .container2{
+    width: 32%;
+  }
+  #nome_oficina{
+    width: 69%;
+  }
+  #cnpj{
+    width: 30%;
+  }
+}
+
+
+

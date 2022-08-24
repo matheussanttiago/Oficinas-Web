@@ -25,10 +25,9 @@ function contaCaracteres(campo_passado){
 // SCRIPT PARA FAZER A IMAGEM QUE O USUARIO ESCOLHER APARECER NA TELA
 let espaco_foto = document.getElementById('quadrado')
 let input_foto = document.getElementById('add-img')
-let teste = document.getElementById('teste')
-espaco_foto.addEventListener('click', function(){
-    input_foto.click()
-});
+// espaco_foto.addEventListener('click', function(){
+//     input_foto.click()
+// });
 input_foto.addEventListener('change', (event) => {
     let reader = new FileReader();
     reader.onload = () => {
