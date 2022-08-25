@@ -1,0 +1,217 @@
+/* body{
+    background-color: #f2f2f2;
+} */
+
+#tipo_conta{
+    display: flex;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    margin-top: 30px;
+    cursor: pointer;
+}
+#tipo_conta h3{
+    width: 50%;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Sora', sans-serif;
+}
+.fisica{
+    border-bottom: 2px solid #FF8500;
+}
+.juridica{
+    border-bottom: 1px solid #A9A9A9;
+}
+.circle_foto{
+  border-radius: 50%;
+}
+
+.foto{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+}
+.foto-editavel{
+  margin-top: 65px;
+  margin-bottom: 50px;
+}
+.inputs{
+    margin-top: 1em;
+}
+
+#termos{
+    text-align: justify;
+}
+.cadastro {
+    margin-top: 2em;
+    text-align: center;
+    color: #727272;
+    
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 200;
+  }
+  
+  .cadastro a{
+    color: #FF8500;
+    text-decoration: none;
+  }
+
+  .btn {
+    position: relative;
+    margin-top: 2em;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    color: #FF8500;
+    border: 3px solid #FF8500;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+  }
+  .btn span{
+    font-size: 20px;
+  }
+  main{
+    background-color: white;
+  }
+  #addinput{
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+  #inputs_foto{
+    position: relative;
+  }
+  #nome{
+    margin-top: 0;
+  }
+
+  .cad_proprietario{
+    display: none;
+  }
+  .btn {
+    position: relative;
+    margin-top: 1em;
+    border-radius: 12px;
+    border: none;
+    background-color: #FF8500;
+    color: white;
+    height: 3.8em;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+  }
+  @media screen and (max-width: 864px) {
+    .saiba-mais{
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    /* body{
+      display: flex;
+      background-image: url('../img/oficinas/baixados.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #cccccc;
+    } */
+    body{
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+    }
+    #container{
+      justify-content: center;
+    }
+    #container{
+      display: flex;
+      /* position: absolute; */
+      width: 90%;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /* height: 90vh; */
+    }
+    main{
+      width: 40%;
+      max-width: 488px;
+      margin: 0;
+      top: 0;
+      border-radius: 0 24px 24px 0;
+      padding: 43px 50px;
+    }
+    main > section{
+      width: 100%;
+    }
+    header{
+      display: none !important;
+    }
+    #foto_padrao{
+      width: 110px !important;
+    }
+    .editar_perfil{
+      padding: 50px 35px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    /* .inicio{
+      display: none
+    }
+    main{
+      border-radius: 4px;
+      width: 60% !important;
+      max-width: none !important;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 35px 50px;
+      top: 0;
+    }
+    main > section{
+      width: 100%;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+    }
+    form div{
+      display: flex;
+      justify-content: space-between;
+    }
+    .inputs{
+      height: 50px;
+      width: calc(100% - 0);
+      padding-left: 12px;
+      margin-top: 10px;
+    }
+    #cpf{
+      margin-top: 0;
+    }
+    form > div > input{
+      width: 47% !important;
+    }
+    .nome-juridica, #email{
+      width: 67% !important;
+    }
+    .cpf-juridica, #celular{
+      width: 27% !important;
+    }
+    #termos p{
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .cadastro{
+      margin-top: 1em !important;
+    }
+    .btn{
+      height: 50px;
+      border-radius: 5px;
+      margin-top: 1em;
+    } */
+}

@@ -1,0 +1,236 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body, nav, ul, li, h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --cor-principal: #FF8500;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul{
+    font-family: 'Sora', sans-serif;
+}
+
+.titulo_arrow{
+    display: flex;
+}
+.titulo_arrow h1{
+    margin-left: 15px;
+}
+.titulo{
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;
+}
+.legenda {
+    display: inline-block;
+    color: #727272;
+    margin-top: 0.5em;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 200;
+    margin-top: 5px;
+}
+#normal_header{
+    background-color: #000;
+    padding-right: 24px;
+    height: 80px;
+    border-radius: 0px 0px 24px 24px;
+}
+#header_pesquisa{
+    background-color: #000;
+    padding-right: 24px;
+    height: 140px;
+    border-radius: 0px 0px 24px 24px;
+
+    display: grid;
+    grid-template-rows: 80px 50px;
+    grid-template-columns: 80% 25%;
+    row-gap: 15px;
+    column-gap: 20px;
+    position: relative;
+}
+header > img{
+    position: absolute;
+    left: 5vw;
+    top: 2vh;
+}
+#fixed{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: #f00;
+    top: 0;
+    z-index: 5;
+}
+#fixed img{
+    margin-left: 24px;
+    margin-top: 10px;
+}
+#topo_pesquisa{
+    width: 100%;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 24px 24px 0 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: 6;
+}
+#topo{
+    width: 100%;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 24px 24px 0 0;
+    position: fixed;
+    top: 60px;
+    z-index: 6;
+}
+#pesquisa, #pesquisa_fixed{
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    padding: 24px;
+}
+.pesquisa_fixed{
+    width: 80%;
+    max-width: 600px;
+    padding: 24px;
+}
+.pesquisa_img{
+    position: absolute;
+    align-self: center;
+    top: 15px;
+    left: 40px;
+}
+.img_fixed{
+    position: absolute;
+    align-self: center;
+    top: 5px;
+    left: 25%;
+}
+#pesquisa input[type="search"]{
+    text-align: center;
+    font-size: 1rem;
+
+    width: 90%;
+    height: 48px;
+    margin-left: 24px;
+
+    background: #FFFFFF;
+    border-radius: 100px;
+    border: none;
+
+    outline: none;
+}
+#pesquisa_fixed input[type="search"]{
+    text-align: center;
+    font-size: 1rem;
+
+    width: 90%;
+    height: 48px;
+    margin-left: 24px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+
+    outline: none;
+}
+#filtro{
+    grid-column: 2;
+    grid-row: 2;
+    border-radius: 100%;
+    background-color: #fff;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    position: absolute;
+    right: 24px;
+    justify-self: ;
+    justify-content: center;
+    align-content: center;
+    margin-right: 24px;
+}
+#filtro > img{
+    width: 25px;
+}
+
+
+
+
+
+@media screen and (min-width: 726px) {
+
+} */
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.hamburger{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 5;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;
+    height: .1rem;
+    padding: 1px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: aqua;
+    transition: transform .7s;
+}
+.show-menu #line1{
+    transform: rotate(45deg) translate(.4rem, .9rem);
+}
+.show-menu #linew{
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(45deg) translate(.3rem, -.9rem);
+}
+
+
+#modal_box{
+    display: none;
+    visibility: hidden;
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rgba(0, 0, 0);
+    
+    position: relative;
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+#fixed{
+    position: fixed;
+    background-color: black;
+    padding: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}

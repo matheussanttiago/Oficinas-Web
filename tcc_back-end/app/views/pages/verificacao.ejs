@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verificação</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/recuperarSenha.css">
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script_senha.js"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="normal_header">
+            <div id="fixed">
+                <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+    
+            </div>
+        </header>
+    
+        <div id="topo" class="topo"></div>
+    
+        <section class="saiba-mais">
+            <div id="modal_saiba-mais"></div>
+            <div id="container_saiba-mais">
+              <img src="img/Logo Oficinas Web 1 1.svg" alt="">
+              <h1>Busca um Mecânico?</h1>
+              <p>
+                Na plataforma voce encontra o mecanico mais proximo da sua residencia com a melhor qualidade e com os melhores
+                preços do mercado.
+              </p>
+              <br>
+              <p>
+                Alem disso você encontra produtos e serviços de acordo com a sua necessidade com aquele preçinho camarada que a
+                gente gosta.
+              </p>
+              <div>
+                <a href="./todas_oficinas.html"><button id="ver-oficinas">Ver Oficinas</button></a>
+                <a href="./todos_produtos.html"><button id="ver-produtos">Ver Produtos</button></a>
+              </div>
+              <div id="menu-inf">
+                <ul>
+                  <li class="shadow_btn"><a href="./index.html">Home</a></li>
+                  <li class="shadow_btn"><a href="./planos.html">Planos</a></li>
+                  <li class="shadow_btn"><a href="./todas_oficinas.html">Oficinas</a></li>
+                  <li class="shadow_btn"><a href="./todos_produtos.html">Produtos</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          
+        <main class="box-verificacao">
+            <section>
+                <div id="line_orange"></div>
+                <div class="titulo_arrow">
+                    <img src="img/arrow_left.svg" alt="flecha virada para esquerda" onclick="window.history.back()">
+                    <h1 class="titulo"> Recuperar Senha </h1>
+                </div>
+    
+                <div id="content_verificacao">
+                    <div class="divCadeado">
+                        <img src="img/cadeado_icon.svg" alt="icone cadeado">
+                    </div>
+        
+                    <h3 class="info_txt">O código de verificação foi enviado para o email: <br> ofi*****@suporte.com</h3>
+        
+                    <div class="inputs_verificacao">
+                        <input type="number" onchange="toggleButton()" class="inputs_v" id="input1" maxlength="1" required
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input type="number" onchange="toggleButton()" class="inputs_v" id="input2" maxlength="1" required
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input type="number" onchange="toggleButton()" class="inputs_v" id="input3" maxlength="1" required
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input type="number" onchange="toggleButton()" class="inputs_v" id="input4" maxlength="1" required
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    </div>
+        
+                    <span class="erro">Enviar código novamente</span>
+                </div>
+    
+                <a href="./nova_senha.html"><button class="btn_laranja btn_verificacao" id="verificar" type="submit">Verificar</button></a>
+    
+    
+            </section>
+        </main>
+    
+    
+    </div>
+</body>
+
+</html>

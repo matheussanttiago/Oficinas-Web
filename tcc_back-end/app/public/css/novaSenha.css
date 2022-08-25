@@ -1,0 +1,15 @@
+.divCadeado img{
+    width: 200px;
+    height: 200px;
+}
+.divCadeado{
+    margin: 40px 0;
+}
+
+@media screen and (min-width: 480px) {
+    .divCadeado img{
+        width: 160px;
+        height: 160px;
+        margin-bottom: 50px;
+    } 
+}

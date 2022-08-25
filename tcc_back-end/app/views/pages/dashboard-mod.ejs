@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script_menu.js"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="normal_header">
+            <div id="fixed">
+                <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+
+                <div id="menu_hamburger">
+                    <nav>
+                        <div id="painel_menu">
+                            <input type="checkbox" name="" id="check_menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </nav>
+                </div>
+
+                <div id="modal_box">
+
+                    <div id="dados_usuario">
+                        <div class="foto">
+                            <div id="inputs_foto">
+                                <div class="circle_foto">
+                                    <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="email_usuario">sebastiãosilva@outlook.com</span>
+                    </div>
+    
+                    <!-- <hr> -->
+    
+                    <div id="opcoes">
+                        <a href="./editar_perfil.html">
+                            <div id="editar-perfil" class="opcao">
+                                <img src="img/bxs_home.svg" alt="">
+                                <span>Voltar ao inicio</span>
+                            </div>
+                        </a>
+                        <a href="./historico.html">
+                            <div id="historico" class="opcao">
+                                <img src="img/car_icon.svg" alt="">
+                                <span>Ver todas as oficinas</span>
+                            </div>
+                        </a>
+                        <a href="./favoritos.html">
+                            <div id="favoritos" class="opcao">
+                                <img src="img/box_icon.svg" alt="">
+                                <span>Ver todos os produtos</span>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- <hr> -->
+    
+                    <!-- <div id="suas_oficinas">
+                        <div id="opcao_suas-oficinas" class="opcao">
+                            <img src="img/config_icon.svg" alt="">
+                            <span>Suas Oficinas</span>
+                        </div>
+                        <a href="./oficina.html">
+                            <div class="oficina opcao">
+                                <div id="foto_oficina_menu"></div>
+                                <span>Oficina do Tião</span>
+                                <span class="tipo_plano" id="plano_ouro">ouro</span>
+                            </div>
+                        </a>
+                        <div class="oficina opcao">
+                            <div id="foto_oficina_menu"></div>
+                            <span>Los Santos Customs</span>
+                            <span class="tipo_plano" id="plano_prata">Prata</span>
+                        </div>
+                    </div> -->
+    
+                    <!-- <hr> -->
+    
+                    <div id="logout">
+                        <div id="opcao-logout" class="opcao">
+                            <img src="img/user_icon_laranja.svg" alt="">
+                            <span>Sair</span>
+                        </div>
+                    </div>
+    
+                </div>
+
+            </div>
+        </header>
+
+        <main>
+            <section class="dashboard">
+
+                <div id="head_dashboard">
+                    <div class="column1">
+                        <div class="line1">
+                            <h1>Oficina do Tião</h1>
+                            <div class="nota">
+                                <span>4,7</span>
+                                <img src="img/star.svg" alt="">
+                            </div>
+                        </div>
+                        <span class="estatistica">Estatísticas</span>
+                    </div>
+                    <div class="foto_oficina"></div>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li id="1mes">1 mês</li>
+                        <li id="3meses">3 meses</li>
+                        <li id="6meses">6 meses</li>
+                        <li id="12meses" class="selected">12 meses</li>
+                    </ul>
+                </nav>
+
+                <canvas class="line-chart"></canvas>
+
+                <div class="legendBox">
+                    <div class="visualizacoes" id="visualizacoes" onclick="toggleData(0)">
+                        <div></div>
+                        <span>Visualizações</span>
+                    </div>
+                    <div class="avaliacoes" id="avaliacoes" onclick="toggleData(1)">
+                        <div></div>
+                        <span>Avaliações</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="gerenciar">
+
+                <h2 class="titulo">Área do Moderador</h2>
+
+                <div id="container-opcoes">
+                    <div class="gerenciar-line1">
+                        <div id="product" class="gerenciar-opcao gerenciar-mod">
+                            <span>Mandar Mensagem</span>
+                        </div>
+                        <div id="services" class="gerenciar-opcao gerenciar-mod">
+                            <span>Ver Produtos e Serviços</span>
+                        </div>
+                    </div>
+    
+                    <div class="gerenciar-line2">
+                        <div id="view-oficina" class="gerenciar-opcao gerenciar-mod">
+                            <span>Deletar Oficinas</span>
+                        </div>
+                        <div id="plan" class="gerenciar-opcao gerenciar-mod">
+                            <span onclick="window.history.back()">Voltar</span>
+                        </div>
+                    </div>
+
+                    <form action="">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Enviar" class="btn_laranja">
+                    </form>
+                </div>
+
+            </section>
+        </main>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"></script>
+
+    <script>
+
+        // tamanho da bolinha do gráfico
+        var point_radius
+        if (window.innerWidth > 480) {
+            point_radius = 7
+        } else {
+            point_radius = 4
+        }
+
+        // criação do gráfico
+        var ctx = document.getElementsByClassName("line-chart")
+
+        var chartGraph = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                datasets: [{
+                    label: 'Visitas',
+                    data: [0, 14, 20, 21, 12, 09, 15, 25, 26, 25, 24, 20],
+                    borderWidth: 2,
+                    borderColor: '#fff',
+                    pointBorderColor: '#FF8500',
+                    backgroundColor: '#FF8500',
+                    pointRadius: point_radius,
+                    borderRadius: 5,
+                }, {
+                    label: 'Avaliações',
+                    data: [0, 06, 07, 03, 03, 04, 05, 07, 10, 04, 05, 04],
+                    borderWidth: 2,
+                    borderColor: '#fff',
+                    pointBorderColor: '#000F92',
+                    backgroundColor: '#000F92',
+                    pointRadius: point_radius,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                tension: 0.4,
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            color: '#fff',
+                            usePointStyle: true,
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: { 
+                            color: 'white' 
+                        },
+                        grid: {
+                            display: true,
+                            color: "rgba(255, 255, 255, 0.1)",
+                            lineWidth: 1
+                        }
+                    },
+                    x: {
+                        ticks: { 
+                            color: 'white'
+                        },
+                        grid: {
+                            display: true,
+                            color: "rgba(255, 255, 255, 0.1)",
+                            lineWidth: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        function toggleData(value){
+            const visibilityData = chartGraph.isDatasetVisible(value);
+            if(visibilityData === true){
+                chartGraph.hide(value);
+
+                if(value == 0){
+                    document.getElementById('visualizacoes').style.textDecoration = 'line-through'
+                    document.getElementById('visualizacoes').style.opacity = '0.8'
+                } else {
+                    document.getElementById('avaliacoes').style.textDecoration = 'line-through'
+                    document.getElementById('avaliacoes').style.opacity = '0.8'
+                }
+            }
+            if(visibilityData === false){
+                chartGraph.show(value);
+
+                if(value == 0){
+                    document.getElementById('visualizacoes').style.textDecoration = 'none'
+                    document.getElementById('visualizacoes').style.opacity = '1'
+                } else {
+                    document.getElementById('avaliacoes').style.textDecoration = 'none'
+                    document.getElementById('avaliacoes').style.opacity = '1'
+                }
+            }
+        }
+
+        $(document).ready(function(){
+            $('#1mes').click(function(){
+                $('#1mes').addClass('selected');
+                $('#3meses').removeClass('selected');
+                $('#6meses').removeClass('selected');
+                $('#12meses').removeClass('selected');
+            });
+            $('#3meses').click(function(){
+                $('#3meses').addClass('selected');
+                $('#1mes').removeClass('selected');
+                $('#6meses').removeClass('selected');
+                $('#12meses').removeClass('selected');
+            });
+            $('#6meses').click(function(){
+                $('#6meses').addClass('selected');
+                $('#1meses').removeClass('selected');
+                $('#3meses').removeClass('selected');
+                $('#12meses').removeClass('selected');
+            });
+            $('#12meses').click(function(){
+                $('#12meses').addClass('selected');
+                $('#1meses').removeClass('selected');
+                $('#3meses').removeClass('selected');
+                $('#6meses').removeClass('selected');
+            });
+
+            $("#product").click(function(){
+                $('form').toggle();
+            });
+        })
+    </script>
+</body>
+
+</html>

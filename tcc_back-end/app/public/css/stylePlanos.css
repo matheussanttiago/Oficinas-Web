@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+
+/* section{
+    display: flex;
+    justify-content: center;
+    border-radius: 24px 24px 0px 0px;
+    position: relative;
+    z-index: 199;
+    top: -20px;
+    background: white;
+} */
+
+/* section > div{
+    width: 1160px;
+    margin: 0 16px;
+} */
+
+/* main > section{
+    display: flex;
+    justify-content: center;
+} */
+
+/* #container_plan{
+    display: flex;
+} */
+
+#container_plan > div:first-child{
+    display: flex;
+    align-items: center;
+}
+
+/* #container_plan > div:first-child img{
+    margin-right: 20.88px;
+} */
+
+#container_plan h3{
+    font-size: 24px;
+}
+
+.plans{
+    /* max-width: 314px; */
+    background: #F2F2F2;
+    border: 3px solid;
+    border-radius: 12px;
+    padding: 28px 35px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#basico{
+    border: solid #FF8500;
+}
+#basico h5{
+    color: #FF8500;
+}
+
+#prata{
+    border: solid #C0C0C0;
+}
+#prata h5{
+    color: #727272;
+}
+#prata button{
+    background-color: #C0C0C0;
+}
+#prata mark{
+    color: #000;
+    background: none;
+}
+
+#ouro{
+    border: solid #DAA520;
+}
+#ouro h5{
+    color: #DAA520;
+}
+#ouro button{
+    background-color: #DAA520;
+}
+#ouro mark{
+    color: #DAA520;
+    background: none;
+}
+
+#diamante{
+    border: solid #00C3CF;
+}
+#diamante h5{
+    color: #00C3CF;
+}
+#diamante button{
+    background-color: #00C3CF;
+}
+#diamante mark{
+    color: #00C3CF;
+    background: none;
+}
+
+.plans h5{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.rank_plans{
+    position: relative;
+}
+
+.rank_plans img{
+    position: absolute;
+    right: 0;
+    top: -31px;
+}
+
+.informations_plans{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+}
+
+.plans ul h3{
+    margin: 13px 0 18px 0;
+}
+
+.plans ul h3 span{
+    font-size: .7em;
+}
+
+.informations_plans ul li{
+    margin:1px 0 0 25px;
+    color: #FF8500;
+}
+
+.informations_plans ul li span{
+    color: #727272;
+}
+
+.informations_plans button{
+    font-weight: bolder;
+    font-size: 18px;
+    border: none;
+    background: #FF8500;
+    color: #fff;
+    padding: 14px 25px;
+    border-radius: 100px;
+}
+
+@media screen and (min-width:  700px) {
+    #all_plans{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* gap: 20px; */
+    }
+    main{
+        max-width: 1116px;
+        margin: 0 auto;
+    }
+    .plans{
+        height: auto;
+        width: 40%;
+    }
+    .informations_plans ul li{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .informations_plans{
+        display: block;
+    }
+    .informations_plans button{
+        width: 100%;
+        margin-top: 50px;
+    }
+    #btn-gratuito{
+        margin-top: 81px;
+    }
+}

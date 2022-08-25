@@ -1,0 +1,357 @@
+/* h3{
+    font-weight: bolder;
+        font-family: "Sora", sans-serif;
+        font-size: 1.5rem; 
+        margin-bottom: 32px;
+} */
+body{
+    height: 100%;
+}
+.produto{
+    height: 130px;
+    width: 130px;
+    border-radius: 12px;
+    align-self: center;
+    grid-row: 3;
+    /* margin: 20px; */
+}
+
+.tinta{
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    align-self: center;
+    grid-column: 2;
+    grid-row: 2;
+}
+.desc_oficina{
+    color: #727272;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+.bairro_oficina{
+    font-family: 'Gothic A1';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+/* line-height: 32px; */
+color: #010101;
+}
+.local_oficina{
+    display: flex;
+    align-items: center;
+}
+
+.preco{
+    font-weight: 700;
+    font-family: "Sora", sans-serif;
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 20px;
+    /* align-self: center; */
+
+}
+.btn_box{
+    
+    border: 2px solid #FF8500;
+    background-color: #fff;
+    /* margin-bottom: 50px; */
+    font-size: 13px;
+    width: 90px;
+    height: 35px;
+   grid-row: 3;
+   grid-column: 2;
+    align-self: start;
+    
+    
+}
+#Editar{
+    
+    border-radius: 100px;
+
+    
+    justify-self: start;
+    color: #FF8500;
+    font-weight: bolder;
+    
+    font-family: 'Gothic A1', sans-serif;
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+#copiarLink{
+    
+    background-color: #fff;
+    border-radius: 100px;
+    
+    justify-self: start;
+    color: #FF8500;
+    font-weight: bolder;
+    font-family: 'Gothic A1', sans-serif;
+    /* margin-right: 10px; */
+}
+#adicionarProduto{
+    border: 3px solid #FF8500;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 5%;
+    width: 88%;
+    color: #FF8500;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Gothic A1', sans-serif;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-self: center;
+justify-content: center;
+align-items: center;
+}
+
+/* section{
+width: calc(100% - 48px);
+padding: 24px;
+} */
+.box_produto{
+    background-color: #f2f2f2;
+border-radius: 12px;
+    margin-top: 20px;
+    /* margin-top: 5px; */
+
+/* height: 150px; */
+width: calc(100% - 40px);
+/* max-width: 450px; */
+padding: 20px;
+display: flex;
+flex-direction: column;
+/* align-items: center; */
+gap: 30px;
+/* display: grid;
+grid-template-columns: 150px 190px ;
+grid-template-rows: 24px 60px 30px 50px;
+column-gap: 20px;
+row-gap: 2px; */
+
+}
+.content{
+    display: flex;
+gap: 22px;
+
+}
+.txt-notificacao{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 24px;
+/* or 171% */
+
+
+color: #0F0F0F;
+}
+.infos_produto{
+    /* height: 130px; */
+    width: 100%;
+    padding: 10px 0;
+}
+main{
+    max-width: 1116px;
+    margin: 20px auto !important;
+}
+aside{
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    background-color: #FF8500;
+}
+/* body{
+    background-color: #A9A9A9;
+    display: flex;
+} */
+.btn {
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    color: #FF8500;
+    border: 3px solid #FF8500;
+    height: 60px;
+    width: calc(100% - 48px);
+    max-width: 700px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+
+    position: fixed;
+    bottom: 50px;
+  }
+  .btn span{
+    font-size: 20px;
+  }
+  main > section{
+    width: calc(100% - 48px);
+}
+
+.tipo_produto{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+text-transform: capitalize;
+
+color: #727272;
+grid-row: 1;
+grid-column: 2;
+align-self: center;
+}
+.num_avaliacao{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+/* identical to box height, or 150% */
+
+text-transform: capitalize;
+
+color: #727272;
+
+grid-row: 3;
+grid-column: 2;
+}
+.nota{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+/* line-height: 32px; */
+
+grid-row: 3;
+grid-column: 2;
+}
+.star-icon{
+    width: 16px;
+    grid-row: 3;
+    grid-column: 2;
+    justify-self: start;
+}
+.fav_icon{
+    width: 26px;
+    justify-self: end;
+}
+#notas{
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 100%;
+    align-self: end;
+    align-items: flex-end;
+    justify-content: space-between;
+    grid-row: 4;
+    grid-column: 2;
+}
+.opcao_mods{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: space-between;
+}
+.option{
+    background-color: black;
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    /* or 125% */
+    text-align: center;
+    color: #FFFFFF;
+
+    height: 60px;
+    width: 49%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.opcao_produto div:nth-child(3){
+    width: 100%;
+}
+
+.option:hover{
+    cursor: pointer;
+}
+.opcao_mods form{
+    display: none;
+    width: 100%;
+}
+.opcao_mods form textarea{
+    width: 100%;
+    border-radius: 12px;
+}
+.opcao_mods form input{
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+#tipo_produto{
+    display: flex;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    margin-top: 30px;
+    cursor: pointer;
+}
+#tipo_produto h3{
+    width: 50%;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    color: #6B6B6B;
+}
+.oficinas{
+    border-bottom: 2px solid #FF8500;
+}
+.produtos, .servicos{
+    border-bottom: 1px solid #A9A9A9;
+}
+
+#produtos, #servicos{
+    display: none;
+}
+
+#btns{
+    width: 100%;
+    max-width: 206px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* column-gap: 16px; */
+    /* justify-content: end; */
+    justify-content: space-between;
+}
+#seus_produtos section{
+    width: 100%;
+}
+
+@media screen and (min-width: 801px) {
+    #seus_produtos{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .box_produto{
+        width: calc(49% - 40px);
+    }
+}
+
+
+
+

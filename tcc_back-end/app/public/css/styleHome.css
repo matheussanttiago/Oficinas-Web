@@ -1,0 +1,525 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+section{
+    margin-bottom: 42px;
+}
+main{
+    position: relative;
+    margin: auto;
+    max-width: 1116px;
+}
+hr{
+    width: calc(100% - 2px);
+    border-color: #F2F2F2;
+}
+
+/* ----------------- SESSÃO DE OFICICNAS ----------------- */
+#oficinas{
+    /* display: grid;
+    grid-template-rows: 45px 300px 32px 250px 48px;
+    row-gap: 25px; */
+    align-items: center;
+    width: 100%;
+
+    margin-bottom: 35px !important;
+}
+#titulos{
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+}
+#carrossel{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+.carrossel_oficinas{
+    /* width: calc(100% - 24px); */
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    margin: 0 0px 0px 0;
+}
+.img_ofc{
+    width: 342px;
+    height: 300px;
+    border-radius: 24px;
+}
+.modal_oficina{
+    background: linear-gradient(180deg, rgba(26, 26, 26, 9e-05) 0%, rgba(26, 26, 26, 0.765) 100%);
+    width: 342px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+}
+@media screen and (max-width: 400px) {
+    .img_ofc, .modal_oficina{
+        width: 312px;
+        height: 270px;
+    }
+}
+.carrossel_infos{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
+}
+.nome_oficina{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+.local_oficina{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+.avaliacao_oficinas{
+    display: flex;
+}
+.star-icon_oficinas{
+    list-style-type: none;
+    border: 1px solid none;
+    cursor: pointer;
+    color: var(--cor-principal);
+    /* font-size: 20px; */
+    margin-right: 5px;
+    /* width: 10px; */
+}
+.star-icon_oficinas img{
+    width: 20px;
+}
+#carousel_oficinas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nav_tipos-veiculos{
+    display: flex;
+    overflow: auto;
+    width: calc(100% - 24px);
+    max-width: 500px;
+    justify-self: center;
+    gap: 10px;
+    margin: 0 auto 35px 24px;
+}
+.nav_tipos-veiculos div{
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.8);
+    height: 32px;
+    border-radius: 24px;
+    /* margin-left: 10px;
+    margin-right: 24px; */
+    padding: 2px 10px 2px 10px;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+@media screen and (min-width: 600px) {
+    .nav_tipos-veiculos{
+        justify-self: center;
+        margin-left: auto;
+    }
+    .nav_tipos-veiculos div{
+        height: 40px;
+        margin-right: 0;
+    }
+}
+.nav_tipos-veiculos div:nth-child(1){
+    background-color: var(--cor-principal);
+    margin-left: 0;
+}
+.nav_tipos-veiculos::-webkit-scrollbar{
+    display: none;
+}
+#tipos_oficinas{
+    /* display: flex; */
+    width: 100%;
+    /* overflow: auto; */
+}
+#ofc_carros,#ofc_vans, #ofc_bikes, #ofc_caminhoes{
+    display: none;
+}
+.tipos_ofc{
+    /* display: flex;
+    justify-content: center; */
+    width: 100%;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    /* gap: 10px; */
+}
+.content_oficinas, .content_produtos{
+    width: 152px;
+    margin: auto;
+}
+/* .espec_oficinas{
+    width: 170px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+} */
+.espec_oficinas img{
+    border-radius: 12px;
+}
+.espec_oficinas h5{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+
+    white-space: nowrap;
+    width: 100%;
+    max-width: 152px;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.espec_oficinas p{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 152px;
+    color: #727272;
+}
+#carousel_oficinas button{
+    border: 3px solid var(--cor-principal);
+    background-color: #fff;
+    border-radius: 100px;
+    height: 48px;
+    width: calc(100% - 24px);
+    max-width: 700px;
+    justify-self: start;
+    color: var(--cor-principal);
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Gothic A1', sans-serif;
+    margin-top: 20px !important;
+    margin: auto;
+}
+@media screen and (min-width: 700px) {
+    #carousel_oficinas button{
+        justify-self: center;
+    }
+}
+
+#tipos_oficinas::-webkit-scrollbar {
+    display: none;
+}
+#carrossel::-webkit-scrollbar {
+    display: none;
+}
+.produtos_destaque::-webkit-scrollbar {
+    display: none;
+}
+
+/* ----------------- SESSÃO DE SERVIÇOS ----------------- */
+#titulos_servicos, #titulos_produtos{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+#titulo_avaliacao .legenda{
+    margin-top: 0;
+}
+#titulos_servicos button,
+#titulos_produtos button{
+    width: 30%;
+    max-width: 200px;
+    background-color: #F2F2F2;
+    height: 36px;
+    border-radius: 24px;
+    padding: 2px 10px 2px 10px;
+
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0F0F0F;
+
+    border: none;
+    outline: none;
+
+    display: flex;
+    align-items: center;
+    align-self: end;
+    justify-self: center;
+    justify-content: center;
+}
+#box_servicos{
+    flex-direction: column;
+    /* align-items: center; */
+}
+.melhores-servicos{
+    max-width: 800px;
+    margin: auto;
+}
+/* .melhores-servicos{
+    display: grid;
+    grid-template-rows: 24px 48px;
+    grid-template-columns: 20% 50% 30%;
+    column-gap: 10px;
+
+    margin-top: 20px;
+
+    height: auto;
+    max-width: 480px;
+
+    border-bottom: 1px solid #0F0F0F;
+}
+.melhores-servicos h5{
+    grid-column: 2;
+    grid-row: 1;
+
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+.melhores-servicos button{
+    grid-column: 3;
+    grid-row: 1;
+    margin-right: 0;
+
+    justify-self: center;
+
+    height: 28px;
+    width: 76px;
+    border-radius: 4px;
+
+    outline: none;
+    border: none;
+
+    background: var(--cor-principal);
+
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+}
+.melhores-servicos p{
+    grid-column-start: 2; 
+    grid-column-end: 3;
+    grid-row: 2;
+
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+} */
+#foto-servico{
+    grid-column: 1;
+    grid-row: 1 2;
+
+    border-radius: 12px;
+}
+#favorito{
+    grid-column: 3;
+    grid-row: 2;
+
+    align-self: center;
+    justify-self: end;
+    /* margin-right: 24px; */
+}
+
+
+/* ----------------- SESSÃO DE PRODUTOS ----------------- */
+.produtos_destaque{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    width: 100%;
+    /* gap: 10px; */
+    /* overflow: auto; */
+    margin-top: 20px;
+}
+/* @media screen and (min-width: 1000px) {
+    .produtos_destaque{
+        margin-left: 13px;
+    }
+} */
+/* .produto{
+    width: 170px;
+} */
+.produtos_destaque img{
+    border-radius: 12px;
+}
+.produtos_destaque h5{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #727272;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.produtos_destaque span{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+.avaliacao_produtos{
+    display: flex;
+    /* margin-top: 1em; */
+    /* width: 10%; */
+}
+.star-icon_produtos{
+    list-style-type: none;
+    border: 1px solid none;
+    cursor: pointer;
+    color: var(--cor-principal);
+    /* font-size: 20px; */
+    margin-right: 5px;
+    /* width: 10px; */
+}
+.star-icon_produtos img{
+    width: 20px;
+}
+
+
+/* ----------------- SESSÃO DE VER PLANOS ----------------- */
+#ver_planos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: grid;
+    grid-template-rows: 38px 42px 30px; */
+}
+#ilustracao{
+    /* grid-row-start: 1;
+    grid-row-end: 3; */
+    width: 100%;
+    max-width: 300px;
+}
+#ver_planos h3{
+    grid-row: 1;
+    justify-self: start;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+#ver_planos span{
+    grid-row: 2;
+    align-self: center;
+    justify-self: start;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #727272;
+    max-width: 500px;
+}
+#ver_planos button{
+    /* grid-row: 3; */
+
+    background: linear-gradient(44.46deg, #e27d10 10%, #FF8500 86.44%);
+    opacity: 0.8;
+    /* Shadow/Inner default */
+    
+    box-shadow: inset 0px 2px 8px rgba(180, 188, 203, 0.4);
+    border-radius: 100px;
+    color: #fff;
+    width: 125px;
+    height: 30px;
+    border-radius: 24px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: end;
+
+    position: relative;
+    grid-column: 2;
+    justify-self: end;
+}
+#avancar_icon{
+    /* grid-row: 3; */
+    /* grid-column: 2; */
+    /* position: absolute; */
+    align-self: center;
+    /* right: 3px; */
+    justify-self: end;
+    /* margin-right: 10px; */
+    z-index: 2;
+}
+#infos-planos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* #btn-plans{
+    width: auto;
+    position: relative;
+    display: flex;
+} */
+
+@media screen and (min-width: 480px) {
+    #linha_mobile{
+        display: none;
+    }
+    #ver_panos{
+        display: block;
+    }
+    #ver_planos h3{
+        font-size: 32px;
+    }
+    #ver_planos span{
+        font-size: 20px;
+    }
+    #ver_planos button{
+        width: 140px;
+        height: 40px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #oficinas{
+        width: calc(100% - 24px);
+        padding-left: 24px;
+        margin-bottom: 25px !important;
+    }
+    .nav_tipos-veiculos{
+        margin-bottom: 25px !important;
+        gap: 10px;
+    }
+    .nav_tipos-veiculos div{
+        margin: 0 !important;
+    }
+}
+

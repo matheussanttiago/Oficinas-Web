@@ -1,0 +1,126 @@
+/* *{
+    font-family: "Sora", sans-serif;
+} */
+.bold{
+    font-weight: 600;
+}
+.frase_pgt{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 37px;
+    margin-bottom: 37px;
+    font-family: "Sora", sans-serif;
+}
+.btn_add_cartao, .btn_alterar{
+    color: #ff8500;
+}
+.opcao_pgmt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #F2F2F2;
+    border-radius: 12px;
+    padding: 20px 30px;
+    font-family: "Sora", sans-serif;
+}
+.opcao_pgmt:nth-of-type(6), .opcao_pgmt:nth-of-type(7){
+    margin-bottom: 0;
+}
+.opcoes_pagamento{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.icon_pagamento{
+    width: 30px;
+    height: 30px;
+    
+}
+.nome_forma{
+    margin-left: 17px;
+}
+.frase_pgm{
+    margin-top: 29px;
+    margin-bottom: 29px;
+    display: inline-block;
+    font-family: "Sora", sans-serif;
+}
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 23px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #ff8500;
+    border-radius: 50%;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ff8500;
+  }
+
+  #plano, #cartao_section1{
+    display: none;
+  }
+@media screen and (min-width: 590px){
+    main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    section{
+        max-width: 500px;
+    }
+    main section:nth-child(2){
+        display: none;
+    }
+    
+    .plans{
+        width: 70% !important;
+    }
+}

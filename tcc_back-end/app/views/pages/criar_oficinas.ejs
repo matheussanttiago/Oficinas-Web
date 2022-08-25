@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crie sua oficina</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/styleCadOficina.css">
+
+    <!-- LINKS PARA O GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <!-- GOTHIC-A1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <!-- SORA -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- LINKS JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="js/script_menu.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#finish').click(function () {
+                $('.pop-up').css('display', 'flex');
+                $('#modal').show();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="modal"></div>
+    <header id="normal_header">
+        <div id="fixed">
+            <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
+            
+            <div id="container-pesquisa" class="container_fixed">
+                <div id="pesquisa">
+                    <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
+                    <input type="search" name="barra-pesquisa" id="barra-pesquisa" placeholder="Estou buscando...">
+                    <div id="filtro-s" class="filtro-s filtro"><img src="img/filtro-icon.svg" alt=""></div>
+                </div>
+            </div>
+            <div id="menu_hamburger">
+                <nav>
+                    <div id="painel_menu">
+                        <input type="checkbox" name="" id="check_menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+
+            <div id="modal_box">
+
+                <div id="dados_usuario">
+                    <div class="foto">
+                        <div id="inputs_foto">
+                            <div class="circle_foto">
+                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
+                            </div>
+                            <!-- <div id="foto"></div> -->
+                            <label for="add-img-p" id="addinput-p"><img src="img/add-foto.svg" alt="logo"></label>
+                            <input type="file" name="add-img" id="add-img-p">
+                        </div>
+                    </div>
+                    <h3 class="nome_usuario">Sebastião Silva</h3>
+                    <span class="email_usuario">sebastiãosilva@outlook.com</span>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="opcoes">
+                    <a href="./editar_perfil.html">
+                        <div id="editar-perfil" class="opcao">
+                            <img src="img/user_icon_branco.svg" alt="">
+                            <span>Editar Perfil</span>
+                        </div>
+                    </a>
+                    <a href="./historico.html">
+                        <div id="historico" class="opcao">
+                            <img src="img/file_icon_branco.svg" alt="">
+                            <span>Historico</span>
+                        </div>
+                    </a>
+                    <a href="./favoritos.html">
+                        <div id="favoritos" class="opcao">
+                            <img src="img/favorito_icon_branco.svg" alt="">
+                            <span>Favoritos</span>
+                        </div>
+                    </a>
+                    <a href="./notificacoes.html">
+                        <div id="notificacoes" class="opcao">
+                            <img src="img/notificacao_icon.svg" alt="">
+                            <span>Notificações</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="suas_oficinas">
+                    <div id="opcao_suas-oficinas" class="opcao">
+                        <img src="img/config_icon.svg" alt="">
+                        <span>Suas Oficinas</span>
+                    </div>
+                    <a href="./oficina.html">
+                        <div class="oficina opcao">
+                            <div id="foto_oficina_menu"></div>
+                            <span>Oficina do Tião</span>
+                            <span class="tipo_plano" id="plano_ouro">ouro</span>
+                        </div>
+                    </a>
+                    <div class="oficina opcao">
+                        <div id="foto_oficina_menu"></div>
+                        <span>Los Santos Customs</span>
+                        <span class="tipo_plano" id="plano_prata">Prata</span>
+                    </div>
+                </div>
+
+                <!-- <hr> -->
+
+                <div id="logout">
+                    <div id="opcao-logout" class="opcao">
+                        <img src="img/user_icon_laranja.svg" alt="">
+                        <span>Sair</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div id="topo" class="topo"></div>
+
+    <main>
+        <section class="cad_visitante">
+            <div class="titulo_arrow">
+                <img src="img/arrow_left.svg" alt="logo">
+                <h1 class="titulo">Criar sua conta</h1>
+            </div>
+
+            <div class="foto">
+                <div id="inputs_foto">
+                    <div class="circle_foto">
+                        <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil">
+                    </div>
+                    <!-- <div id="foto"></div> -->
+                    <label for="add-img-p" id="add_foto_oficina"><img src="img/add-foto.svg" alt="logo"></label>
+                    <input type="file" name="add-img-p" id="add-img-p">
+                </div>
+            </div>
+
+            <div>
+                <form action="nome" method="post" enctype="multipart/form-data">
+
+                    <h2 class="titulo" id="fotos_title">Dados da oficina</h2>
+                    <div class="row">
+                        <div class="inputs-container" id="nome_oficina">
+                            <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
+                            <input class="inputs inputs_with_icon" placeholder="Nome da oficina" type="text">
+                        </div>
+
+                        <div class="inputs-container" id="cnpj">
+                            <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
+                            <input class="inputs inputs_with_icon" id="cnpj_oficina" placeholder="CNPJ" type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
+                            <input id="valor_produto" class="inputs inputs_with_icon" placeholder="Área de atuação "
+                                type="text">
+                        </div>
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
+                            <!-- <input id="desc_produto" class="inputs inputs_with_icon" placeholder="Descrição da oficina"
+                                type="text"> -->
+                                <textarea name="" id="desc_produto" class="inputs inputs_with_icon txt_area" cols="30"
+                                rows="10" placeholder="Descrição da Oficina"></textarea>
+                        </div>
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/clock_icon.svg" alt=""></div>
+                            <input id="carac_produtos" class="inputs inputs_with_icon"
+                                placeholder="Horário de funcionamento" type="text">
+                        </div>
+                    </div>
+
+
+                    <h2 class="titulo" id="fotos_title">Localização</h2>
+                    <div class=" inputs-container">
+                        <div class="input-icon" id="email-icon"><img src="img/local_icon_cinza.svg" alt=""></div>
+                        <input id="cep" class="inputs inputs_with_icon" placeholder="CEP" type="text">
+                    </div>
+                    <div id="box-inputs_end">
+                        <div id="inputs_end-box1">
+                            <input type="text" class="inputs_end" id="endereco" placeholder="Rua">
+                            <input type="text" class="inputs_end" id="numero" placeholder="Número">
+                        </div>
+                        <div id="inputs_end-box2">
+                            <input type="text" class="inputs_end" id="bairro" placeholder="Bairro">
+                            <input type="text" class="inputs_end" id="cidade" placeholder="Cidade">
+                            <input type="text" class="inputs_end" id="estado" placeholder="UF">
+                        </div>
+                    </div>
+
+                    <h2 class="titulo" id="fotos_title">Contato</h2>
+                    <div class="row">
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/wpp_icon_form.svg" alt=""></div>
+                            <input id="wpp" class="inputs inputs_with_icon phone-mask" placeholder="Celular (WhatsApp)"
+                                type="text">
+                        </div>
+
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/phone_icon.svg" alt=""></div>
+                            <input id="telefone" class="inputs inputs_with_icon" placeholder="Telefone"
+                                type="text">
+                        </div>
+
+                        <div class="inputs-container container2">
+                            <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
+                            <input id="carac_produtos" class="inputs inputs_with_icon" placeholder="Email de contato"
+                                type="text">
+                        </div>
+                    </div>
+
+
+                    <h2 class="titulo" id="fotos_title">Redes Sociais</h2>
+                    <div class="row">
+                        <div class="inputs-container">
+                            <div class="input-icon" id="email-icon"><img src="img/link_icon.svg" alt=""></div>
+                            <input id="carac_produtos" class="inputs inputs_with_icon"
+                                placeholder="Link página do instagram" type="text">
+                        </div>
+
+                        <div class="inputs-container">
+                            <div class="input-icon" id="email-icon"><img src="img/link_icon.svg" alt=""></div>
+                            <input id="carac_produtos" class="inputs inputs_with_icon"
+                                placeholder="Link página do facebook" type="text">
+                        </div>
+                    </div>
+
+
+
+
+                    <div id="sec_fotos">
+                        <h2 class="titulo" id="fotos_title">Fotos do serviço</h2>
+                        <div id="box_preview_fotos"></div>
+                        <label for="add-img" id="addinput">Adicionar imagem</label>
+                        <input type="file" name="add-img" id="add-img" accept="image/
+                        png, image/jpeg" multiple />
+                    </div>
+
+                </form>
+                <button class="btn default_btn" type="submit" id="finish"> <span>Continuar</span> </button>
+
+                <div class="pop-up">
+                    <img src="img/img_pop-up.svg" alt="">
+                    <h3>Concluido!</h3>
+
+                    <p>Otimo! A pagina da sua oficina está
+                        pronta, mas voçê ainda não pode
+                        ultiliza-la sem ter um plano.</p>
+
+                    <button class="primeira-opcao-btn"><a href="./planos.html">Ver Planos</a></button>
+                    <button class="segunda-opcao-btn"><a href="./dashboard.html">Depois</a></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script_cad_oficina.js"></script>
+    <script>
+        const textarea1 = document.querySelector("#desc_produto");
+        textarea1.addEventListener('keyup', e => {
+            textarea1.style.height = '46px'
+            let schHeight = e.target.scrollHeight;
+            textarea1.style.height = `${schHeight}px`
+        });
+    </script>
+
+</body>
+
+</html>
