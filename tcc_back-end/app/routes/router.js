@@ -9,6 +9,9 @@ var conexao = DbConnection();
 var CadastroDAO = require("../models/cadastroDAO");
 cadastroDAO = new CadastroDAO(conexao);
 
+var ProdutosDAO = require("../models/produtosDAO");
+produtosDAO = new ProdutosDAO(conexao);
+
 
 router.get('/', function(req, res) {
   // DbConnection.connection().query(
@@ -64,6 +67,9 @@ router.get('/planos', function(req, res) {
 router.get('/cadastro', function(req, res) {
   res.render('pages/cad_visitante');
 });
+router.get('/seus-servicos', function(req, res) {
+  res.render('pages/servicos');
+});
 router.get('/add-produto', function(req, res) {
   res.render('pages/add_produto');
 });
@@ -108,28 +114,6 @@ router.post('/add_oficina', (req, res) => {
   res.redirect("/");
 })
 
-router.post('/add_produto', (req, res) => {
-  var dadosForm = {
-    caracterisiticas: req.body.caracteristicas,
-    tipo_do_produto: req.body.tipo_produto,
-    quant_produto: req.body.quant_produto,
-    avaliacao: req.body.avaliacao,
-    descricao: req.body.descricao,
-    anunciante: req.body.anunciante,
-    marca: req.body.marca
-  };
-  
-  DbConnection.connection().query(
-    "INSERT INTO produto SET ?",
-    dadosForm,
-    function (error, results, fields) {
-      if (error) throw error;
-      // Neat!
-    }
-  );
-
-  res.redirect("/");
-})
 
 // router.post('/cad_visitante', async (req, res) => {
 //   const DbConnection = require('../../config/DbConnection');
@@ -150,25 +134,32 @@ router.post('/add_produto', (req, res) => {
 //   }
 // })
 
-// router.post('/cad_juridica', async (req, res) => {
-//   const DbConnection = require('../../config/DbConnection');
-//   const bcrypt = require('bcryptjs');
 
-//   try {
-//       const hashedPassword = await bcrypt.hash(req.body.senha, 10)
-//       DbConnection.connection().query(`insert into proprietario(nome_proprietario, cpf, e_mail_pop, telefone, senha, foto, tipo_usuario) 
-//       values ('${req.body.nome_juridico}', '${req.body.cpf}',
-//         '${req.body.email}', '${req.body.telefone_visitante}', '${hashedPassword}',  null, '2')`)
-//       res.redirect('/login')
+router.post('/cad_servico', async (req, res) => {
+  var dadosForm = {
+    nome_produto: req.body.nome_servico,
+    valor_produto: req.body.valor_servico,
+    caracterisiticas: req.body.carac_servico,
+    descricao_prod: req.body.desc_servico,
+    tipo_do_produto: '2',
+    foto1: null,
+    foto2: null,
+    foto3: null,
+    foto4: null,
+    foto5: null,
+    foto6: null,
+  };
+  
+  try {
+    results = await produtosDAO.CadProduto(dadosForm); 
+    res.redirect('/seus-servicos')
+  } catch(e) {
 
-//   } catch(e) {
+      console.log(e);
+      res.status(500).send('Something broke!')
 
-//       console.log(e);
-//       res.status(500).send('Something broke!')
-
-//   }
-// })
-
+  }
+})
 
 router.post('/cad_visitante', async (req, res) => {
   var dadosForm = {
