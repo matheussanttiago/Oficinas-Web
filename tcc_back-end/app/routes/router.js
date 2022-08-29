@@ -85,6 +85,17 @@ router.get('/dashboard', function(req, res) {
   }
 });
 
+router.get('/produtos', async function(req, res) {
+  try {
+    results = await produtosDAO.getProdutos(); 
+    res.render('pages/todos_produtos')
+  } catch(e) {
+
+      console.log(e);
+      res.status(500).send('Something broke!')
+
+  }
+});
 
 router.post('/add_oficina', (req, res) => {
   var dadosForm = {
