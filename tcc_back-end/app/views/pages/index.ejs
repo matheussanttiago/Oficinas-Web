@@ -787,13 +787,13 @@
             </div>
             <div id="modal_destaques">
                 <div class="produtos_destaque">
-                    <% for(let i = 0; i < dados_produto.length; i++) {%>
+                    <% for(let i = 0; i < produtos.length; i++) {%>
                         <a href="./produtos.ejs">
                             <div class="produto">
                                 <div class="content_produtos">
                                     <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                                    <h5 class="titulo_produto"><%= dados_produto[i].nome_produto %></h5>
-                                    <span class="preco_produto">R$<%= dados_produto[i].valor_produto %></span>
+                                    <h5 class="titulo_produto"><%= produtos[i].nome_produto %></h5>
+                                    <span class="preco_produto">R$<%= produtos[i].valor_produto %></span>
                                     <div id="avaliacao_produto">
                                         <ul class="avaliacao_produtos">
                                             <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">

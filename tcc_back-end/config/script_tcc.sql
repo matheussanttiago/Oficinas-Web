@@ -4,9 +4,9 @@ use oficinas_web;
 CREATE TABLE IF NOT EXISTS produto (
 id_produto int auto_increment PRIMARY KEY,
 nome_produto varchar(30),
-valor_produto float,
-caracterisiticas longtext,
-descricao_prod longtext,
+valor_produto float(10,2),
+caracterisiticas text,
+descricao_prod text,
 tipo_do_produto char(1),
 foto1 longblob,
 foto2 longblob,

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
+
 
 const DbConnection = require('../../config/DbConnection');
 var conexao = DbConnection();
@@ -12,50 +14,64 @@ cadastroDAO = new CadastroDAO(conexao);
 var ProdutosDAO = require("../models/produtosDAO");
 produtosDAO = new ProdutosDAO(conexao);
 
+var OficinasDAO = require("../models/oficinasDAO");
+oficinasDAO = new OficinasDAO(conexao);
 
-router.get('/', function(req, res) {
-  // DbConnection.connection().query(
-  //   "SELECT * FROM Oficina",
-  //   function (error, results, fields) {
-  //     if (error) throw error;
-  //     res.render('pages/index', {dados_oficina: results});
-  //     console.log(results)
-  //   },
-  // );
-  async.parallel([
-    function(callback) {
-        var queryData = '' +
-        'SELECT * FROM oficina';
-        // DbConnection.connection().query(queryData, function (err, rows1) {
-        conexao.query(queryData, function (err, rows1) {
 
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, rows1);
-        });
-    },
-    function(callback) {
-      // DbConnection.connection().query('SELECT * FROM produto', function (err, rows2) {
-      conexao.query('SELECT * FROM produto', function (err, rows2) {
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, rows2);
-        });
-    }
-], function(error, callbackResults) {
-    if (error) {
-        //handle error
-        console.log(error);
-    } else {
-        console.log(callbackResults[0]); // rows1
-        console.log(callbackResults[1]); // rows2
-        // use this data to send back to client etc.
-        res.render('pages/index', {dados_oficina: callbackResults[0], dados_produto: callbackResults[1]});
-    }
-});
+// router.get('/', function(req, res) {
+//   // DbConnection.connection().query(
+//   //   "SELECT * FROM Oficina",
+//   //   function (error, results, fields) {
+//   //     if (error) throw error;
+//   //     res.render('pages/index', {dados_oficina: results});
+//   //     console.log(results)
+//   //   },
+//   // );
+//   async.parallel([
+//     function(callback) {
+//         var queryData = '' +
+//         'SELECT * FROM oficina';
+//         // DbConnection.connection().query(queryData, function (err, rows1) {
+//         conexao.query(queryData, function (err, rows1) {
 
+//             if (err) {
+//                 return callback(err);
+//             }
+//             return callback(null, rows1);
+//         });
+//     },
+//     function(callback) {
+//       // DbConnection.connection().query('SELECT * FROM produto', function (err, rows2) {
+//       conexao.query('SELECT * FROM produto', function (err, rows2) {
+//             if (err) {
+//                 return callback(err);
+//             }
+//             return callback(null, rows2);
+//         });
+//     }
+// ], function(error, callbackResults) {
+//     if (error) {
+//         //handle error
+//         console.log(error);
+//     } else {
+//         console.log(callbackResults[0]); // rows1
+//         console.log(callbackResults[1]); // rows2
+//         // use this data to send back to client etc.
+//         res.render('pages/index', {dados_oficina: callbackResults[0], dados_produto: callbackResults[1]});
+//     }
+// });
+
+// });
+
+router.get('/', async function(req, res) {
+  try {
+    allProdutos = await produtosDAO.getProdutos();
+    allOficinas = await oficinasDAO.getOficinas(); 
+    res.render('pages/index', {oficinas: allOficinas, produtos: allProdutos});
+  } catch(e) {
+      console.log(e);
+      res.status(500).send('Something broke!');
+  }
 });
 
 router.get('/avaliacao', function(req, res) {
@@ -146,31 +162,6 @@ router.post('/add_oficina', (req, res) => {
 // })
 
 
-router.post('/cad_servico', async (req, res) => {
-  var dadosForm = {
-    nome_produto: req.body.nome_servico,
-    valor_produto: req.body.valor_servico,
-    caracterisiticas: req.body.carac_servico,
-    descricao_prod: req.body.desc_servico,
-    tipo_do_produto: '2',
-    foto1: null,
-    foto2: null,
-    foto3: null,
-    foto4: null,
-    foto5: null,
-    foto6: null,
-  };
-  
-  try {
-    results = await produtosDAO.CadProduto(dadosForm); 
-    res.redirect('/seus-servicos')
-  } catch(e) {
-
-      console.log(e);
-      res.status(500).send('Something broke!')
-
-  }
-})
 
 router.post('/cad_visitante', async (req, res) => {
   var dadosForm = {
@@ -191,7 +182,7 @@ router.post('/cad_visitante', async (req, res) => {
       res.status(500).send('Something broke!')
 
   }
-})
+});
 
 router.post('/cad_juridica', async (req, res) => {
   var dadosForm = {
@@ -213,6 +204,6 @@ router.post('/cad_juridica', async (req, res) => {
       res.status(500).send('Something broke!')
 
   }
-})
+});
 
 module.exports = router;

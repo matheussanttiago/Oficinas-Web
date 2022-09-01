@@ -97,7 +97,7 @@
                 </div>
     
                 <div>
-                    <form action="cad_visitante" runat="server" method="post" id="form-visitante">
+                    <form action="cad_visitante" runat="server" method="post" enctype="multipart/form-data" id="form-visitante">
                         <input id="nome" class="inputs" placeholder="Nome" name="nome_visitante" type="text">
                         <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
                         <div>
@@ -144,7 +144,7 @@
                 </div>
     
                 <div>
-                    <form action="cad_juridica" runat="server" method="post" class="form_pessoa-juridica" id="form-juridico">
+                    <form action="cad_juridica" runat="server" method="post" enctype="multipart/form-data" class="form_pessoa-juridica" id="form-juridico">
                         <div>
                             <input id="nome" name="nome_proprietario" class="inputs nome-juridica" placeholder="Nome" type="text">
                             <input id="cpf" name="cpf" class="inputs cpf-juridica" placeholder="CPF" type="text">
@@ -154,8 +154,8 @@
                             <input id="email" name="email" class="inputs email-juridica" placeholder="Email" type="text">
                         </div>
                         <div>
-                            <input id="senha" name="senha" class="inputs" placeholder="Senha" type="text">
-                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="text">
+                            <input id="senha" name="senha" class="inputs" placeholder="Senha" type="password">
+                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="password">
                         </div>
                     <div id="termos" class="cadastro">
                         <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
