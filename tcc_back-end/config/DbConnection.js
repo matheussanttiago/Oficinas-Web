@@ -32,7 +32,7 @@ module.exports = function(){
     return mysql.createConnection({
        host: "localhost",
        user: "root",
-       password: "", // senha na escola @ITB123456
+       password: "@ITB123456", // senha na escola @ITB123456
        database: "oficinas_web",
        port: 3306
      });

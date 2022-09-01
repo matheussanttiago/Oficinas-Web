@@ -86,6 +86,9 @@ router.get('/cadastro', function(req, res) {
 router.get('/seus-servicos', function(req, res) {
   res.render('pages/servicos');
 });
+// router.get('/seus-produtos', function(req, res) {
+//   res.render('pages/produtos');
+// });
 router.get('/add-produto', function(req, res) {
   res.render('pages/add_produto');
 });
@@ -140,6 +143,7 @@ router.post('/add_oficina', (req, res) => {
 
   res.redirect("/");
 })
+
 
 
 // router.post('/cad_visitante', async (req, res) => {

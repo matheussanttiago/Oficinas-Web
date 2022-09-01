@@ -322,18 +322,18 @@
             </div>
 
             <div>
-                <form action="nome" enctype="multipart/form-data">
+                <form action="/cad_produto" enctype="multipart/form-data" method="post">
                     <div class="row1">
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
                             <input id="nome_produto" class="inputs inputs_with_icon" placeholder="Nome do produto"
-                                type="text">
+                                type="text" name="nome_produto">
                         </div>
 
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/dolar_icon.svg" alt=""></div>
                             <input id="valor_produto" class="inputs inputs_with_icon" placeholder="Valor do produto"
-                                type="text">
+                                type="text" name="valor_produto">
                         </div>
                     </div>
                     <div class="row2">
@@ -341,14 +341,14 @@
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="desc_produto" class="inputs inputs_with_icon" placeholder="Descrição do produto"
                                 type="text"> -->
-                            <textarea name="" id="desc_produtos" class="inputs inputs_with_icon txt_area" cols="30"
+                            <textarea name="desc_produtos" id="desc_produtos" class="inputs inputs_with_icon txt_area" cols="30"
                                 rows="10" placeholder="Descrição do produto"></textarea>
                         </div>
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="carac_produtos" class="inputs inputs_with_icon"
                                 placeholder="Características do produto" type="text"> -->
-                            <textarea name="" id="carac_produtos" class="inputs inputs_with_icon txt_area" cols="30"
+                            <textarea name="carac_produtos" id="carac_produtos" class="inputs inputs_with_icon txt_area" cols="30"
                                 rows="10" placeholder="Características do produto"></textarea>
                         </div>
                     </div>

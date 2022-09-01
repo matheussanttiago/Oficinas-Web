@@ -18,7 +18,8 @@ const session = require('express-session');
 
 const home = require('./app/routes/router');
 const login = require('./app/routes/loginRoutes');
-const cadastro = require('./app/routes/router');
+const produtos = require('./app/routes/routerProdutos');
+// const cadastro = require('./app/routes/router');
 
 
 app.use(express.json());
@@ -46,6 +47,7 @@ app.use(session({
 
 
 app.use('/login', login);
+app.use('/seus-produtos', produtos);
 app.use('/', home);
 
 
