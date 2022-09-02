@@ -104,45 +104,17 @@ router.get('/dashboard', function(req, res) {
   }
 });
 
-router.get('/produtos', async function(req, res) {
-  try {
-    results = await produtosDAO.getProdutos(); 
-    res.render('pages/todos_produtos')
-  } catch(e) {
+// router.get('/produtos', async function(req, res) {
+//   try {
+//     results = await produtosDAO.getProdutos(); 
+//     res.render('pages/todos_produtos')
+//   } catch(e) {
 
-      console.log(e);
-      res.status(500).send('Something broke!')
+//       console.log(e);
+//       res.status(500).send('Something broke!')
 
-  }
-});
-
-router.post('/add_oficina', (req, res) => {
-  var dadosForm = {
-    Facebook: req.body.Facebook,
-    Cep: req.body.Cep,
-    Email: req.body.Email,
-    Celular_telefone: req.body.Celular_telefone,
-    horario_funcionamento: req.body.horario_funcionamento,
-    Nome_oficina: req.body.Nome_oficina,
-    descricao: req.body.descricao,
-    Instagram: req.body.Instagram,
-    Avaliacao: req.body.Avaliacao,
-    Especialidade: req.body.Especialidade,
-    numero_casa: req.body.numero_casa,
-    Cnpj: req.body.Cnpj,
-  };
-  
-  DbConnection.connection().query(
-    "INSERT INTO Oficina SET ?",
-    dadosForm,
-    function (error, results, fields) {
-      if (error) throw error;
-      // Neat!
-    }
-  );
-
-  res.redirect("/");
-})
+//   }
+// });
 
 
 
