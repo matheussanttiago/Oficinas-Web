@@ -150,33 +150,34 @@
         <section class="cad_visitante">
             <div class="titulo_arrow">
                 <img src="img/arrow_left.svg" alt="logo">
-                <h1 class="titulo">Criar sua conta</h1>
-            </div>
-
-            <div class="foto">
-                <div id="inputs_foto">
-                    <div class="circle_foto">
-                        <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil">
-                    </div>
-                    <!-- <div id="foto"></div> -->
-                    <label for="add-img-p" id="add_foto_oficina"><img src="img/add-foto.svg" alt="logo"></label>
-                    <input type="file" name="add-img-p" id="add-img-p">
-                </div>
+                <h1 class="titulo">Criar sua oficina</h1>
             </div>
 
             <div>
-                <form action="nome" method="post" enctype="multipart/form-data">
+                <form action="cad_oficina" method="post" enctype="multipart/form-data">
+
+                    <div class="foto">
+                        <div id="inputs_foto">
+                            <div class="circle_foto">
+                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil">
+                            </div>
+                            <!-- <div id="foto"></div> -->
+                            <label for="add-img-pp" id="add_foto_oficina"><img src="img/add-foto.svg" alt="logo"></label>
+                            <input type="file" name="add-img-pp" id="add-img-pp">
+                        </div>
+                    </div>
 
                     <h2 class="titulo" id="fotos_title">Dados da oficina</h2>
+
                     <div class="row">
                         <div class="inputs-container" id="nome_oficina">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
-                            <input class="inputs inputs_with_icon" placeholder="Nome da oficina" type="text">
+                            <input class="inputs inputs_with_icon" placeholder="Nome da oficina" type="text" name="nome_oficina">
                         </div>
 
                         <div class="inputs-container" id="cnpj">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
-                            <input class="inputs inputs_with_icon" id="cnpj_oficina" placeholder="CNPJ" type="text">
+                            <input class="inputs inputs_with_icon" id="cnpj_oficina" placeholder="CNPJ" type="text" name="cnpj_oficina">
                         </div>
                     </div>
 
@@ -184,19 +185,19 @@
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <input id="valor_produto" class="inputs inputs_with_icon" placeholder="Área de atuação "
-                                type="text">
+                                type="text" name="area_atuacao">
                         </div>
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="desc_produto" class="inputs inputs_with_icon" placeholder="Descrição da oficina"
                                 type="text"> -->
-                                <textarea name="" id="desc_produto" class="inputs inputs_with_icon txt_area" cols="30"
+                                <textarea name="desc_oficina" id="desc_produto" class="inputs inputs_with_icon txt_area" cols="30"
                                 rows="10" placeholder="Descrição da Oficina"></textarea>
                         </div>
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/clock_icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon"
-                                placeholder="Horário de funcionamento" type="text">
+                                placeholder="Horário de funcionamento" type="text" name="horario_oficina">
                         </div>
                     </div>
 
@@ -204,12 +205,12 @@
                     <h2 class="titulo" id="fotos_title">Localização</h2>
                     <div class=" inputs-container">
                         <div class="input-icon" id="email-icon"><img src="img/local_icon_cinza.svg" alt=""></div>
-                        <input id="cep" class="inputs inputs_with_icon" placeholder="CEP" type="text">
+                        <input id="cep" class="inputs inputs_with_icon" placeholder="CEP" type="text" name="cep">
                     </div>
                     <div id="box-inputs_end">
                         <div id="inputs_end-box1">
                             <input type="text" class="inputs_end" id="endereco" placeholder="Rua">
-                            <input type="text" class="inputs_end" id="numero" placeholder="Número">
+                            <input type="text" class="inputs_end" id="numero" placeholder="Número" name="num_oficina">
                         </div>
                         <div id="inputs_end-box2">
                             <input type="text" class="inputs_end" id="bairro" placeholder="Bairro">
@@ -223,19 +224,19 @@
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/wpp_icon_form.svg" alt=""></div>
                             <input id="wpp" class="inputs inputs_with_icon phone-mask" placeholder="Celular (WhatsApp)"
-                                type="text">
+                                type="text" name="wpp_oficina">
                         </div>
 
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/phone_icon.svg" alt=""></div>
                             <input id="telefone" class="inputs inputs_with_icon" placeholder="Telefone"
-                                type="text">
+                                type="text" name="phone_oficina">
                         </div>
 
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon" placeholder="Email de contato"
-                                type="text">
+                                type="text" name="email_oficina">
                         </div>
                     </div>
 
@@ -245,13 +246,13 @@
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/link_icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon"
-                                placeholder="Link página do instagram" type="text">
+                                placeholder="Link página do instagram" type="text" name="link_insta">
                         </div>
 
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/link_icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon"
-                                placeholder="Link página do facebook" type="text">
+                                placeholder="Link página do facebook" type="text" name="link_face">
                         </div>
                     </div>
 
@@ -262,12 +263,12 @@
                         <h2 class="titulo" id="fotos_title">Fotos do serviço</h2>
                         <div id="box_preview_fotos"></div>
                         <label for="add-img" id="addinput">Adicionar imagem</label>
-                        <input type="file" name="add-img" id="add-img" accept="image/
+                        <input type="file" name="add_img" id="add-img" accept="image/
                         png, image/jpeg" multiple />
                     </div>
+                    <button class="btn default_btn" type="submit" id="finish"> <span>Continuar</span> </button>
 
                 </form>
-                <button class="btn default_btn" type="submit" id="finish"> <span>Continuar</span> </button>
 
                 <div class="pop-up">
                     <img src="img/img_pop-up.svg" alt="">

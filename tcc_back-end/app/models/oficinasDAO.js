@@ -4,9 +4,9 @@ module.exports = class TarefasDAO{
         this.conexao = conexao;
     }
     
-    CadProduto = (dadosForm)=>{
+    CadOficina = (dadosForm)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`insert into produto SET ?`, dadosForm,  (error, elements)=>{
+            this.conexao.query(`insert into oficina SET ?`, dadosForm,  (error, elements)=>{
                 if(error){
                     return reject(error);
                 }

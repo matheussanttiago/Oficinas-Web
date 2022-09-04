@@ -85,28 +85,29 @@
                     <h3 class="juridica">Pessoa juridica</h3>
                 </div>
     
-                <div class="foto">
-                    <div id="inputs_foto">
-                        <div class="circle_foto">
-                            <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-f">
-                        </div>
-                        <!-- <div id="foto"></div> -->
-                        <label for="add-img-f" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
-                        <input type="file" name="add-img" id="add-img-f">
-                    </div>
-                </div>
-    
                 <div>
-                    <form action="cad_visitante" runat="server" method="post" enctype="multipart/form-data" id="form-visitante">
-                        <input id="nome" class="inputs" placeholder="Nome" name="nome_visitante" type="text">
+                    <form action="cad_visitante" method="post" enctype="multipart/form-data" id="form-visitante">
+
+                        <div class="foto">
+                            <div id="inputs_foto">
+                                <div class="circle_foto">
+                                    <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-f">
+                                </div>
+                                <!-- <div id="foto"></div> -->
+                                <label for="add-img-f" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
+                                <input type="file" name="add-img-v" id="add-img-f">
+                            </div>
+                        </div>
+
+                        <input id="nome2" class="inputs" placeholder="Nome" name="nome_visitante" type="text">
                         <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
                         <div>
-                            <input id="celular" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text">
-                            <input id="email" name="email" class="inputs" placeholder="Email" type="text">
+                            <input id="celular2" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text">
+                            <input id="email2" name="email_visitante" class="inputs" placeholder="Email" type="text">
                         </div>
                         <div>
-                            <input id="senha" name="senha" class="inputs" placeholder="Senha" type="text">
-                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="text">
+                            <input id="senha2" name="senha_visitante" class="inputs" placeholder="Senha" type="text">
+                            <input id="repitir_senha2" class="inputs" placeholder="Repitir senha" type="text">
                         </div>
                     <div id="termos" class="cadastro">
                         <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
@@ -134,27 +135,26 @@
                     <h3 class="juridica">Pessoa juridica</h3>
                 </div>
     
-                <div class="foto">
-                    <div id="inputs_foto">
-                        <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-j">
-                        <!-- <div id="foto"></div> -->
-                        <label for="add-img-j" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
-                        <input type="file" name="add-img" id="add-img-j">
-                    </div>
-                </div>
-    
                 <div>
-                    <form action="cad_juridica" runat="server" method="post" enctype="multipart/form-data" class="form_pessoa-juridica" id="form-juridico">
+                    <form action="/cad_juridica" runat="server" method="post" enctype="multipart/form-data" class="form_pessoa-juridica" id="form-juridico">
+                        <div class="foto">
+                            <div id="inputs_foto">
+                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao_perfil-j">
+                                <!-- <div id="foto"></div> -->
+                                <label for="add-img-j" id="addinput"><img src="img/add-foto.svg" alt="logo"></label>
+                                <input type="file" name="add-img-j" id="add-img-j">
+                            </div>
+                        </div>
                         <div>
                             <input id="nome" name="nome_proprietario" class="inputs nome-juridica" placeholder="Nome" type="text">
                             <input id="cpf" name="cpf" class="inputs cpf-juridica" placeholder="CPF" type="text">
                         </div>
                         <div>
                             <input id="celular" name="telefone_proprietario" class="inputs phone-juridica phone-mask" placeholder="Celular" type="text">
-                            <input id="email" name="email" class="inputs email-juridica" placeholder="Email" type="text">
+                            <input id="email" name="email_prop" class="inputs email-juridica" placeholder="Email" type="text">
                         </div>
                         <div>
-                            <input id="senha" name="senha" class="inputs" placeholder="Senha" type="password">
+                            <input id="senha" name="senha_prop" class="inputs" placeholder="Senha" type="password">
                             <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="password">
                         </div>
                     <div id="termos" class="cadastro">

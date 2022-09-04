@@ -92,9 +92,6 @@ router.get('/seus-servicos', function(req, res) {
 router.get('/add-produto', function(req, res) {
   res.render('pages/add_produto');
 });
-router.get('/add-oficina', function(req, res) {
-  res.render('pages/cad_oficina');
-});
 router.get('/dashboard', function(req, res) {
   if (req.session.autenticado == true && req.session.usu_tipo == 2) {
     autenticado = { autenticado: req.session.usu_autenticado };
@@ -137,15 +134,29 @@ router.get('/dashboard', function(req, res) {
 //   }
 // })
 
+const armazenamentoMemoria2 = multer.memoryStorage()
+//adiciona este espaço ao método de upload
+const upload2 = multer({ 
+  storage: armazenamentoMemoria2,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+    }
+} })
 
+router.post('/cad_visitante', upload2.single('add-img-v'), async (req, res) => {
 
-router.post('/cad_visitante', async (req, res) => {
+  let fileContent = req.file.buffer.toString('base64');
+
   var dadosForm = {
     nome: req.body.nome_visitante,
-    e_mail_vist: req.body.email,
+    e_mail_vist: req.body.email_visitante,
     telefone_visitante: req.body.celular_visitante,
-    senha: await bcrypt.hash(req.body.senha, 10),
-    foto: null,
+    senha: await bcrypt.hash(req.body.senha_visitante, 10),
+    foto: fileContent,
     tipo_usuario: '1'
   };
 
@@ -160,15 +171,33 @@ router.post('/cad_visitante', async (req, res) => {
   }
 });
 
-router.post('/cad_juridica', async (req, res) => {
+
+const armazenamentoMemoria = multer.memoryStorage()
+//adiciona este espaço ao método de upload
+const upload = multer({ 
+  storage: armazenamentoMemoria,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+    }
+} })
+
+router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
+
+  let fileContent = req.file.buffer.toString('base64');
+
   var dadosForm = {
     nome_proprietario: req.body.nome_proprietario,
-    e_mail_pop: req.body.email,
+    e_mail_pop: req.body.email_prop,
     cpf: req.body.cpf,
-    telefone: req.body.celular_proprietario,
-    senha: await bcrypt.hash(req.body.senha, 10),
-    foto: null,
-    tipo_usuario: '2'
+    telefone: req.body.telefone_proprietario,
+    senha: await bcrypt.hash(req.body.senha_prop, 10),
+    foto: fileContent,
+    tipo_usuario: '2',
+    cnpj_oficina: null
   };
 
   try {

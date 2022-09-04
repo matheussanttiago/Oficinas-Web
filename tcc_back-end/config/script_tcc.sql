@@ -4,8 +4,8 @@ use oficinas_web;
 CREATE TABLE IF NOT EXISTS produto (
 id_produto int auto_increment PRIMARY KEY,
 nome_produto varchar(30),
-valor_produto float(10,2),
-caracterisiticas text,
+valor_produto varchar(10),
+caracteristicas text,
 descricao_prod text,
 tipo_do_produto char(1),
 foto1 longblob,
@@ -19,7 +19,7 @@ foto6 longblob
 CREATE TABLE IF NOT EXISTS visitante (
 id_visit int auto_increment PRIMARY KEY,
 nome varchar(30),
-telefone_visitante char(11),
+telefone_visitante varchar(20),
 e_mail_vist varchar(90),
 senha varchar(90),
 foto longblob,
@@ -27,11 +27,12 @@ tipo_usuario char(1)
 );
 
 CREATE TABLE IF NOT EXISTS proprietario (
-e_mail_pop varchar(90) PRIMARY KEY,
-cnpj_oficina char(14),
+id_prop int auto_increment primary key,
+e_mail_pop varchar(90,
+cnpj_oficina varchar(20),
 cpf varchar(20),
 nome_proprietario varchar(30),
-telefone char(11),
+telefone varchar(20),
 senha varchar(90),
 foto longblob,
 tipo_usuario char(1)
