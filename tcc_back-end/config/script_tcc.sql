@@ -4,7 +4,7 @@ use oficinas_web;
 CREATE TABLE IF NOT EXISTS produto (
 id_produto int auto_increment PRIMARY KEY,
 nome_produto varchar(30),
-valor_produto varchar(10),
+valor_produto float,
 caracteristicas text,
 descricao_prod text,
 tipo_do_produto char(1),
@@ -19,8 +19,8 @@ foto6 longblob
 CREATE TABLE IF NOT EXISTS visitante (
 id_visit int auto_increment PRIMARY KEY,
 nome varchar(30),
-telefone_visitante varchar(20),
-e_mail_vist varchar(90),
+telefone_visitante char(11),
+email_visit varchar(90),
 senha varchar(90),
 foto longblob,
 tipo_usuario char(1)
@@ -28,8 +28,8 @@ tipo_usuario char(1)
 
 CREATE TABLE IF NOT EXISTS proprietario (
 id_prop int auto_increment primary key,
-e_mail_pop varchar(90,
-cnpj_oficina varchar(20),
+email_prop varchar(90),
+cnpj_oficina char(14),
 cpf varchar(20),
 nome_proprietario varchar(30),
 telefone varchar(20),
@@ -40,19 +40,19 @@ tipo_usuario char(1)
 
 CREATE TABLE IF NOT EXISTS oficina (
 cnpj_oficina char(14) PRIMARY KEY,
-e_mail_pop varchar(90),
+id_prop int,
 nome_oficina varchar(90),
 cep char(8),
-numero_casa varchar(5),
+numero_ofc varchar(5),
 id_planos int, 
-e_mail_oficina varchar(90),
+email_oficina varchar(90),
 telefone char(11),
 celular char(11),
-horario_funcionamento longtext,
+horario_funcionamento text,
 descricao_ofc longtext,
 instagram varchar(90),
 facebook varchar(90),
-area_atuacao longtext,
+area_atuacao text,
 foto1 longblob,
 foto2 longblob,
 foto3 longblob,
@@ -122,7 +122,8 @@ ALTER TABLE proprietario
 ADD CONSTRAINT possui_ofc FOREIGN KEY(cnpj_oficina) REFERENCES oficina (cnpj_oficina);
 
 ALTER TABLE oficina
-ADD CONSTRAINT plano_adquirido FOREIGN KEY(id_planos) REFERENCES planos (id_planos);
+ADD CONSTRAINT plano_adquirido FOREIGN KEY(id_planos) REFERENCES planos (id_planos),
+ADD CONSTRAINT dono_ofc FOREIGN KEY(id_prop) REFERENCES proprietario (id_prop);
 
 ALTER TABLE favorita_produto
 ADD CONSTRAINT produto_favoritado FOREIGN KEY(id_produto) REFERENCES produto (id_produto),
