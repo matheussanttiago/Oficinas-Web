@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS proprietario (
 id_prop int auto_increment primary key,
 email_prop varchar(90),
 cnpj_oficina char(14),
-cpf varchar(20),
+cpf char(11),
 nome_proprietario varchar(30),
-telefone varchar(20),
+telefone char(11),
 senha varchar(90),
 foto longblob,
 tipo_usuario char(1)
@@ -58,7 +58,8 @@ foto2 longblob,
 foto3 longblob,
 foto4 longblob,
 foto5 longblob,
-foto6 longblob
+foto6 longblob,
+foto_perfil_ofc longblob
 );
 
 CREATE TABLE IF NOT EXISTS favorita_produto (

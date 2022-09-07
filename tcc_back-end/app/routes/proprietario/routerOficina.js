@@ -4,6 +4,7 @@ var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
 
+var upload = require('../../models/upload')
 
 const DbConnection = require('../../../config/DbConnection');
 var conexao = DbConnection();
@@ -23,41 +24,50 @@ router.get('/add-oficina', function (req, res) {
 });
 
 
-//cria ume espaço de armazenamento em memória
-const armazenamentoMemoria2 = multer.memoryStorage()
-//adiciona este espaço ao método de upload
-const upload2 = multer({ 
-  storage: armazenamentoMemoria2,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-} })
-
-router.post('/cad_oficina', upload2.fields([{name: 'add-img-pp', maxCount:1}, {name: 'add_img', maxCount:6}]), async (req, res) => {
+router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {name: 'add_img', maxCount:6}]), async (req, res) => {
+  
   let content = [null, null, null, null, null, null]
-  // for (let i = 0; i < req.files.length; i++) {
-  //   content[i] = req.files[i].buffer.toString('base64');
-  // }
-  const teste = req.files['add-img-pp']
-  console.log(teste)
+  for (let i = 0; i < req.files['add_img'].length; i++) {
+    content[i] = req.files['add_img'][i].buffer.toString('base64');
+  }
+
+  if (!req.files['add-img-pp']) {
+    filePerfil = null;
+  } else {
+    filePerfil = req.files['add-img-pp'][0].buffer.toString('base64');
+  }
+  console.log(req.files['add-img-pp'])
+  console.log(req.files['add_img'])
+
+  let cnpj = req.body.cnpj_oficina;
+  let cnpjBD = cnpj.replace('.', '').replace('.', '').replace('/', '').replace('-', '');
+
+  let cep = req.body.cep;
+  let cepBD = cep.replace('-', '');
+
+  let telefone = req.body.phone_oficina
+  let telefoneBD = telefone.replace('(', '').replace(')', '').replace('-', '')
+
+  let celular = req.body.wpp_oficina
+  let celularBD = celular.replace('(', '').replace(')', '').replace('-', '')
+
+  // const teste = req.files['add_img'][2]
+  // console.log(teste)
 
   var dadosForm = {
-    cnpj_oficina: req.body.cnpj_oficina,
-    e_mail_oficina: req.body.email_oficina,
+    cnpj_oficina: cnpjBD,
+    email_oficina: req.body.email_oficina,
     nome_oficina: req.body.nome_oficina,
-    cep: req.body.cep,
-    numero_casa: req.body.num_oficina,
-    telefone: req.body.phone_oficina,
-    celular: req.body.wpp_oficina,
+    cep: cepBD,
+    numero_ofc: req.body.num_oficina,
+    telefone: telefoneBD,
+    celular: celularBD,
     horario_funcionamento: req.body.horario_oficina,
     descricao_ofc: req.body.desc_oficina,
     instagram: req.body.link_insta,
     facebook: req.body.link_face,
     area_atuacao: req.body.area_atuacao,
+    foto_perfil_ofc: filePerfil,
     foto1: content[0],
     foto2: content[1],
     foto3: content[2],

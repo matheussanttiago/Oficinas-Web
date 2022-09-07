@@ -791,7 +791,7 @@
                         <a href="./produtos.ejs">
                             <div class="produto">
                                 <div class="content_produtos">
-                                    <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                                    <img src="/data:image/jpeg;base64,<%= produtos[i].foto1 %>" alt="">
                                     <h5 class="titulo_produto"><%= produtos[i].nome_produto %></h5>
                                     <span class="preco_produto">R$<%= produtos[i].valor_produto %></span>
                                     <div id="avaliacao_produto">

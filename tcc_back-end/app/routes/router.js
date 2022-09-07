@@ -3,7 +3,11 @@ const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+const expressValidator = require('express-validator')
 
+// router.use(expressValidator())
+
+var upload = require('../models/upload')
 
 const DbConnection = require('../../config/DbConnection');
 var conexao = DbConnection();
@@ -63,36 +67,36 @@ oficinasDAO = new OficinasDAO(conexao);
 
 // });
 
-router.get('/', async function(req, res) {
+router.get('/', async function (req, res) {
   try {
     allProdutos = await produtosDAO.getProdutos();
-    allOficinas = await oficinasDAO.getOficinas(); 
-    res.render('pages/index', {oficinas: allOficinas, produtos: allProdutos});
-  } catch(e) {
-      console.log(e);
-      res.status(500).send('Something broke!');
+    allOficinas = await oficinasDAO.getOficinas();
+    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send('Something broke!');
   }
 });
 
-router.get('/avaliacao', function(req, res) {
+router.get('/avaliacao', function (req, res) {
   res.render('pages/avaliacao');
 });
-router.get('/planos', function(req, res) {
+router.get('/planos', function (req, res) {
   res.render('pages/planos');
 });
-router.get('/cadastro', function(req, res) {
+router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');
 });
-router.get('/seus-servicos', function(req, res) {
+router.get('/seus-servicos', function (req, res) {
   res.render('pages/servicos');
 });
 // router.get('/seus-produtos', function(req, res) {
 //   res.render('pages/produtos');
 // });
-router.get('/add-produto', function(req, res) {
+router.get('/add-produto', function (req, res) {
   res.render('pages/add_produto');
 });
-router.get('/dashboard', function(req, res) {
+router.get('/dashboard', function (req, res) {
   if (req.session.autenticado == true && req.session.usu_tipo == 2) {
     autenticado = { autenticado: req.session.usu_autenticado };
     res.render("pages/adm", autenticado);
@@ -100,18 +104,6 @@ router.get('/dashboard', function(req, res) {
     res.send('Área restrita')
   }
 });
-
-// router.get('/produtos', async function(req, res) {
-//   try {
-//     results = await produtosDAO.getProdutos(); 
-//     res.render('pages/todos_produtos')
-//   } catch(e) {
-
-//       console.log(e);
-//       res.status(500).send('Something broke!')
-
-//   }
-// });
 
 
 
@@ -134,66 +126,65 @@ router.get('/dashboard', function(req, res) {
 //   }
 // })
 
-const armazenamentoMemoria2 = multer.memoryStorage()
-//adiciona este espaço ao método de upload
-const upload2 = multer({ 
-  storage: armazenamentoMemoria2,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-} })
+router.post('/cad_visitante', upload.single('add-img-v'), async (req, res) => {
 
-router.post('/cad_visitante', upload2.single('add-img-v'), async (req, res) => {
+  let fileContent;
 
-  let fileContent = req.file.buffer.toString('base64');
+  if (!req.file) {
+    fileContent = null;
+  } else {
+    fileContent = req.file.buffer.toString('base64');
+  }
+
+  let celular_visitante = req.body.celular_visitante
+  let phone = celular_visitante.replace('(', '').replace(')', '').replace('-', '')
+  // console.log(phone)
 
   var dadosForm = {
     nome: req.body.nome_visitante,
-    e_mail_vist: req.body.email_visitante,
-    telefone_visitante: req.body.celular_visitante,
+    email_visit: req.body.email_visitante,
+    telefone_visitante: phone,
     senha: await bcrypt.hash(req.body.senha_visitante, 10),
     foto: fileContent,
     tipo_usuario: '1'
   };
 
   try {
-    results = await cadastroDAO.CadVisitante(dadosForm); 
+    results = await cadastroDAO.CadVisitante(dadosForm);
     res.redirect('/login')
-  } catch(e) {
+  } catch (e) {
 
-      console.log(e);
-      res.status(500).send('Something broke!')
+    console.log(e);
+    res.status(500).send('Something broke!')
 
   }
 });
 
 
-const armazenamentoMemoria = multer.memoryStorage()
-//adiciona este espaço ao método de upload
-const upload = multer({ 
-  storage: armazenamentoMemoria,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-} })
 
 router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
 
-  let fileContent = req.file.buffer.toString('base64');
+  let fileContent;
+
+  if (!req.file) {
+    fileContent = null;
+  } else {
+    fileContent = req.file.buffer.toString('base64');
+  }
+
+  let telefone_proprietario = req.body.telefone_proprietario
+  let phone = telefone_proprietario.replace('(', '').replace(')', '').replace('-', '')
+  // console.log(phone)
+
+  let cpf = req.body.cpf
+  let cpfBD = cpf.replace('.', '').replace('.', '').replace('-', '')
+  console.log(cpfBD)
 
   var dadosForm = {
     nome_proprietario: req.body.nome_proprietario,
-    e_mail_pop: req.body.email_prop,
-    cpf: req.body.cpf,
-    telefone: req.body.telefone_proprietario,
+    email_prop: req.body.email_prop,
+    cpf: cpfBD,
+    telefone: phone,
     senha: await bcrypt.hash(req.body.senha_prop, 10),
     foto: fileContent,
     tipo_usuario: '2',
@@ -201,12 +192,12 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
   };
 
   try {
-    results = await cadastroDAO.CadProprietario(dadosForm); 
+    results = await cadastroDAO.CadProprietario(dadosForm);
     res.redirect('/login')
-  } catch(e) {
+  } catch (e) {
 
-      console.log(e);
-      res.status(500).send('Something broke!')
+    console.log(e);
+    res.status(500).send('Something broke!')
 
   }
 });

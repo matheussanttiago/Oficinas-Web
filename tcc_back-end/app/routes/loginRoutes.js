@@ -34,7 +34,7 @@ router.post(
     };
 
     var result = conexao.query(
-      "SELECT e_mail_pop, senha, tipo_usuario FROM proprietario WHERE e_mail_pop = ? UNION SELECT e_mail_vist, senha, tipo_usuario FROM visitante WHERE e_mail_vist = ?",
+      "SELECT email_prop, senha, tipo_usuario FROM proprietario WHERE email_prop = ? UNION SELECT email_visit, senha, tipo_usuario FROM visitante WHERE email_visit = ?",
       [dadosForm.email, dadosForm.email],
       function (error, results, fields) {
         if (error) throw error;

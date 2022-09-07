@@ -4,6 +4,7 @@ var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
 
+var upload = require('../../models/upload')
 
 const DbConnection = require('../../../config/DbConnection');
 var conexao = DbConnection();
@@ -26,21 +27,7 @@ router.get('/seus-servicos', function (req, res) {
 });
 
 
-//cria ume espaço de armazenamento em memória
-const armazenamentoMemoria = multer.memoryStorage()
-//adiciona este espaço ao método de upload
-const upload = multer({
-  storage: armazenamentoMemoria,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-  }
-})
-
+// CADASTRO DE PRODUTO (TIPO 1)
 router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
   // if (!req.file) {
   //   console.log("Falha no carregamento");
@@ -49,9 +36,13 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
   for (let i = 0; i < req.files.length; i++) {
     content[i] = req.files[i].buffer.toString('base64');
   }
+
+  let valor = req.body.valor_produto;
+  let valorBD = valor.replace('.', '').replace(',', '.');
+
   var dadosForm = {
     nome_produto: req.body.nome_produto,
-    valor_produto: req.body.valor_produto,
+    valor_produto: valorBD,
     caracteristicas: req.body.carac_produtos,
     descricao_prod: req.body.desc_produtos,
     tipo_do_produto: '1',
@@ -76,30 +67,20 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
 });
 
 
+// CADASTRO DE SERVIÇO (TIPO 2)
+router.post('/cad_servico', upload.array('add-img'), async (req, res) => {
 
-//cria ume espaço de armazenamento em memória
-const armazenamentoMemoria2 = multer.memoryStorage()
-//adiciona este espaço ao método de upload
-const upload2 = multer({ 
-  storage: armazenamentoMemoria2,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-} })
-
-router.post('/cad_servico', upload2.array('add-img'), async (req, res) => {
   let content = [null, null, null, null, null, null]
   for (let i = 0; i < req.files.length; i++) {
     content[i] = req.files[i].buffer.toString('base64');
   }
 
+  let valor = req.body.valor_produto;
+  let valorBD = valor.replace('.', '').replace(',', '.');
+
   var dadosForm = {
     nome_produto: req.body.nome_produto,
-    valor_produto: req.body.valor_produto,
+    valor_produto: valorBD,
     caracteristicas: req.body.carac_produtos,
     descricao_prod: req.body.desc_produtos,
     tipo_do_produto: '2',
