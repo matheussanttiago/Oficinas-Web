@@ -30,10 +30,21 @@
     <script src="js/script_cadastro.js"></script>
     <script src="js/mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#finish-j').click(function () {
+                $('.pop-up').css('display', 'flex');
+                $('#modal').show();
+            })
+        })
+    </script>
+
 </head>
 
 <body>
     <div id="container">
+        <div id="modal"></div>
         <header id="normal_header">
             <div id="fixed">
                 <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
@@ -162,12 +173,22 @@
                                 Privacidade
                             </a></p>
                     </div>
-                    <button class="btn default_btn" type="submit"> <span>Continuar</span> </button>
+                    <button class="btn default_btn" type="submit" id="finish-j"> <span>Continuar</span> </button>
                 </form>
     
                     <div class="cadastro">
                         <span> Já possui uma conta? <a href="login"> Entre </a></span>
                     </div>
+                </div>
+
+                <div class="pop-up">
+                    <img src="img/img_pop-up.svg" alt="">
+                    <h3>Concluido!</h3>
+
+                    <p>Deseja criar o perfil da sua oficina?</p>
+
+                    <button class="primeira-opcao-btn"><a href="/add-oficina">Criar Oficina</a></button>
+                    <button class="segunda-opcao-btn"><a href="/">Depois</a></button>
                 </div>
             </section>
         </main>

@@ -104,6 +104,14 @@ main{
     font-size: 16px;
     align-self: center;
     color: #727272;
+
+    display: -webkit-box;
+    max-width: 400px;
+    /* height: 100%; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #foto-servico{
     grid-column: 1;

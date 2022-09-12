@@ -20,7 +20,10 @@ const home = require('./app/routes/router');
 const login = require('./app/routes/loginRoutes');
 const produtos = require('./app/routes/routerProdutos');
 const anuncios = require('./app/routes/proprietario/routerAnuncios');
-const oficinas = require('./app/routes/proprietario/routerOficina');
+const oficinasProp = require('./app/routes/proprietario/routerOficina');
+
+const oficinas = require('./app/routes/routerOficinas');
+
 // const cadastro = require('./app/routes/router');
 
 
@@ -51,6 +54,7 @@ app.use(session({
 app.use('/login', login);
 app.use(produtos);
 app.use(anuncios);
+app.use(oficinasProp);
 app.use(oficinas);
 app.use('/', home);
 

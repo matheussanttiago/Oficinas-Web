@@ -1,4 +1,4 @@
-module.exports = class TarefasDAO{
+module.exports = class ProdutosDAO{
  
     constructor(conexao) {
         this.conexao = conexao;
@@ -25,5 +25,27 @@ module.exports = class TarefasDAO{
             });
         });
     };
+
+    getServicos = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '2'`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    // getAllProdutos = ()=>{
+    //     return new Promise((resolve, reject)=>{
+    //         this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '2'`, (error, elements)=>{
+    //             if(error){
+    //                 return reject(error);
+    //             }
+    //             return resolve(elements);
+    //         });
+    //     });
+    // };
 
 }

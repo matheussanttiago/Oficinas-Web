@@ -1,4 +1,4 @@
-module.exports = class TarefasDAO{
+module.exports = class CadastroDAO{
  
     constructor(conexao) {
         this.conexao = conexao;

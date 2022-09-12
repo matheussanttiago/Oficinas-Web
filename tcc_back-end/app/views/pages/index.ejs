@@ -60,116 +60,30 @@
                 </div>
             </div>
             <div id="carrossel">
-                <!-- <a href="./oficina.html" class="carousel"> -->
-                    <div class="carrossel_oficinas">
-                        <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
-                        <div class="modal_oficina"></div>
-                        <div class="carrossel_infos">
-                            <span class="nome_oficina">Oficina do Seu Zé</span>
-                            <span class="local_oficina">Belval - Barueri</span>
-                            <ul class="avaliacao_oficinas">
-                                <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                        src="img/star_oficina_icon.svg" alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                        alt=""></li>
-                            </ul>
+                <% for (let i = 0; i < oficinas.length; i++) { %>
+                    <a href="./oficina.html" class="carousel">
+                        <div class="carrossel_oficinas">
+                            <img src="img/oficinas/hight_power.jpg" alt="imagem da oficina" class="img_ofc">
+                            <div class="modal_oficina"></div>
+                            <div class="carrossel_infos">
+                                <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
+                                <span class="local_oficina">Belval - Barueri</span>
+                                <ul class="avaliacao_oficinas">
+                                    <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
+                                            src="img/star_oficina_icon.svg" alt=""></li>
+                                    <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
+                                            alt=""></li>
+                                    <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
+                                            alt=""></li>
+                                    <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
+                                            alt=""></li>
+                                    <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
+                                            alt=""></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                <!-- </a> -->
-                <a href="./oficina.html" class="carousel">
-                    <div class="carrossel_oficinas">
-                        <img src="img/oficinas/hight_power.jpg" alt="imagem da oficina" class="img_ofc">
-                        <div class="modal_oficina"></div>
-                        <div class="carrossel_infos">
-                            <span class="nome_oficina">Oficina do Seu Zé</span>
-                            <span class="local_oficina">Belval - Barueri</span>
-                            <ul class="avaliacao_oficinas">
-                                <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                        src="img/star_oficina_icon.svg" alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                        alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-                <a href="./oficina.html" class="carousel">
-                    <div class="carrossel_oficinas">
-                        <img src="img/oficinas/ls_customs.jpg" alt="imagem da oficina" class="img_ofc">
-                        <div class="modal_oficina"></div>
-                        <div class="carrossel_infos">
-                            <span class="nome_oficina">Oficina do Seu Zé</span>
-                            <span class="local_oficina">Belval - Barueri</span>
-                            <ul class="avaliacao_oficinas">
-                                <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                        src="img/star_oficina_icon.svg" alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                        alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-                <a href="./oficina.html" class="carousel">
-                    <div class="carrossel_oficinas">
-                        <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
-                        <div class="modal_oficina"></div>
-                        <div class="carrossel_infos">
-                            <span class="nome_oficina">Oficina do Seu Zé</span>
-                            <span class="local_oficina">Belval - Barueri</span>
-                            <ul class="avaliacao_oficinas">
-                                <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                        src="img/star_oficina_icon.svg" alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                        alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-                <a href="./oficina.html" class="carousel">
-                    <div class="carrossel_oficinas">
-                        <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
-                        <div class="modal_oficina"></div>
-                        <div class="carrossel_infos">
-                            <span class="nome_oficina">Oficina do Seu Zé</span>
-                            <span class="local_oficina">Belval - Barueri</span>
-                            <ul class="avaliacao_oficinas">
-                                <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                        src="img/star_oficina_icon.svg" alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                        alt=""></li>
-                                <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                        alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <% } %>
             </div>
         </section>
 
@@ -722,7 +636,7 @@
                     </div>
                 </div>
             </div>
-            <button class="shadow_btn" id="cta_oficinas"><a href="./todas_oficinas.html">Ver mais oficinas</a></button>
+            <button class="shadow_btn" id="cta_oficinas"><a href="/oficinas">Ver mais oficinas</a></button>
         </section>
 
         <hr>
@@ -734,43 +648,22 @@
                     <span class="legenda"> Melhores avaliados </span>
                 </div>
 
-                <button class="shadow_btn"><a href="./todos_servicos.html">Ver mais</a></button>
+                <button class="shadow_btn"><a href="/servicos">Ver mais</a></button>
             </div>
             <div id="box_servicos">
-                <a href="./todos_servicos.html">
-                    <div class="melhores-servicos">
-                        <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                        <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                        <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.
-                        </p>
-                        <button class="preco_servico default_btn">R$50,00</button>
-                        <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                    </div>
-                </a>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                </div>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                </div>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                </div>
+                <% for(let i = 0;i < servicos.length; i++) { %>
+                    <a href="./todos_servicos.html">
+                        <div class="melhores-servicos">
+                            <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                            <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
+                            <p class="desc_servico" id="desc_servico">
+                                <%= servicos[i].descricao_prod %>
+                            </p>
+                            <button class="preco_servico default_btn">R$<%= servicos[i].valor_produto %> </button>
+                            <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                        </div>
+                    </a>
+                <% } %>
             </div>
         </section>
 
@@ -783,7 +676,7 @@
                     <span class="legenda"> Mais vendidos </span>
                 </div>
 
-                <button class="shadow_btn"><a href="./produtos">Ver mais</a></button>
+                <button class="shadow_btn"><a href="/produtos">Ver mais</a></button>
             </div>
             <div id="modal_destaques">
                 <div class="produtos_destaque">

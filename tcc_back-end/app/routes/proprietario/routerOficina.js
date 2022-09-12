@@ -36,8 +36,8 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
   } else {
     filePerfil = req.files['add-img-pp'][0].buffer.toString('base64');
   }
-  console.log(req.files['add-img-pp'])
-  console.log(req.files['add_img'])
+  // console.log(req.files['add-img-pp'])
+  // console.log(req.files['add_img'])
 
   let cnpj = req.body.cnpj_oficina;
   let cnpjBD = cnpj.replace('.', '').replace('.', '').replace('/', '').replace('-', '');

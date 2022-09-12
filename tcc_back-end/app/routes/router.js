@@ -70,8 +70,10 @@ oficinasDAO = new OficinasDAO(conexao);
 router.get('/', async function (req, res) {
   try {
     allProdutos = await produtosDAO.getProdutos();
+    allServicos = await produtosDAO.getServicos();
     allOficinas = await oficinasDAO.getOficinas();
-    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos });
+
+    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos });
   } catch (e) {
     console.log(e);
     res.status(500).send('Something broke!');
@@ -83,6 +85,9 @@ router.get('/avaliacao', function (req, res) {
 });
 router.get('/planos', function (req, res) {
   res.render('pages/planos');
+});
+router.get('/pagamento', function (req, res) {
+  res.render('pages/forma_pagamento');
 });
 router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');
@@ -193,7 +198,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
 
   try {
     results = await cadastroDAO.CadProprietario(dadosForm);
-    res.redirect('/login')
+    // res.redirect('/login')
   } catch (e) {
 
     console.log(e);

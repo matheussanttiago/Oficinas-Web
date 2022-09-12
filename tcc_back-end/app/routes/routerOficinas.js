@@ -18,22 +18,10 @@ var OficinasDAO = require("../models/oficinasDAO");
 oficinasDAO = new OficinasDAO(conexao);
 
 
-router.get('/produtos', async function(req, res) {
+router.get('/oficinas', async function(req, res) {
   try {
-    results = await produtosDAO.getProdutos(); 
-    res.render('pages/todos_produtos', {produtos: results})
-  } catch(e) {
-
-      console.log(e);
-      res.status(500).send('Something broke!')
-
-  }
-});
-
-router.get('/servicos', async function(req, res) {
-  try {
-    results = await produtosDAO.getServicos(); 
-    res.render('pages/todos_servicos', {servicos: results})
+    results = await oficinasDAO.getOficinas(); 
+    res.render('pages/todas_oficinas', {oficinas: results})
   } catch(e) {
 
       console.log(e);
