@@ -371,6 +371,10 @@ hr{
 /* .produto{
     width: 170px;
 } */
+.img-prod{
+    width: 152px;
+    height: 152px
+}
 .produtos_destaque img{
     border-radius: 12px;
 }
