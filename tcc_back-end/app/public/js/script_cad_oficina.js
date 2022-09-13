@@ -117,7 +117,7 @@ $("#add-img").on("change", function () {
 
 // SCRIPT PARA PREVIEW DA FOTO DE PERFIL
 let espaco_foto = document.getElementById('foto_padrao_perfil')
-let input_foto_perfil = document.getElementById('add-img-p')
+let input_foto_perfil = document.getElementById('add-img-pp')
 // let teste = document.getElementById('teste')
 espaco_foto.addEventListener('click', function () {
     input_foto_perfil.click()
