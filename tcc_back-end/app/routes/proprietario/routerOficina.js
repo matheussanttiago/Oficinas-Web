@@ -55,6 +55,7 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
   // console.log(teste)
 
   var dadosForm = {
+    id_prop: req.session.id_prop,
     cnpj_oficina: cnpjBD,
     email_oficina: req.body.email_oficina,
     nome_oficina: req.body.nome_oficina,
@@ -66,7 +67,6 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
     descricao_ofc: req.body.desc_oficina,
     instagram: req.body.link_insta,
     facebook: req.body.link_face,
-    area_atuacao: req.body.area_atuacao,
     foto_perfil_ofc: filePerfil,
     foto1: content[0],
     foto2: content[1],

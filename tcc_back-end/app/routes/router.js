@@ -192,12 +192,18 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     telefone: phone,
     senha: await bcrypt.hash(req.body.senha_prop, 10),
     foto: fileContent,
-    tipo_usuario: '2',
-    cnpj_oficina: null
+    tipo_usuario: '2'
   };
 
   try {
     results = await cadastroDAO.CadProprietario(dadosForm);
+
+    req.session.autenticado = true;
+    dadosProp = cpfBD;
+    id = await cadastroDAO.GetId(dadosProp);
+    req.session.id_prop = id[0].id_prop;
+    res.locals.teste = req.session.id_prop
+    console.log(req.session)
     // res.redirect('/login')
   } catch (e) {
 

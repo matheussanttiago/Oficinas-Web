@@ -20,12 +20,12 @@ var conexao = DbConnection();
 //   failureRedirect: '/login?fail=true'
 // }));
 
-router.get("/", function (req, res) {
+router.get("/login", function (req, res) {
   res.render("pages/login");
 });
 
 router.post(
-  "/",
+  "/login",
 
   function (req, res) {
     var dadosForm = {

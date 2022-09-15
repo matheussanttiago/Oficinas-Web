@@ -6,6 +6,7 @@ const port = 3000;
 
 const passport = require('passport');
 const session = require('express-session');
+const store = new session.MemoryStore();
 // require('./auth')(passport);
 
 
@@ -16,13 +17,6 @@ const session = require('express-session');
 
 // };
 
-const home = require('./app/routes/router');
-const login = require('./app/routes/loginRoutes');
-const produtos = require('./app/routes/routerProdutos');
-const anuncios = require('./app/routes/proprietario/routerAnuncios');
-const oficinasProp = require('./app/routes/proprietario/routerOficina');
-
-const oficinas = require('./app/routes/routerOficinas');
 
 // const cadastro = require('./app/routes/router');
 
@@ -42,7 +36,8 @@ app.use(session({
     secret: '123',
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 2 * 60 * 1000} // 2min
+    cookie: {maxAge: 2 * 60 * 1000}, // 2min
+    store
   }));
 
   // app.use(passport.initialize())
@@ -50,8 +45,15 @@ app.use(session({
 
 // fim
 
+const home = require('./app/routes/router');
+const login = require('./app/routes/loginRoutes');
+const produtos = require('./app/routes/routerProdutos');
+const anuncios = require('./app/routes/proprietario/routerAnuncios');
+const oficinasProp = require('./app/routes/proprietario/routerOficina');
 
-app.use('/login', login);
+const oficinas = require('./app/routes/routerOficinas');
+
+app.use(login);
 app.use(produtos);
 app.use(anuncios);
 app.use(oficinasProp);
