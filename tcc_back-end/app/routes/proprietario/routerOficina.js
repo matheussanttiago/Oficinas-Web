@@ -21,6 +21,7 @@ oficinasDAO = new OficinasDAO(conexao);
 
 router.get('/add-oficina', function (req, res) {
   res.render('pages/criar_oficinas');
+  console.log(req.session)
 });
 
 
@@ -78,7 +79,9 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 
   try {
     results = await oficinasDAO.CadOficina(dadosForm); 
-    // res.redirect('/')
+
+    req.session.cnpj = cnpjBD;
+    res.redirect('/planos');
   } catch(e) {
 
       console.log(e);
@@ -86,5 +89,36 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 
   }
 });
+
+
+router.post('/prata', async (req, res) => {
+  try {
+    cnpjBD = req.session.cnpj;
+    results = await oficinasDAO.CadPlanoPrata(cnpjBD); 
+    res.redirect('/pagamento');
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+router.post('/ouro', async (req, res) => {
+  try {
+    cnpjBD = req.session.cnpj;
+    results = await oficinasDAO.CadPlanoPrata(cnpjBD); 
+    res.redirect('/pagamento');
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+router.post('/dima', async (req, res) => {
+  try {
+    cnpjBD = req.session.cnpj;
+    results = await oficinasDAO.CadPlanoPrata(cnpjBD); 
+    res.redirect('/pagamento');
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 module.exports = router;
