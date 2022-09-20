@@ -21,6 +21,7 @@ oficinasDAO = new OficinasDAO(conexao);
 
 router.get('/add-oficina', function (req, res) {
   res.render('pages/criar_oficinas');
+  console.log(req.session)
 });
 
 
