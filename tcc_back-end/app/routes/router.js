@@ -85,11 +85,13 @@ router.get('/', async function (req, res) {
     email = req.session.usu_autenticado;
     nome = req.session.usu_nome;
 
-    fotoBD = req.session.usu_foto;
-    if(fotoBD != undefined){
-      var buff = Buffer.from(fotoBD).toString("base64")
+    let buff = req.session.usu_foto
+    // console.log(buff)
+    if(buff != undefined){
+      buff = req.session.usu_foto.data.toString();
+      // buff = Buffer.from(buff).toString("base64")
       // var foto = buff.buffer.toString('base64');
-      // console.log(buff)
+      console.log(buff)
     }
 
     res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff });
@@ -231,7 +233,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
     console.log(req.session)
-    res.redirect('/add-oficina')
+    // res.redirect('/add-oficina')
   } catch (e) {
 
     console.log(e);
