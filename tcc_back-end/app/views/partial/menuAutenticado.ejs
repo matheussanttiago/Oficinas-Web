@@ -1,0 +1,79 @@
+<div id="modal_box">
+
+    <div id="dados_usuario">
+        <div class="foto">
+            <div id="inputs_foto">
+                <div class="circle_foto">
+                    <img src="data:image/gif;base64,<%= buff %>" alt="" id="foto_padrao">
+                </div>
+                <!-- <div id="foto"></div> -->
+                <label for="add-img" id="addinput-p"><img src="img/add-foto.svg" alt="logo"></label>
+                <input type="file" name="add-img" id="add-img-p">
+            </div>
+        </div>
+        <h3 class="nome_usuario"><%= nome %></h3>
+        <span class="email_usuario"><%= email %></span>
+    </div>
+
+    <!-- <hr> -->
+
+    <div id="opcoes">
+        <a href="./editar_perfil.html">
+            <div id="editar-perfil" class="opcao">
+                <img src="img/user_icon_branco.svg" alt="">
+                <span>Editar Perfil</span>
+            </div>
+        </a>
+        <a href="./historico.html">
+            <div id="historico" class="opcao">
+                <img src="img/file_icon_branco.svg" alt="">
+                <span>Historico</span>
+            </div>
+        </a>
+        <a href="./favoritos.html">
+            <div id="favoritos" class="opcao">
+                <img src="img/favorito_icon_branco.svg" alt="">
+                <span>Favoritos</span>
+            </div>
+        </a>
+        <a href="./notificacoes.html">
+            <div id="notificacoes" class="opcao">
+                <img src="img/notificacao_icon.svg" alt="">
+                <span>Notificações</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- <hr> -->
+
+    <div id="suas_oficinas">
+        <div id="opcao_suas-oficinas" class="opcao">
+            <img src="img/config_icon.svg" alt="">
+            <span>Suas Oficinas</span>
+        </div>
+        <a href="./oficina.html">
+            <div class="oficina opcao">
+                <div id="foto_oficina_menu"></div>
+                <span>Oficina do Tião</span>
+                <span class="tipo_plano" id="plano_ouro">ouro</span>
+            </div>
+        </a>
+        <div class="oficina opcao">
+            <div id="foto_oficina_menu"></div>
+            <span>Los Santos Customs</span>
+            <span class="tipo_plano" id="plano_prata">Prata</span>
+        </div>
+    </div>
+
+    <!-- <hr> -->
+
+    <div id="logout">
+        <div id="opcao-logout" class="opcao">
+            <img src="img/user_icon_laranja.svg" alt="">
+            <span><a href="/logout">Sair</a></span>
+        </div>
+    </div>
+
+</div>
+
+</div>

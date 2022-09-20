@@ -222,7 +222,7 @@
                 <% for(let i = 0; i < oficinas.length; i++) { %>
                     <div class="box_produto">
                         <div class="content">
-                            <img class="produto" src="img/oficinas/ls_customs.jpg" alt="">
+                            <img class="produto" src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="">
                             <div class="infos_produto">
                                 <h4 class="tinta"><%= oficinas[i].nome_oficina %></h4>
                                 <h3 class="desc_oficina"><%= oficinas[i].area_atuacao %></h3>

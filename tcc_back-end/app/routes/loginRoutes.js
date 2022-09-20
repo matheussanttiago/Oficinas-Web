@@ -34,17 +34,19 @@ router.post(
     };
 
     var result = conexao.query(
-      "SELECT email_prop, senha, tipo_usuario FROM proprietario WHERE email_prop = ? UNION SELECT email_visit, senha, tipo_usuario FROM visitante WHERE email_visit = ?",
+      "SELECT email_prop, foto, senha, tipo_usuario, nome_proprietario FROM proprietario WHERE email_prop = ? UNION SELECT email_visit, foto, senha, tipo_usuario, nome FROM visitante WHERE email_visit = ?",
       [dadosForm.email, dadosForm.email],
       function (error, results, fields) {
         if (error) throw error;
         var total = Object.keys(results).length;
-        
+
         if (total == 1) {
           if (bcrypt.compareSync(dadosForm.senha,results[0].senha)) {
             req.session.autenticado = true;
-            req.session.usu_autenticado = results[0].email;
+            req.session.usu_autenticado = results[0].email_prop;
             req.session.usu_tipo = results[0].tipo_usuario;
+            req.session.usu_nome = results[0].nome_proprietario;
+            req.session.usu_foto = results[0].foto;
           }
           if (req.session.autenticado == true && req.session.usu_tipo == '2') {
             autenticado = { autenticado: req.session.usu_autenticado };

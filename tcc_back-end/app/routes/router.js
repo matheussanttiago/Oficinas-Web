@@ -5,6 +5,12 @@ const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const expressValidator = require('express-validator')
 
+
+// const querystring = require("querystring");
+// const { Curl } = require("node-libcurl");
+// const curl = new Curl();
+
+// const terminate = curl.close.bind(curl);
 // router.use(expressValidator())
 
 var upload = require('../models/upload')
@@ -73,11 +79,25 @@ router.get('/', async function (req, res) {
     allServicos = await produtosDAO.getServicos();
     allOficinas = await oficinasDAO.getOficinas();
 
-    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos });
-  } catch (e) {
-    console.log(e);
-    res.status(500).send('Something broke!');
-  }
+    console.log(req.session);
+
+    autenticado = req.session.autenticado;
+    email = req.session.usu_autenticado;
+    nome = req.session.usu_nome;
+
+    fotoBD = req.session.usu_foto;
+    if(fotoBD != undefined){
+      var buff = Buffer.from(fotoBD).toString("base64")
+      // var foto = buff.buffer.toString('base64');
+      // console.log(buff)
+    }
+
+    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff });
+
+} catch (e) {
+  console.log(e);
+  res.status(500).send('Something broke!');
+}
 });
 
 router.get('/avaliacao', function (req, res) {
@@ -89,6 +109,14 @@ router.get('/planos', function (req, res) {
 router.get('/pagamento', function (req, res) {
   res.render('pages/forma_pagamento');
 });
+
+router.get('/oficina/:cnpj_oficina', async function (req, res) {
+  var cnpjBD = req.params;
+  console.log(cnpjBD)
+  var dadosOficina = await oficinasDAO.getOneOficina(cnpjBD.cnpj_oficina);
+  console.log(dadosOficina)
+  res.render('pages/oficina', {oficina: dadosOficina});
+})
 router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');
 });
@@ -202,9 +230,8 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     dadosProp = cpfBD;
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
-    res.locals.teste = req.session.id_prop
     console.log(req.session)
-    // res.redirect('/login')
+    res.redirect('/add-oficina')
   } catch (e) {
 
     console.log(e);
@@ -212,5 +239,6 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
 
   }
 });
+
 
 module.exports = router;

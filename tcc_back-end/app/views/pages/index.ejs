@@ -10,10 +10,10 @@
 
     <!-- LINKS CSS -->
     <!-- <link rel="stylesheet" href="css/styleavaliacao.css"> -->
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styleHome.css">
-    <link rel="stylesheet" href="css/styleServicos.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styleHome.css">
+    <link rel="stylesheet" href="/css/styleServicos.css">
     <!-- CDN SLICK (CSS) -->
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
@@ -61,9 +61,9 @@
             </div>
             <div id="carrossel">
                 <% for (let i = 0; i < oficinas.length; i++) { %>
-                    <a href="./oficina.html" class="carousel">
+                    <a href='oficina/<%=oficinas[i].cnpj_oficina%>' class="carousel">
                         <div class="carrossel_oficinas">
-                            <img src="img/oficinas/hight_power.jpg" alt="imagem da oficina" class="img_ofc">
+                            <img src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="imagem da oficina" class="img_ofc">
                             <div class="modal_oficina"></div>
                             <div class="carrossel_infos">
                                 <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
@@ -647,6 +647,7 @@
                     <h1 class="titulo"> Serviços </h1>
                     <span class="legenda"> Melhores avaliados </span>
                 </div>
+                <img src="data:image/gif;base64,<%= buff %>" alt="" >
 
                 <button class="shadow_btn"><a href="/servicos">Ver mais</a></button>
             </div>
@@ -654,7 +655,7 @@
                 <% for(let i = 0;i < servicos.length; i++) { %>
                     <a href="./todos_servicos.html">
                         <div class="melhores-servicos">
-                            <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                            <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
                             <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
                             <p class="desc_servico" id="desc_servico">
                                 <%= servicos[i].descricao_prod %>

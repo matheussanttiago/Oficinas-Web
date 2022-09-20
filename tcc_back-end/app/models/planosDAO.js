@@ -1,12 +1,12 @@
-module.exports = class OficinasDAO{
+module.exports = class PlanosDAO{
  
     constructor(conexao) {
         this.conexao = conexao;
     }
     
-    CadOficina = (dadosForm)=>{
+    CadPlanoPrata = (cnpjBD)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`insert into oficina SET ?`, dadosForm,  (error, elements)=>{
+            this.conexao.query(`UPDATE oficina SET id_planos = '1' WHERE cnpj_oficina = '${cnpjBD}'`,  (error, elements)=>{
                 if(error){
                     return reject(error);
                 }
@@ -15,9 +15,9 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOficinas = ()=>{
+    CadPlanoOuro = (cnpjBD)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina`, (error, elements)=>{
+            this.conexao.query(`UPDATE oficina SET id_planos = '2' WHERE cnpj_oficina = '${cnpjBD}'`,  (error, elements)=>{
                 if(error){
                     return reject(error);
                 }
@@ -26,9 +26,9 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOneOficina = (cnpjBD)=>{
+    CadPlanoDima = (cnpjBD)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpjBD}'`,  (error, elements)=>{
+            this.conexao.query(`UPDATE oficina SET id_planos = '3' WHERE cnpj_oficina = '${cnpjBD}'`,  (error, elements)=>{
                 if(error){
                     return reject(error);
                 }
