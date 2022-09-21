@@ -209,7 +209,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
 
   let telefone_proprietario = req.body.telefone_proprietario
   let phone = telefone_proprietario.replace('(', '').replace(')', '').replace('-', '')
-  // console.log(phone)
+  console.log(phone)
 
   let cpf = req.body.cpf
   let cpfBD = cpf.replace('.', '').replace('.', '').replace('-', '')
@@ -240,6 +240,8 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     res.status(500).send('Something broke!')
 
   }
+  
+  // console.log(req.body.nome2)
 });
 
 
