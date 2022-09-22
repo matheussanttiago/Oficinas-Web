@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
     $("#finish-j").click(function() {
-        $(window).attr('location','https://tutorialdeep.com/knowhow/get-current-page-url-jquery/');
         $.ajax({
             type: "POST",
             url: "/cad_juridica",
@@ -9,9 +8,7 @@ $(document).ready(function() {
                 'nome_proprietario': $("#nome_proprietario").val(),
                 'telefone_proprietario': $('#celular')
             },
-            success:function(res){
-                res.redirect('/')
-            }
+            success: window.location.href = 'http://localhost:3000'
         });
     });
 

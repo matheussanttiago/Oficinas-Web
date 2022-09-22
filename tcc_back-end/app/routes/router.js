@@ -94,7 +94,25 @@ router.get('/', async function (req, res) {
       console.log(buff)
     }
 
-    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff });
+    let Correios = require('node-correios');
+let correios = new Correios();
+ let bairro
+ let cidade
+for(let i = 0; i < allOficinas.length; i++){
+correios.consultaCEP({ cep: allOficinas[i].cep })
+.then(result => {
+  console.log(result.bairro);
+  bairro = result.bairro
+  cidade = result.localidade
+})
+.catch(error => {
+  console.log(error)
+});
+}
+res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, bairro, cidade });
+
+// console.log(bairro)
+    
 
 } catch (e) {
   console.log(e);
@@ -112,10 +130,10 @@ router.get('/pagamento', function (req, res) {
   res.render('pages/forma_pagamento');
 });
 
-router.get('/oficina/:cnpj_oficina', async function (req, res) {
-  var cnpjBD = req.params;
-  console.log(cnpjBD)
-  var dadosOficina = await oficinasDAO.getOneOficina(cnpjBD.cnpj_oficina);
+router.get('/oficina/:nome_tela', async function (req, res) {
+  var nomeTela = req.params;
+  console.log(nomeTela)
+  var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
   console.log(dadosOficina)
   res.render('pages/oficina', {oficina: dadosOficina});
 })

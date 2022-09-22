@@ -61,13 +61,13 @@
             </div>
             <div id="carrossel">
                 <% for (let i = 0; i < oficinas.length; i++) { %>
-                    <a href='oficina/<%=oficinas[i].cnpj_oficina%>' class="carousel">
+                    <a href='oficina/<%=oficinas[i].nome_tela%>' class="carousel">
                         <div class="carrossel_oficinas">
                             <img src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="imagem da oficina" class="img_ofc">
                             <div class="modal_oficina"></div>
                             <div class="carrossel_infos">
                                 <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
-                                <span class="local_oficina">Belval - Barueri</span>
+                                <span class="local_oficina"><%= bairro %> - <%= cidade %></span>
                                 <ul class="avaliacao_oficinas">
                                     <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
                                             src="img/star_oficina_icon.svg" alt=""></li>

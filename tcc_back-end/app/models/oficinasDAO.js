@@ -26,9 +26,9 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOneOficina = (cnpjBD)=>{
+    getOneOficina = (nomeTela)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpjBD}'`,  (error, elements)=>{
+            this.conexao.query(`SELECT * FROM oficina WHERE nome_tela = '${nomeTela}'`,  (error, elements)=>{
                 if(error){
                     return reject(error);
                 }

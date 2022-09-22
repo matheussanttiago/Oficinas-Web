@@ -60,6 +60,7 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
     cnpj_oficina: cnpjBD,
     email_oficina: req.body.email_oficina,
     nome_oficina: req.body.nome_oficina,
+    nome_tela: req.body.nome_tela,
     cep: cepBD,
     numero_ofc: req.body.num_oficina,
     telefone: telefoneBD,
