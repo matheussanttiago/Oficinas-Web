@@ -647,8 +647,6 @@
                     <h1 class="titulo"> Serviços </h1>
                     <span class="legenda"> Melhores avaliados </span>
                 </div>
-                <img src="data:image/gif;base64,<%= buff %>" alt="" >
-
                 <button class="shadow_btn"><a href="/servicos">Ver mais</a></button>
             </div>
             <div id="box_servicos">
@@ -682,7 +680,7 @@
             <div id="modal_destaques">
                 <div class="produtos_destaque">
                     <% for(let i = 0; i < produtos.length; i++) {%>
-                        <a href="./produtos.ejs">
+                        <a href="produto/<%=produtos[i].id_produto%>">
                             <div class="produto">
                                 <div class="content_produtos">
                                     <img src="data:image/gif;base64,<%= produtos[i].foto1 %>" alt="" class="img-prod">

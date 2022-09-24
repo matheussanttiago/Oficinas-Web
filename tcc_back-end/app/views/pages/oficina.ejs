@@ -31,9 +31,9 @@
     <!-- FONT AWESOME PARA ÍCONES -->
     <script src="https://kit.fontawesome.com/84b2985f50.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/script_oficina.js"></script>
-    <script src="js/script_menu.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="/js/script_oficina.js"></script>
+    <script src="/js/script_menu.js"></script>
+    <script src="/js/carousel.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
@@ -43,181 +43,7 @@
 <body>
     <div id="modal"></div>
 
-    <header id="header_pesquisa">
-        <div id="fixed">
-            <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
-
-            <div id="container-pesquisa" class="container_fixed">
-                <div id="pesquisa">
-                    <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
-                    <input type="search" name="barra-pesquisa" id="barra-pesquisa" placeholder="Estou buscando...">
-                    <div id="filtro-s" class="filtro-s filtro"><img src="img/filtro-icon.svg" alt=""></div>
-                </div>
-            </div>
-
-            <div id="menu_hamburger">
-                <nav>
-                    <div id="painel_menu">
-                        <input type="checkbox" name="" id="check_menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </nav>
-            </div>
-
-            <div id="modal_box">
-
-                <div id="dados_usuario">
-                    <div class="foto">
-                        <div id="inputs_foto">
-                            <div class="circle_foto">
-                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
-                            </div>
-                            <!-- <div id="foto"></div> -->
-                            <label for="add-img" id="addinput-p"><img src="img/add-foto.svg" alt="logo"></label>
-                            <input type="file" name="add-img" id="add-img-p">
-                        </div>
-                    </div>
-                    <h3 class="nome_usuario">Sebastião Silva</h3>
-                    <span class="email_usuario">sebastiãosilva@outlook.com</span>
-                </div>
-
-                <!-- <hr> -->
-
-                <div id="opcoes">
-                    <a href="./editar_perfil.html">
-                        <div id="editar-perfil" class="opcao">
-                            <img src="img/user_icon_branco.svg" alt="">
-                            <span>Editar Perfil</span>
-                        </div>
-                    </a>
-                    <a href="./historico.html">
-                        <div id="historico" class="opcao">
-                            <img src="img/file_icon_branco.svg" alt="">
-                            <span>Historico</span>
-                        </div>
-                    </a>
-                    <a href="./favoritos.html">
-                        <div id="favoritos" class="opcao">
-                            <img src="img/favorito_icon_branco.svg" alt="">
-                            <span>Favoritos</span>
-                        </div>
-                    </a>
-                    <a href="./notificacoes.html">
-                        <div id="notificacoes" class="opcao">
-                            <img src="img/notificacao_icon.svg" alt="">
-                            <span>Notificações</span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- <hr> -->
-
-                <div id="suas_oficinas">
-                    <div id="opcao_suas-oficinas" class="opcao">
-                        <img src="img/config_icon.svg" alt="">
-                        <span>Suas Oficinas</span>
-                    </div>
-                    <a href="./oficina.html">
-                        <div class="oficina opcao">
-                            <div id="foto_oficina_menu"></div>
-                            <span>Oficina do Tião</span>
-                            <span class="tipo_plano" id="plano_ouro">ouro</span>
-                        </div>
-                    </a>
-                    <div class="oficina opcao">
-                        <div id="foto_oficina_menu"></div>
-                        <span>Los Santos Customs</span>
-                        <span class="tipo_plano" id="plano_prata">Prata</span>
-                    </div>
-                </div>
-
-                <!-- <hr> -->
-
-                <div id="logout">
-                    <div id="opcao-logout" class="opcao">
-                        <img src="img/user_icon_laranja.svg" alt="">
-                        <span>Sair</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div id="pesquisa">
-            <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
-            <input type="search" name="barra-pesquisa" id="barra-pesquisa-i" placeholder="Estou buscando...">
-        </div>
-        <div id="filtro-i" class="filtro-i filtro"><img src="img/filtro-icon.svg" alt=""></div>
-
-
-    </header>
-
-    <div id="container_filtro">
-        <div>
-            <div class="titulo" id="titulo-filtro">Filtro</div>
-
-            <hr>
-
-            <div class="titulo-filtro">Categoria</div>
-            <div class="categorias">
-                <nav>
-                    <div class="opcao-filtro">Todos</div>
-                    <div class="opcao-filtro">Oficina</div>
-                    <div class="opcao-filtro">Serviço</div>
-                    <div class="opcao-filtro">Produto</div>
-                </nav>
-            </div>
-
-            <div class="titulo-filtro">Tipo de veículo</div>
-            <div class="categorias">
-                <nav>
-                    <div class="opcao-filtro">Todos</div>
-                    <div class="opcao-filtro">Motos</div>
-                    <div class="opcao-filtro">Carros</div>
-                    <div class="opcao-filtro">Bicicletas</div>
-                </nav>
-            </div>
-
-            <div class="titulo-filtro">Faixa de preço</div>
-            <input type="range" name="" id="" min="0" max="2000" steps="1" class="range_filtro">
-
-            <div class="titulo-filtro">Avaliação</div>
-            <div id="filtro-avaliacao">
-                <div class="opcao-avaliacao">
-                    <img src="img/star.svg" alt="">
-                    <span class="nota">5</span>
-                </div>
-                <div class="opcao-avaliacao">
-                    <img src="img/star.svg" alt="">
-                    <span class="nota">4</span>
-                </div>
-                <div class="opcao-avaliacao">
-                    <img src="img/star.svg" alt="">
-                    <span class="nota">3</span>
-                </div>
-                <div class="opcao-avaliacao">
-                    <img src="img/star.svg" alt="">
-                    <span class="nota">2</span>
-                </div>
-                <div class="opcao-avaliacao">
-                    <img src="img/star.svg" alt="">
-                    <span class="nota">1</span>
-                </div>
-            </div>
-
-            <hr>
-
-            <div id="btns-filtro">
-                <button class="segunda-opcao-btn">Resetar</button>
-                <button class="primeira-opcao-btn">Aplicar Filtro</button>
-            </div>
-
-        </div>
-    </div>
-    <div id="topo_pesquisa" class="topo"></div>
+    <%- include('../partial/header.ejs') %>
 
     <main>
 
@@ -234,19 +60,22 @@
         <section id="oficinas">
             <div id="carrossel">
                 <div class="carrossel_oficinas">
-                    <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto1 %>" alt="imagem da oficina" class="img_ofc">
                 </div>
                 <div class="carrossel_oficinas">
-                    <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto2 %>" alt="imagem da oficina" class="img_ofc">
                 </div>
                 <div class="carrossel_oficinas">
-                    <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto3 %>" alt="imagem da oficina" class="img_ofc">
                 </div>
                 <div class="carrossel_oficinas">
-                    <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto4 %>" alt="imagem da oficina" class="img_ofc">
                 </div>
                 <div class="carrossel_oficinas">
-                    <img src="img/oficinas/oficina_ze.jpg" alt="imagem da oficina" class="img_ofc">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto5 %>" alt="imagem da oficina" class="img_ofc">
+                </div>
+                <div class="carrossel_oficinas">
+                    <img src="data:image/gif;base64,<%= oficina[0].foto6 %>" alt="imagem da oficina" class="img_ofc">
                 </div>
             </div>
         </section>
@@ -255,40 +84,43 @@
             <div id="infos_oficina">
 
                 <h1 class="titulo">Descrição</h1>
-                <p>a tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor
-                    desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.
-                    Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica,
-                    permanecendo essencialmente inalterado. Se popularizou na década de</p>
+                <p><%= oficina[0].descricao_ofc %></p>
 
                 <div id="horario">
-                    <img src="img/relogio_icon_laranja.svg" alt="ícone de relógio">
-                    <span>Aberto:</span> <span>08:00 - 17:00</span>
+                    <img src="/img/relogio_icon_laranja.svg" alt="ícone de relógio">
+                    <span>Aberto:</span> <span><%= oficina[0].horario_funcionamento %></span>
                 </div>
 
                 <div id="telefone">
-                    <img src="img/phone_icon-laranja.svg" alt="ícone de telefone">
-                    <span>(11) 94002-8922</span>
+                    <img src="/img/phone_icon-laranja.svg" alt="ícone de telefone">
+                    <span><%= oficina[0].telefone %></span>
                 </div>
 
                 <div id="redes_sociais">
-                    <div class="box_redes-sociais shadow_btn">
-                        <img src="img/face_laranja.svg" alt="Logo do facebook">
-                    </div>
-                    <div class="box_redes-sociais shadow_btn">
-                        <img src="img/insta_laranja.svg" alt="Logo do instagram">
-                    </div>
-                    <div class="box_redes-sociais shadow_btn">
-                        <img src="img/email_laranja.svg" alt="Ícone de carta">
-                    </div>
+                    <% if(oficina[0].facebook.length > 1) { %>
+                        <div class="box_redes-sociais shadow_btn">
+                            <img src="/img/face_laranja.svg" alt="Logo do facebook">
+                        </div>
+                    <% } %>
+                    <% if(oficina[0].instagram.length > 1) { %>
+                        <div class="box_redes-sociais shadow_btn">
+                            <img src="/img/insta_laranja.svg" alt="Logo do facebook">
+                        </div>
+                    <% } %>
+                    <% if(oficina[0].email_oficina.length > 1) { %>
+                        <div class="box_redes-sociais shadow_btn">
+                            <img src="/img/email_laranja.svg" alt="Logo do facebook">
+                        </div>
+                    <% } %>
                 </div>
 
                 <div id="acoes">
                     <div>
-                        <img src="img/favorito_laranja.svg" alt="Ícone de coração">
+                        <img src="/img/favorito_laranja.svg" alt="Ícone de coração">
                         Adicionar aos favoritos
                     </div>
                     <div>
-                        <img src="img/compartilhar_icon.svg" alt="Ícone de compartilhamento">
+                        <img src="/img/compartilhar_icon.svg" alt="Ícone de compartilhamento">
                         Compartihar
                     </div>
                 </div>
@@ -308,35 +140,35 @@
             </div>
             <div id="box_servicos">
                 <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
                     <h5 class="titulos_servico">Alinhamento de rodas</h5>
                     <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
                     <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                 </div>
                 <!-- <hr> -->
                 <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
                     <h5 class="titulos_servico">Alinhamento de rodas</h5>
                     <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
                     <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                 </div>
                 <!-- <hr> -->
                 <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
                     <h5 class="titulos_servico">Alinhamento de rodas</h5>
                     <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
                     <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                 </div>
                 <!-- <hr> -->
                 <div class="melhores-servicos">
-                    <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
                     <h5 class="titulos_servico">Alinhamento de rodas</h5>
                     <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
                     <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                 </div>
             </div>
         </section>
@@ -355,17 +187,17 @@
             <div class="produtos_destaque">
                 <div class="produto">
                     <div class="content_produtos">
-                        <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
                         <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
                         <span class="preco_produto">R$310,41</span>
                         <div id="avaliacao_produto">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -373,17 +205,17 @@
                 </div>
                 <div class="produto">
                     <div class="content_produtos">
-                        <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
                         <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
                         <span class="preco_produto">R$310,41</span>
                         <div id="avaliacao_produto">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -391,17 +223,17 @@
                 </div>
                 <div class="produto">
                     <div class="content_produtos">
-                        <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
                         <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
                         <span class="preco_produto">R$310,41</span>
                         <div id="avaliacao_produto">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -409,17 +241,17 @@
                 </div>
                 <div class="produto">
                     <div class="content_produtos">
-                        <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
                         <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
                         <span class="preco_produto">R$310,41</span>
                         <div id="avaliacao_produto">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -427,17 +259,17 @@
                 </div>
                 <div class="produto">
                     <div class="content_produtos">
-                        <img src="img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
+                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
                         <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
                         <span class="preco_produto">R$310,41</span>
                         <div id="avaliacao_produto">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -467,35 +299,35 @@
                 <div id="ofc_motos" class="tipos_ofc">
                     <div class="espec_oficinas">
                         <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
+                            <img src="/img/oficinas/ls_customs.jpg" alt="">
                             <h5 class="nome_espec_oficina">Los Santos</h5>
                             <p>Oficina de customização e pintura.</p>
                         </div>
                     </div>
                     <div class="espec_oficinas">
                         <div class="content_oficinas">
-                            <img src="img/oficinas/tiao_moto_pecas.jpg" alt="">
+                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
                             <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
                             <p>Equipamentos para motociclitistas no geral.</p>
                         </div>
                     </div>
                     <div class="espec_oficinas">
                         <div class="content_oficinas">
-                            <img src="img/oficinas/tiao_moto_pecas.jpg" alt="">
+                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
                             <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
                             <p>Equipamentos para motociclitistas no geral.</p>
                         </div>
                     </div>
                     <div class="espec_oficinas">
                         <div class="content_oficinas">
-                            <img src="img/oficinas/tiao_moto_pecas.jpg" alt="">
+                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
                             <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
                             <p>Equipamentos para motociclitistas no geral.</p>
                         </div>
                     </div>
                     <div class="espec_oficinas">
                         <div class="content_oficinas">
-                            <img src="img/oficinas/tiao_moto_pecas.jpg" alt="">
+                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
                             <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
                             <p>Equipamentos para motociclitistas no geral.</p>
                         </div>
@@ -513,12 +345,12 @@
                         <span>4,0</span>
                         <div id="estrelas">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -541,7 +373,7 @@
             <div id="box_avaliacoes">
 
                 <div id="avaliacao">
-                    <img src="img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
+                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
                     <div class="infos_av">
                         <span>Fulano Silva</span>
                         <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
@@ -549,12 +381,12 @@
                             sendo utilizado desde o século XVI, quando </p>
                         <div id="estrelas_avaliacao">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -562,7 +394,7 @@
                 </div>
 
                 <div id="avaliacao">
-                    <img src="img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
+                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
                     <div class="infos_av">
                         <span>Fulano Silva</span>
                         <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
@@ -570,12 +402,12 @@
                             sendo utilizado desde o século XVI, quando </p>
                         <div id="estrelas_avaliacao">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -583,7 +415,7 @@
                 </div>
 
                 <div id="avaliacao">
-                    <img src="img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
+                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
                     <div class="infos_av">
                         <span>Fulano Silva</span>
                         <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
@@ -591,12 +423,12 @@
                             sendo utilizado desde o século XVI, quando </p>
                         <div id="estrelas_avaliacao">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
                                 </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
+                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
                                 </li>
                             </ul>
                         </div>
@@ -605,7 +437,7 @@
 
             </div>
             <button class="btn_fixed" id="cta_wpp"><span>Entrar em contato via Whatsapp</span> <img
-                    src="img/wpp_icon_branco.svg" alt=""></button>
+                    src="/img/wpp_icon_branco.svg" alt=""></button>
         </section>
 
     </main>

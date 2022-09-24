@@ -46,11 +46,20 @@ router.post(
             req.session.usu_autenticado = results[0].email_prop;
             req.session.usu_tipo = results[0].tipo_usuario;
             req.session.usu_nome = results[0].nome_proprietario;
-            req.session.usu_foto = results[0].foto;
+            if(results[0].foto == undefined)
+            {
+              req.session.usu_foto = null
+            }
+            else
+            {
+              req.session.usu_foto = results[0].foto.toString("base64");
+            }
           }
           if (req.session.autenticado == true && req.session.usu_tipo == '2') {
             autenticado = { autenticado: req.session.usu_autenticado };
-            res.render('pages/dashboard', autenticado);
+            // res.render('pages/index', autenticado);
+            res.redirect('/');
+
           } else {
             res.redirect('/');
             console.log(results)

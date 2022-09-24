@@ -17,7 +17,7 @@ produtosDAO = new ProdutosDAO(conexao);
 var OficinasDAO = require("../models/oficinasDAO");
 oficinasDAO = new OficinasDAO(conexao);
 
-
+// TODAS AS OFICINAS
 router.get('/oficinas', async function(req, res) {
   try {
     results = await oficinasDAO.getOficinas(); 
@@ -29,5 +29,15 @@ router.get('/oficinas', async function(req, res) {
 
   }
 });
+
+// PÁGINA DA OFICINA
+router.get('/oficina/:nome_tela', async function (req, res) {
+  var nomeTela = req.params;
+  console.log(nomeTela)
+  var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
+  console.log(dadosOficina)
+
+  res.render('pages/oficina', {oficina: dadosOficina});
+})
 
 module.exports = router;

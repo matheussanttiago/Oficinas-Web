@@ -321,6 +321,10 @@ ul {
     color: white;
 }
 
+.foto_usu-auth{
+    border-radius: 50%;
+}
+
 #addinput-p {
     position: absolute;
     bottom: 0;

@@ -17,7 +17,7 @@ produtosDAO = new ProdutosDAO(conexao);
 var OficinasDAO = require("../models/oficinasDAO");
 oficinasDAO = new OficinasDAO(conexao);
 
-
+// PÁGINA DE TODOS OS PRODUTOS
 router.get('/produtos', async function(req, res) {
   try {
     results = await produtosDAO.getProdutos(); 
@@ -30,6 +30,18 @@ router.get('/produtos', async function(req, res) {
   }
 });
 
+// PÁGINA DO PRODUTO
+router.get('/produto/:id_produto', async function(req, res) {
+  var idProd = req.params;
+  console.log(idProd)
+  var dadosProduto = await produtosDAO.getOneProduto(idProd.id_produto);
+  console.log(dadosProduto)
+
+  res.render('pages/pag_produto', {produto: dadosProduto});
+});
+
+
+// PÁGINA DE TODOS OS SERVIÇOS
 router.get('/servicos', async function(req, res) {
   try {
     results = await produtosDAO.getServicos(); 

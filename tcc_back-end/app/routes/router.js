@@ -79,37 +79,40 @@ router.get('/', async function (req, res) {
     allServicos = await produtosDAO.getServicos();
     allOficinas = await oficinasDAO.getOficinas();
 
-    console.log(req.session);
+    // console.log(req.session);
 
     autenticado = req.session.autenticado;
     email = req.session.usu_autenticado;
     nome = req.session.usu_nome;
+    tipo_usuario = req.session.usu_tipo
 
     let buff = req.session.usu_foto
+
+    console.log(tipo_usuario)
     // console.log(buff)
-    if(buff != undefined){
-      buff = req.session.usu_foto.data.toString();
-      // buff = Buffer.from(buff).toString("base64")
-      // var foto = buff.buffer.toString('base64');
-      console.log(buff)
-    }
+    // if(buff != undefined){
+    //   buff = req.session.usu_foto.data.toString();
+    //   // buff = Buffer.from(buff).toString("base64")
+    //   // var foto = buff.buffer.toString('base64');
+    //   console.log(buff)
+    // }
 
     let Correios = require('node-correios');
 let correios = new Correios();
  let bairro
  let cidade
-for(let i = 0; i < allOficinas.length; i++){
-correios.consultaCEP({ cep: allOficinas[i].cep })
-.then(result => {
-  console.log(result.bairro);
-  bairro = result.bairro
-  cidade = result.localidade
-})
-.catch(error => {
-  console.log(error)
-});
-}
-res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, bairro, cidade });
+// for(let i = 0; i < allOficinas.length; i++){
+// correios.consultaCEP({ cep: allOficinas[i].cep })
+// .then(result => {
+//   console.log(result.bairro);
+//   bairro = result.bairro
+//   cidade = result.localidade
+// })
+// .catch(error => {
+//   console.log(error)
+// });
+// }
+res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade });
 
 // console.log(bairro)
     
@@ -130,13 +133,8 @@ router.get('/pagamento', function (req, res) {
   res.render('pages/forma_pagamento');
 });
 
-router.get('/oficina/:nome_tela', async function (req, res) {
-  var nomeTela = req.params;
-  console.log(nomeTela)
-  var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
-  console.log(dadosOficina)
-  res.render('pages/oficina', {oficina: dadosOficina});
-})
+
+
 router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');
 });
@@ -152,7 +150,10 @@ router.get('/add-produto', function (req, res) {
 router.get('/dashboard', function (req, res) {
   if (req.session.autenticado == true && req.session.usu_tipo == 2) {
     autenticado = { autenticado: req.session.usu_autenticado };
-    res.render("pages/adm", autenticado);
+    email = req.session.usu_autenticado;
+    nome = req.session.usu_nome;
+    tipo_usuario = req.session.tipo_usuario
+    res.render("pages/adm", autenticado, tipo_usuario, nome, email);
   } else {
     res.send('Área restrita')
   }
@@ -186,7 +187,7 @@ router.post('/cad_visitante', upload.single('add-img-v'), async (req, res) => {
   if (!req.file) {
     fileContent = null;
   } else {
-    fileContent = req.file.buffer.toString('base64');
+    fileContent = req.file.buffer;
   }
 
   let celular_visitante = req.body.celular_visitante
@@ -222,7 +223,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
   if (!req.file) {
     fileContent = null;
   } else {
-    fileContent = req.file.buffer.toString('base64');
+    fileContent = req.file.buffer;
   }
 
   let telefone_proprietario = req.body.telefone_proprietario
