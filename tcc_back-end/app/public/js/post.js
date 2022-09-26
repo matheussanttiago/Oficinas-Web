@@ -8,7 +8,10 @@ $(document).ready(function() {
                 'nome_proprietario': $("#nome_proprietario").val(),
                 'telefone_proprietario': $('#celular')
             },
-            success: window.location.href = 'http://localhost:3000'
+            success: function (){
+                $('.pop-up').css('display', 'flex')
+                window.location.href = '/add-oficina'
+            }
         });
     });
 
