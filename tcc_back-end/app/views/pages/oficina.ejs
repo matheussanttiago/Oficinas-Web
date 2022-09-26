@@ -59,24 +59,36 @@
 
         <section id="oficinas">
             <div id="carrossel">
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto1 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto2 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto3 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto4 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto5 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
-                <div class="carrossel_oficinas">
-                    <img src="data:image/gif;base64,<%= oficina[0].foto6 %>" alt="imagem da oficina" class="img_ofc">
-                </div>
+                <% if(oficina[0].foto1 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto1 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
+                <% if(oficina[0].foto2 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto2 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
+                <% if(oficina[0].foto3 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto3 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
+                <% if(oficina[0].foto4 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto4 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
+                <% if(oficina[0].foto5 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto5 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
+                <% if(oficina[0].foto6 != null) { %>
+                    <div class="carrossel_oficinas">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto6 %>" alt="imagem da oficina" class="img_ofc">
+                    </div>
+                <% } %>
             </div>
         </section>
 

@@ -54,4 +54,14 @@ router.get('/servicos', async function(req, res) {
   }
 });
 
+// PÁGINA DO SERVIÇO
+router.get('/servico/:id_produto', async function(req, res) {
+  var idProd = req.params;
+  console.log(idProd)
+  var dadosServico = await produtosDAO.getOneServico(idProd.id_produto);
+  console.log(dadosServico)
+
+  res.render('pages/pag_servico', {servico: dadosServico});
+});
+
 module.exports = router;

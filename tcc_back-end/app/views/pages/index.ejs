@@ -651,7 +651,7 @@
             </div>
             <div id="box_servicos">
                 <% for(let i = 0;i < servicos.length; i++) { %>
-                    <a href="./todos_servicos.html">
+                    <a href="servico/<%=servicos[i].id_produto%>">
                         <div class="melhores-servicos">
                             <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
                             <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>

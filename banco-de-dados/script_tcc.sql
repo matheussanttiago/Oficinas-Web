@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS planos (
 id_planos int auto_increment PRIMARY KEY,
 nome_plano varchar(30),
 preco decimal,
-descricao varchar(50)
+descricao varchar(100)
 );
 
 CREATE TABLE IF NOT EXISTS vizualiza (
@@ -180,4 +180,19 @@ ADD CONSTRAINT qual_produto FOREIGN KEY(id_produto) REFERENCES produto (id_produ
 ALTER TABLE oficina_atuacao
 ADD CONSTRAINT oficina_atua_veiculo FOREIGN KEY (tipo_veiculo_id) REFERENCES tipo_veiculo (tipo_veiculo_id),
 ADD CONSTRAINT qual_oficina_atua FOREIGN KEY(cnpj_oficina) REFERENCES oficina (cnpj_oficina);
+
+
+/* INSERTS */
+-- LISTA DE INSER DE VEICULOS
+insert into tipo_veiculo (tipo_veiculo_id, descricao) values ( 1, 'moto');
+insert into tipo_veiculo (tipo_veiculo_id, descricao) values ( 2, 'carro');
+insert into tipo_veiculo (tipo_veiculo_id, descricao) values ( 3 , 'vans');
+insert into tipo_veiculo (tipo_veiculo_id, descricao) values ( 4 , 'caminhao');
+insert into tipo_veiculo (tipo_veiculo_id, descricao) values ( 5 , 'bicicleta');
+
+-- LISTA DE INSER DE PLANOS 
+insert into planos ( nome_plano, preco, descricao) values ( 'basico' , 0 ,'gratuito, 3 produtos, 2 servicos');
+insert into planos ( nome_plano, preco, descricao) values ( 'prata', 30 ,'avaliaçao de 30 dias, perfil oficina, visibilidade baixa, 10 serviços');
+insert into planos ( nome_plano, preco, descricao) values ( 'ouro', 40 ,'perfil oficina, visibilidade media');
+insert into planos ( nome_plano, preco, descricao) values ( 'diamante', 60 ,'perfil da oficina, visibilidade alta, destaque na home');
 
