@@ -5,6 +5,7 @@ use oficinas_web;
 CREATE TABLE IF NOT EXISTS produto (
 id_produto int auto_increment PRIMARY KEY,
 nome_produto varchar(30),
+cnpj_oficina char(14),
 valor_produto float,
 caracteristicas text,
 descricao_prod text,
@@ -42,7 +43,8 @@ CREATE TABLE IF NOT EXISTS oficina (
 cnpj_oficina char(14) PRIMARY KEY,
 id_prop int,
 id_planos int,
-nome_oficina varchar(90),
+nome_tela varchar(60),
+nome_oficina varchar(60),
 cep char(8),
 numero_ofc varchar(5),
 email_oficina varchar(90),
@@ -141,6 +143,10 @@ id_produto int
 
 ALTER TABLE notificacao
 ADD CONSTRAINT destinatario FOREIGN KEY(cnpj_oficina) REFERENCES oficina (cnpj_oficina);
+
+alter table produto
+add constraint oficina_cadastrou foreign key (cnpj_oficina) references oficina (cnpj_oficina);
+
 
 ALTER TABLE oficina
 ADD CONSTRAINT dono_ofc FOREIGN KEY(id_prop) REFERENCES proprietario (id_prop),
