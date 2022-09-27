@@ -225,7 +225,7 @@
             <div id="box_servicos">
                 <% for(let i = 0; i < servicos.length; i++) { %>
                     <div class="melhores-servicos">
-                        <img src="img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
+                        <img src="data:image/gif;base64,<%= servicos[0].foto1 %>" alt="Foto do serviço" id="foto-servico">
                         <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
                         <p class="desc_servico" id="desc_servico"><%= servicos[i].descricao_prod %></p>
                         <button class="preco_servico default_btn">R$<%= servicos[i].valor_produto %></button>

@@ -53,6 +53,11 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
     foto5: content[4],
     foto6: content[5],
   };
+
+  var dadosCategoria = {
+    tipo_veiculo_id: req.body.carro 
+  };
+  
   // console.log(req.files)
   try {
     results = await produtosDAO.CadProduto(dadosForm);

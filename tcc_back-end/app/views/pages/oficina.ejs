@@ -34,6 +34,8 @@
     <script src="/js/script_oficina.js"></script>
     <script src="/js/script_menu.js"></script>
     <script src="/js/carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <script src="/js/mask.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
@@ -104,7 +106,7 @@
                     <span>Aberto:</span> <span><%= oficina[0].horario_funcionamento %></span>
                 </div>
 
-                <div id="telefone">
+                <div id="telefone-oficina">
                     <img src="/img/phone_icon-laranja.svg" alt="ícone de telefone">
                     <span class="phone-mask"><%= oficina[0].telefone %></span>
                 </div>
@@ -156,7 +158,7 @@
                     <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
                     <h5 class="titulos_servico">Alinhamento de rodas</h5>
                     <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
+                    <button class="preco_servico default_btn preco-mask">R$50,00</button>
                     <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                 </div>
                 <!-- <hr> -->
