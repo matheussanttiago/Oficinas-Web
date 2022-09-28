@@ -81,9 +81,51 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
     foto6: content[5],
   };
 
+
+  
+  // console.log(req.body.carro);
   try {
+    // CADASTRO DE OFICINA
     results = await oficinasDAO.CadOficina(dadosForm); 
 
+    // ADICIONANDO CATEGORIA
+    if(req.body.moto == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 1,
+        cnpj_oficina: cnpjBD
+      }
+      addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.carro == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 2,
+        cnpj_oficina: cnpjBD
+      }
+      addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.van == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 3,
+        cnpj_oficina: cnpjBD
+      }
+      addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.caminhao == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 4,
+        cnpj_oficina: cnpjBD
+      }
+      addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.bicicleta == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 5,
+        cnpj_oficina: cnpjBD
+      }
+      addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
+    } 
+
+    // SALVANDO CNPJ NA SESSÃO
     req.session.cnpj = cnpjBD;
     res.redirect('/planos');
   } catch(e) {

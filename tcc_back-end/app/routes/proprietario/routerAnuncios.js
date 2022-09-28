@@ -54,9 +54,14 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
     foto6: content[5],
   };
 
-  var dadosCategoria = {
-    tipo_veiculo_id: req.body.carro 
-  };
+  // var dadosCategoria
+
+  // if(req.body.carro.checked){
+  //   dadosCategoria = {
+  //     tipo_veiculo_id: req.body.carro,
+  //     id_produto
+  //   };
+  // }
   
   // console.log(req.files)
   try {
