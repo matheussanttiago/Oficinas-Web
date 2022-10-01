@@ -37,7 +37,15 @@ router.get('/oficina/:nome_tela', async function (req, res) {
   var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
   console.log(dadosOficina)
 
-  res.render('pages/oficina', {oficina: dadosOficina});
+  // VARIÁVEIS DE SESSÃO
+  autenticado = req.session.autenticado;
+  email = req.session.usu_autenticado;
+  nome = req.session.usu_nome;
+  tipo_usuario = req.session.usu_tipo;
+  id_usu = req.session.usu_id
+  let buff = req.session.usu_foto
+
+  res.render('pages/oficina', {oficina: dadosOficina, buff});
 })
 
 module.exports = router;

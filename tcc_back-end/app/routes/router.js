@@ -75,6 +75,8 @@ oficinasDAO = new OficinasDAO(conexao);
 
 router.get('/', async function (req, res) {
   try {
+
+    oficinaProp = null;
     allProdutos = await produtosDAO.getProdutos();
     allServicos = await produtosDAO.getServicos();
     allOficinas = await oficinasDAO.getOficinas();
@@ -84,11 +86,19 @@ router.get('/', async function (req, res) {
     autenticado = req.session.autenticado;
     email = req.session.usu_autenticado;
     nome = req.session.usu_nome;
-    tipo_usuario = req.session.usu_tipo
+    tipo_usuario = req.session.usu_tipo;
+    id_usu = req.session.usu_id
+
+    if(tipo_usuario == 2){
+      oficinaProp = await oficinasDAO.getOficinaProp(id_usu);
+      console.log(oficinaProp)
+    }
 
     let buff = req.session.usu_foto
 
-    console.log(tipo_usuario)
+    // console.log(tipo_usuario)
+    console.log(req.session)
+
     // console.log(buff)
     // if(buff != undefined){
     //   buff = req.session.usu_foto.data.toString();
@@ -112,7 +122,7 @@ let correios = new Correios();
 //   console.log(error)
 // });
 // }
-res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade });
+res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade, oficinaProp });
 
 // console.log(bairro)
     
@@ -248,11 +258,18 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     results = await cadastroDAO.CadProprietario(dadosForm);
 
     req.session.autenticado = true;
+    req.session.usu_autenticado = req.body.email_prop;
+    req.session.usu_nome = req.body.nome_proprietario;
+    req.session.usu_tipo = 2;
+
+    // SALVANDO ID NA SESSÃO
     dadosProp = cpfBD;
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
+
+    let buff = req.session.usu_foto
     console.log(req.session)
-    // res.redirect('/add-oficina')
+    res.redirect('/add-oficina')
   } catch (e) {
 
     console.log(e);

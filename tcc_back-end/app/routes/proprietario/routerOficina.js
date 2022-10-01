@@ -178,4 +178,30 @@ router.post('/dima', async (req, res) => {
   }
 })
 
+
+
+// DASHBOARD
+router.get('/dashboard/:nome_tela', async function (req, res) {
+  var nomeTela = req.params;
+  console.log(nomeTela)
+  var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
+  console.log(dadosOficina)
+
+  req.session.cnpj_oficina = dadosOficina[0].cnpj_oficina
+  // VARIÁVEIS DE SESSÃO
+  autenticado = req.session.autenticado;
+  email = req.session.usu_autenticado;
+  nome = req.session.usu_nome;
+  tipo_usuario = req.session.usu_tipo;
+  id_usu = req.session.usu_id
+  cnpj = req.session.cnpj_oficina
+  let buff = req.session.usu_foto
+
+  console.log(cnpj)
+
+  console.log(req.session)
+
+  res.render('pages/dashboard', {oficina: dadosOficina, buff, cnpj});
+})
+
 module.exports = router;

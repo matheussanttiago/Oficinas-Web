@@ -19,11 +19,20 @@ var OficinasDAO = require("../../models/oficinasDAO");
 oficinasDAO = new OficinasDAO(conexao);
 
 
-router.get('/seus-produtos', function (req, res) {
-  res.render('pages/produtos');
+router.get('/seus-produtos', async function (req, res) {
+  cnpj = req.session.cnpj_oficina
+  produtosOfc = await produtosDAO.getProdutoOfc(cnpj)
+  
+  res.render('pages/produtos', {produtos: produtosOfc});
+  console.log(req.session)
 });
-router.get('/seus-servicos', function (req, res) {
-  res.render('pages/servicos');
+
+router.get('/seus-servicos', async function (req, res) {
+  cnpj = req.session.cnpj_oficina
+  servicosOfc = await produtosDAO.getServicoOfc(cnpj)
+  
+  res.render('pages/servicos', {servicos: servicosOfc});
+  console.log(req.session)
 });
 
 
@@ -41,6 +50,7 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
   let valorBD = valor.replace('.', '').replace(',', '.');
 
   var dadosForm = {
+    cnpj_oficina: req.session.cnpj_oficina,
     nome_produto: req.body.nome_produto,
     valor_produto: valorBD,
     caracteristicas: req.body.carac_produtos,
@@ -89,6 +99,7 @@ router.post('/cad_servico', upload.array('add-img'), async (req, res) => {
   let valorBD = valor.replace('.', '').replace(',', '.');
 
   var dadosForm = {
+    cnpj_oficina: req.session.cnpj_oficina,
     nome_produto: req.body.nome_produto,
     valor_produto: valorBD,
     caracteristicas: req.body.carac_produtos,

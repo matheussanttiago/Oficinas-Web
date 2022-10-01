@@ -9,9 +9,9 @@
     <title>Dashboard</title>
 
     <!-- LINKS CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 
     <!-- LINKS PARA O GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 
     <!-- LINKS JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/script_menu.js"></script>
+    <script src="/js/script_menu.js"></script>
 
 </head>
 
@@ -41,15 +41,15 @@
                 <div id="head_dashboard">
                     <div class="column1">
                         <div class="line1">
-                            <h1>Oficina do Tião</h1>
+                            <h1><%= oficina[0].nome_oficina %></h1>
                             <div class="nota">
                                 <span>4,7</span>
-                                <img src="img/star.svg" alt="">
+                                <img src="/img/star.svg" alt="">
                             </div>
                         </div>
                         <span class="estatistica">Estatísticas</span>
                     </div>
-                    <div class="foto_oficina"></div>
+                    <div class="foto_oficina"><img src="data:image/gif;base64,<%= oficinaProp[0].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="foto_oficina"></div>
                 </div>
 
                 <nav>
@@ -83,31 +83,41 @@
 
                 <div id="container-opcoes">
                     <div class="gerenciar-line1">
-                        <div id="product" class="gerenciar-opcao">
-                            <img src="img/box_icon.svg" alt="ícone de caixa">
-                            <span>Meus Produtos</span>
-                        </div>
-                        <div id="services" class="gerenciar-opcao">
-                            <img src="img/tools_icon.svg" alt="ícone de ferramentas">
-                            <span>Meus Serviços</span>
-                        </div>
+                        <a href="/seus-produtos" id="product" class="gerenciar-opcao">
+                            <div>
+                                <img src="/img/box_icon.svg" alt="ícone de caixa">
+                                <span>Meus Produtos</span>
+                            </div>
+                        </a>
+                        <a href="/seus-servicos" id="services" class="gerenciar-opcao">
+                            <div>
+                                <img src="/img/tools_icon.svg" alt="ícone de ferramentas">
+                                <span>Meus Serviços</span>
+                            </div>
+                        </a>
                     </div>
     
                     <div class="gerenciar-line2">
-                        <div id="view-oficina" class="gerenciar-opcao">
-                            <img src="img/car_icon.svg" alt="ícone de carro">
-                            <span>Visualizar Oficina</span>
-                        </div>
-                        <div id="plan" class="gerenciar-opcao">
-                            <img src="img/edit_icon.svg" alt="ícone de edição">
-                            <span>Alterar Plano</span>
-                        </div>
+                        <a href="/oficina/<%=oficina[0].nome_tela%>" id="view-oficina" class="gerenciar-opcao">
+                            <div>
+                                <img src="/img/car_icon.svg" alt="ícone de carro">
+                                <span>Visualizar Oficina</span>
+                            </div>
+                        </a>
+                        <a href=""  id="plan" class="gerenciar-opcao">
+                            <div>
+                                <img src="/img/edit_icon.svg" alt="ícone de edição">
+                                <span>Alterar Plano</span>
+                            </div>
+                        </a>
                     </div>
     
-                    <div id="edit-oficina" class="gerenciar-opcao">
-                        <img src="img/engine_icon.svg" alt="ícone de engrenagem">
-                        <span>Editar Oficina</span>
-                    </div>
+                    <a href="" id="edit-oficina" class="gerenciar-opcao">
+                        <div>
+                            <img src="/img/engine_icon.svg" alt="ícone de engrenagem">
+                            <span>Editar Oficina</span>
+                        </div>
+                    </a>
                 </div>
 
             </section>

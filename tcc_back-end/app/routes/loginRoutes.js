@@ -34,7 +34,7 @@ router.post(
     };
 
     var result = conexao.query(
-      "SELECT email_prop, foto, senha, tipo_usuario, nome_proprietario FROM proprietario WHERE email_prop = ? UNION SELECT email_visit, foto, senha, tipo_usuario, nome FROM visitante WHERE email_visit = ?",
+      "SELECT id_prop, email_prop, foto, senha, tipo_usuario, nome_proprietario FROM proprietario WHERE email_prop = ? UNION SELECT id_visit, email_visit, foto, senha, tipo_usuario, nome FROM visitante WHERE email_visit = ?",
       [dadosForm.email, dadosForm.email],
       function (error, results, fields) {
         if (error) throw error;
@@ -46,6 +46,7 @@ router.post(
             req.session.usu_autenticado = results[0].email_prop;
             req.session.usu_tipo = results[0].tipo_usuario;
             req.session.usu_nome = results[0].nome_proprietario;
+            req.session.usu_id = results[0].id_prop;
             if(results[0].foto == undefined)
             {
               req.session.usu_foto = null

@@ -32,9 +32,12 @@
 
     <script>
         $(document).ready(function () {
-            $('#finish').click(function () {
-                $('.pop-up').css('display', 'flex');
-                $('#modal').show();
+            $('.pop-up').css('display', 'flex');
+            $('#modal').show();
+
+            $(".primeira-opcao-btn").click(function(){
+                $('.pop-up').css('display', 'none');
+                $('#modal').hide();
             })
         })
     </script>
@@ -300,20 +303,18 @@
                     <button class="btn default_btn" type="submit" id="finish"> <span>Continuar</span> </button>
 
                 </form>
-
-                <div class="pop-up">
-                    <img src="img/img_pop-up.svg" alt="">
-                    <h3>Concluido!</h3>
-
-                    <p>Otimo! A pagina da sua oficina está
-                        pronta, mas voçê ainda não pode
-                        ultiliza-la sem ter um plano.</p>
-
-                    <button class="primeira-opcao-btn"><a href="/planos">Ver Planos</a></button>
-                    <button class="segunda-opcao-btn"><a href="/dashboard">Depois</a></button>
-                </div> 
             </div>
         </section>
+
+        <div class="pop-up">
+            <img src="img/img_pop-up.svg" alt="">
+            <h3>Concluido!</h3>
+
+            <p>Deseja criar o perfil da sua oficina?</p>
+
+            <button class="primeira-opcao-btn">Criar Oficina</button>
+            <button class="segunda-opcao-btn"><a href="/">Depois</a></button>
+        </div>
     </main>
 
     <script src="js/script_cad_oficina.js"></script>

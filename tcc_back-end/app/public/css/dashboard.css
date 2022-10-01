@@ -169,14 +169,22 @@ nav ul li{
     display: flex;
     justify-content: space-between;
 }
-.gerenciar-line1 div, .gerenciar-line2 div{
+.gerenciar-line1 a, .gerenciar-line2 a{
     width: calc(48% - 40px);
     border-radius: 12px;
     display: flex;
     align-items: center;
 }
+.gerenciar-line1 div, .gerenciar-line2 div{
+    display: flex;
+    align-items: center;
+}
 #edit-oficina{
     border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+#edit-oficina div{
     display: flex;
     align-items: center;
 }
@@ -190,4 +198,8 @@ nav ul li{
 
     width: calc(100% - 40px);
     margin: auto;
+}
+
+.topo{
+    display: none;
 }

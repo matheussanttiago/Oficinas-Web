@@ -251,67 +251,29 @@
                 <h1 class="titulo"> Seus Serviços </h1>
             </div>
 
-            <div id="seus_produtos">
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/servicos/exemplo_servico.jpg" alt="">
-                        <div class="infos_produto">
-                            <span class="tipo_produto">Serviço</span>
-                            <h4 class="tinta">Pintura Fosca</h4>
-                            <h3 class="desc_oficina">Feita com tintas de Qualidade</h3>
-                            <h3 class="preco">R$3200,00</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
+            <% if(servicos.length == 0) { %>
+                <h3>Você Ainda não possui serviços cadastrados.</h3>
+            <% } else { %>
+                <div id="seus_produtos">
+                    <% for(let i = 0; i < servicos.length; i++) { %>
+                        <a href="/servico/<%=servicos[i].id_produto%>">
+                            <div class="box_produto">
+                                <div class="content">
+                                    <img class="produto" src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="">
+                                    <div class="infos_produto">
+                                        <h4 class="tinta"><%= servicos[i].nome_produto %></h4>
+                                        <h3 class="desc_oficina"><%= servicos[i].descricao_prod %></h3>
+                                        <h3 class="preco">R$<%= servicos[i].valor_produto %></h3>
+                                        <div id="btns">
+                                            <button class="btn_box" id="Editar">Editar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/servicos/exemplo_servico.jpg" alt="">
-                        <div class="infos_produto">
-                            <span class="tipo_produto">Serviço</span>
-                            <h4 class="tinta">Pintura Fosca</h4>
-                            <h3 class="desc_oficina">Feita com tintas de Qualidade</h3>
-                            <h3 class="preco">R$3200,00</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/servicos/exemplo_servico.jpg" alt="">
-                        <div class="infos_produto">
-                            <span class="tipo_produto">Serviço</span>
-                            <h4 class="tinta">Pintura Fosca</h4>
-                            <h3 class="desc_oficina">Feita com tintas de Qualidade</h3>
-                            <h3 class="preco">R$3200,00</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/servicos/exemplo_servico.jpg" alt="">
-                        <div class="infos_produto">
-                            <span class="tipo_produto">Serviço</span>
-                            <h4 class="tinta">Pintura Fosca</h4>
-                            <h3 class="desc_oficina">Feita com tintas de Qualidade</h3>
-                            <h3 class="preco">R$3200,00</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% } %>
         </section>
         <button class="btn">Adicionar produtos</button>
 

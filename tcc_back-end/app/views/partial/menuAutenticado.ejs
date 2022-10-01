@@ -4,7 +4,7 @@
         <div class="foto">
             <div id="inputs_foto">
                 <div class="circle_foto">
-                    <% if(buff == undefined) { %>
+                    <% if(buff === undefined) { %>
                         <img src="img/foto-padrao.svg" alt="" id="foto_padrao" class="foto_usu-auth">
                     <% } else { %>
                         <img src="data:image/gif;base64,<%= buff %>" alt="" id="foto_padrao" class="foto_usu-auth">
@@ -56,18 +56,53 @@
                 <img src="img/config_icon.svg" alt="">
                 <span>Suas Oficinas</span>
             </div>
-            <a href="./oficina.html">
+            <% if(oficinaProp.length == 0 ) { %>
+                <a href="/add-oficina">
+                    <div class="oficina opcao">
+                        <div id="foto_oficina_menu"><svg xmlns="http://www.w3.org/2000/svg" width="80%" height="80%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#ff8500" stroke-linecap="round" stroke-width="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4"/></svg></div>
+                        <span class="nome-oficina">Adicionar Oficina</span>
+                    </div>
+                </a>
+            <% } else { %>
+                <% for(let i = 0; i < oficinaProp.length; i++) { %>
+                    <a href="dashboard/<%=oficinaProp[i].nome_tela%>">
+                        <div class="oficina opcao">
+                            <div id="foto_oficina_menu"><img src="data:image/gif;base64,<%= oficinaProp[i].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="foto_oficina"></div>
+                            <span class="nome-oficina"><%= oficinaProp[i].nome_oficina %></span>
+                            <% if(oficinaProp[i].id_planos == 1) { %>
+                                <span class="tipo_plano plano-basico" id="plano_ouro">Plano Básico</span>
+                            <% } %>
+                            <% if(oficinaProp[i].id_planos == 2) { %>
+                                <span class="tipo_plano plano-prata" id="plano_ouro">Prata</span>
+                            <% } %>
+                            <% if(oficinaProp[i].id_planos == 3) { %>
+                                <span class="tipo_plano plano-ouro" id="plano_ouro">Ouro</span>
+                            <% } %>
+                            <% if(oficinaProp[i].id_planos == 4) { %>
+                                <span class="tipo_plano plano-dima" id="plano_ouro">Diamante</span>
+                            <% } %>
+                        </div>
+                    </a>
+                    <a href="/add-oficina">
+                        <div class="oficina opcao">
+                            <div id="foto_oficina_menu"><svg xmlns="http://www.w3.org/2000/svg" width="80%" height="80%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#ff8500" stroke-linecap="round" stroke-width="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4"/></svg></div>
+                            <span class="nome-oficina">Adicionar Oficina</span>
+                        </div>
+                    </a>
+                <% } %>
+            <% } %>
+            <!-- <a href="./oficina.html">
                 <div class="oficina opcao">
                     <div id="foto_oficina_menu"></div>
                     <span>Oficina do Tião</span>
                     <span class="tipo_plano" id="plano_ouro">ouro</span>
                 </div>
-            </a>
-            <div class="oficina opcao">
+            </a> -->
+            <!-- <div class="oficina opcao">
                 <div id="foto_oficina_menu"></div>
                 <span>Los Santos Customs</span>
                 <span class="tipo_plano" id="plano_prata">Prata</span>
-            </div>
+            </div> -->
         </div>
     <% } %>
 

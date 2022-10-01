@@ -251,60 +251,38 @@
                 <h1 class="titulo"> Seus Produtos </h1>
             </div>
 
-            <div id="seus_produtos">
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
-                        <div class="infos_produto">
-                            <h4 class="tinta">Tinta automotiva branco brilhante</h4> <br>
-                            <h3 class="preco">R$999,99</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                                <button class="btn_box" id="copiarLink">Copiar Link</button>
-                            </div>
-                        </div>
+            <% if(produtos.length==0) { %>
+                <h3>Você Ainda não possui serviços cadastrados.</h3>
+                <% } else { %>
+                    <div id="seus_produtos">
+                        <% for(let i=0; i < produtos.length; i++) { %>
+                            <a href="/servico/<%=produtos[i].id_produto%>">
+                                <div class="box_produto">
+                                    <div class="content">
+                                        <img class="produto" src="data:image/gif;base64,<%= produtos[i].foto1 %>"
+                                            alt="">
+                                        <div class="infos_produto">
+                                            <h4 class="tinta">
+                                                <%= produtos[i].nome_produto %>
+                                            </h4>
+                                            <h3 class="desc_oficina">
+                                                <%= produtos[i].descricao_prod %>
+                                            </h3>
+                                            <h3 class="preco">R$<%= produtos[i].valor_produto %>
+                                            </h3>
+                                            <div id="btns">
+                                                <button class="btn_box" id="Editar">Editar</button>
+                                                <button class="btn_box" id="copiarLink">Copiar Link</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <% } %>
                     </div>
-                </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
-                        <div class="infos_produto">
-                            <h4 class="tinta">Tinta automotiva branco brilhante</h4> <br>
-                            <h3 class="preco">R$999,99</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                                <button class="btn_box" id="copiarLink">Copiar Link</button>
-                            </div>
+                    <% } %>
+
                         </div>
-                    </div>
-                </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
-                        <div class="infos_produto">
-                            <h4 class="tinta">Tinta automotiva branco brilhante</h4> <br>
-                            <h3 class="preco">R$999,99</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                                <button class="btn_box" id="copiarLink">Copiar Link</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box_produto">
-                    <div class="content">
-                        <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
-                        <div class="infos_produto">
-                            <h4 class="tinta">Tinta automotiva branco brilhante</h4> <br>
-                            <h3 class="preco">R$999,99</h3>
-                            <div id="btns">
-                                <button class="btn_box" id="Editar">Editar</button>
-                                <button class="btn_box" id="copiarLink">Copiar Link</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <button class="btn">Adicionar produtos</button>
 
@@ -341,15 +319,15 @@
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="desc_produto" class="inputs inputs_with_icon" placeholder="Descrição do produto"
                                 type="text"> -->
-                            <textarea name="desc_produtos" id="desc_produtos" class="inputs inputs_with_icon txt_area" cols="30"
-                                rows="10" placeholder="Descrição do produto"></textarea>
+                            <textarea name="desc_produtos" id="desc_produtos" class="inputs inputs_with_icon txt_area"
+                                cols="30" rows="10" placeholder="Descrição do produto"></textarea>
                         </div>
                         <div class="inputs-container">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="carac_produtos" class="inputs inputs_with_icon"
                                 placeholder="Características do produto" type="text"> -->
-                            <textarea name="carac_produtos" id="carac_produtos" class="inputs inputs_with_icon txt_area" cols="30"
-                                rows="10" placeholder="Características do produto"></textarea>
+                            <textarea name="carac_produtos" id="carac_produtos" class="inputs inputs_with_icon txt_area"
+                                cols="30" rows="10" placeholder="Características do produto"></textarea>
                         </div>
                     </div>
 
