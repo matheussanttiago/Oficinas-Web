@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS produto (
 id_produto int auto_increment PRIMARY KEY,
 nome_produto varchar(30),
 cnpj_oficina char(14),
-valor_produto float,
+valor_produto decimal(10,2),
 caracteristicas text,
 descricao_prod text,
 tipo_do_produto char(1),

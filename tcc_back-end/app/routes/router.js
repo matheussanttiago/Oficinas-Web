@@ -270,7 +270,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
 
     let buff = req.session.usu_foto
     console.log(req.session)
-    res.redirect('/add-oficina')
+    res.render('pages/criar_oficinas', {cadastrado: true})
   } catch (e) {
 
     console.log(e);

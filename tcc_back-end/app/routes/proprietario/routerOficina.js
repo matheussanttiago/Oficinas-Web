@@ -23,7 +23,7 @@ planosDAO = new PlanosDAO(conexao);
 
 
 router.get('/add-oficina', function (req, res) {
-  res.render('pages/criar_oficinas');
+  res.render('pages/criar_oficinas', {cadastrado: false});
   console.log(req.session)
 });
 

@@ -663,7 +663,7 @@
                             <p class="desc_servico" id="desc_servico">
                                 <%= servicos[i].descricao_prod %>
                             </p>
-                            <button class="preco_servico default_btn">R$<%= servicos[i].valor_produto %> </button>
+                            <button class="preco_servico default_btn">R$<%= String(servicos[i].valor_produto).replace('.', ',') %> </button>
                             <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
                         </div>
                     </a>

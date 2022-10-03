@@ -718,7 +718,7 @@ input[type="file"] {
     height: 70%;
     border-radius: 24px;
 
-    display: none;
+    display: flex;
 
     justify-content: center;
     justify-items: center;
@@ -794,7 +794,7 @@ input[type="file"] {
 }
 
 #modal {
-    display: none;
+    /* display: none; */
     background-color: black;
     opacity: 70%;
     position: fixed;

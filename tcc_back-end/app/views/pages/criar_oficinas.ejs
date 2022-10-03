@@ -32,9 +32,6 @@
 
     <script>
         $(document).ready(function () {
-            $('.pop-up').css('display', 'flex');
-            $('#modal').show();
-
             $(".primeira-opcao-btn").click(function(){
                 $('.pop-up').css('display', 'none');
                 $('#modal').hide();
@@ -44,7 +41,9 @@
 </head>
 
 <body>
-    <div id="modal"></div>
+    <% if(cadastrado == true) {%>
+        <div id="modal"></div>
+    <% } %>
     <header id="normal_header">
         <div id="fixed">
             <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
@@ -306,15 +305,17 @@
             </div>
         </section>
 
-        <div class="pop-up">
-            <img src="img/img_pop-up.svg" alt="">
-            <h3>Concluido!</h3>
-
-            <p>Deseja criar o perfil da sua oficina?</p>
-
-            <button class="primeira-opcao-btn">Criar Oficina</button>
-            <button class="segunda-opcao-btn"><a href="/">Depois</a></button>
-        </div>
+        <% if(cadastrado == true) {%>
+            <div class="pop-up">
+                <img src="img/img_pop-up.svg" alt="">
+                <h3>Concluido!</h3>
+    
+                <p>Deseja criar o perfil da sua oficina?</p>
+    
+                <button class="primeira-opcao-btn">Criar Oficina</button>
+                <button class="segunda-opcao-btn"><a href="/">Depois</a></button>
+            </div>
+        <% } %>
     </main>
 
     <script src="js/script_cad_oficina.js"></script>
