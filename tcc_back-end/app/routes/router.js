@@ -122,6 +122,7 @@ let correios = new Correios();
 //   console.log(error)
 // });
 // }
+console.log(oficinaProp)
 res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade, oficinaProp });
 
 // console.log(bairro)
