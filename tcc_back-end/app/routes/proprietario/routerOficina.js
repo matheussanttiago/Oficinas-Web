@@ -58,8 +58,14 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
   // const teste = req.files['add_img'][2]
   // console.log(teste)
 
+  var userId
+  if(req.session.usu_id){
+    userId = req.session.usu_id;
+  } else {
+    userId = req.session.id_prop
+  }
   var dadosForm = {
-    id_prop: req.session.id_prop,
+    id_prop: userId,
     cnpj_oficina: cnpjBD,
     email_oficina: req.body.email_oficina,
     nome_oficina: req.body.nome_oficina,
@@ -127,8 +133,9 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 
     // SALVANDO CNPJ NA SESSÃO
     req.session.cnpj = cnpjBD;
+    req.session.nomeTela = req.body.nome_tela;
     console.log(req.session)
-    res.redirect('/planos');
+    res.render('pages/planos', {cadastrado: true});
   } catch(e) {
 
       console.log(e);
@@ -139,6 +146,22 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 
 
 // PLANOS
+router.post('/default', async (req, res) => {
+  try {
+    cnpjBD = req.session.cnpj;
+    results = await planosDAO.CadPlanoBasico(cnpjBD); 
+    nomeTela = req.session.nomeTela;
+    var dadosOficina = await oficinasDAO.getOneOficina(nomeTela);
+    console.log(dadosOficina)
+  
+    req.session.cnpj_oficina = dadosOficina[0].cnpj_oficina
+
+    res.redirect(`/dashboard/${nomeTela}`);
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 router.post('/basico', async (req, res) => {
   try {
     cnpjBD = req.session.cnpj;

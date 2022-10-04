@@ -602,9 +602,9 @@ font-size: 16px;
 line-height: 24px;
 color: #5e5e5e;
 }
-.nome-oficina{
+/* .nome-oficina{
     color: var(--cor-principal);
-}
+} */
 @media screen and (min-width: 481px) {
     #acoes{
         justify-content: space-around;

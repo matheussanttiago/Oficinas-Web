@@ -91,7 +91,11 @@ router.get('/', async function (req, res) {
     id_prop = req.session.id_prop
 
     if (tipo_usuario == 2) {
-      oficinaProp = await oficinasDAO.getOficinaProp(id_prop);
+      if(id_prop){
+        oficinaProp = await oficinasDAO.getOficinaProp(id_prop);
+      } else {
+        oficinaProp = await oficinasDAO.getOficinaProp(id_usu);
+      }
       console.log(oficinaProp)
     }
 
@@ -140,10 +144,11 @@ router.get('/avaliacao', function (req, res) {
 });
 router.get('/planos', function (req, res) {
   console.log(req.session)
-  res.render('pages/planos');
+  res.render('pages/planos', {cadastrado: true});
 });
 router.get('/pagamento', function (req, res) {
-  res.render('pages/forma_pagamento');
+  nomeTela = req.session.nomeTela
+  res.render('pages/forma_pagamento', {nomeTela});
 });
 
 

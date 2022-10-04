@@ -725,6 +725,10 @@ input[type="file"] {
     flex-direction: column;
 }
 
+#pop-up_pagamento{
+    display: none;
+}
+
 .pop-up img {
     width: 170px;
     align-self: center;
@@ -755,6 +759,8 @@ input[type="file"] {
     text-align: center;
 
     color: #000000;
+
+    margin-bottom: 20px;
 }
 
 .primeira-opcao-btn {
@@ -774,7 +780,7 @@ input[type="file"] {
     border: none;
 
     margin-bottom: 15px;
-    margin-top: 27px;
+    /* margin-top: 27px; */
 }
 
 .segunda-opcao-btn {
@@ -786,7 +792,7 @@ input[type="file"] {
     font-size: 20px;
     line-height: 24px;
     /* identical to box height, or 120% */
-
+    width: 100%;
     outline: none;
     border: none;
     height: 60px;
@@ -1231,6 +1237,6 @@ a {
 
 @media screen and (max-width: 739px) {
     .pop-up {
-        height: 50% !important;
+        height: 60% !important;
     }
 }

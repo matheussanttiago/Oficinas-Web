@@ -27,9 +27,22 @@
     <!-- LINKS JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/script_menu.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".primeira-opcao-btn").click(function(){
+                $('.pop-up').css('display', 'none');
+                $('#modal-cad').hide();
+            })
+        })
+    </script>
+
 </head>
 
 <body>
+    <% if(cadastrado == true) {%>
+        <div id="modal-cad"></div>
+    <% } %>
     <header id="normal_header">
         <div id="fixed">
             <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
@@ -216,17 +229,19 @@
 
         </section>
 
-        <div class="pop-up">
-            <img src="img/img_pop-up.svg" alt="">
-            <h3>Concluido!</h3>
+        <% if(cadastrado == true) {%>
+            <div class="pop-up">
+                <img src="img/img_pop-up.svg" alt="">
+                <h3>Concluido!</h3>
 
-            <p>Otimo! A pagina da sua oficina está
-                pronta, mas voçê ainda não pode
-                ultiliza-la sem ter um plano.</p>
+                <p>Otimo! A pagina da sua oficina está
+                    pronta, mas voçê ainda não pode
+                    ultiliza-la sem ter um plano.</p>
 
-            <button class="primeira-opcao-btn"><a href="/planos">Ver Planos</a></button>
-            <button class="segunda-opcao-btn"><a href="/dashboard">Depois</a></button>
-        </div> 
+                <button class="primeira-opcao-btn">Ver Planos</button>
+                <form action="/default" method="post"><button class="segunda-opcao-btn">Depois</button></form>
+            </div> 
+        <% } %>
 
 
     </main>
