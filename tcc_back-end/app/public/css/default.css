@@ -793,8 +793,8 @@ input[type="file"] {
     color: #FF8500;
 }
 
-#modal {
-    /* display: none; */
+#modal, #modal-cad {
+    display: none;
     background-color: black;
     opacity: 70%;
     position: fixed;
@@ -805,6 +805,9 @@ input[type="file"] {
     width: 100%;
     z-index: 80;
 }
+#modal-cad {
+    display: block;
+}  
 
 #foto_oficina {
     background-color: #0F0F0F;

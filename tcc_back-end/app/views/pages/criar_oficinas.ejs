@@ -34,7 +34,7 @@
         $(document).ready(function () {
             $(".primeira-opcao-btn").click(function(){
                 $('.pop-up').css('display', 'none');
-                $('#modal').hide();
+                $('#modal-cad').hide();
             })
         })
     </script>
@@ -42,7 +42,7 @@
 
 <body>
     <% if(cadastrado == true) {%>
-        <div id="modal"></div>
+        <div id="modal-cad"></div>
     <% } %>
     <header id="normal_header">
         <div id="fixed">

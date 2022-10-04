@@ -127,6 +127,7 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 
     // SALVANDO CNPJ NA SESSÃO
     req.session.cnpj = cnpjBD;
+    console.log(req.session)
     res.redirect('/planos');
   } catch(e) {
 

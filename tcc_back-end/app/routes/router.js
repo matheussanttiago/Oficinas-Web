@@ -88,13 +88,14 @@ router.get('/', async function (req, res) {
     nome = req.session.usu_nome;
     tipo_usuario = req.session.usu_tipo;
     id_usu = req.session.usu_id
+    id_prop = req.session.id_prop
 
-    if(tipo_usuario == 2){
-      oficinaProp = await oficinasDAO.getOficinaProp(id_usu);
+    if (tipo_usuario == 2) {
+      oficinaProp = await oficinasDAO.getOficinaProp(id_prop);
       console.log(oficinaProp)
     }
 
-    let buff = req.session.usu_foto
+    buff = req.session.usu_foto
 
     // console.log(tipo_usuario)
     console.log(req.session)
@@ -108,36 +109,37 @@ router.get('/', async function (req, res) {
     // }
 
     let Correios = require('node-correios');
-let correios = new Correios();
- let bairro
- let cidade
-// for(let i = 0; i < allOficinas.length; i++){
-// correios.consultaCEP({ cep: allOficinas[i].cep })
-// .then(result => {
-//   console.log(result.bairro);
-//   bairro = result.bairro
-//   cidade = result.localidade
-// })
-// .catch(error => {
-//   console.log(error)
-// });
-// }
-console.log(oficinaProp)
-res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade, oficinaProp });
+    let correios = new Correios();
+    let bairro
+    let cidade
+    // for(let i = 0; i < allOficinas.length; i++){
+    // correios.consultaCEP({ cep: allOficinas[i].cep })
+    // .then(result => {
+    //   console.log(result.bairro);
+    //   bairro = result.bairro
+    //   cidade = result.localidade
+    // })
+    // .catch(error => {
+    //   console.log(error)
+    // });
+    // }
+    console.log(oficinaProp)
+    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade, oficinaProp });
 
-// console.log(bairro)
-    
+    // console.log(bairro)
 
-} catch (e) {
-  console.log(e);
-  res.status(500).send('Something broke!');
-}
+
+  } catch (e) {
+    console.log(e);
+    res.status(500).send('Something broke!');
+  }
 });
 
 router.get('/avaliacao', function (req, res) {
   res.render('pages/avaliacao');
 });
 router.get('/planos', function (req, res) {
+  console.log(req.session)
   res.render('pages/planos');
 });
 router.get('/pagamento', function (req, res) {
@@ -268,16 +270,16 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
 
-    let buff = req.session.usu_foto
+    req.session.usu_foto = fileContent.toString("base64")
     console.log(req.session)
-    res.render('pages/criar_oficinas', {cadastrado: true})
+    res.render('pages/criar_oficinas', { cadastrado: true })
   } catch (e) {
 
     console.log(e);
     res.status(500).send('Something broke!')
 
   }
-  
+
   // console.log(req.body.nome2)
 });
 
