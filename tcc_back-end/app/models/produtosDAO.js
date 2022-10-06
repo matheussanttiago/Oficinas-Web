@@ -49,6 +49,17 @@ module.exports = class ProdutosDAO{
         });
     };
 
+    getProdutoId = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT LAST_INSERT_ID()`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
 
     // SERVICOS
     getServicos = ()=>{
@@ -84,9 +95,9 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    addCategoria = ()=>{
+    addCategoria = (dadosCategoria)=>{
         return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '2'`, (error, elements)=>{
+            this.conexao.query(`INSERT INTO produto_atuacao SET ?`, dadosCategoria, (error, elements)=>{
                 if(error){
                     return reject(error);
                 }
@@ -94,5 +105,6 @@ module.exports = class ProdutosDAO{
             });
         });
     };
+
 
 }

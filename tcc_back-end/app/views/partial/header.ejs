@@ -33,10 +33,96 @@
     </div>
     <div id="filtro-i" class="filtro-i filtro"><img src="/img/filtro-icon.svg" alt=""></div>
 
+    <link rel="stylesheet" href="/css/faixa.css">
 
 </header>
 
 <div id="container_filtro">
+    <div>
+        <div class="titulo" id="titulo-filtro">Filtro</div>
+
+        <hr>
+
+        <div class="titulo-filtro">Categoria</div>
+        <div class="categorias">
+            <nav>
+                <div class="opcao-filtro">Todos</div>
+                <div class="opcao-filtro">Oficina</div>
+                <div class="opcao-filtro">Serviço</div>
+                <div class="opcao-filtro">Produto</div>
+            </nav>
+        </div>
+
+        <div class="titulo-filtro">Tipo de veículo</div>
+        <div class="categorias">
+            <nav>
+                <div class="opcao-filtro">Todos</div>
+                <div class="opcao-filtro">Motos</div>
+                <div class="opcao-filtro">Carros</div>
+                <div class="opcao-filtro">Bicicletas</div>
+            </nav>
+        </div>
+
+        <div class="titulo-filtro">Faixa de preço</div>
+       
+        <div class="gap" id="price_input">
+            <h5 class="escolha">Escolha a faixa de preço desejada</h5>
+            <div >
+                <label for="min" class="price-input">
+                    
+                    <input type="number" id="min" class="input-min" value="10"
+                        onkeypress="return event.charCode >= 48" min="1">
+                </label>
+                <label for="max" class="price-input">
+                    
+                    <input type="number" id="max" class="input-max" value="50"
+                        onkeypress="return event.charCode >= 48" min="1">
+                </label>
+            </div>
+            <div class="slider">
+                <div class="progress"></div>
+            </div>
+            <div class="range-input">
+                <input type="range" class="range-min" min="0" max="9999" value="000">
+                <input type="range" class="range-max" min="100" max="10000" value="3000">
+            </div>
+        </div>
+
+        <div class="titulo-filtro">Avaliação</div>
+        <div id="filtro-avaliacao">
+            <div class="opcao-avaliacao">
+                <img src="img/star.svg" alt="">
+                <span class="nota">5</span>
+            </div>
+            <div class="opcao-avaliacao">
+                <img src="img/star.svg" alt="">
+                <span class="nota">4</span>
+            </div>
+            <div class="opcao-avaliacao">
+                <img src="img/star.svg" alt="">
+                <span class="nota">3</span>
+            </div>
+            <div class="opcao-avaliacao">
+                <img src="img/star.svg" alt="">
+                <span class="nota">2</span>
+            </div>
+            <div class="opcao-avaliacao">
+                <img src="img/star.svg" alt="">
+                <span class="nota">1</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="btns-filtro">
+            <button class="segunda-opcao-btn">Resetar</button>
+            <button class="primeira-opcao-btn">Aplicar Filtro</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- <div id="container_filtro">
     <div>
         <div class="titulo" id="titulo-filtro">Filtro</div>
 
@@ -97,5 +183,8 @@
         </div>
 
     </div>
-</div>
+
+</div> -->
 <div id="topo_pesquisa" class="topo"></div>
+
+<script src="js/faixa.js"></script>

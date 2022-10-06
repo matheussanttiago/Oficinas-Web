@@ -115,7 +115,45 @@ router.post('/cad_servico', upload.array('add-img'), async (req, res) => {
 
   try {
     results = await produtosDAO.CadProduto(dadosForm); 
-    // res.redirect('/')
+
+    lastId = await produtosDAO.getProdutoId()
+        // ADICIONANDO CATEGORIA
+        if(req.body.moto == 'on'){
+          var dadosCategoria = {
+            tipo_veiculo_id: 1,
+            id_produto: lastId
+          }
+          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+        } 
+        if(req.body.carro == 'on'){
+          var dadosCategoria = {
+            tipo_veiculo_id: 2,
+            id_produto: lastId
+          }
+          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+        } 
+        if(req.body.van == 'on'){
+          var dadosCategoria = {
+            tipo_veiculo_id: 3,
+            id_produto: lastId
+          }
+          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+        } 
+        if(req.body.caminhao == 'on'){
+          var dadosCategoria = {
+            tipo_veiculo_id: 4,
+            id_produto: lastId
+          }
+          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+        } 
+        if(req.body.bicicleta == 'on'){
+          var dadosCategoria = {
+            tipo_veiculo_id: 5,
+            id_produto: lastId
+          }
+          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+        } 
+    res.redirect('/')
   } catch(e) {
 
       console.log(e);
