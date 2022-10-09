@@ -1,18 +1,51 @@
 $(document).ready(function(){
     $('#tipo_moto').click(function(){
-        $('#ofc_motos').css('display', 'block');
-        $('#ofc_carros').css('display', 'none');
-        $('#ofc_bikes').css('display', 'none');
+        $('.sec-motos').show();
+        $('.sec-carros').hide();
+        $('.sec-vans').hide();
+        $('.sec-caminhoes').hide();
+        $('.sec-bicicletas').hide();
+        $('.sec-todos').hide();
     })
     $('#tipo_carro').click(function(){
-        $('#ofc_carros').css('display', 'block');
-        $('#ofc_motos').css('display', 'none');
-        $('#ofc_bikes').css('display', 'none');
+        $('.sec-motos').hide();
+        $('.sec-carros').show();
+        $('.sec-vans').hide();
+        $('.sec-caminhoes').hide();
+        $('.sec-bicicletas').hide();
+        $('.sec-todos').hide();
+    })
+    $('#tipo_van').click(function(){
+        $('.sec-motos').hide();
+        $('.sec-carros').hide();
+        $('.sec-vans').show();
+        $('.sec-caminhoes').hide();
+        $('.sec-bicicletas').hide();
+        $('.sec-todos').hide();
+    })
+    $('#tipo_caminhao').click(function(){
+        $('.sec-motos').hide();
+        $('.sec-carros').hide();
+        $('.sec-vans').hide();
+        $('.sec-caminhoes').show();
+        $('.sec-bicicletas').hide();
+        $('.sec-todos').hide();
     })
     $('#tipo_bike').click(function(){
-        $('#ofc_bikes').css('display', 'block');
-        $('#ofc_motos').css('display', 'none');
-        $('#ofc_carros').css('display', 'none');
+        $('.sec-motos').hide();
+        $('.sec-carros').hide();
+        $('.sec-vans').hide();
+        $('.sec-caminhoes').hide();
+        $('.sec-bicicletas').show();
+        $('.sec-todos').hide();
+    })
+    $('#tipo_todos').click(function(){
+        $('.sec-motos').hide();
+        $('.sec-carros').hide();
+        $('.sec-vans').hide();
+        $('.sec-caminhoes').hide();
+        $('.sec-bicicletas').hide();
+        $('.sec-todos').show();
     })
 
     $('.tipos_veiculos').click(function(){

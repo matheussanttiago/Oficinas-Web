@@ -690,7 +690,7 @@
                                 <div class="content_produtos">
                                     <img src="data:image/gif;base64,<%= produtos[i].foto1 %>" alt="" class="img-prod">
                                     <h5 class="titulo_produto"><%= produtos[i].nome_produto %></h5>
-                                    <span class="preco_produto">R$<%= produtos[i].valor_produto %></span>
+                                    <span class="preco_produto">R$<%= String(produtos[i].valor_produto).replace('.', ',') %></span>
                                     <div id="avaliacao_produto">
                                         <ul class="avaliacao_produtos">
                                             <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">

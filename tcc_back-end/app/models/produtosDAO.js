@@ -61,6 +61,59 @@ module.exports = class ProdutosDAO{
     };
 
 
+    // GET CATEGORIAS
+    getProdutosMoto = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 1`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosCarro = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 2`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosVan = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 3`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosCaminhao = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 4`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosBicicleta = ()=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 5`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+
     // SERVICOS
     getServicos = ()=>{
         return new Promise((resolve, reject)=>{

@@ -140,3 +140,11 @@ main{
     align-items: center;
     column-gap: 6px;
 }
+
+.sec-motos, .sec-carros, .sec-vans, .sec-caminhoes, .sec-bicicletas{
+    display: none;
+}
+
+body{
+    height: 100%;
+}
