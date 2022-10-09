@@ -144,7 +144,7 @@ router.get('/avaliacao', function (req, res) {
 });
 router.get('/planos', function (req, res) {
   console.log(req.session)
-  res.render('pages/planos', {cadastrado: true});
+  res.render('pages/planos', {cadastrado: false});
 });
 router.get('/pagamento', function (req, res) {
   nomeTela = req.session.nomeTela

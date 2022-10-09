@@ -28,9 +28,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/script_menu.js"></script>
 
+    <script>
+        $(document).ready(function(){
+            $('.segunda-opcao-btn').click(function(){
+                $('.pop-up').hide();
+                $('#modal-cad').hide();
+            })
+        })
+    </script>
 </head>
 
 <body>
+    <% if(servicoCad == true || produtoCad == true) {%>
+        <div id="modal-cad"></div>
+    <% } %>
     <div id="container">
         <%- include('../partial/header.ejs') %>
 
@@ -104,7 +115,7 @@
                                 <span>Visualizar Oficina</span>
                             </div>
                         </a>
-                        <a href=""  id="plan" class="gerenciar-opcao">
+                        <a href="/planos"  id="plan" class="gerenciar-opcao">
                             <div>
                                 <img src="/img/edit_icon.svg" alt="ícone de edição">
                                 <span>Alterar Plano</span>
@@ -121,6 +132,24 @@
                 </div>
 
             </section>
+            <% if(produtoCad == true) { %>
+                <div class="pop-up">
+                    <img src="img/img_pop-up.svg" alt="">
+                    <h3>Produto Cadastrado!</h3>
+    
+                    <button class="primeira-opcao-btn"><a href="/produto/<%=produtoId%>>Ver Produto</a></button>
+                    <button class="segunda-opcao-btn"><a href="#">Concluir</a></button>
+                </div>
+            <% } %>
+            <% if(servicoCad == true) { %>
+                <div class="pop-up">
+                    <img src="img/img_pop-up.svg" alt="">
+                    <h3>Servico Cadastrado!</h3>
+    
+                    <button class="primeira-opcao-btn"><a href="/produto/<%=produtoId%>">Ver Serviço</a></button>
+                    <button class="segunda-opcao-btn"><a href="#">Concluir</a></button>
+                </div>
+            <% } %>
         </main>
 
 

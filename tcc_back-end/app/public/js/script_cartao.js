@@ -34,33 +34,42 @@ $(document).ready(function () {
         $('#plano').hide();
         $('#sec-forma_pgmt').show();
     })
+    $('.btn_alterar').click(function () {
+        $('#plano').hide();
+        $('#sec-forma_pgmt').show();
+    })
     $('.voltar').click(function () {
         $('#cartao_section1').hide();
         $('#modal').hide();
         $('#sec-forma_pgmt').show();
     })
 
+    $('#finish').click(function () {
+        $('.pop-up').css('display', 'flex');
+        $('#modal').show();
+    })
 
-    // if($("#opcao-paypal").is(':checked')){
-    //     $('#forma-escolhida').text('Paypal');
-    //     $('#img-escolhida').attr('src', './img/logos_paypal.svg');
-    // }
-    // if($("#opcao-google").is(':checked')){
-    //     $('#forma-escolhida').text('Google Pay');
-    //     $('#img-escolhida').attr('src', './img/logo_google-pay.svg');
-    // }
-    // if($("#opcao-apple").is(':checked')){
-    //     $('#forma-escolhida').text('Apple Pay');
-    //     $('#img-escolhida').attr('src', './img/logo_apple-pay.svg');
-    // }
-    // if($("#opcao-samsung").is(':checked')){
-    //     $('#forma-escolhida').text('Samsung Pay');
-    //     $('#img-escolhida').attr('src', './img/logo_samsung-pay.svg');
-    // }
-    // if($("#opcao-cartao").is(':checked')){
-    //     $('#forma-escolhida').text('**** **** **** 0007');
-    //     $('#img-escolhida').attr('src', './img/logos_mastercard.svg');
-    // }
+    $('#box-opcao-cartao').hide();
+    $('.frase_pgm').hide();
+
+    $('#cartao-adicionado').click(function(){
+        $('#box-opcao-cartao').show();
+        $('.frase_pgm').show();
+
+        var num_cartao = $('.seila').val();
+        let arr_numCartao = num_cartao.split('  ')
+        // console.log(arr_numCartao)
+        $('#num_cartao').text('**** **** **** ' + arr_numCartao[3]);
+
+        $("#opcao-cartao").click(function(){
+            $('#forma-escolhida').text('**** **** **** ' + arr_numCartao[3]);
+            $('#img-escolhida').attr('src', './img/logos_mastercard.svg');
+        })
+
+        $('#cartao_section1').hide();
+        $('#sec-forma_pgmt').show();
+    })
+
 
     $("#opcao-paypal").click(function(){
         $('#forma-escolhida').text('Paypal');
@@ -80,10 +89,5 @@ $(document).ready(function () {
     $("#opcao-samsung").click(function(){
         $('#forma-escolhida').text('Samsung Pay');
         $('#img-escolhida').attr('src', './img/logo_samsung-pay.svg');
-    })
-
-    $("#opcao-cartao").click(function(){
-        $('#forma-escolhida').text('**** **** **** 0007');
-        $('#img-escolhida').attr('src', './img/logos_mastercard.svg');
     })
 });

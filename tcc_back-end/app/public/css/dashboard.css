@@ -201,5 +201,5 @@ nav ul li{
 }
 
 .topo{
-    display: none;
+    display: none !important;
 }

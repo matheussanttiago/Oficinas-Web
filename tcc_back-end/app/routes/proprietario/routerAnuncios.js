@@ -76,7 +76,50 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
   // console.log(req.files)
   try {
     results = await produtosDAO.CadProduto(dadosForm);
-    res.redirect('/')
+    let produtoId = results.insertId;
+
+    // ADICIONANDO CATEGORIA
+    if(req.body.moto == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 1,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.carro == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 2,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.van == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 3,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.caminhao == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 4,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.bicicleta == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 5,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+
+    nomeTela = req.session.nomeTela;
+    // console.log(`esse é o ultido id do insert: ${results.insertId}`);
+    // res.redirect(`/dashboard/${nomeTela}`);
+    var dadosOficina = await oficinasDAO.getOneOficina(nomeTela);
+    res.render('pages/dashboard', {servicoCad: true, produtoCad: false, oficina: dadosOficina, produtoId})
   } catch (e) {
 
     console.log(e);
@@ -115,45 +158,49 @@ router.post('/cad_servico', upload.array('add-img'), async (req, res) => {
 
   try {
     results = await produtosDAO.CadProduto(dadosForm); 
+    let produtoId = results.insertId;
 
-    lastId = await produtosDAO.getProdutoId()
-        // ADICIONANDO CATEGORIA
-        if(req.body.moto == 'on'){
-          var dadosCategoria = {
-            tipo_veiculo_id: 1,
-            id_produto: lastId
-          }
-          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
-        } 
-        if(req.body.carro == 'on'){
-          var dadosCategoria = {
-            tipo_veiculo_id: 2,
-            id_produto: lastId
-          }
-          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
-        } 
-        if(req.body.van == 'on'){
-          var dadosCategoria = {
-            tipo_veiculo_id: 3,
-            id_produto: lastId
-          }
-          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
-        } 
-        if(req.body.caminhao == 'on'){
-          var dadosCategoria = {
-            tipo_veiculo_id: 4,
-            id_produto: lastId
-          }
-          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
-        } 
-        if(req.body.bicicleta == 'on'){
-          var dadosCategoria = {
-            tipo_veiculo_id: 5,
-            id_produto: lastId
-          }
-          addCategoria = await produtosDAO.addCategoria(dadosCategoria)
-        } 
-    res.redirect('/')
+    // ADICIONANDO CATEGORIA
+    if(req.body.moto == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 1,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.carro == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 2,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.van == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 3,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.caminhao == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 4,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+    if(req.body.bicicleta == 'on'){
+      var dadosCategoria = {
+        tipo_veiculo_id: 5,
+        id_produto: produtoId
+      }
+      addCategoria = await produtosDAO.addCategoria(dadosCategoria)
+    } 
+
+    nomeTela = req.session.nomeTela;
+    // res.redirect(`/dashboard/${nomeTela}`);
+    var dadosOficina = await oficinasDAO.getOneOficina(nomeTela);
+    res.render('pages/dashboard', {servicoCad: false, produtoCad: true, oficina: dadosOficina, produtoId})
   } catch(e) {
 
       console.log(e);

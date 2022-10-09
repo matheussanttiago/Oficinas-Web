@@ -164,9 +164,15 @@ router.post('/default', async (req, res) => {
 
 router.post('/basico', async (req, res) => {
   try {
-    cnpjBD = req.session.cnpj;
+    let cnpjBD;
+    if(req.session.cnpj){
+      cnpjBD = req.session.cnpj;
+    } else {
+      cnpjBD = req.session.cnpj_oficina;
+    }
     results = await planosDAO.CadPlanoBasico(cnpjBD); 
-    res.redirect('/pagamento');
+    nomeTela = req.session.nomeTela;
+    res.render('pages/forma_pagamento', {plano: 'basico', nomeTela});
   } catch (error) {
     console.log(error)
   }
@@ -174,9 +180,15 @@ router.post('/basico', async (req, res) => {
 
 router.post('/prata', async (req, res) => {
   try {
-    cnpjBD = req.session.cnpj;
+        let cnpjBD;
+    if(req.session.cnpj){
+      cnpjBD = req.session.cnpj;
+    } else {
+      cnpjBD = req.session.cnpj_oficina;
+    }
     results = await planosDAO.CadPlanoPrata(cnpjBD); 
-    res.redirect('/pagamento');
+    nomeTela = req.session.nomeTela;
+    res.render('pages/forma_pagamento', {plano: 'prata', nomeTela});
   } catch (error) {
     console.log(error)
   }
@@ -184,9 +196,15 @@ router.post('/prata', async (req, res) => {
 
 router.post('/ouro', async (req, res) => {
   try {
-    cnpjBD = req.session.cnpj;
+        let cnpjBD;
+    if(req.session.cnpj){
+      cnpjBD = req.session.cnpj;
+    } else {
+      cnpjBD = req.session.cnpj_oficina;
+    }
     results = await planosDAO.CadPlanoOuro(cnpjBD); 
-    res.redirect('/pagamento');
+    nomeTela = req.session.nomeTela;
+    res.render('pages/forma_pagamento', {plano: 'ouro', nomeTela});
   } catch (error) {
     console.log(error)
   }
@@ -194,9 +212,15 @@ router.post('/ouro', async (req, res) => {
 
 router.post('/dima', async (req, res) => {
   try {
-    cnpjBD = req.session.cnpj;
+    let cnpjBD;
+    if(req.session.cnpj){
+      cnpjBD = req.session.cnpj;
+    } else {
+      cnpjBD = req.session.cnpj_oficina;
+    }
     results = await planosDAO.CadPlanoDima(cnpjBD); 
-    res.redirect('/pagamento');
+    nomeTela = req.session.nomeTela;
+    res.render('pages/forma_pagamento', {plano: 'diamante', nomeTela});
   } catch (error) {
     console.log(error)
   }
@@ -213,6 +237,7 @@ router.get('/dashboard/:nome_tela', async function (req, res) {
 
   req.session.cnpj_oficina = dadosOficina[0].cnpj_oficina
   // VARIÁVEIS DE SESSÃO
+  req.session.nomeTela = nomeTela.nome_tela
   autenticado = req.session.autenticado;
   email = req.session.usu_autenticado;
   nome = req.session.usu_nome;
@@ -225,7 +250,7 @@ router.get('/dashboard/:nome_tela', async function (req, res) {
 
   console.log(req.session)
 
-  res.render('pages/dashboard', {oficina: dadosOficina, buff, cnpj});
+  res.render('pages/dashboard', {oficina: dadosOficina, buff, cnpj, produtoCad: false, servicoCad: false});
 })
 
 module.exports = router;
