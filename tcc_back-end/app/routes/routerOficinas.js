@@ -36,6 +36,14 @@ router.get('/oficina/:nome_tela', async function (req, res) {
   console.log(nomeTela)
   var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
   console.log(dadosOficina)
+  
+  // OUTRAS INFORMAÇÕES
+  produtosOfc = await produtosDAO.getProdutoOfc(dadosOficina[0].cnpj_oficina);
+  // console.log(produtosOfc)
+  servicosOfc = await produtosDAO.getServicoOfc(dadosOficina[0].cnpj_oficina);
+  // console.log(servicosOfc)
+  oficinas_parceiras = await oficinasDAO.getOficinaProp(dadosOficina[0].id_prop);
+  console.log(oficinas_parceiras)
 
   // VARIÁVEIS DE SESSÃO
   autenticado = req.session.autenticado;
@@ -45,7 +53,7 @@ router.get('/oficina/:nome_tela', async function (req, res) {
   id_usu = req.session.usu_id
   let buff = req.session.usu_foto
 
-  res.render('pages/oficina', {oficina: dadosOficina, buff});
+  res.render('pages/oficina', {oficina: dadosOficina, buff, produtosOfc, servicosOfc, oficinas_parceiras});
 })
 
 module.exports = router;

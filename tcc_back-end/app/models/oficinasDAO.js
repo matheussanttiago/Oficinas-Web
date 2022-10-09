@@ -48,6 +48,17 @@ module.exports = class OficinasDAO{
         });
     };
 
+    getAnunciante = (cnpj)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpj}'`,  (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
     addCategoria = (dadosCategoria)=>{
         return new Promise((resolve, reject)=>{
             this.conexao.query(`INSERT INTO oficina_atuacao SET ?`, dadosCategoria, (error, elements)=>{

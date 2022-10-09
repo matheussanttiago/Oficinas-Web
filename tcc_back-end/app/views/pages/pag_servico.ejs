@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nome do Serviço</title>
+    <title><%= servico[0].nome_produto %></title>
 
     <!-- LINKS CSS -->
-    <!-- <link rel="stylesheet" href="css/styleavaliacao.css"> -->
+    <link rel="stylesheet" href="/css/styleavaliacao.css">
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styleOficina.css">
@@ -83,7 +83,7 @@
             <div id="titulos">
                 <div>
                     <h1 class="titulo"><%= servico[0].nome_produto %></h1>
-                    <h2 class="legenda">Por <span class="nome-oficina">Oficina do Tião</span></h2>
+                    <h2 class="legenda">Por <span class="nome-oficina"><%= dadosAnunciante[0].nome_oficina %></span></h2>
                 </div>
             </div>
             <div class="nota_titulo">
@@ -140,7 +140,7 @@
             </section>
 
         <section class="pag1">
-            <div class="titulo">R$ <%= servico[0].valor_produto %></div>
+            <div class="titulo">R$<%= String(servico[0].valor_produto).replace('.', ',') %></div>
             <span class="legenda">Reparo feito somente na oficina</span>
 
             <div id="acoes">
@@ -175,13 +175,15 @@
         <hr class="pag1">
 
         <section id="anunciante" class="pag1">
-            <div class="titulo">Anunciante</div>
+            <div class="titulo" id="titulo-anunciante">Anunciante</div>
             <div id="titulos">
-                <div id="foto_oficina"></div>
-                <div>
-                    <h1 class="titulo" id="nome_oficina">Oficina do Tião</h1>
-                    <h2 class="legenda">Mecânica e funilaria</h2>
-                </div>
+                <div id="foto_oficina"><img src="data:image/gif;base64,<%= dadosAnunciante[0].foto_perfil_ofc %>" alt="" class="foto-perfil-oficina"></div>
+                <a href='/oficina/<%=dadosAnunciante[0].nome_tela%>'>
+                    <div class="box-anunciante">
+                        <h1 class="titulo" id="nome_oficina"><%= dadosAnunciante[0].nome_oficina %></h1>
+                        <h2 class="legenda"><%= dadosAnunciante[0].descricao_ofc %></h2>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -301,7 +303,7 @@
                 </div>
 
             </div>
-            <button class="btn_laranja" id="cta_avaliar"><span><a href="#barra-pesquisa-i">Avaliar</a></span></button>
+            <button class="btn_laranja" id="cta_avaliar"><span><a href="#">Avaliar</a></span></button>
         </section>
         <!-- </div> -->
 

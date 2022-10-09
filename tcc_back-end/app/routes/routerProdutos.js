@@ -35,9 +35,11 @@ router.get('/produto/:id_produto', async function(req, res) {
   var idProd = req.params;
   console.log(idProd)
   var dadosProduto = await produtosDAO.getOneProduto(idProd.id_produto);
+  var dadosAnunciante = await oficinasDAO.getAnunciante(dadosProduto[0].cnpj_oficina);
   console.log(dadosProduto)
+  // console.log(dadosAnunciante[0].nome_oficina)
 
-  res.render('pages/pag_produto', {produto: dadosProduto});
+  res.render('pages/pag_produto', {produto: dadosProduto, dadosAnunciante});
 });
 
 
@@ -59,9 +61,10 @@ router.get('/servico/:id_produto', async function(req, res) {
   var idProd = req.params;
   console.log(idProd)
   var dadosServico = await produtosDAO.getOneServico(idProd.id_produto);
+  var dadosAnunciante = await oficinasDAO.getAnunciante(dadosServico[0].cnpj_oficina);
   console.log(dadosServico)
 
-  res.render('pages/pag_servico', {servico: dadosServico});
+  res.render('pages/pag_servico', {servico: dadosServico, dadosAnunciante});
 });
 
 module.exports = router;

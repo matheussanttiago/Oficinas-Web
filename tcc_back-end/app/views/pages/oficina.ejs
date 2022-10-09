@@ -52,7 +52,7 @@
 
         <section id="sec_titulos">
             <div id="titulos">
-                <div id="foto_oficina"></div>
+                <div id="foto_oficina"> <img src="data:image/gif;base64,<%= oficina[0].foto_perfil_ofc %>" alt="" class="foto-perfil-oficina"></div>
                 <div>
                     <h1 class="titulo"><%= oficina[0].nome_oficina %></h1>
                     <h2 class="legenda">Produtos</h2>
@@ -142,156 +142,73 @@
 
             </div>
         </section>
-        <hr>
 
-        <section id="servicos">
-            <div id="titulos_servicos">
-                <div id="titulo_avaliacao">
-                    <h1 class="titulo"> Serviços </h1>
-                    <span class="legenda"> Melhores avaliados </span>
-                </div>
+        <% if(servicosOfc.length > 0) { %>
+            <hr>
 
-                <button class="shadow_btn"><a href="./servicos_oficina.html">Ver mais</a></button>
-            </div>
-            <div id="box_servicos">
-                <div class="melhores-servicos">
-                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn preco-mask">R$50,00</button>
-                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+            <section id="servicos">
+                <div id="titulos_servicos">
+                    <div id="titulo_avaliacao">
+                        <h1 class="titulo"> Serviços </h1>
+                        <span class="legenda"> Melhores avaliados </span>
+                    </div>
+    
+                    <button class="shadow_btn"><a href="./servicos_oficina.html">Ver mais</a></button>
                 </div>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                <div id="box_servicos">
+                    <% for(let i = 0; i < servicosOfc.length; i++) { %>
+                        <a href="/servico/<%=servicosOfc[i].id_produto%>">
+                            <div class="melhores-servicos">
+                                <img src="data:image/gif;base64,<%= servicosOfc[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
+                                <h5 class="titulos_servico"><%= servicosOfc[i].nome_produto %></h5>
+                                <p class="desc_servico" id="desc_servico"><%= servicosOfc[i].descricao_prod %></p>
+                                <button class="preco_servico default_btn preco-mask">R$<%= String(servicosOfc[i].valor_produto).replace('.', ',') %></button>
+                                <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                </div>
-                <!-- <hr> -->
-                <div class="melhores-servicos">
-                    <img src="/img/servicos/ex_servicos_home.jpg" alt="Foto do serviço" id="foto-servico">
-                    <h5 class="titulos_servico">Alinhamento de rodas</h5>
-                    <p class="desc_servico" id="desc_servico">Alinhamento especializado para veículos de passeios.</p>
-                    <button class="preco_servico default_btn">R$50,00</button>
-                    <img src="/img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                </div>
-            </div>
-        </section>
+            </section>
+        <% } %>
 
-        <hr>
+        <% if(produtosOfc.length > 0) { %>
+            <hr>
 
-        <section id="produtos">
-            <div id="titulos_produtos">
-                <div id="titulo_avaliacao">
-                    <h1 class="titulo"> Produtos </h1>
-                    <span class="legenda"> Mais vendidos </span>
-                </div>
-
-                <button class="shadow_btn" id="ver_mais-produtos"><a href="./produtos_oficina.html">Ver mais</a></button>
-            </div>
-            <div class="produtos_destaque">
-                <div class="produto">
-                    <div class="content_produtos">
-                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                        <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
-                        <span class="preco_produto">R$310,41</span>
-                        <div id="avaliacao_produto">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
+            <section id="produtos">
+                <div id="titulos_produtos">
+                    <div id="titulo_avaliacao">
+                        <h1 class="titulo"> Produtos </h1>
+                        <span class="legenda"> Mais vendidos </span>
                     </div>
+    
+                    <button class="shadow_btn" id="ver_mais-produtos"><a href="./produtos_oficina.html">Ver mais</a></button>
                 </div>
-                <div class="produto">
-                    <div class="content_produtos">
-                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                        <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
-                        <span class="preco_produto">R$310,41</span>
-                        <div id="avaliacao_produto">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="produtos_destaque">
+                    <% for(let i = 0; i < produtosOfc.length; i++) { %>
+                        <a href="/produto/<%=produtosOfc[i].id_produto%>">
+                            <div class="produto">
+                                <div class="content_produtos">
+                                    <img src="data:image/gif;base64,<%= produtosOfc[i].foto1 %>" alt="Imagem do produto" class="foto-carousel">
+                                    <h5 class="titulo_produto"><%= produtosOfc[i].nome_produto %></h5>
+                                    <span class="preco_produto">R$<%= String(produtosOfc[i].valor_produto).replace('.', ',') %></span>
+                                    <div id="avaliacao_produto">
+                                        <ul class="avaliacao_produtos">
+                                            <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
+                                            </li>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                            <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
+                                            <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div class="produto">
-                    <div class="content_produtos">
-                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                        <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
-                        <span class="preco_produto">R$310,41</span>
-                        <div id="avaliacao_produto">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="produto">
-                    <div class="content_produtos">
-                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                        <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
-                        <span class="preco_produto">R$310,41</span>
-                        <div id="avaliacao_produto">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="produto">
-                    <div class="content_produtos">
-                        <img src="/img/produtos/pneu_goodyear.jpg" alt="Imagem do produto">
-                        <h5 class="titulo_produto">Pneu Goodyear Kelly Edge Touring P</h5>
-                        <span class="preco_produto">R$310,41</span>
-                        <div id="avaliacao_produto">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        <% } %>
 
         <hr>
 
@@ -306,49 +223,27 @@
                 referrerpolicy="no-referrer-when-downgrade" class="mapa_oficina"></iframe>
         </section>
 
-        <hr id="linha_mobile">
-
-        <section id="oficinas_parceiras">
-            <h1 class="titulo">Oficinas Parceiras</h1>
-            <div id="tipos_oficinas">
-                <div id="ofc_motos" class="tipos_ofc">
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="/img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
-                            <p>Equipamentos para motociclitistas no geral.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
-                            <p>Equipamentos para motociclitistas no geral.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
-                            <p>Equipamentos para motociclitistas no geral.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="/img/oficinas/tiao_moto_pecas.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Tião Moto Peças</h5>
-                            <p>Equipamentos para motociclitistas no geral.</p>
-                        </div>
+        <% if(oficinas_parceiras.length > 0) { %>
+            <hr id="linha_mobile">
+            <section id="oficinas_parceiras">
+                <h1 class="titulo">Oficinas Parceiras</h1>
+                <div id="tipos_oficinas">
+                    <div id="ofc_motos" class="tipos_ofc">
+                        <% for(let i = 0; i < oficinas_parceiras.length; i++) { %>
+                            <a href='/oficina/<%=oficinas_parceiras[i].nome_tela%>' class="espec_oficinas">
+                                <div>
+                                    <div class="content_oficinas">
+                                        <img src="data:image/gif;base64,<%= oficinas_parceiras[i].foto1 %>" alt="" class="foto-carousel">
+                                        <h5 class="nome_espec_oficina"><%= oficinas_parceiras[i].nome_oficina %></h5>
+                                        <p><%= oficinas_parceiras[i].descricao_ofc %></p>
+                                    </div>
+                                </div>
+                            </a>
+                        <% } %>
                     </div>
                 </div>
-        </section>
+            </section>
+        <% } %>
 
         <hr id="linha_mobile">
 
