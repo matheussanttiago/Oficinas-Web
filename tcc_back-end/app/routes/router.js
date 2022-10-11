@@ -27,6 +27,9 @@ produtosDAO = new ProdutosDAO(conexao);
 var OficinasDAO = require("../models/oficinasDAO");
 oficinasDAO = new OficinasDAO(conexao);
 
+var SearchDAO = require("../models/searchDAO");
+searchDAO = new SearchDAO(conexao);
+
 
 // router.get('/', function(req, res) {
 //   // DbConnection.connection().query(
@@ -151,7 +154,16 @@ router.get('/pagamento', function (req, res) {
   res.render('pages/forma_pagamento', {nomeTela});
 });
 
+router.post('/search', async function(req, res){
+  valor = req.body.search;
+  console.log(valor);
+  resultsProd = await searchDAO.searchProduto(valor);
+  resultsOfc = await searchDAO.searchOficina(valor);
+  // console.log(resultsProd);
+  // console.log(resultsOfc);
 
+  res.render('pages/resultado_busca', {valor, resultsProd, resultsOfc});
+})
 
 router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');
