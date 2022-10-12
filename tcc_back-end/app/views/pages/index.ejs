@@ -55,7 +55,6 @@
     <%- include('../partial/header.ejs') %>
 
     <main>
-
         <section id="oficinas">
             <div id="titulos-pesquisa">
                 <h1 class="titulo"> Melhores Avaliados </h1>
@@ -72,7 +71,7 @@
                             <div class="modal_oficina"></div>
                             <div class="carrossel_infos">
                                 <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
-                                <span class="local_oficina"><%= bairro %> - <%= cidade %></span>
+                                <span class="local_oficina"><%= oficinas[i].bairro %> - <%= oficinas[i].cidade %></span>
                                 <ul class="avaliacao_oficinas">
                                     <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
                                             src="img/star_oficina_icon.svg" alt=""></li>
@@ -95,550 +94,78 @@
         <nav class="nav_tipos-veiculos">
             <div class="tipos_veiculos opacity_btn" id="tipo_moto">Motos</div>
             <div class="tipos_veiculos opacity_btn" id="tipo_carro">Carros</div>
-            <div class="tipos_veiculos opacity_btn">Vans</div>
+            <div class="tipos_veiculos opacity_btn" id="tipo_van">Vans</div>
             <div class="tipos_veiculos opacity_btn" id="tipo_bike">Bicicletas</div>
-            <div class="tipos_veiculos opacity_btn">Caminhões</div>
+            <div class="tipos_veiculos opacity_btn" id="tipo_caminhao">Caminhões</div>
         </nav>
 
         <section id="carousel_oficinas">
 
             <div id="tipos_oficinas">
-                <div id="ofc_motos" class="tipos_ofc">
-                    <a href="./oficina.html" class="espec_oficinas">
-                        <div class="espec_oficinas">
-                            <div class="content_oficinas">
-                                <img src="img/oficinas/ls_customs.jpg" alt="">
-                                <h5 class="nome_espec_oficina">Los Santos</h5>
-                                <p>Oficina de customização e pintura.</p>
+                <div id="ofc_motos" class="tipos_ofc sec-motos">
+                    <% for(let i = 0; i < arrMotos.length; i++) { %>
+                        <a href="/oficina/<%= arrMotos[i].nome_tela%>" class="espec_oficinas">
+                            <div class="espec_oficinas">
+                                <div class="content_oficinas">
+                                    <img src="data:image/gif;base64,<%= arrMotos[i].foto1 %>" alt="" class="foto-ofc">
+                                    <h5 class="nome_espec_oficina"><%= arrMotos[i].nome_oficina %></h5>
+                                    <p><%= arrMotos[i].descricao_ofc %></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div id="ofc_carros" class="tipos_ofc">
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
+                <div id="ofc_carros" class="tipos_ofc sec-carros">
+                    <% for(let i = 0; i < arrCarros.length; i++) { %>
+                        <a href="/oficina/<%= arrCarros[i].nome_tela%>" class="espec_oficinas">
+                            <div class="espec_oficinas">
+                                <div class="content_oficinas">
+                                    <img src="data:image/gif;base64,<%= arrCarros[i].foto1 %>" alt="" class="foto-ofc">
+                                    <h5 class="nome_espec_oficina"><%= arrCarros[i].nome_oficina %></h5>
+                                    <p><%= arrCarros[i].descricao_ofc %></p>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div id="ofc_vans" class="tipos_ofc">
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
+                <div id="ofc_vans" class="tipos_ofc sec-vans">
+                    <% for(let i = 0; i < arrVans.length; i++) { %>
+                        <a href="/oficina/<%= arrVans[i].nome_tela%>" class="espec_oficinas">
+                            <div class="espec_oficinas">
+                                <div class="content_oficinas">
+                                    <img src="data:image/gif;base64,<%= arrVans[i].foto1 %>" alt="" class="foto-ofc">
+                                    <h5 class="nome_espec_oficina"><%= arrVans[i].nome_oficina %></h5>
+                                    <p><%= arrVans[i].descricao_ofc %></p>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div id="ofc_bikes" class="tipos_ofc">
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
+                <div id="ofc_caminhoes" class="tipos_ofc sec-caminhoes">
+                    <% for(let i = 0; i < arrCaminhoes.length; i++) { %>
+                        <a href="/oficina/<%= arrCaminhoes[i].nome_tela%>" class="espec_oficinas">
+                            <div class="espec_oficinas">
+                                <div class="content_oficinas">
+                                    <img src="data:image/gif;base64,<%= arrCaminhoes[i].foto1 %>" alt="" class="foto-ofc">
+                                    <h5 class="nome_espec_oficina"><%= arrCaminhoes[i].nome_oficina %></h5>
+                                    <p><%= arrCaminhoes[i].descricao_ofc %></p>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
-                <div id="ofc_caminhoes" class="tipos_ofc">
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
-                    <div class="espec_oficinas">
-                        <div class="content_oficinas">
-                            <img src="img/oficinas/ls_customs.jpg" alt="">
-                            <h5 class="nome_espec_oficina">Los Santos</h5>
-                            <p>Oficina de customização e pintura.</p>
-                        </div>
-                    </div>
+                <div id="ofc_bikes" class="tipos_ofc sec-bicicletas">
+                    <% for(let i = 0; i < arrBicicletas.length; i++) { %>
+                        <a href="/oficina/<%= arrBicicletas[i].nome_tela%>" class="espec_oficinas">
+                            <div class="espec_oficinas">
+                                <div class="content_oficinas">
+                                    <img src="data:image/gif;base64,<%= arrBicicletas[i].foto1 %>" alt="" class="foto-ofc">
+                                    <h5 class="nome_espec_oficina"><%= arrBicicletas[i].nome_oficina %></h5>
+                                    <p><%= arrBicicletas[i].descricao_ofc %></p>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
             </div>
             <button class="shadow_btn" id="cta_oficinas"><a href="/oficinas">Ver mais oficinas</a></button>

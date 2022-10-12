@@ -527,3 +527,12 @@ hr{
     }
 }
 
+.foto-ofc{
+    width: 152px;
+    height: 152px;
+}
+
+#ofc_carros{
+    display: none;
+}
+

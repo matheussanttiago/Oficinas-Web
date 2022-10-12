@@ -3,7 +3,10 @@ const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
-const expressValidator = require('express-validator')
+const expressValidator = require('express-validator');
+// var fetch = require("node-fetch");
+const Correios = require('node-correios');
+const correios = new Correios();
 
 
 // const querystring = require("querystring");
@@ -84,6 +87,51 @@ router.get('/', async function (req, res) {
     allServicos = await produtosDAO.getServicos();
     allOficinas = await oficinasDAO.getOficinas();
 
+    // PRODUTOS DE MOTO
+    var cnpjMoto = await oficinasDAO.getOficinasMoto();
+    var arrMotos = []
+    for (let i = 0; i < cnpjMoto.length; i++) {
+      var oficina = await oficinasDAO.getOneOficinaCnpj(cnpjMoto[i].cnpj_oficina);
+      arrMotos.push(oficina[0])
+    }
+    // console.log(arrMotos)
+
+    // PRODUTOS DE CARRO
+    var cnpjCarro = await oficinasDAO.getOficinasCarro();
+    var arrCarros = []
+    for (let i = 0; i < cnpjCarro.length; i++) {
+      var oficina = await oficinasDAO.getOneOficinaCnpj(cnpjCarro[i].cnpj_oficina);
+      arrCarros.push(oficina[0])
+    }
+    // console.log(arrCarros)
+
+    // PRODUTOS DE VAN
+    var cnpjVan = await oficinasDAO.getOficinasVan();
+    var arrVans = []
+    for (let i = 0; i < cnpjVan.length; i++) {
+      var oficina = await oficinasDAO.getOneOficinaCnpj(cnpjVan[i].cnpj_oficina);
+      arrVans.push(oficina[0])
+    }
+    // console.log(arrVans)
+
+    // PRODUTOS DE CAMINHÃO
+    var cnpjCaminhao = await oficinasDAO.getOficinasCaminhao();
+    var arrCaminhoes = []
+    for (let i = 0; i < cnpjCaminhao.length; i++) {
+      var oficina = await oficinasDAO.getOneOficinaCnpj(cnpjCaminhao[i].cnpj_oficina);
+      arrCaminhoes.push(oficina[0])
+    }
+    // console.log(arrCaminhoes)
+
+    // PRODUTOS DE BICICLETA
+    var cnpjBicicleta = await oficinasDAO.getOficinasBicicleta();
+    var arrBicicletas = []
+    for (let i = 0; i < cnpjBicicleta.length; i++) {
+      var oficina = await oficinasDAO.getOneOficinaCnpj(cnpjBicicleta[i].cnpj_oficina);
+      arrBicicletas.push(oficina[0])
+    }
+    // console.log(arrBicicletas)
+
     // console.log(req.session);
 
     autenticado = req.session.autenticado;
@@ -94,7 +142,7 @@ router.get('/', async function (req, res) {
     id_prop = req.session.id_prop
 
     if (tipo_usuario == 2) {
-      if(id_prop){
+      if (id_prop) {
         oficinaProp = await oficinasDAO.getOficinaProp(id_prop);
       } else {
         oficinaProp = await oficinasDAO.getOficinaProp(id_usu);
@@ -115,26 +163,22 @@ router.get('/', async function (req, res) {
     //   console.log(buff)
     // }
 
-    let Correios = require('node-correios');
-    let correios = new Correios();
-    let bairro
-    let cidade
-    // for(let i = 0; i < allOficinas.length; i++){
-    // correios.consultaCEP({ cep: allOficinas[i].cep })
-    // .then(result => {
-    //   console.log(result.bairro);
-    //   bairro = result.bairro
-    //   cidade = result.localidade
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // });
-    // }
-    console.log(oficinaProp)
-    res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, bairro, cidade, oficinaProp });
+    for (let i = 0; i < allOficinas.length; i++) {
 
-    // console.log(bairro)
+      correios.consultaCEP({ cep: allOficinas[i].cep })
+        .then(async result => {
+          allOficinas[i].bairro = result.bairro
+          allOficinas[i].cidade = result.localidade
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
 
+    setTimeout(function () {
+      // console.log(allOficinas);
+      res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, oficinaProp, arrMotos, arrCarros, arrVans, arrCaminhoes, arrBicicletas });
+    }, 500)
 
   } catch (e) {
     console.log(e);
@@ -147,22 +191,24 @@ router.get('/avaliacao', function (req, res) {
 });
 router.get('/planos', function (req, res) {
   console.log(req.session)
-  res.render('pages/planos', {cadastrado: false});
+  res.render('pages/planos', { cadastrado: false });
 });
 router.get('/pagamento', function (req, res) {
   nomeTela = req.session.nomeTela
-  res.render('pages/forma_pagamento', {nomeTela});
+  res.render('pages/forma_pagamento', { nomeTela });
 });
 
-router.post('/search', async function(req, res){
+router.post('/search', async function (req, res) {
   valor = req.body.search;
   console.log(valor);
   resultsProd = await searchDAO.searchProduto(valor);
+  resultsServ = await searchDAO.searchServico(valor);
   resultsOfc = await searchDAO.searchOficina(valor);
-  // console.log(resultsProd);
-  // console.log(resultsOfc);
+  console.log(resultsProd);
+  console.log(resultsServ);
+  console.log(resultsOfc);
 
-  res.render('pages/resultado_busca', {valor, resultsProd, resultsOfc});
+  res.render('pages/resultado_busca', { valor, resultsProd, resultsServ, resultsOfc });
 })
 
 router.get('/cadastro', function (req, res) {

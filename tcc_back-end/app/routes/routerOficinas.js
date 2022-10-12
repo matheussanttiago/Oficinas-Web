@@ -3,6 +3,8 @@ const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+const Correios = require('node-correios');
+const correios = new Correios();
 
 
 const DbConnection = require('../../config/DbConnection');
@@ -21,7 +23,25 @@ oficinasDAO = new OficinasDAO(conexao);
 router.get('/oficinas', async function(req, res) {
   try {
     results = await oficinasDAO.getOficinas(); 
-    res.render('pages/todas_oficinas', {oficinas: results})
+
+    for (let i = 0; i < results.length; i++) {
+
+      correios.consultaCEP({ cep: results[i].cep })
+        .then(async result => {
+          results[i].bairro = result.bairro
+          results[i].cidade = result.localidade
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
+
+    setTimeout(function () {
+      // console.log(allOficinas);
+      res.render('pages/todas_oficinas', {oficinas: results})
+
+    }, 500)
+
   } catch(e) {
 
       console.log(e);

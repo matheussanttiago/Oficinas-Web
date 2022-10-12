@@ -1,13 +1,13 @@
-module.exports = class OficinasDAO{
- 
+module.exports = class OficinasDAO {
+
     constructor(conexao) {
         this.conexao = conexao;
     }
-    
-    CadOficina = (dadosForm)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`insert into oficina SET ?`, dadosForm,  (error, elements)=>{
-                if(error){
+
+    CadOficina = (dadosForm) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`insert into oficina SET ?`, dadosForm, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -15,10 +15,10 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOficinas = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina`, (error, elements)=>{
-                if(error){
+    getOficinas = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM oficina`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -26,10 +26,10 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOneOficina = (nomeTela)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina WHERE nome_tela = '${nomeTela}'`,  (error, elements)=>{
-                if(error){
+    getOneOficina = (nomeTela) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM oficina WHERE nome_tela = '${nomeTela}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -37,10 +37,10 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getOficinaProp = (id_usu)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina WHERE id_prop = '${id_usu}'`,  (error, elements)=>{
-                if(error){
+    getOneOficinaCnpj = (cnpj) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpj}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -48,10 +48,10 @@ module.exports = class OficinasDAO{
         });
     };
 
-    getAnunciante = (cnpj)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpj}'`,  (error, elements)=>{
-                if(error){
+    getOficinaProp = (id_usu) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM oficina WHERE id_prop = '${id_usu}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -59,10 +59,73 @@ module.exports = class OficinasDAO{
         });
     };
 
-    addCategoria = (dadosCategoria)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`INSERT INTO oficina_atuacao SET ?`, dadosCategoria, (error, elements)=>{
-                if(error){
+    getAnunciante = (cnpj) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM oficina WHERE cnpj_oficina = '${cnpj}'`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    // GET CATEGORIAS
+    addCategoria = (dadosCategoria) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`INSERT INTO oficina_atuacao SET ?`, dadosCategoria, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getOficinasMoto = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT cnpj_oficina FROM oficina_atuacao where tipo_veiculo_id = 1`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getOficinasCarro = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT cnpj_oficina FROM oficina_atuacao where tipo_veiculo_id = 2`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getOficinasVan = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT cnpj_oficina FROM oficina_atuacao where tipo_veiculo_id = 3`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getOficinasCaminhao = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT cnpj_oficina FROM oficina_atuacao where tipo_veiculo_id = 4`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getOficinasBicicleta = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT cnpj_oficina FROM oficina_atuacao where tipo_veiculo_id = 5`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
