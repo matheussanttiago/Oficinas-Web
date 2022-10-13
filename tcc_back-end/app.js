@@ -36,7 +36,7 @@ app.use(session({
     secret: '123',
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 5 * 60 * 1000}, // 2min
+    cookie: {maxAge: 30 * 60 * 1000}, // 30min
     store
   }));
 

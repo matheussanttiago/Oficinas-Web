@@ -333,7 +333,11 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
 
-    req.session.usu_foto = fileContent.toString("base64")
+    if(filecontent == null){
+      req.session.usu_foto = null
+    } else {
+      req.session.usu_foto = fileContent.toString("base64")
+    }
     console.log(req.session)
     res.render('pages/criar_oficinas', { cadastrado: true })
   } catch (e) {
