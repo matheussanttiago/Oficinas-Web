@@ -10,6 +10,7 @@ estrelas.addEventListener('click', function (e) {
         classStar.add('ativo');
         let valor_estrela = e.target.getAttribute('data-avaliacao')
         console.log(valor_estrela);
+        document.getElementById("num_estrela").value = valor_estrela
     }
 });
 

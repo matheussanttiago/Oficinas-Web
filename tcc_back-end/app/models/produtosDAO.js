@@ -159,5 +159,85 @@ module.exports = class ProdutosDAO{
         });
     };
 
+    // AVALIAÇÕES
+    avaliar = (dadosAvaliacao)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`INSERT INTO avalia SET ?`, dadosAvaliacao, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getAvaliacoes = (idProd)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT * FROM avalia WHERE id_produto = '${idProd}'`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getAvaliador = (id_visit)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT nome FROM visitante WHERE id_visit = '${id_visit}'`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getAvgAvalia = (id_prod)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia  where id_produto = ${id_prod}`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getNumAvaliacoes = (id_prod)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`select count(*) as num_avaliacoes from avalia where id_produto = ${id_prod}`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+
+    getProdutosOfc = (cnpj)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`select id_produto from produto where cnpj_oficina = ${cnpj}`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getAvaliacaoProd = (id_produto)=>{
+        return new Promise((resolve, reject)=>{
+            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia where id_produto = ${id_produto}`, (error, elements)=>{
+                if(error){
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+
 
 }

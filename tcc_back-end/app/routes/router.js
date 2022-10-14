@@ -175,6 +175,62 @@ router.get('/', async function (req, res) {
         });
     }
 
+    // AVALIAÇÕES DE OFICINA
+    for(let j = 0; j < allOficinas.length; j++){
+      console.log(allOficinas[j].cnpj_oficina)
+      produtosOfc = await produtosDAO.getProdutosOfc(allOficinas[j].cnpj_oficina);
+      // console.log(produtosOfc)
+      let media_geral = []
+      for(let k = 0; k < produtosOfc.length ; k++){
+        // console.log(produtosOfc)
+        // if(produtosOfc == ''){
+        //   produtosOfc
+        // }
+        avaliacaoProd = await produtosDAO.getAvaliacaoProd(produtosOfc[k].id_produto);
+        if(avaliacaoProd == undefined || avaliacaoProd.media_avaliacao == null){
+          if(avaliacaoProd[0].media_avaliacao == null){
+            media_geral.push(5)
+          } else {
+            media_geral.push(avaliacaoProd[0].media_avaliacao)
+          }
+          // console.log(avaliacaoProd)
+
+          // console.log(media_geral)
+
+        } else {
+          console.log('teste')
+          media_geral.push(avaliacaoProd.media_avaliacao);
+          // console.log(avaliacaoProd[k].media_avaliacao)
+
+          // console.log(media_geral)
+        }
+      }
+      // console.log(media_geral)
+      let soma = 0
+      for(let c = 0; c < media_geral.length; c++){
+        soma += media_geral[c]
+      }
+      let avg_media_geral = soma / media_geral.length;
+      if(isNaN(avg_media_geral)){
+        avg_media_geral = 5;
+      }
+      // console.log(avg_media_geral);
+      allOficinas[j].avg_media_geral = avg_media_geral
+    }
+
+    // AVALIAÇÕES DE PRODUTOS
+    for(let i = 0; i < allProdutos.length; i++){
+      avaliacao_produto = produtosDAO.getAvgAvalia(allProdutos[i].id_produto);
+      if(avaliacao_produto[0] == undefined){
+        allProdutos[i].avaliacao = 5
+      } else {
+        allProdutos[i].avaliacao = avaliacao_produto[0].media_avaliacao
+      }
+    }
+
+
+    // console.log(allOficinas);
+    console.log(allProdutos);
     setTimeout(function () {
       // console.log(allOficinas);
       res.render('pages/index', { oficinas: allOficinas, produtos: allProdutos, servicos: allServicos, autenticado, email, nome, buff, tipo_usuario, oficinaProp, arrMotos, arrCarros, arrVans, arrCaminhoes, arrBicicletas });
@@ -210,6 +266,39 @@ router.post('/search', async function (req, res) {
 
   res.render('pages/resultado_busca', { valor, resultsProd, resultsServ, resultsOfc });
 })
+
+router.post('/avaliacao/:id_produto', upload.single('add-img'), async function(req, res){
+
+  let fileContent;
+
+  if (!req.file) {
+    fileContent = null;
+  } else {
+    fileContent = req.file.buffer.toString('base64');
+  }
+  
+  var idProd = req.params;
+  // console.log(idProd.id_produto)
+
+  var num_estrela = req.body.num_estrela
+  if(num_estrela == ''){
+    num_estrela = 1
+  }
+
+  var dadosAvaliacao = {
+    avalia: num_estrela,
+    foto1: fileContent,
+    descricao_avalia: req.body.comentario,
+    id_produto: idProd.id_produto,
+    id_visit: req.session.usu_id
+  }
+
+  result = await produtosDAO.avaliar(dadosAvaliacao)
+  console.log(num_estrela)
+  res.redirect('/')
+})
+
+
 
 router.get('/cadastro', function (req, res) {
   res.render('pages/cad_visitante');

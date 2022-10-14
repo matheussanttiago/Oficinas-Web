@@ -73,16 +73,45 @@
                                 <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
                                 <span class="local_oficina"><%= oficinas[i].bairro %> - <%= oficinas[i].cidade %></span>
                                 <ul class="avaliacao_oficinas">
-                                    <li class="star-icon_oficinas ativo" data-avaliacao="1"><img
-                                            src="img/star_oficina_icon.svg" alt=""></li>
-                                    <li class="star-icon_oficinas" data-avaliacao="2"><img src="img/star_oficina_icon.svg"
-                                            alt=""></li>
-                                    <li class="star-icon_oficinas" data-avaliacao="3"><img src="img/star_oficina_icon.svg"
-                                            alt=""></li>
-                                    <li class="star-icon_oficinas" data-avaliacao="4"><img src="img/star_oficina_icon.svg"
-                                            alt=""></li>
-                                    <li class="star-icon_oficinas" data-avaliacao="5"><img src="img/star_oficina_none.svg"
-                                            alt=""></li>
+                                    <li class="star-icon_oficinas ativo" data-avaliacao="1">
+                                        <img src="img/star_oficina_icon.svg" alt="">
+                                    </li>
+                                    <% if(oficinas[i].avg_media_geral >= 2) { %>
+                                        <li class="star-icon_oficinas ativo" data-avaliacao="1">
+                                            <img src="img/star_oficina_icon.svg" alt="">
+                                        </li>
+                                    <% } else { %>
+                                        <li class="star-icon_oficinas" data-avaliacao="5">
+                                            <img src="img/star_oficina_none.svg" alt="">
+                                        </li>
+                                    <% } %>
+                                    <% if(oficinas[i].avg_media_geral >= 3) { %>
+                                        <li class="star-icon_oficinas ativo" data-avaliacao="1">
+                                            <img src="img/star_oficina_icon.svg" alt="">
+                                        </li>
+                                    <% } else { %>
+                                        <li class="star-icon_oficinas" data-avaliacao="5">
+                                            <img src="img/star_oficina_none.svg" alt="">
+                                        </li>
+                                    <% } %>
+                                    <% if(oficinas[i].avg_media_geral >= 4) { %>
+                                        <li class="star-icon_oficinas ativo" data-avaliacao="1">
+                                            <img src="img/star_oficina_icon.svg" alt="">
+                                        </li>
+                                    <% } else { %>
+                                        <li class="star-icon_oficinas" data-avaliacao="5">
+                                            <img src="img/star_oficina_none.svg" alt="">
+                                        </li>
+                                    <% } %>
+                                    <% if(oficinas[i].avg_media_geral >= 5) { %>
+                                        <li class="star-icon_oficinas ativo" data-avaliacao="1">
+                                            <img src="img/star_oficina_icon.svg" alt="">
+                                        </li>
+                                    <% } else { %>
+                                        <li class="star-icon_oficinas" data-avaliacao="5">
+                                            <img src="img/star_oficina_none.svg" alt="">
+                                        </li>
+                                    <% } %>
                                 </ul>
                             </div>
                         </div>
@@ -220,13 +249,27 @@
                                     <span class="preco_produto">R$<%= String(produtos[i].valor_produto).replace('.', ',') %></span>
                                     <div id="avaliacao_produto">
                                         <ul class="avaliacao_produtos">
-                                            <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="img/star.svg" alt="">
-                                            </li>
-                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="img/star.svg" alt=""></li>
-                                            <li class="star-icon_produtos" data-avaliacao="3"><img src="img/star.svg" alt=""></li>
-                                            <li class="star-icon_produtos" data-avaliacao="4"><img src="img/star.svg" alt=""></li>
-                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="img/star_none.svg" alt="">
-                                            </li>
+                                            <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                            <% if(produtos[i].avaliacao >= 2) { %>   
+                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                            <% } else { %>
+                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                            <% } %>
+                                            <% if(produtos[i].avaliacao >= 3) { %>   
+                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                            <% } else { %>
+                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                            <% } %>
+                                            <% if(produtos[i].avaliacao >= 4) { %>   
+                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                            <% } else { %>
+                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                            <% } %>
+                                            <% if(produtos[i].avaliacao == 5) { %>   
+                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                            <% } else { %>
+                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                            <% } %>
                                         </ul>
                                     </div>
                                 </div>

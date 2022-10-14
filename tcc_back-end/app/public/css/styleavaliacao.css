@@ -290,3 +290,6 @@ input[type="file"] {
         margin-bottom: 1em;
     }
 }
+#num_estrela{
+    display: none;
+}

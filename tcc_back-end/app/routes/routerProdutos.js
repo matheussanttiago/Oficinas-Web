@@ -110,12 +110,30 @@ router.get('/servicos', async function (req, res) {
 // PÁGINA DO SERVIÇO
 router.get('/servico/:id_produto', async function (req, res) {
   var idProd = req.params;
-  console.log(idProd)
+  // console.log(idProd);
   var dadosServico = await produtosDAO.getOneServico(idProd.id_produto);
   var dadosAnunciante = await oficinasDAO.getAnunciante(dadosServico[0].cnpj_oficina);
-  console.log(dadosServico)
+  console.log(dadosServico);
 
-  res.render('pages/pag_servico', { servico: dadosServico, dadosAnunciante });
+  var avaliacoes = await produtosDAO.getAvaliacoes(idProd.id_produto);
+  for(let i = 0; i < avaliacoes.length; i++){
+    nome_avaliador = await produtosDAO.getAvaliador(avaliacoes[i].id_visit);
+    console.log(nome_avaliador[0].nome);
+    avaliacoes[i].nome_avaliador = nome_avaliador[0].nome
+  }
+
+  avg_avalia = await produtosDAO.getAvgAvalia(idProd.id_produto);
+  if(avg_avalia[0].media_avaliacao == null){
+    avg_avalia[0].media_avaliacao = 5
+  }
+  media_avaliacao = avg_avalia[0].media_avaliacao;
+
+  numBD = await produtosDAO.getNumAvaliacoes(idProd.id_produto);
+  num_avaliacoes = numBD[0].num_avaliacoes;
+  
+  console.log(avaliacoes);
+
+  res.render('pages/pag_servico', { servico: dadosServico, dadosAnunciante, avaliacoes, media_avaliacao, num_avaliacoes });
 });
 
 module.exports = router;

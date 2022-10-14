@@ -89,16 +89,30 @@
             <div class="nota_titulo">
                 <div id="estrelas">
                     <ul class="avaliacao_produtos">
-                        <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                        </li>
-                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                        <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                        <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                        </li>
+                        <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                        <% if(media_avaliacao >= 2) { %>   
+                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                        <% } else { %>
+                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                        <% } %>
+                        <% if(media_avaliacao >= 3) { %>   
+                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                        <% } else { %>
+                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                        <% } %>
+                        <% if(media_avaliacao >= 4) { %>   
+                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                        <% } else { %>
+                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                        <% } %>
+                        <% if(media_avaliacao == 5) { %>   
+                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                        <% } else { %>
+                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                        <% } %>
                     </ul>
                 </div>
-                <span>340 Avaliações</span>
+                <span><%= num_avaliacoes %> Avaliações</span>
             </div>
             </div>
         </section>
@@ -206,19 +220,30 @@
             <div id="head_avaliacao">
                 <div id="nota">
                     <div>
-                        <span>4,0</span>
+                        <span><%= String(media_avaliacao).replace('.', ',') %></span>
                         <div id="estrelas">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                <% if(media_avaliacao >= 2) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(media_avaliacao >= 3) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(media_avaliacao >= 4) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(media_avaliacao == 5) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
@@ -239,70 +264,43 @@
             </div>
             <div id="box_avaliacoes">
 
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
+                <% for(let i = 0; i < avaliacoes.length; i++) { %>
+                    <div id="avaliacao">
+                        <img src="data:image/gif;base64,<%= avaliacoes[i].foto1 %>" alt="Imagem de avaliação" class="foto_avaliacao">
+                        <div class="infos_av">
+                            <span><%= avaliacoes[i].nome_avaliador %></span>
+                            <p><%= avaliacoes[i].descricao_avalia %></p>
+                            <div id="estrelas_avaliacao">
+                                <ul class="avaliacao_produtos">
+                                    <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                    <% if(avaliacoes[i].avalia >= 2) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 3) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 4) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 5) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <% } %>
 
             </div>
+
             <button class="btn_laranja" id="cta_avaliar"><span><a href="#">Avaliar</a></span></button>
         </section>
         <!-- </div> -->
@@ -316,6 +314,7 @@
                 </div>
                 <span class="legenda"> Pneu Goodyear - oficina do Tião </span>
 
+               <form action="/avaliacao/<%= servico[0].id_produto %>" enctype="multipart/form-data" method="post">
                 <div id="quadrado">
                     <label for="add-img" id="addinput">Adicionar imagem</label>
                     <input type="file" name="add-img" id="add-img">
@@ -333,7 +332,7 @@
                     <li class="star-icon" data-avaliacao="4"></li>
                     <li class="star-icon" data-avaliacao="5"></li>
                 </ul>
-
+                <input type="text" name="num_estrela" id="num_estrela">
 
                 <div id="comentario">
                     <img class="comente" src="/img/Comentario.svg">
@@ -346,6 +345,7 @@
                     onkeydown="contaCaracteres(this)" onkeyup="contaCaracteres(this)"></textarea>
 
                 <button class="concluir default_btn" id="concluir" type="submit"><span>Concluir</span></button>
+               </form>
             </div>
         </section>
 
