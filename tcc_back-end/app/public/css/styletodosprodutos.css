@@ -84,6 +84,8 @@ main{
     justify-self: center;
     /* margin-right: 20px; */
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .img_produto{
     border-radius: 12px;
@@ -147,4 +149,18 @@ main{
 
 body{
     height: 100%;
+}
+
+
+.foto_oficina{
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background-color: purple;
+}
+.img-foto_oficina{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }

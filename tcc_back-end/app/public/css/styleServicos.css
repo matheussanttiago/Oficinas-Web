@@ -129,7 +129,7 @@ main{
     justify-self: end;
     /* margin-right: 24px; */
 }
-#foto_oficina{
+.foto_oficina{
     background-color: #0F0F0F;
     width: 56px;
     height: 56px;
@@ -139,4 +139,21 @@ main{
     display: flex;
     align-items: center;
     column-gap: 6px;
+}
+
+.foto_oficina{
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background-color: purple;
+}
+.img-foto_oficina{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+#box_avaliacoes-pos, #box_avaliacoes-neg{
+    display: none;
 }

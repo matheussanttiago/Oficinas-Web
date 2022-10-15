@@ -153,7 +153,7 @@
                         <span class="legenda"> Melhores avaliados </span>
                     </div>
     
-                    <button class="shadow_btn"><a href="./servicos_oficina.html">Ver mais</a></button>
+                    <button class="shadow_btn"><a href="/servicos/<%= oficina[0].nome_tela %>">Ver mais</a></button>
                 </div>
                 <div id="box_servicos">
                     <% for(let i = 0; i < servicosOfc.length; i++) { %>
@@ -181,7 +181,7 @@
                         <span class="legenda"> Mais vendidos </span>
                     </div>
     
-                    <button class="shadow_btn" id="ver_mais-produtos"><a href="./produtos_oficina.html">Ver mais</a></button>
+                    <button class="shadow_btn" id="ver_mais-produtos"><a href="/produtos/<%= oficina[0].nome_tela %>">Ver mais</a></button>
                 </div>
                 <div class="produtos_destaque">
                     <% for(let i = 0; i < produtosOfc.length; i++) { %>

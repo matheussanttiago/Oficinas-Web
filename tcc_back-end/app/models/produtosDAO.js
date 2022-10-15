@@ -1,13 +1,46 @@
-module.exports = class ProdutosDAO{
- 
+module.exports = class ProdutosDAO {
+
     constructor(conexao) {
         this.conexao = conexao;
     }
-    
-    CadProduto = (dadosForm)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`insert into produto SET ?`, dadosForm,  (error, elements)=>{
-                if(error){
+
+    CadProduto = (dadosForm) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`insert into produto SET ?`, dadosForm, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getTipoProduto = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT tipo_do_produto FROM PRODUTO WHERE id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getTipoProduto = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT tipo_do_produto FROM PRODUTO WHERE id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getAllProdutos = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -16,10 +49,10 @@ module.exports = class ProdutosDAO{
     };
 
     // PRODUTOS
-    getProdutos = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '1'`, (error, elements)=>{
-                if(error){
+    getProdutos = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '1'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -27,10 +60,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getOneProduto = (idProd)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE id_produto = '${idProd}'`,  (error, elements)=>{
-                if(error){
+    getOneProduto = (idProd) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE id_produto = '${idProd}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -38,10 +71,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getProdutoOfc = (cnpj)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE cnpj_oficina = '${cnpj}' AND tipo_do_produto = 1`,  (error, elements)=>{
-                if(error){
+    getProduto = (idProd) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE id_produto = '${idProd} AND tipo_do_produto = 1'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -49,10 +82,21 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getProdutoId = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT LAST_INSERT_ID()`, (error, elements)=>{
-                if(error){
+    getProdutoOfc = (cnpj) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE cnpj_oficina = '${cnpj}' AND tipo_do_produto = 1`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    getProdutoId = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT LAST_INSERT_ID()`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -62,50 +106,104 @@ module.exports = class ProdutosDAO{
 
 
     // GET CATEGORIAS
-    getProdutosMoto = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 1`, (error, elements)=>{
-                if(error){
+    getProdutosMoto = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 1`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
             });
         });
     };
-    getProdutosCarro = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 2`, (error, elements)=>{
-                if(error){
+    getProdutosCarro = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 2`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
             });
         });
     };
-    getProdutosVan = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 3`, (error, elements)=>{
-                if(error){
+    getProdutosVan = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 3`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
             });
         });
     };
-    getProdutosCaminhao = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 4`, (error, elements)=>{
-                if(error){
+    getProdutosCaminhao = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 4`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
             });
         });
     };
-    getProdutosBicicleta = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 5`, (error, elements)=>{
-                if(error){
+    getProdutosBicicleta = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 5`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+
+
+    // GET CATEGORIAS - PRODUTOS DA OFICINA
+    getProdutosMotoOfc = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 1 and id_produto = '${id_produto}';`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosCarroOfc = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 2 and id_produto = '${id_produto}'`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosVanOfc = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 3 and id_produto = '${id_produto}'`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosCaminhaoOfc = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 4 and id_produto = '${id_produto}'`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+    getProdutosBicicletaOfc = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT id_produto FROM produto_atuacao where tipo_veiculo_id = 5 and id_produto = '${id_produto}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -115,10 +213,10 @@ module.exports = class ProdutosDAO{
 
 
     // SERVICOS
-    getServicos = ()=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '2'`, (error, elements)=>{
-                if(error){
+    getServicos = () => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE tipo_do_produto = '2'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -126,10 +224,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getOneServico = (idProd)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE id_produto = '${idProd}'`,  (error, elements)=>{
-                if(error){
+    getOneServico = (idProd) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE id_produto = '${idProd}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -137,10 +235,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getServicoOfc = (cnpj)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM produto WHERE cnpj_oficina = '${cnpj}' AND tipo_do_produto = 2`,  (error, elements)=>{
-                if(error){
+    getServicoOfc = (cnpj) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM produto WHERE cnpj_oficina = '${cnpj}' AND tipo_do_produto = 2`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -148,10 +246,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    addCategoria = (dadosCategoria)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`INSERT INTO produto_atuacao SET ?`, dadosCategoria, (error, elements)=>{
-                if(error){
+    addCategoria = (dadosCategoria) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`INSERT INTO produto_atuacao SET ?`, dadosCategoria, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -160,10 +258,10 @@ module.exports = class ProdutosDAO{
     };
 
     // AVALIAÇÕES
-    avaliar = (dadosAvaliacao)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`INSERT INTO avalia SET ?`, dadosAvaliacao, (error, elements)=>{
-                if(error){
+    avaliar = (dadosAvaliacao) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`INSERT INTO avalia SET ?`, dadosAvaliacao, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -171,10 +269,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getAvaliacoes = (idProd)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT * FROM avalia WHERE id_produto = '${idProd}'`, (error, elements)=>{
-                if(error){
+    getAvaliacoes = (idProd) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM avalia WHERE id_produto = '${idProd}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -182,10 +280,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getAvaliador = (id_visit)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT nome FROM visitante WHERE id_visit = '${id_visit}'`, (error, elements)=>{
-                if(error){
+    getAvaliador = (id_visit) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT nome FROM visitante WHERE id_visit = '${id_visit}'`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -193,10 +291,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getAvgAvalia = (id_prod)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia  where id_produto = ${id_prod}`, (error, elements)=>{
-                if(error){
+    getAvgAvalia = (id_prod) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia  where id_produto = ${id_prod}`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -204,10 +302,10 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getNumAvaliacoes = (id_prod)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`select count(*) as num_avaliacoes from avalia where id_produto = ${id_prod}`, (error, elements)=>{
-                if(error){
+    getNumAvaliacoes = (id_prod) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`select count(*) as num_avaliacoes from avalia where id_produto = ${id_prod}`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -216,10 +314,10 @@ module.exports = class ProdutosDAO{
     };
 
 
-    getProdutosOfc = (cnpj)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`select id_produto from produto where cnpj_oficina = ${cnpj}`, (error, elements)=>{
-                if(error){
+    getProdutosOfc = (cnpj) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`select id_produto from produto where cnpj_oficina = ${cnpj}`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
@@ -227,16 +325,28 @@ module.exports = class ProdutosDAO{
         });
     };
 
-    getAvaliacaoProd = (id_produto)=>{
-        return new Promise((resolve, reject)=>{
-            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia where id_produto = ${id_produto}`, (error, elements)=>{
-                if(error){
+    getAvaliacaoProd = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia where id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
                     return reject(error);
                 }
                 return resolve(elements);
             });
         });
     };
+
+    getHistoricoProd = (id_visit) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT * FROM avalia where id_visit = ${id_visit} ORDER BY id_avaliacao DESC`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
 
 
 

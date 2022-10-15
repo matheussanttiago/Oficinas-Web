@@ -212,17 +212,19 @@
             </div>
             <div id="box_servicos">
                 <% for(let i = 0;i < servicos.length; i++) { %>
-                    <a href="servico/<%=servicos[i].id_produto%>">
-                        <div class="melhores-servicos">
-                            <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
-                            <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
-                            <p class="desc_servico" id="desc_servico">
-                                <%= servicos[i].descricao_prod %>
-                            </p>
-                            <button class="preco_servico default_btn">R$<%= String(servicos[i].valor_produto).replace('.', ',') %> </button>
-                            <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                        </div>
-                    </a>
+                    <% if(i <= 4) { %>
+                        <a href="servico/<%=servicos[i].id_produto%>">
+                            <div class="melhores-servicos">
+                                <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
+                                <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
+                                <p class="desc_servico" id="desc_servico">
+                                    <%= servicos[i].descricao_prod %>
+                                </p>
+                                <button class="preco_servico default_btn">R$<%= String(servicos[i].valor_produto).replace('.', ',') %> </button>
+                                <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                            </div>
+                        </a>
+                    <% } %>
                 <% } %>
             </div>
         </section>
@@ -241,40 +243,42 @@
             <div id="modal_destaques">
                 <div class="produtos_destaque">
                     <% for(let i = 0; i < produtos.length; i++) {%>
-                        <a href="produto/<%=produtos[i].id_produto%>">
-                            <div class="produto">
-                                <div class="content_produtos">
-                                    <img src="data:image/gif;base64,<%= produtos[i].foto1 %>" alt="" class="img-prod">
-                                    <h5 class="titulo_produto"><%= produtos[i].nome_produto %></h5>
-                                    <span class="preco_produto">R$<%= String(produtos[i].valor_produto).replace('.', ',') %></span>
-                                    <div id="avaliacao_produto">
-                                        <ul class="avaliacao_produtos">
-                                            <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
-                                            <% if(produtos[i].avaliacao >= 2) { %>   
-                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                            <% } else { %>
-                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
-                                            <% } %>
-                                            <% if(produtos[i].avaliacao >= 3) { %>   
-                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                            <% } else { %>
-                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
-                                            <% } %>
-                                            <% if(produtos[i].avaliacao >= 4) { %>   
-                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                            <% } else { %>
-                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
-                                            <% } %>
-                                            <% if(produtos[i].avaliacao == 5) { %>   
-                                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                            <% } else { %>
-                                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
-                                            <% } %>
-                                        </ul>
+                        <% if(i <= 20) { %>
+                            <a href="produto/<%=produtos[i].id_produto%>">
+                                <div class="produto">
+                                    <div class="content_produtos">
+                                        <img src="data:image/gif;base64,<%= produtos[i].foto1 %>" alt="" class="img-prod">
+                                        <h5 class="titulo_produto"><%= produtos[i].nome_produto %></h5>
+                                        <span class="preco_produto">R$<%= String(produtos[i].valor_produto).replace('.', ',') %></span>
+                                        <div id="avaliacao_produto">
+                                            <ul class="avaliacao_produtos">
+                                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                                <% if(produtos[i].avaliacao >= 2) { %>   
+                                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                                <% } else { %>
+                                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                                <% } %>
+                                                <% if(produtos[i].avaliacao >= 3) { %>   
+                                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                                <% } else { %>
+                                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                                <% } %>
+                                                <% if(produtos[i].avaliacao >= 4) { %>   
+                                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                                <% } else { %>
+                                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                                <% } %>
+                                                <% if(produtos[i].avaliacao == 5) { %>   
+                                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                                <% } else { %>
+                                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                                <% } %>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        <% } %>
                     <% } %>
                 </div>
             </div>

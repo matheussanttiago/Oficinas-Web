@@ -36,49 +36,7 @@
 
 <body>
 <div id="modal"></div>
-    <header id="normal_header">
-        <div id="fixed">
-            <a href="index.html"><img src="img/Logo Oficinas Web 1 1.svg" alt="" class="logotipo"></a>
-
-            <div id="container-pesquisa" class="container_fixed">
-                <div id="pesquisa">
-                    <img src="img/pesquisa-icon.svg" alt="" class="pesquisa_img">
-                    <input type="search" name="barra-pesquisa" id="barra-pesquisa" placeholder="Estou buscando...">
-                    <div id="filtro-s" class="filtro-s filtro"><img src="img/filtro-icon.svg" alt=""></div>
-                </div>
-            </div>
-            
-            <nav>
-                <div id="painel_menu">
-                    <input type="checkbox" name="" id="check_menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-            <div id="modal_box">
-
-                <div id="dados_usuario">
-                    <div class="foto">
-                        <div id="inputs_foto">
-                            <div class="circle_foto">
-                                <img src="img/foto-padrao.svg" alt="" id="foto_padrao">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="opcoes_dados-usuario">
-                        <img src="img/user_icon_branco.svg" alt="">
-                        <h3 class="nome_usuario">Login / Criar Conta</h3>
-                    </div>
-                </div>
-
-                <hr>
-            </div>
-
-        </div>
-    </header>
-
-    <div id="topo" class="topo"></div>
+<%- include('../partial/normalHeader.ejs') %>
 
     <main>
         <section id="sec-forma_pgmt">

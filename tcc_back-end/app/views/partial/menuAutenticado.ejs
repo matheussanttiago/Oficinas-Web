@@ -4,14 +4,14 @@
         <div class="foto">
             <div id="inputs_foto">
                 <div class="circle_foto">
-                    <% if(buff === undefined) { %>
-                        <img src="img/foto-padrao.svg" alt="" id="foto_padrao" class="foto_usu-auth">
+                    <% if(buff == undefined || buff == null) { %>
+                        <img src="/img/foto-padrao.svg" alt="" id="foto_padrao" class="foto_usu-auth">
                     <% } else { %>
                         <img src="data:image/gif;base64,<%= buff %>" alt="" id="foto_padrao" class="foto_usu-auth">
                     <% } %>
                 </div>
                 <!-- <div id="foto"></div> -->
-                <label for="add-img" id="addinput-p"><img src="img/add-foto.svg" alt="logo"></label>
+                <label for="add-img" id="addinput-p"><img src="/img/add-foto.svg" alt="logo"></label>
                 <input type="file" name="add-img" id="add-img-p">
             </div>
         </div>
@@ -24,25 +24,27 @@
     <div id="opcoes">
         <a href="./editar_perfil.html">
             <div id="editar-perfil" class="opcao">
-                <img src="img/user_icon_branco.svg" alt="">
+                <img src="/img/user_icon_branco.svg" alt="">
                 <span>Editar Perfil</span>
             </div>
         </a>
-        <a href="./historico.html">
-            <div id="historico" class="opcao">
-                <img src="img/file_icon_branco.svg" alt="">
-                <span>Historico</span>
-            </div>
-        </a>
+        <% if(tipo_usuario == 1) { %>
+            <a href="/historico">
+                <div id="historico" class="opcao">
+                    <img src="/img/file_icon_branco.svg" alt="">
+                    <span>Historico</span>
+                </div>
+            </a>
+        <% } %>
         <a href="./favoritos.html">
             <div id="favoritos" class="opcao">
-                <img src="img/favorito_icon_branco.svg" alt="">
+                <img src="/img/favorito_icon_branco.svg" alt="">
                 <span>Favoritos</span>
             </div>
         </a>
         <a href="./notificacoes.html">
             <div id="notificacoes" class="opcao">
-                <img src="img/notificacao_icon.svg" alt="">
+                <img src="/img/notificacao_icon.svg" alt="">
                 <span>Notificações</span>
             </div>
         </a>
@@ -53,14 +55,20 @@
     <% if(tipo_usuario == 2) { %>
         <div id="suas_oficinas">
             <div id="opcao_suas-oficinas" class="opcao">
-                <img src="img/config_icon.svg" alt="">
+                <img src="/img/config_icon.svg" alt="">
                 <span>Suas Oficinas</span>
             </div>
             <% if(oficinaProp.length > 0 ) { %>
                 <% for(let i = 0; i < oficinaProp.length; i++) { %>
-                    <a href="dashboard/<%=oficinaProp[i].nome_tela%>">
+                    <a href="/dashboard/<%=oficinaProp[i].nome_tela%>">
                         <div class="oficina opcao">
-                            <div id="foto_oficina_menu"><img src="data:image/gif;base64,<%= oficinaProp[i].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="foto_oficina"></div>
+                            <div id="foto_oficina_menu">
+                                <% if(oficinaProp[i].foto_perfil_ofc == undefined || oficinaProp[i].foto_perfil_ofc == null) { %>
+                                    <img src="/img/foto-padrao-oficina.svg" class="foto_oficina">
+                                <% } else { %>
+                                    <img src="data:image/gif;base64,<%= oficinaProp[i].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="foto_oficina">
+                                <% } %>
+                            </div>
                             <span class="nome-oficina"><%= oficinaProp[i].nome_oficina %></span>
                             <% if(oficinaProp[i].id_planos == 1) { %>
                                 <span class="tipo_plano plano-basico" id="plano_ouro">Plano Básico</span>
@@ -103,7 +111,7 @@
 
     <div id="logout">
         <div id="opcao-logout" class="opcao">
-            <img src="img/user_icon_laranja.svg" alt="">
+            <img src="/img/user_icon_laranja.svg" alt="">
             <span><a href="/logout">Sair</a></span>
         </div>
     </div>

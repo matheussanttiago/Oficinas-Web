@@ -60,7 +60,15 @@
                         </div>
                         <span class="estatistica">Estatísticas</span>
                     </div>
-                    <div class="foto_oficina"><img src="data:image/gif;base64,<%= oficina[0].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="img-foto_oficina"></div>
+                    <% if(oficina[0].foto_perfil_ofc == null) { %>
+                        <div class="foto_oficina">
+                            <img src="/img/foto-padrao-oficina.svg" class="img-foto_oficina">
+                        </div>
+                    <% } else { %>
+                        <div class="foto_oficina">
+                            <img src="data:image/gif;base64,<%= oficina[0].foto_perfil_ofc %>" alt="foto de perfil da oficina" class="img-foto_oficina">
+                        </div>
+                    <% } %>
                 </div>
 
                 <nav>
@@ -146,7 +154,7 @@
                     <img src="img/img_pop-up.svg" alt="">
                     <h3>Servico Cadastrado!</h3>
     
-                    <button class="primeira-opcao-btn"><a href="/produto/<%=produtoId%>">Ver Serviço</a></button>
+                    <button class="primeira-opcao-btn"><a href="/servico/<%=produtoId%>">Ver Serviço</a></button>
                     <button class="segunda-opcao-btn"><a href="#">Concluir</a></button>
                 </div>
             <% } %>

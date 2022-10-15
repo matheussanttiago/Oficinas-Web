@@ -257,14 +257,96 @@ router.get('/pagamento', function (req, res) {
 router.post('/search', async function (req, res) {
   valor = req.body.search;
   console.log(valor);
+  
   resultsProd = await searchDAO.searchProduto(valor);
+  for(let i = 0; i < resultsProd.length; i++){
+    avg_avalia = await produtosDAO.getAvgAvalia(resultsProd[i].id_produto);
+    if (avg_avalia[0].media_avaliacao == null) {
+      avg_avalia[0].media_avaliacao = 5
+    }
+    media_avaliacao = avg_avalia[0].media_avaliacao.toFixed(1);
+  
+    numBD = await produtosDAO.getNumAvaliacoes(resultsProd[i].id_produto);
+    num_avaliacoes = numBD[0].num_avaliacoes;
+
+    resultsProd[i].num_avaliacoes = num_avaliacoes
+    resultsProd[i].media_avaliacao = media_avaliacao
+  }
+
+
   resultsServ = await searchDAO.searchServico(valor);
+  for(let i = 0; i < resultsServ.length; i++){
+    avg_avalia = await produtosDAO.getAvgAvalia(resultsServ[i].id_produto);
+    if (avg_avalia[0].media_avaliacao == null) {
+      avg_avalia[0].media_avaliacao = 5
+    }
+    media_avaliacao = avg_avalia[0].media_avaliacao.toFixed(1);
+  
+    numBD = await produtosDAO.getNumAvaliacoes(resultsServ[i].id_produto);
+    num_avaliacoes = numBD[0].num_avaliacoes;
+
+    resultsServ[i].num_avaliacoes = num_avaliacoes
+    resultsServ[i].media_avaliacao = media_avaliacao
+  }
+
+
   resultsOfc = await searchDAO.searchOficina(valor);
+  for (let j = 0; j < resultsOfc.length; j++) {
+    console.log(resultsOfc[j].cnpj_oficina)
+    produtosOfc = await produtosDAO.getProdutosOfc(resultsOfc[j].cnpj_oficina);
+    // console.log(produtosOfc)
+    let media_geral = []
+    let num_todos_produtos = []
+
+    // ADICIONANDO AVALIAÇÕES
+    for (let k = 0; k < produtosOfc.length; k++) {
+      avaliacaoProd = await produtosDAO.getAvaliacaoProd(produtosOfc[k].id_produto);
+      num_avaliacao_prod = await produtosDAO.getNumAvaliacoes(produtosOfc[k].id_produto);
+      if (avaliacaoProd == undefined || avaliacaoProd.media_avaliacao == null) {
+        if (avaliacaoProd[0].media_avaliacao == null) {
+          media_geral.push(5)
+        } else {
+          media_geral.push(avaliacaoProd[0].media_avaliacao)
+        }
+      } else {
+        media_geral.push(avaliacaoProd.media_avaliacao);
+      }
+    
+      // ADICIONANDO NUMERO DE AVALIAÇÕES
+      if (num_avaliacao_prod == undefined || num_avaliacao_prod.num_avaliacoes == 0) {
+          num_todos_produtos.push(0)
+      } else {
+        num_todos_produtos.push(num_avaliacao_prod[0].num_avaliacoes);
+      }
+
+    }
+
+    // CALCULANDO MÉDIA DE AVALIAÇÕES
+    let soma_media_avaliacao = 0
+    for (let c = 0; c < media_geral.length; c++) {
+      soma_media_avaliacao += media_geral[c]
+    }
+    let avg_media_geral = soma_media_avaliacao / media_geral.length;
+    if (isNaN(avg_media_geral)) {
+      avg_media_geral = 5;
+    }
+
+    // CALCULANDO NÚMERO TOTAL DE AVALIAÇÕES
+    let soma_num_avaliacoes = 0
+    for (let c = 0; c < num_todos_produtos.length; c++) {
+      soma_num_avaliacoes += num_todos_produtos[c]
+    }
+
+    resultsOfc[j].avg_media_geral = avg_media_geral.toFixed(1);
+    resultsOfc[j].num_avaliacoes = soma_num_avaliacoes;
+  }
+
   console.log(resultsProd);
   console.log(resultsServ);
   console.log(resultsOfc);
 
-  res.render('pages/resultado_busca', { valor, resultsProd, resultsServ, resultsOfc });
+  autenticado = req.session.autenticado
+  res.render('pages/resultado_busca', { valor, resultsProd, resultsServ, resultsOfc, autenticado });
 })
 
 router.post('/avaliacao/:id_produto', upload.single('add-img'), async function(req, res){
@@ -296,6 +378,46 @@ router.post('/avaliacao/:id_produto', upload.single('add-img'), async function(r
   result = await produtosDAO.avaliar(dadosAvaliacao)
   console.log(num_estrela)
   res.redirect('/')
+})
+
+router.get('/historico', async function(req, res) {
+  resultsProd = await produtosDAO.getHistoricoProd(req.session.usu_id);
+
+  for(let i = 0; i < resultsProd.length; i++){
+    tipo_produto = await produtosDAO.getTipoProduto(resultsProd[i].id_produto);
+    produto = await produtosDAO.getAllProdutos(resultsProd[i].id_produto);
+    // console.log(produto)
+    resultsProd[i].tipo_produto = tipo_produto[0].tipo_do_produto;
+    resultsProd[i].info_produto = produto[0];
+    // console.log(resultsProd)
+
+
+    avg_avalia = await produtosDAO.getAvgAvalia(resultsProd[i].id_produto);
+    if (avg_avalia[0].media_avaliacao == null) {
+      avg_avalia[0].media_avaliacao = 5
+    }
+    media_avaliacao = avg_avalia[0].media_avaliacao.toFixed(1);
+  
+    numBD = await produtosDAO.getNumAvaliacoes(resultsProd[i].id_produto);
+    num_avaliacoes = numBD[0].num_avaliacoes;
+
+    resultsProd[i].info_produto.num_avaliacoes = num_avaliacoes
+    resultsProd[i].info_produto.media_avaliacao = media_avaliacao
+  }
+
+  
+  // var avaliacoes = await produtosDAO.getAvaliacoes(idProd.id_produto);
+  // for (let i = 0; i < avaliacoes.length; i++) {
+  //   nome_avaliador = await produtosDAO.getAvaliador(avaliacoes[i].id_visit);
+  //   console.log(nome_avaliador)
+  //   console.log(nome_avaliador[0].nome);
+  //   avaliacoes[i].nome_avaliador = nome_avaliador[0].nome
+  // }
+
+
+
+  console.log(resultsProd)
+  res.render('pages/historico', resultsProd)
 })
 
 
@@ -422,7 +544,7 @@ router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
     id = await cadastroDAO.GetId(dadosProp);
     req.session.id_prop = id[0].id_prop;
 
-    if(filecontent == null){
+    if(fileContent == null){
       req.session.usu_foto = null
     } else {
       req.session.usu_foto = fileContent.toString("base64")

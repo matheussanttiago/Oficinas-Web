@@ -26,7 +26,7 @@ body{
 .desc_oficina{
     color: #727272;
     margin-bottom: 8px;
-    margin-top: 0;
+    margin-top: 5px;
 }
 .bairro_oficina{
     font-family: 'Gothic A1';
@@ -39,6 +39,8 @@ color: #010101;
 .local_oficina{
     display: flex;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .preco{
@@ -352,6 +354,47 @@ grid-column: 2;
     }
 }
 
+.sua-avaliacao span{
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+}
+
+.sua-avaliacao p{
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.box-avaliacao{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.avaliacao_produtos{
+    display: flex;
+    /* margin-top: 1em; */
+    /* width: 10%; */
+}
+.star-icon_produtos{
+    list-style-type: none;
+    border: 1px solid none;
+    cursor: pointer;
+    color: var(--cor-principal);
+    /* font-size: 20px; */
+    margin-right: 5px;
+    /* width: 10px; */
+}
+.star-icon_produtos img{
+    width: 20px;
+}
+
+.box-zero-avaliacoes{
+    position: absolute;
+    top: 100%;
+    font-family: "Sora", sans-serif;
+}
 
 
 
