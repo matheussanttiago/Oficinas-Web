@@ -52,7 +52,15 @@
 
         <section id="sec_titulos">
             <div id="titulos">
-                <div id="foto_oficina"> <img src="data:image/gif;base64,<%= oficina[0].foto_perfil_ofc %>" alt="" class="foto-perfil-oficina"></div>
+                <% if(oficina[0].foto_perfil_ofc == null) { %>
+                    <div id="foto_oficina">
+                        <img src="/img/foto-padrao-oficina.svg" alt="" class="foto-perfil-oficina">
+                    </div>
+                <% } else { %>
+                    <div id="foto_oficina">
+                        <img src="data:image/gif;base64,<%= oficina[0].foto_perfil_ofc %>" alt="" class="foto-perfil-oficina">
+                    </div>
+                <% } %>
                 <div>
                     <h1 class="titulo"><%= oficina[0].nome_oficina %></h1>
                     <h2 class="legenda">Produtos</h2>

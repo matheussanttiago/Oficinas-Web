@@ -23,7 +23,8 @@ router.get('/seus-produtos', async function (req, res) {
   cnpj = req.session.cnpj_oficina
   produtosOfc = await produtosDAO.getProdutoOfc(cnpj)
   
-  res.render('pages/produtos', {produtos: produtosOfc});
+  autenticado =  req.session.autenticado
+  res.render('pages/produtos', {produtos: produtosOfc, deletar: false, autenticado});
   console.log(req.session)
 });
 

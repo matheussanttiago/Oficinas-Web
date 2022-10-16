@@ -57,9 +57,17 @@
                     $("#modal").hide();
                 }
             });
-            $('#sub_form_produto').click(function () {
+            // $('#sub_form_produto').click(function () {
+            //     $('.pop-up').css('display', 'flex');
+            //     $('#modal').show();
+            // });
+            $('.delete-btn').click(function(){
                 $('.pop-up').css('display', 'flex');
                 $('#modal').show();
+            });
+            $('.segunda-opcao-btn').click(function(){
+                $('.pop-up').css('display', 'none');
+                $('#modal').hide();
             });
         })
     </script>
@@ -79,34 +87,40 @@
 
             <% if(produtos.length==0) { %>
                 <h3>Você Ainda não possui serviços cadastrados.</h3>
-                <% } else { %>
-                    <div id="seus_produtos">
-                        <% for(let i=0; i < produtos.length; i++) { %>
-                            <a href="/servico/<%=produtos[i].id_produto%>">
-                                <div class="box_produto">
-                                    <div class="content">
-                                        <img class="produto" src="data:image/gif;base64,<%= produtos[i].foto1 %>"
-                                            alt="">
-                                        <div class="infos_produto">
-                                            <h4 class="tinta">
-                                                <%= produtos[i].nome_produto %>
-                                            </h4>
-                                            <h3 class="desc_oficina">
-                                                <%= produtos[i].descricao_prod %>
-                                            </h3>
-                                            <h3 class="preco">R$<%= String(produtos[i].valor_produto).replace('.', ',') %>
-                                            </h3>
-                                            <div id="btns">
-                                                <button class="btn_box" id="Editar">Editar</button>
-                                                <button class="btn_box" id="copiarLink">Copiar Link</button>
-                                            </div>
+            <% } else { %>
+                <div id="seus_produtos">
+                    <% for(let i=0; i < produtos.length; i++) { %>
+                        <div class="box_produto">
+                            <div class="content">
+                                <a href="/produto/<%=produtos[i].id_produto%>">
+                                    <img class="produto" src="data:image/gif;base64,<%= produtos[i].foto1 %>" alt="">
+                                    <div class="infos_produto">
+                                        <h4 class="tinta">
+                                            <%= produtos[i].nome_produto %>
+                                        </h4>
+                                        <h3 class="desc_oficina">
+                                            <%= produtos[i].descricao_prod %>
+                                        </h3>
+                                        <h3 class="preco">R$<%= String(produtos[i].valor_produto).replace('.', ',') %>
+                                        </h3>
+                                </a>
+                                    <div id="btns">
+                                        <button class="btn_box" id="Editar">Editar</button>
+                                        <button class="btn_box delete-btn" id="deletar">Deletar</button>
+                                        <div class="pop-up confirmacao">
+                                            <!-- <img src="img/img_pop-up.svg" alt=""> -->
+                                            <h3>Tem certeza que deseja excluir esse produto?</h3>
+                                
+                                            <form action="/deletar/<%= produtos[i].id_produto %>" method="post"><button class="primeira-opcao-btn">Sim</button></form>
+                                            <button class="segunda-opcao-btn"><a href="#">Não</a></button>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            <% } %>
-                    </div>
+                                    </div>
+                            </div>
+                        </div>
                     <% } %>
+                </div>
+            <% } %>
 
                         </div>
         </section>
@@ -202,7 +216,6 @@
 
 
         </section>
-
 
     </main>
 

@@ -23,13 +23,13 @@ planosDAO = new PlanosDAO(conexao);
 
 
 router.get('/add-oficina', function (req, res) {
-  res.render('pages/criar_oficinas', {cadastrado: false});
+  res.render('pages/criar_oficinas', { cadastrado: false });
   console.log(req.session)
 });
 
 
-router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {name: 'add_img', maxCount:6}]), async (req, res) => {
-  
+router.post('/cad_oficina', upload.fields([{ name: 'add-img-pp', maxCount: 1 }, { name: 'add_img', maxCount: 6 }]), async (req, res) => {
+
   let content = [null, null, null, null, null, null]
   for (let i = 0; i < req.files['add_img'].length; i++) {
     content[i] = req.files['add_img'][i].buffer.toString('base64');
@@ -59,7 +59,7 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
   // console.log(teste)
 
   var userId
-  if(req.session.usu_id){
+  if (req.session.usu_id) {
     userId = req.session.usu_id;
   } else {
     userId = req.session.id_prop
@@ -88,58 +88,59 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
   };
 
 
-  
+
   // console.log(req.body.carro);
   try {
     // CADASTRO DE OFICINA
-    results = await oficinasDAO.CadOficina(dadosForm); 
+    results = await oficinasDAO.CadOficina(dadosForm);
 
     // ADICIONANDO CATEGORIA
-    if(req.body.moto == 'on'){
+    if (req.body.moto == 'on') {
       var dadosCategoria = {
         tipo_veiculo_id: 1,
         cnpj_oficina: cnpjBD
       }
       addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
-    } 
-    if(req.body.carro == 'on'){
+    }
+    if (req.body.carro == 'on') {
       var dadosCategoria = {
         tipo_veiculo_id: 2,
         cnpj_oficina: cnpjBD
       }
       addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
-    } 
-    if(req.body.van == 'on'){
+    }
+    if (req.body.van == 'on') {
       var dadosCategoria = {
         tipo_veiculo_id: 3,
         cnpj_oficina: cnpjBD
       }
       addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
-    } 
-    if(req.body.caminhao == 'on'){
+    }
+    if (req.body.caminhao == 'on') {
       var dadosCategoria = {
         tipo_veiculo_id: 4,
         cnpj_oficina: cnpjBD
       }
       addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
-    } 
-    if(req.body.bicicleta == 'on'){
+    }
+    if (req.body.bicicleta == 'on') {
       var dadosCategoria = {
         tipo_veiculo_id: 5,
         cnpj_oficina: cnpjBD
       }
       addCategoria = await oficinasDAO.addCategoria(dadosCategoria)
-    } 
+    }
 
     // SALVANDO CNPJ NA SESSÃO
     req.session.cnpj = cnpjBD;
     req.session.nomeTela = req.body.nome_tela;
+    oficinaProp = await oficinasDAO.getOficinaProp(req.session.id_prop);
     console.log(req.session)
-    res.render('pages/planos', {cadastrado: true});
-  } catch(e) {
+    res.render('pages/planos', { cadastrado: true, oficinaProp });
+  } catch (e) {
 
-      console.log(e);
-      res.status(500).send('Something broke!')
+    console.log(e);
+    res.status(500).send('Something broke!')
 
   }
 });
@@ -149,11 +150,11 @@ router.post('/cad_oficina', upload.fields([{name: 'add-img-pp', maxCount:1}, {na
 router.post('/default', async (req, res) => {
   try {
     cnpjBD = req.session.cnpj;
-    results = await planosDAO.CadPlanoBasico(cnpjBD); 
+    results = await planosDAO.CadPlanoBasico(cnpjBD);
     nomeTela = req.session.nomeTela;
     var dadosOficina = await oficinasDAO.getOneOficina(nomeTela);
     console.log(dadosOficina)
-  
+
     req.session.cnpj_oficina = dadosOficina[0].cnpj_oficina
 
     res.redirect(`/dashboard/${nomeTela}`);
@@ -165,14 +166,14 @@ router.post('/default', async (req, res) => {
 router.post('/basico', async (req, res) => {
   try {
     let cnpjBD;
-    if(req.session.cnpj){
+    if (req.session.cnpj) {
       cnpjBD = req.session.cnpj;
     } else {
       cnpjBD = req.session.cnpj_oficina;
     }
-    results = await planosDAO.CadPlanoBasico(cnpjBD); 
+    results = await planosDAO.CadPlanoBasico(cnpjBD);
     nomeTela = req.session.nomeTela;
-    res.render('pages/forma_pagamento', {plano: 'basico', nomeTela});
+    res.render('pages/forma_pagamento', { plano: 'basico', nomeTela });
   } catch (error) {
     console.log(error)
   }
@@ -180,15 +181,15 @@ router.post('/basico', async (req, res) => {
 
 router.post('/prata', async (req, res) => {
   try {
-        let cnpjBD;
-    if(req.session.cnpj){
+    let cnpjBD;
+    if (req.session.cnpj) {
       cnpjBD = req.session.cnpj;
     } else {
       cnpjBD = req.session.cnpj_oficina;
     }
-    results = await planosDAO.CadPlanoPrata(cnpjBD); 
+    results = await planosDAO.CadPlanoPrata(cnpjBD);
     nomeTela = req.session.nomeTela;
-    res.render('pages/forma_pagamento', {plano: 'prata', nomeTela});
+    res.render('pages/forma_pagamento', { plano: 'prata', nomeTela });
   } catch (error) {
     console.log(error)
   }
@@ -196,15 +197,15 @@ router.post('/prata', async (req, res) => {
 
 router.post('/ouro', async (req, res) => {
   try {
-        let cnpjBD;
-    if(req.session.cnpj){
+    let cnpjBD;
+    if (req.session.cnpj) {
       cnpjBD = req.session.cnpj;
     } else {
       cnpjBD = req.session.cnpj_oficina;
     }
-    results = await planosDAO.CadPlanoOuro(cnpjBD); 
+    results = await planosDAO.CadPlanoOuro(cnpjBD);
     nomeTela = req.session.nomeTela;
-    res.render('pages/forma_pagamento', {plano: 'ouro', nomeTela});
+    res.render('pages/forma_pagamento', { plano: 'ouro', nomeTela });
   } catch (error) {
     console.log(error)
   }
@@ -213,14 +214,14 @@ router.post('/ouro', async (req, res) => {
 router.post('/dima', async (req, res) => {
   try {
     let cnpjBD;
-    if(req.session.cnpj){
+    if (req.session.cnpj) {
       cnpjBD = req.session.cnpj;
     } else {
       cnpjBD = req.session.cnpj_oficina;
     }
-    results = await planosDAO.CadPlanoDima(cnpjBD); 
+    results = await planosDAO.CadPlanoDima(cnpjBD);
     nomeTela = req.session.nomeTela;
-    res.render('pages/forma_pagamento', {plano: 'diamante', nomeTela});
+    res.render('pages/forma_pagamento', { plano: 'diamante', nomeTela });
   } catch (error) {
     console.log(error)
   }
@@ -234,6 +235,38 @@ router.get('/dashboard/:nome_tela', async function (req, res) {
   console.log(nomeTela)
   var dadosOficina = await oficinasDAO.getOneOficina(nomeTela.nome_tela);
   console.log(dadosOficina)
+
+
+  produtosOfc = await produtosDAO.getProdutosOfc(dadosOficina[0].cnpj_oficina);
+  // console.log(produtosOfc)
+  let media_geral = []
+
+  // ADICIONANDO AVALIAÇÕES
+  for (let k = 0; k < produtosOfc.length; k++) {
+    avaliacaoProd = await produtosDAO.getAvaliacaoProd(produtosOfc[k].id_produto);
+    if (avaliacaoProd == undefined || avaliacaoProd.media_avaliacao == null) {
+      if (avaliacaoProd[0].media_avaliacao == null) {
+        media_geral.push(5)
+      } else {
+        media_geral.push(avaliacaoProd[0].media_avaliacao)
+      }
+    } else {
+      media_geral.push(avaliacaoProd.media_avaliacao);
+    }
+  }
+
+  // CALCULANDO MÉDIA DE AVALIAÇÕES
+  let soma_media_avaliacao = 0
+  for (let c = 0; c < media_geral.length; c++) {
+    soma_media_avaliacao += media_geral[c]
+  }
+  let avg_media_geral = soma_media_avaliacao / media_geral.length;
+  if (isNaN(avg_media_geral)) {
+    avg_media_geral = 5;
+  }
+
+  dadosOficina[0].avg_media_geral = avg_media_geral.toFixed(1);
+  // }
 
   req.session.cnpj_oficina = dadosOficina[0].cnpj_oficina
   // VARIÁVEIS DE SESSÃO
@@ -250,7 +283,7 @@ router.get('/dashboard/:nome_tela', async function (req, res) {
 
   console.log(req.session)
 
-  res.render('pages/dashboard', {oficina: dadosOficina, buff, cnpj, produtoCad: false, servicoCad: false});
+  res.render('pages/dashboard', { oficina: dadosOficina, buff, cnpj, produtoCad: false, servicoCad: false });
 })
 
 module.exports = router;

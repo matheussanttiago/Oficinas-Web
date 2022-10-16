@@ -251,7 +251,7 @@ router.get('/planos', function (req, res) {
 });
 router.get('/pagamento', function (req, res) {
   nomeTela = req.session.nomeTela
-  res.render('pages/forma_pagamento', { nomeTela });
+  res.render('pages/forma_pagamento', { nomeTela, oficinaProp });
 });
 
 router.post('/search', async function (req, res) {

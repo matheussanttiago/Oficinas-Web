@@ -54,7 +54,7 @@
                         <div class="line1">
                             <h1><%= oficina[0].nome_oficina %></h1>
                             <div class="nota">
-                                <span>4,7</span>
+                                <span><%= String(oficina[0].avg_media_geral).replace('.', ',') %></span>
                                 <img src="/img/star.svg" alt="">
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                     <h3>Servico Cadastrado!</h3>
     
                     <button class="primeira-opcao-btn"><a href="/servico/<%=produtoId%>">Ver Serviço</a></button>
-                    <button class="segunda-opcao-btn"><a href="#">Concluir</a></button>
+                    <button class="segunda-opcao-btn"><a href="/dashboard/<%=oficina[0].nome_tela%>">Concluir</a></button>
                 </div>
             <% } %>
         </main>

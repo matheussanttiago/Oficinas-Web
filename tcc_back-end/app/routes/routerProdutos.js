@@ -434,4 +434,19 @@ router.get('/servicos/:nome_tela', async function(req, res){
   res.render('pages/servicos_oficina', {oficina, servicosOfc, autenticado})
 })
 
+router.post('/deletar/:id_produto', async function(req, res){
+  // console.log(req.params)
+  tipo_produto = await produtosDAO.getTipoProduto(req.params.id_produto);
+
+  results1 = await produtosDAO.deleteProdutoAtuacao(req.params.id_produto);
+  results2 = await produtosDAO.deleteProduto(req.params.id_produto);
+
+  // console.log(tipo_produto)
+  if(tipo_produto[0].tipo_do_produto == 1){
+    res.redirect('/seus-produtos')
+  } else {
+    res.redirect('/seus-servicos')
+  }
+})
+
 module.exports = router;

@@ -118,7 +118,7 @@ router.get('/oficina/:nome_tela', async function (req, res) {
 
   // VARIÁVEIS DE SESSÃO
   autenticado = req.session.autenticado;
-  res.render('pages/oficina', { oficina: dadosOficina, buff, produtosOfc, servicosOfc, oficinas_parceiras, autenticado});
+  res.render('pages/oficina', { oficina: dadosOficina, produtosOfc, servicosOfc, oficinas_parceiras, autenticado});
 })
 
 module.exports = router;

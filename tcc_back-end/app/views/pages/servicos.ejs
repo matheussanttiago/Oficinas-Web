@@ -57,9 +57,17 @@
                     $("#modal").hide();
                 }
             });
-            $('#sub_form_produto').click(function () {
+            // $('#sub_form_produto').click(function () {
+            //     $('.pop-up').css('display', 'flex');
+            //     $('#modal').show();
+            // });
+            $('.delete-btn').click(function(){
                 $('.pop-up').css('display', 'flex');
                 $('#modal').show();
+            });
+            $('.segunda-opcao-btn').click(function(){
+                $('.pop-up').css('display', 'none');
+                $('#modal').hide();
             });
         })
     </script>
@@ -82,21 +90,31 @@
             <% } else { %>
                 <div id="seus_produtos">
                     <% for(let i = 0; i < servicos.length; i++) { %>
-                        <a href="/servico/<%=servicos[i].id_produto%>">
                             <div class="box_produto">
                                 <div class="content">
+                        <a href="/servico/<%=servicos[i].id_produto%>">
+
                                     <img class="produto" src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="">
                                     <div class="infos_produto">
                                         <h4 class="tinta"><%= servicos[i].nome_produto %></h4>
                                         <h3 class="desc_oficina"><%= servicos[i].descricao_prod %></h3>
                                         <h3 class="preco">R$<%= String(servicos[i].valor_produto).replace('.', ',') %></h3>
+                        </a>
+                                        
                                         <div id="btns">
                                             <button class="btn_box" id="Editar">Editar</button>
+                                            <button class="btn_box delete-btn" id="deletar">Deletar</button>
+                                            <div class="pop-up confirmacao">
+                                                <!-- <img src="img/img_pop-up.svg" alt=""> -->
+                                                <h3>Tem certeza que deseja excluir esse produto?</h3>
+                                    
+                                                <form action="/deletar/<%= servicos[i].id_produto %>" method="post"><button class="primeira-opcao-btn">Sim</button></form>
+                                                <button class="segunda-opcao-btn"><a href="#">Não</a></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
                     <% } %>
                 </div>
             <% } %>

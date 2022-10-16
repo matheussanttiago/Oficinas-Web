@@ -348,6 +348,28 @@ module.exports = class ProdutosDAO {
     };
 
 
+    deleteProdutoAtuacao = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`DELETE FROM produto_atuacao where id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
+    deleteProduto = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`DELETE FROM produto where id_produto = ${id_produto}`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
 
 
 }

@@ -84,7 +84,7 @@ color: #010101;
     
 
 }
-#copiarLink{
+#deletar{
     
     background-color: #fff;
     border-radius: 100px;
@@ -94,6 +94,7 @@ color: #010101;
     font-weight: bolder;
     font-family: 'Gothic A1', sans-serif;
     /* margin-right: 10px; */
+    z-index: 9;
 }
 #adicionarProduto{
     border: 3px solid #FF8500;
@@ -398,3 +399,10 @@ grid-column: 2;
 
 
 
+.confirmacao{
+    display: none;
+    height: 40% !important;
+}
+.inline-form{
+    width: max-content;
+}
