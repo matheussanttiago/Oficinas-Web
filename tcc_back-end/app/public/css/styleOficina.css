@@ -649,3 +649,20 @@ color: #5e5e5e;
 #anunciante{
     margin-bottom: 1em !important;
 }
+
+.sec-avalia{
+    padding-top: 10px;
+}
+.info-avalia{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+#avaliacao{
+    position: relative;
+}
+.estrelas_avaliacao{
+    position: absolute;
+    bottom: 10px;
+}

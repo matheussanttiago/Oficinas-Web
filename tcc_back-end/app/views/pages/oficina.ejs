@@ -41,6 +41,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
     <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 1040) { // 140 é a distancia que vc rola antes da logo sumir
+                $("#cta_wpp").fadeOut();
+            } else {
+                $("#cta_wpp").fadeIn();
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -223,10 +234,10 @@
         <section id="localizacao">
             <h1 class="titulo">Localização</h1>
             <address>
-                <span>Estr. Velha de Itapevi, 4436 - Vila Milittar, Barueri - SP, 06444-400</span>
+                <span><%= oficina[0].rua %>, <%= oficina[0].numero_ofc %> - <%= oficina[0].bairro %>, <%= oficina[0].cidade %> - <%= oficina[0].uf %>, <span id="cep"><%= oficina[0].cep %></span></span>
             </address>
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2988.910240227361!2d-46.89072057275848!3d-23.511411647154212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03e63bc7a06d%3A0xc14462a7d6d04032!2sITB%20Bras%C3%ADlio%20Flores%20de%20Azevedo%20(FIEB)!5e0!3m2!1spt-BR!2sbr!4v1658250886656!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7317.025657446805!2d-46.90821322398491!3d-23.514050700867674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03f0558a60cd%3A0xc1cfadbe9a8397b1!Engenho%20Novo%2C%20Barueri%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1665928244731!5m2!1spt-BR!2sbr"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade" class="mapa_oficina"></iframe>
         </section>
@@ -255,110 +266,184 @@
 
         <hr id="linha_mobile">
 
-        <section id="sec_avaliacao">
+        <section id="sec_avaliacao" class="pag1">
             <h1 class="titulo">Avaliações</h1>
             <div id="head_avaliacao">
                 <div id="nota">
                     <div>
-                        <span>4,0</span>
+                        <span><%= String(oficina[0].avg_media_geral).replace('.', ',') %></span>
                         <div id="estrelas">
                             <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
+                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                <% if(oficina[0].avg_media_geral >= 2) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(oficina[0].avg_media_geral >= 3) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(oficina[0].avg_media_geral >= 4) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
+                                <% if(oficina[0].avg_media_geral == 5) { %>   
+                                    <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                <% } else { %>
+                                    <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
-                    <span>340 Avaliações</span>
-                </div>
-                <button class="shadow_btn ver_mais" id="ver_mais_avaliacao">Ver Todos</button>
-            </div>
-            <div id="tipo_avaliacao">
-                <div id="todas_av">
-                    <span>Todas</span>
-                </div>
-                <div id="positivas_av">
-                    <span>Positivas</span>
-                </div>
-                <div id="negativas_av">
-                    <span>Negativas</span>
+                    <span><%= oficina[0].num_avaliacoes %> Avaliações</span>
                 </div>
             </div>
+            <% if(avaliacoes.length > 0) { %>
+                <div id="tipo_avaliacao">
+                    <div id="todas_av">
+                        <span>Todas</span>
+                    </div>
+                    <div id="positivas_av">
+                        <span>Positivas</span>
+                    </div>
+                    <div id="negativas_av">
+                        <span>Negativas</span>
+                    </div>
+                </div>
+            <% } %>
+
             <div id="box_avaliacoes">
-
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
+                <% for(let i = 0; i < avaliacoes.length; i++) { %>
+                    <div class="sec-avalia">
+                        <span class="info-avalia"><%= avaliacoes[i].nome_avaliador %> avaliou <%= avaliacoes[i].nome_produto %></span>
+                        <div id="avaliacao">
+                            <img src="data:image/gif;base64,<%= avaliacoes[i].foto1 %>" alt="Imagem de avaliação" class="foto_avaliacao">
+                        <div class="infos_av">
+                            <p><%= avaliacoes[i].descricao_avalia %></p>
+                            <div class="estrelas_avaliacao">
+                                <ul class="avaliacao_produtos estrelas-box-avaliacao">
+                                    <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                    <% if(avaliacoes[i].avalia >= 2) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 3) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 4) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                    <% if(avaliacoes[i].avalia >= 5) { %>
+                                        <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                    <% } else { %>
+                                        <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
                         </div>
                     </div>
-                </div>
+                <% } %>
+            </div>
 
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
+            <div id="box_avaliacoes-pos">
+                <% for(let i = 0; i < avaliacoes.length; i++) { %>
+                    <% if(avaliacoes[i].avalia >= 3) { %>
+                        <div class="sec-avalia">
+                            <span class="info-avalia"><%= avaliacoes[i].nome_avaliador %> avaliou <%= avaliacoes[i].nome_produto %></span>
+                            <div id="avaliacao">
+                                <img src="data:image/gif;base64,<%= avaliacoes[i].foto1 %>" alt="Imagem de avaliação" class="foto_avaliacao">
+                            <div class="infos_av">
+                                <p><%= avaliacoes[i].descricao_avalia %></p>
+                                <div class="estrelas_avaliacao">
+                                    <ul class="avaliacao_produtos estrelas-box-avaliacao">
+                                        <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                        <% if(avaliacoes[i].avalia >= 2) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 3) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 4) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 5) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    <% } %>
+                <% } %>
+            </div>
 
-                <div id="avaliacao">
-                    <img src="/img/image.jpg" alt="Imagem de avaliação" class="foto_avaliacao">
-                    <div class="infos_av">
-                        <span>Fulano Silva</span>
-                        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e
-                            vem
-                            sendo utilizado desde o século XVI, quando </p>
-                        <div id="estrelas_avaliacao">
-                            <ul class="avaliacao_produtos">
-                                <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt="">
-                                </li>
-                                <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="3"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="4"><img src="/img/star.svg" alt=""></li>
-                                <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt="">
-                                </li>
-                            </ul>
+
+            <div id="box_avaliacoes-neg">
+                <% for(let i = 0; i < avaliacoes.length; i++) { %>
+                    <% if(avaliacoes[i].avalia < 3) { %>
+                        <div class="sec-avalia">
+                            <span class="info-avalia"><%= avaliacoes[i].nome_avaliador %> avaliou <%= avaliacoes[i].nome_produto %></span>
+                            <div id="avaliacao">
+                                <img src="data:image/gif;base64,<%= avaliacoes[i].foto1 %>" alt="Imagem de avaliação" class="foto_avaliacao">
+                            <div class="infos_av">
+                                <p><%= avaliacoes[i].descricao_avalia %></p>
+                                <div class="estrelas_avaliacao">
+                                    <ul class="avaliacao_produtos estrelas-box-avaliacao">
+                                        <li class="star-icon_produtos ativo" data-avaliacao="1"><img src="/img/star.svg" alt=""></li>
+                                        <% if(avaliacoes[i].avalia >= 2) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 3) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 4) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                        <% if(avaliacoes[i].avalia >= 5) { %>
+                                            <li class="star-icon_produtos" data-avaliacao="2"><img src="/img/star.svg" alt=""></li>
+                                        <% } else { %>
+                                            <li class="star-icon_produtos" data-avaliacao="5"><img src="/img/star_none.svg" alt=""></li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
+                    <% } %>
+                <% } %>
             </div>
             <button class="btn_fixed" id="cta_wpp"><span>Entrar em contato via Whatsapp</span> <img
                     src="/img/wpp_icon_branco.svg" alt=""></button>
         </section>
 
     </main>
+
+    <script src="/js/scriptAvaliacao.js"></script>
+
 
 </body>
 

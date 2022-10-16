@@ -153,7 +153,3 @@ main{
     width: 100%;
     border-radius: 50%;
 }
-
-#box_avaliacoes-pos, #box_avaliacoes-neg{
-    display: none;
-}

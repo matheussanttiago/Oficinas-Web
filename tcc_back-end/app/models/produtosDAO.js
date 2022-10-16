@@ -291,6 +291,17 @@ module.exports = class ProdutosDAO {
         });
     };
 
+    getNomeProduto = (id_produto) => {
+        return new Promise((resolve, reject) => {
+            this.conexao.query(`SELECT nome_produto FROM produto WHERE id_produto = '${id_produto}'`, (error, elements) => {
+                if (error) {
+                    return reject(error);
+                }
+                return resolve(elements);
+            });
+        });
+    };
+
     getAvgAvalia = (id_prod) => {
         return new Promise((resolve, reject) => {
             this.conexao.query(`SELECT AVG(avalia) as media_avaliacao FROM avalia  where id_produto = ${id_prod}`, (error, elements) => {

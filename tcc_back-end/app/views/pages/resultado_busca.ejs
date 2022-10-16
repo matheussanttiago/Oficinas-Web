@@ -47,7 +47,7 @@
                     <% for(let i = 0; i < resultsOfc.length; i++) { %>
                         <div class="box_produto">
                             <div class="content">
-                                <img class="produto" src="img/oficinas/ls_customs.jpg" alt="">
+                                <img class="produto" src="data:image/gif;base64,<%= resultsOfc[i].foto1 %>" alt="">
                                 <div class="infos_produto">
                                     <span class="tipo_produto">Oficina</span>
                                     <h4 class="tinta"><%= resultsOfc[i].nome_oficina %></h4>
@@ -75,7 +75,7 @@
                     <% for(let i = 0; i < resultsProd.length; i++) { %>
                         <div class="box_produto">
                             <div class="content">
-                                <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                                <img class="produto" src="data:image/gif;base64,<%= resultsProd[i].foto1 %>" alt="">
                                 <div class="infos_produto">
                                     <span class="tipo_produto">Produto</span>
                                     <h4 class="tinta"><%= resultsProd[i].nome_produto %></h4>
@@ -98,7 +98,7 @@
                     <% for(let i = 0; i < resultsServ.length; i++) { %>
                         <div class="box_produto">
                             <div class="content">
-                                <img class="produto" src="img/produtos/exemplo_produto.jpg" alt="">
+                                <img class="produto" src="data:image/gif;base64,<%= resultsServ[i].foto1 %>" alt="">
                                 <div class="infos_produto">
                                     <span class="tipo_produto">Serviço</span>
                                     <h4 class="tinta"><%= resultsServ[i].nome_produto %></h4>

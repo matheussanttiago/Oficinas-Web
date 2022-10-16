@@ -48,9 +48,9 @@ module.exports = class OficinasDAO {
         });
     };
 
-    getOficinaProp = (id_usu) => {
+    getOficinaProp = (id_usu, nome_tela) => {
         return new Promise((resolve, reject) => {
-            this.conexao.query(`SELECT * FROM oficina WHERE id_prop = '${id_usu}'`, (error, elements) => {
+            this.conexao.query(`SELECT * FROM oficina WHERE id_prop = '${id_usu}' AND nome_tela != '${nome_tela}'`, (error, elements) => {
                 if (error) {
                     return reject(error);
                 }
