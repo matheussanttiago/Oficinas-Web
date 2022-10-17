@@ -47,11 +47,11 @@ $(document).ready(function(){
     $(".opcao-avaliacao").click(function(){
         $(this).css('background', '#FF8500');
         $(this).css('color', '#FFF');
-        $(this).children('img').attr('src', './img/star_oficina_icon.svg');
+        $(this).children('img').attr('src', '../img/star_oficina_icon.svg');
 
         $(this).siblings().css('background', '#FFF');
         $(this).siblings().css('color', '#FF8500');
-        $(this).siblings().children('img').attr('src', './img/star.svg');
+        $(this).siblings().children('img').attr('src', '../img/star.svg');
     })
 
 })

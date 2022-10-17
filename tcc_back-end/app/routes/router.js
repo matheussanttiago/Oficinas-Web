@@ -423,7 +423,7 @@ router.get('/historico', async function(req, res) {
 
 
 router.get('/cadastro', function (req, res) {
-  res.render('pages/cad_visitante');
+  res.render('pages/cad_visitante', {"erros": null, "valores": {}, erroProp: false });
 });
 router.get('/seus-servicos', function (req, res) {
   res.render('pages/servicos');
@@ -476,7 +476,8 @@ router.post('/cad_visitante',
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    // return res.status(400).json({ errors: errors.array() });
+    return res.render('pages/cad_visitante', { "erros": errors, "valores":req.body, erroProp: false })
   }
 
   let fileContent;
@@ -517,13 +518,16 @@ router.post('/cad_juridica',
 upload.single('add-img-j'),
 
 body('email_prop').isEmail().withMessage('Insira um email válido'),
-body('telefone_proprietario').isLength({ min: 14}).withMessage('Insira um telefone válido'),
-body('cpf').isLength({ min: 14}).isEmpty().withMessage('Insira um cpf válido'),
+// body('telefone_proprietario').isLength({ min: 14}).withMessage('Insira um telefone válido'),
+// body('cpf').isLength({ min: 14}).isEmpty().withMessage('Insira um cpf válido'),
 async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render('pages/cad_visitante', { "erros": errors, "valores":req.body, erroProp: true })
+    }
+  // }
 
   let fileContent;
 

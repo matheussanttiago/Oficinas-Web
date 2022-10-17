@@ -52,6 +52,21 @@
 
         <%- include('../partial/normalHeader.ejs') %>
     
+        <%
+        var err_email = {"erro":"","visu":"hide","msg":""}  
+        var err_email_prop = {"erro":"","visu":"hide","msg":""} 
+        var err_nome = {"erro":"","visu":"hide","msg":""}
+        var err_phone = {"erro":"","visu":"hide","msg":""}
+    if(erros) { 
+         
+         erros.errors.forEach(function(erro){
+             if (erro.param  == "nome_visitante"){ err_nome = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "email_visitante"){ err_email = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "celular_visitante"){ err_phone = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "email_prop"){ err_email_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+         }); 
+     }; %>
+
         <section class="saiba-mais">
             <div id="modal_saiba-mais"></div>
             <div id="container_saiba-mais">
@@ -82,7 +97,11 @@
           </section>
           
         <main>
-            <section class="cad_visitante">
+            <% if(erroProp == true) { %>
+                <section class="cad_visitante" style="display: none;">
+            <% } else { %>
+                <section class="cad_visitante">
+            <% } %>
                 <div id="line_orange"></div>
                 <div class="titulo_arrow">
                     <img src="img/arrow_left.svg" alt="logo">
@@ -108,11 +127,14 @@
                             </div>
                         </div>
 
-                        <input id="nome2" class="inputs" placeholder="Nome" name="nome_visitante" type="text">
+                        <input id="nome2" class="inputs" placeholder="Nome" name="nome_visitante" type="text" value="<%= valores.nome_visitante %>">
+                        <span class="erro"><%= err_nome.msg %></span>
                         <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
                         <div>
-                            <input id="celular2" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text">
-                            <input id="email2" name="email_visitante" class="inputs" placeholder="Email" type="text">
+                            <input id="celular2" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text" value="<%= valores.celular_visitante %>">
+                            <span class="erro"><%= err_email.msg %></span>
+                            <input id="email2" name="email_visitante" class="inputs" placeholder="Email" type="text" value="<%= valores.email_visitante %>">
+                            <span class="erro"><%= err_phone.msg %></span>
                         </div>
                         <div>
                             <input id="senha2" name="senha_visitante" class="inputs" placeholder="Senha" type="password">
@@ -132,7 +154,11 @@
                 </div>
             </section>
     
-            <section class="cad_proprietario">
+            <% if(erroProp == true) { %>
+                <section class="cad_proprietario" style="display: block;">
+            <% } else { %>
+                <section class="cad_proprietario" style="display: none;">
+            <% } %>
                 <div id="line_orange"></div>
                 <div class="titulo_arrow">
                     <img src="img/arrow_left.svg" alt="logo">
@@ -160,7 +186,8 @@
                         </div>
                         <div>
                             <input id="celular" name="telefone_proprietario" class="inputs phone-juridica phone-mask" placeholder="Celular" type="text">
-                            <input id="email" name="email_prop" class="inputs email-juridica" placeholder="Email" type="text">
+                            <input id="email" name="email_prop" class="inputs email-juridica" placeholder="Email" type="text" value="<%= valores.email_prop %>">
+                            <span class="erro"><%= err_email_prop.msg %></span>
                         </div>
                         <div>
                             <input id="senha" name="senha_prop" class="inputs" placeholder="Senha" type="password">
