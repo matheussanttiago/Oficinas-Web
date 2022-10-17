@@ -3,7 +3,7 @@ const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
-const expressValidator = require('express-validator');
+const { body, validationResult } = require('express-validator');
 // var fetch = require("node-fetch");
 const Correios = require('node-correios');
 const correios = new Correios();
@@ -467,7 +467,17 @@ router.get('/dashboard', function (req, res) {
 //   }
 // })
 
-router.post('/cad_visitante', upload.single('add-img-v'), async (req, res) => {
+router.post('/cad_visitante',
+ upload.single('add-img-v'), 
+ body('nome_visitante').isLength({ min: 5, max: 20}).withMessage('Insira um nome entre 5 e 20 caracteres'),
+ body('email_visitante').isEmail().withMessage('Insira um email válido'),
+ body('celular_visitante').isLength({ min: 14}).withMessage('Insira um telefone válido'),
+ async (req, res) => {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   let fileContent;
 
@@ -503,7 +513,17 @@ router.post('/cad_visitante', upload.single('add-img-v'), async (req, res) => {
 
 
 
-router.post('/cad_juridica', upload.single('add-img-j'), async (req, res) => {
+router.post('/cad_juridica', 
+upload.single('add-img-j'),
+
+body('email_prop').isEmail().withMessage('Insira um email válido'),
+body('telefone_proprietario').isLength({ min: 14}).withMessage('Insira um telefone válido'),
+body('cpf').isLength({ min: 14}).isEmpty().withMessage('Insira um cpf válido'),
+async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   let fileContent;
 
