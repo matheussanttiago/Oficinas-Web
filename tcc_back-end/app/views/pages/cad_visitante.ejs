@@ -95,7 +95,7 @@
               </div>
             </div>
           </section>
-          
+
         <main>
             <% if(erroProp == true) { %>
                 <section class="cad_visitante" style="display: none;">
@@ -107,12 +107,17 @@
                     <img src="img/arrow_left.svg" alt="logo">
                     <h1 class="titulo">Criar sua conta</h1>
                 </div>
-    
+
                 <div id="tipo_conta">
-                    <h3 class="fisica">Pessoa fisica</h3>
-                    <h3 class="juridica">Pessoa juridica</h3>
+                    <% if(erroProp == false) { %>
+                        <h3 class="fisica">Pessoa fisica</h3>
+                        <h3 class="juridica">Pessoa juridica</h3>
+                    <% } else { %>
+                        <h3 class="juridica">Pessoa fisica</h3>
+                        <h3 class="fisica">Pessoa juridica</h3>
+                    <%}%>
                 </div>
-    
+
                 <div>
                     <form action="cad_visitante" method="post" enctype="multipart/form-data" id="form-visitante">
 
@@ -130,16 +135,16 @@
                         <input id="nome2" class="inputs" placeholder="Nome" name="nome_visitante" type="text" value="<%= valores.nome_visitante %>">
                         <span class="erro"><%= err_nome.msg %></span>
                         <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
-                        <div>
+                        <!-- <div> -->
                             <input id="celular2" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text" value="<%= valores.celular_visitante %>">
                             <span class="erro"><%= err_email.msg %></span>
                             <input id="email2" name="email_visitante" class="inputs" placeholder="Email" type="text" value="<%= valores.email_visitante %>">
                             <span class="erro"><%= err_phone.msg %></span>
-                        </div>
-                        <div>
+                        <!-- </div> -->
+                        <!-- <div> -->
                             <input id="senha2" name="senha_visitante" class="inputs" placeholder="Senha" type="password">
                             <input id="repitir_senha2" class="inputs" placeholder="Repitir senha" type="password">
-                        </div>
+                        <!-- </div> -->
                     <div id="termos" class="cadastro">
                         <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
                                 Privacidade
@@ -166,8 +171,13 @@
                 </div>
     
                 <div id="tipo_conta">
-                    <h3 class="fisica">Pessoa fisica</h3>
-                    <h3 class="juridica">Pessoa juridica</h3>
+                    <% if(erroProp == false) { %>
+                        <h3 class="fisica">Pessoa fisica</h3>
+                        <h3 class="juridica">Pessoa juridica</h3>
+                    <% } else { %>
+                        <h3 class="juridica">Pessoa fisica</h3>
+                        <h3 class="fisica">Pessoa juridica</h3>
+                    <%}%>
                 </div>
     
                 <div>
@@ -180,19 +190,19 @@
                                 <input type="file" name="add-img-j" id="add-img-j">
                             </div>
                         </div>
-                        <div>
+                        <!-- <div> -->
                             <input id="nome_proprietario" name="nome_proprietario" class="inputs nome-juridica" placeholder="Nome" type="text">
                             <input id="cpf" name="cpf" class="inputs cpf-juridica" placeholder="CPF" type="text">
-                        </div>
-                        <div>
+                        <!-- </div> -->
+                        <!-- <div> -->
                             <input id="celular" name="telefone_proprietario" class="inputs phone-juridica phone-mask" placeholder="Celular" type="text">
                             <input id="email" name="email_prop" class="inputs email-juridica" placeholder="Email" type="text" value="<%= valores.email_prop %>">
                             <span class="erro"><%= err_email_prop.msg %></span>
-                        </div>
-                        <div>
+                        <!-- </div> -->
+                        <!-- <div> -->
                             <input id="senha" name="senha_prop" class="inputs" placeholder="Senha" type="password">
                             <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="password">
-                        </div>
+                        <!-- </div> -->
                     <div id="termos" class="cadastro">
                         <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de
                                 Privacidade
