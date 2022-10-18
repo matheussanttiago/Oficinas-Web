@@ -47,6 +47,14 @@
 
 <body>
 
+<%
+let erros = {"erro": '', "visu": "hide"}
+if(erro){
+  erros = {"erro": "erro", "visu": "show"}
+}
+
+%>
+
   <div id="container">
     <section class="saiba-mais">
       <div id="modal_saiba-mais"></div>
@@ -111,15 +119,16 @@
         </span>
 
         <form action="login" method="post">
+          <span class="<%= erros.visu %>">Email ou senha incorretos!</span>
 
           <div class="inputs-container">
             <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
-            <input type="email" name="email" placeholder="Email" class="inputs inputs_with_icon" required>
+            <input type="email" name="email" placeholder="Email" class="inputs inputs_with_icon <%= erros.erro %>" required>
           </div>
 
           <div class="inputs-container">
             <div class="input-icon" id="senha-icon"><img src="img/senha-icon.svg" alt=""></div>
-            <input type="password" name="senha" placeholder="Senha" id="password" class="inputs inputs_with_icon"
+            <input type="password" name="senha" placeholder="Senha" id="password" class="<%= erros.erro %> inputs inputs_with_icon"
               required>
             <img src="img/mostrar-senha.svg" id="icon-mostrar-senha" alt="">
           </div>

@@ -3,6 +3,7 @@ const router = express.Router();
 var async = require('async');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+const { body, validationResult } = require('express-validator');
 
 var upload = require('../../models/upload')
 
@@ -23,12 +24,26 @@ planosDAO = new PlanosDAO(conexao);
 
 
 router.get('/add-oficina', function (req, res) {
-  res.render('pages/criar_oficinas', { cadastrado: false });
+  res.render('pages/criar_oficinas', { cadastrado: false, "erros": null, "valores": '' });
   console.log(req.session)
 });
 
 
-router.post('/cad_oficina', upload.fields([{ name: 'add-img-pp', maxCount: 1 }, { name: 'add_img', maxCount: 6 }]), async (req, res) => {
+router.post('/cad_oficina', 
+upload.fields([{ name: 'add-img-pp', maxCount: 1 }, { name: 'add_img', maxCount: 6 }]), 
+body('nome_oficina').notEmpty().withMessage('Insira um nome para sua oficina'),
+body('nome_tela').notEmpty().withMessage('Insira um nome de URL para sua oficina'),
+body('cnpj_oficina').notEmpty().isLength( min = 18).withMessage('Insira um CNPJ válido'),
+body('desc_oficina').notEmpty().withMessage('Insira uma descrição para sua oficina'),
+body('cep').notEmpty().isLength( min = 9).withMessage('Insira um CEP válido'),
+body('phone_oficina').isLength({ min: 14}).notEmpty().withMessage('Insira um telefone válido'),
+async (req, res) => {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return res.render('pages/criar_oficinas', { cadastrado: false, "erros": errors, "valores":req.body})
+  }
 
   let content = [null, null, null, null, null, null]
   for (let i = 0; i < req.files['add_img'].length; i++) {

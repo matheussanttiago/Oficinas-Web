@@ -1244,3 +1244,28 @@ a {
 #box_avaliacoes-pos, #box_avaliacoes-neg{
     display: none;
 }
+
+.show{
+    font-family: 'Sora', sans-serif;
+    margin-top: 5px;
+    color: #f00;
+  }
+  .hide{
+    display: none;
+  }
+  .erro{
+    border: 2px solid red;
+  }
+
+  #box-checkbox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 10px;
+    justify-content: center;
+  }
+  .line-checkbox{
+    display: flex;
+    font-family: 'Sora', sans-serif;
+  }

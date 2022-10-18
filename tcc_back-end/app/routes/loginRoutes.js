@@ -21,7 +21,7 @@ var conexao = DbConnection();
 // }));
 
 router.get("/login", function (req, res) {
-  res.render("pages/login");
+  res.render("pages/login", {erro: false});
 });
 
 router.post(
@@ -66,7 +66,7 @@ router.post(
             console.log(results)
           }
         } else {
-          res.redirect('/login')
+          res.render('pages/login', {erro: true})
         }
       }
     );

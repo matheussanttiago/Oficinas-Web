@@ -47,6 +47,26 @@
 
     <%- include('../partial/normalHeader.ejs') %>
 
+    <%
+    var err_nome_oficina = {"erro":"","visu":"hide","msg":""}  
+    var err_nome_tela = {"erro":"","visu":"hide","msg":""}
+    var err_cnpj_oficina = {"erro":"","visu":"hide","msg":""}
+    var err_desc_oficina = {"erro":"","visu":"hide","msg":""} 
+    var err_cep = {"erro":"","visu":"hide","msg":""} 
+    var err_phone_oficina = {"erro":"","visu":"hide","msg":""} 
+
+if(erros) { 
+     
+     erros.errors.forEach(function(erro){
+         if (erro.param  == "nome_oficina"){ err_nome_oficina = {"erro":"erro","visu":"show","msg":erro.msg}}  
+         if (erro.param  == "nome_tela"){ err_nome_tela = {"erro":"erro","visu":"show","msg":erro.msg}}  
+         if (erro.param  == "cnpj_oficina"){ err_cnpj_oficina = {"erro":"erro","visu":"show","msg":erro.msg}} 
+         if (erro.param  == "desc_oficina"){ err_desc_oficina = {"erro":"erro","visu":"show","msg":erro.msg}}  
+         if (erro.param  == "cep"){ err_cep = {"erro":"erro","visu":"show","msg":erro.msg}}  
+         if (erro.param  == "phone_oficina"){ err_phone_oficina = {"erro":"erro","visu":"show","msg":erro.msg}}  
+     }); 
+ }; %>
+
     <main>
         <section class="cad_visitante">
             <div class="titulo_arrow">
@@ -70,31 +90,37 @@
 
                     <h2 class="titulo" id="fotos_title">Dados da oficina</h2>
 
-                    <div class="row">
+                    <!-- <div class="row"> -->
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
-                            <input class="inputs inputs_with_icon" placeholder="Nome da oficina" type="text" name="nome_oficina">
+                            <input class="inputs inputs_with_icon <%= err_nome_oficina.erro %>" placeholder="Nome da oficina" type="text" name="nome_oficina" value="<%= valores.nome_oficina %>">
                         </div>
+                        <span class="<%= err_nome_oficina.visu %>"><%= err_nome_oficina.msg %></span>
 
                         <div class="inputs-container container2" id="nome_tela">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
-                            <input class="inputs inputs_with_icon" placeholder="Nome de URL" type="text" name="nome_tela">
+                            <input class="inputs inputs_with_icon <%= err_nome_tela.erro %>" placeholder="Nome de URL" type="text" name="nome_tela" value="<%= valores.nome_tela %>">
                         </div>
+                        <span class="<%= err_nome_tela.visu %>"><%= err_nome_tela.msg %></span>
+
 
                         <div class="inputs-container container2" id="cnpj">
                             <div class="input-icon" id="email-icon"><img src="img/nome_produto_icon.svg" alt=""></div>
-                            <input class="inputs inputs_with_icon" id="cnpj_oficina" placeholder="CNPJ" type="text" name="cnpj_oficina">
+                            <input class="inputs inputs_with_icon <%= err_cnpj_oficina.erro %>" id="cnpj_oficina" placeholder="CNPJ" type="text" name="cnpj_oficina" value="<%= valores.cnpj_oficina %>">
                         </div>
-                    </div>
+                        <span class="<%= err_cnpj_oficina.visu %>"><%= err_cnpj_oficina.msg %></span>
 
-                    <div class="row">
+                    <!-- </div> -->
+
+                    <!-- <div class="row"> -->
                         <!-- <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <input id="area_atuacao" class="inputs inputs_with_icon" placeholder="Área de atuação "
                                 type="text" name="area_atuacao">
                         </div> -->
                         <div class="inputs-container">
-                            <div class="line-checkbox">
+                            <div id="box-checkbox">
+                                <div class="line-checkbox">
                                     <label for="carro">Carros</label>
                                     <input type="checkbox" name="carro" id="carro">
                             </div>
@@ -118,27 +144,32 @@
                                     <label for="todos">Todos</label>
                                     <input type="checkbox" name="todos" id="todos">
                             </div>
+                            </div>
                         </div>
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/file_icon.svg" alt=""></div>
                             <!-- <input id="desc_produto" class="inputs inputs_with_icon" placeholder="Descrição da oficina"
                                 type="text"> -->
-                                <textarea name="desc_oficina" id="desc_produto" class="inputs inputs_with_icon txt_area" cols="30"
-                                rows="10" placeholder="Descrição da Oficina"></textarea>
+                                <textarea name="desc_oficina" id="desc_produto" class="inputs inputs_with_icon txt_area <%= err_desc_oficina.erro %>" cols="30"
+                                rows="10" placeholder="Descrição da Oficina" value="<%= valores.desc_oficina %>"></textarea>
                         </div>
+                        <span class="<%= err_desc_oficina.visu %>"><%= err_desc_oficina.msg %></span>
+
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/clock_icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon"
                                 placeholder="Horário de funcionamento" type="text" name="horario_oficina">
                         </div>
-                    </div>
+                    <!-- </div> -->
 
 
                     <h2 class="titulo" id="fotos_title">Localização</h2>
                     <div class=" inputs-container">
                         <div class="input-icon" id="email-icon"><img src="img/local_icon_cinza.svg" alt=""></div>
-                        <input id="cep" class="inputs inputs_with_icon" placeholder="CEP" type="text" name="cep">
+                        <input id="cep" class="inputs inputs_with_icon" placeholder="CEP" type="text" name="cep" value="<%= valores.cep %>">
                     </div>
+                    <span class="<%= err_cep.visu %>"><%= err_cep.msg %></span>
+
                     <div id="box-inputs_end">
                         <div id="inputs_end-box1">
                             <input type="text" class="inputs_end" id="endereco" placeholder="Rua">
@@ -152,7 +183,7 @@
                     </div>
 
                     <h2 class="titulo" id="fotos_title">Contato</h2>
-                    <div class="row">
+                    <!-- <div class="row"> -->
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/wpp_icon_form.svg" alt=""></div>
                             <input id="wpp" class="inputs inputs_with_icon phone-mask" placeholder="Celular (WhatsApp)"
@@ -161,16 +192,17 @@
 
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/phone_icon.svg" alt=""></div>
-                            <input id="telefone" class="inputs inputs_with_icon" placeholder="Telefone"
-                                type="text" name="phone_oficina">
+                            <input id="telefone" class="inputs inputs_with_icon <%= err_phone_oficina.erro %>" placeholder="Telefone"
+                                type="text" name="phone_oficina" value="<%= valores.phone_oficina %>">
                         </div>
+                        <span class="<%= err_phone_oficina.visu %>"><%= err_phone_oficina.msg %></span>
 
                         <div class="inputs-container container2">
                             <div class="input-icon" id="email-icon"><img src="img/email-icon.svg" alt=""></div>
                             <input id="carac_produtos" class="inputs inputs_with_icon" placeholder="Email de contato"
                                 type="text" name="email_oficina">
                         </div>
-                    </div>
+                    <!-- </div> -->
 
 
                     <h2 class="titulo" id="fotos_title">Redes Sociais</h2>

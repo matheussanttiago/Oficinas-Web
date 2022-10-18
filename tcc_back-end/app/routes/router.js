@@ -517,14 +517,15 @@ router.post('/cad_visitante',
 router.post('/cad_juridica', 
 upload.single('add-img-j'),
 
-body('email_prop').isEmail().withMessage('Insira um email válido'),
-// body('telefone_proprietario').isLength({ min: 14}).withMessage('Insira um telefone válido'),
-// body('cpf').isLength({ min: 14}).isEmpty().withMessage('Insira um cpf válido'),
+body('email_prop').isEmail().notEmpty().withMessage('Insira um email válido'),
+body('nome_proprietario').isLength({ min: 5, max: 20}).notEmpty().withMessage('Insira um nome entre 5 e 20 caracteres'),
+body('telefone_proprietario').isLength({ min: 14}).notEmpty().withMessage('Insira um telefone válido'),
+body('cpf').isLength({ min: 14}).notEmpty().withMessage('Insira um cpf válido'),
 async (req, res) => {
-  // const errors = validationResult(req);
-  // if (!errors.isEmpty()) {
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log(errors);
       return res.render('pages/cad_visitante', { "erros": errors, "valores":req.body, erroProp: true })
     }
   // }

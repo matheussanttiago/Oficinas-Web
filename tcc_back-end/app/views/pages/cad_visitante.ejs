@@ -54,16 +54,28 @@
     
         <%
         var err_email = {"erro":"","visu":"hide","msg":""}  
-        var err_email_prop = {"erro":"","visu":"hide","msg":""} 
         var err_nome = {"erro":"","visu":"hide","msg":""}
         var err_phone = {"erro":"","visu":"hide","msg":""}
+
+        var err_email_prop = {"erro":"","visu":"hide","msg":""} 
+        var err_nome_prop = {"erro":"","visu":"hide","msg":""} 
+        var err_phone_prop = {"erro":"","visu":"hide","msg":""} 
+        var err_cpf_prop = {"erro":"","visu":"hide","msg":""} 
+        var err_confirm_pass_prop = {"erro":"","visu":"hide","msg":""} 
+
     if(erros) { 
          
          erros.errors.forEach(function(erro){
              if (erro.param  == "nome_visitante"){ err_nome = {"erro":"erro","visu":"show","msg":erro.msg}}  
              if (erro.param  == "email_visitante"){ err_email = {"erro":"erro","visu":"show","msg":erro.msg}}  
-             if (erro.param  == "celular_visitante"){ err_phone = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "celular_visitante"){ err_phone = {"erro":"erro","visu":"show","msg":erro.msg}} 
+
              if (erro.param  == "email_prop"){ err_email_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "nome_proprietario"){ err_nome_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "telefone_proprietario"){ err_phone_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "cpf"){ err_cpf_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+             if (erro.param  == "confirm_pass_prop"){ err_confirm_pass_prop = {"erro":"erro","visu":"show","msg":erro.msg}}  
+
          }); 
      }; %>
 
@@ -110,12 +122,12 @@
 
                 <div id="tipo_conta">
                     <% if(erroProp == false) { %>
-                        <h3 class="fisica">Pessoa fisica</h3>
-                        <h3 class="juridica">Pessoa juridica</h3>
+                        <h3 class="fisica line-orange">Pessoa fisica</h3>
+                        <h3 class="juridica line-grey">Pessoa juridica</h3>
                     <% } else { %>
-                        <h3 class="juridica">Pessoa fisica</h3>
-                        <h3 class="fisica">Pessoa juridica</h3>
-                    <%}%>
+                        <h3 class="fisica line-grey">Pessoa fisica</h3>
+                        <h3 class="juridica line-orange">Pessoa juridica</h3>
+                    <% } %>
                 </div>
 
                 <div>
@@ -132,14 +144,14 @@
                             </div>
                         </div>
 
-                        <input id="nome2" class="inputs" placeholder="Nome" name="nome_visitante" type="text" value="<%= valores.nome_visitante %>">
-                        <span class="erro"><%= err_nome.msg %></span>
+                        <input id="nome2" class="inputs <%= err_nome.erro %>" placeholder="Nome" name="nome_visitante" type="text" value="<%= valores.nome_visitante %>">
+                        <span class="<%= err_nome.visu %>"><%= err_nome.msg %></span>
                         <!-- <input id="cpf" class="inputs" placeholder="CPF" type="text"> -->
                         <!-- <div> -->
-                            <input id="celular2" name="celular_visitante" class="inputs phone-mask" placeholder="Celular" type="text" value="<%= valores.celular_visitante %>">
-                            <span class="erro"><%= err_email.msg %></span>
-                            <input id="email2" name="email_visitante" class="inputs" placeholder="Email" type="text" value="<%= valores.email_visitante %>">
-                            <span class="erro"><%= err_phone.msg %></span>
+                            <input id="celular2" name="celular_visitante" class="inputs phone-mask <%= err_phone.erro %>" placeholder="Celular" type="text" value="<%= valores.celular_visitante %>">
+                            <span class="<%= err_phone.visu %>"><%= err_phone.msg %></span>
+                            <input id="email2" name="email_visitante" class="inputs <%= err_email.erro %>" placeholder="Email" type="text" value="<%= valores.email_visitante %>">
+                            <span class="<%= err_email.visu %>"><%= err_email.msg %></span>
                         <!-- </div> -->
                         <!-- <div> -->
                             <input id="senha2" name="senha_visitante" class="inputs" placeholder="Senha" type="password">
@@ -172,12 +184,12 @@
     
                 <div id="tipo_conta">
                     <% if(erroProp == false) { %>
-                        <h3 class="fisica">Pessoa fisica</h3>
-                        <h3 class="juridica">Pessoa juridica</h3>
+                        <h3 class="fisica line-orange">Pessoa fisica</h3>
+                        <h3 class="juridica line-grey">Pessoa juridica</h3>
                     <% } else { %>
-                        <h3 class="juridica">Pessoa fisica</h3>
-                        <h3 class="fisica">Pessoa juridica</h3>
-                    <%}%>
+                        <h3 class="fisica line-grey">Pessoa fisica</h3>
+                        <h3 class="juridica line-orange">Pessoa juridica</h3>
+                    <% } %>
                 </div>
     
                 <div>
@@ -191,17 +203,21 @@
                             </div>
                         </div>
                         <!-- <div> -->
-                            <input id="nome_proprietario" name="nome_proprietario" class="inputs nome-juridica" placeholder="Nome" type="text">
-                            <input id="cpf" name="cpf" class="inputs cpf-juridica" placeholder="CPF" type="text">
+                            <input id="nome_proprietario" name="nome_proprietario" class="inputs nome-juridica <%= err_nome_prop.erro %>" placeholder="Nome" type="text" value="<%= valores.nome_proprietario %>">
+                            <span class="<%= err_nome_prop.visu %>"><%= err_nome_prop.msg %></span>
+                            <input id="cpf" name="cpf" class="inputs cpf-juridica <%= err_cpf_prop.erro %>" placeholder="CPF" type="text" value="<%= valores.cpf %>">
+                            <span class="<%= err_cpf_prop.visu %>"><%= err_cpf_prop.msg %></span>
+                            <!-- </div> -->
+                        <!-- <div> -->
+                            <input id="celular" name="telefone_proprietario" class="inputs phone-juridica phone-mask <%= err_phone_prop.erro %>" placeholder="Celular" type="text" value="<%= valores.telefone_proprietario %>">
+                            <span class="<%= err_phone_prop.visu %>"><%= err_phone_prop.msg %></span>
+                            <input id="email" name="email_prop" class="inputs email-juridica <%= err_email_prop.erro %>" placeholder="Email" type="text" value="<%= valores.email_prop %>">
+                            <span class="<%= err_email_prop.visu %>"><%= err_email_prop.msg %></span>
                         <!-- </div> -->
                         <!-- <div> -->
-                            <input id="celular" name="telefone_proprietario" class="inputs phone-juridica phone-mask" placeholder="Celular" type="text">
-                            <input id="email" name="email_prop" class="inputs email-juridica" placeholder="Email" type="text" value="<%= valores.email_prop %>">
-                            <span class="erro"><%= err_email_prop.msg %></span>
-                        <!-- </div> -->
-                        <!-- <div> -->
-                            <input id="senha" name="senha_prop" class="inputs" placeholder="Senha" type="password">
-                            <input id="repitir_senha" class="inputs" placeholder="Repitir senha" type="password">
+                            <input id="senha" name="senha_prop" class="inputs" placeholder="Senha" type="password" value="<%= valores.senha_prop %>">
+                            <input id="repitir_senha" name="confirm_pass_prop" class="inputs <%= err_confirm_pass_prop.erro %>" placeholder="Repitir senha" type="password">
+                            <span class="<%= err_confirm_pass_prop.visu %>"><%= err_confirm_pass_prop.msg %></span>
                         <!-- </div> -->
                     <div id="termos" class="cadastro">
                         <p>Clicando em continuar abaixo, você concorda com os <a href="">Termos e Serviço e Política de

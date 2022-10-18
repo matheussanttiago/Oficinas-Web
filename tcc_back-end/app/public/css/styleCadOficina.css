@@ -159,5 +159,8 @@ input[type="file"] {
   }
 }
 
-
+form{
+  display: flex;
+  flex-direction: column;
+}
 
