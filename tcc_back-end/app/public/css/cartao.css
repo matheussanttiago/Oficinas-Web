@@ -534,3 +534,10 @@ width: 560px;
   border: none;
   border-radius: 3px;
 }
+
+.titular{
+  text-transform: uppercase;
+}
+.titular::placeholder{
+  text-transform: capitalize !important;
+}

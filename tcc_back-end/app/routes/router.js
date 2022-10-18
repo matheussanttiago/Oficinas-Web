@@ -575,7 +575,7 @@ async (req, res) => {
       req.session.usu_foto = fileContent.toString("base64")
     }
     console.log(req.session)
-    res.render('pages/criar_oficinas', { cadastrado: true })
+    res.render('pages/criar_oficinas', { cadastrado: true, "erros": null, "valores": "" })
   } catch (e) {
 
     console.log(e);
