@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Oficina</title>
+    <title><%=oficina[0].nome_oficina %></title>
 
     <!-- LINKS CSS -->
     <!-- <link rel="stylesheet" href="css/styleavaliacao.css"> -->
@@ -74,7 +74,7 @@
                 <% } %>
                 <div>
                     <h1 class="titulo"><%= oficina[0].nome_oficina %></h1>
-                    <h2 class="legenda">Produtos</h2>
+                    <h2 class="legenda">Oficina Mecânica</h2>
                 </div>
             </div>
         </section>
@@ -132,19 +132,25 @@
 
                 <div id="redes_sociais">
                     <% if(oficina[0].facebook.length > 1) { %>
-                        <div class="box_redes-sociais shadow_btn">
-                            <img src="/img/face_laranja.svg" alt="Logo do facebook">
-                        </div>
+                        <a target="_blank" href="<%= oficina[0].facebook %>" class="box_redes-sociais shadow_btn">
+                            <div >
+                                <img src="/img/face_laranja.svg" alt="Logo do facebook">
+                            </div>
+                        </a>
                     <% } %>
                     <% if(oficina[0].instagram.length > 1) { %>
-                        <div class="box_redes-sociais shadow_btn">
-                            <img src="/img/insta_laranja.svg" alt="Logo do facebook">
-                        </div>
+                        <a target="_blank" href="<%= oficina[0].instagram %>" class="box_redes-sociais shadow_btn">
+                            <div >
+                                <img src="/img/insta_laranja.svg" alt="Logo do facebook">
+                            </div>
+                        </a>
                     <% } %>
                     <% if(oficina[0].email_oficina.length > 1) { %>
-                        <div class="box_redes-sociais shadow_btn">
-                            <img src="/img/email_laranja.svg" alt="Logo do facebook">
-                        </div>
+                        <a href="mailto:<%= oficina[0].email_oficina %>" class="box_redes-sociais shadow_btn">
+                            <div >
+                                <img src="/img/email_laranja.svg" alt="Logo do facebook">
+                            </div>
+                        </a>
                     <% } %>
                 </div>
 
@@ -436,14 +442,17 @@
                     <% } %>
                 <% } %>
             </div>
-            <button class="btn_fixed" id="cta_wpp"><span>Entrar em contato via Whatsapp</span> <img
-                    src="/img/wpp_icon_branco.svg" alt=""></button>
+            <a href="https://web.whatsapp.com/send?phone=55<%=oficina[0].celular%>" target="_blank">
+                <button class="btn_fixed" id="cta_wpp" ><span>Entrar em contato via Whatsapp</span> <img src="/img/wpp_icon_branco.svg" alt=""></button>
+            </a>
+            <!-- <button class="btn_fixed" id="cta_wpp"><span>Entrar em contato via Whatsapp</span> <img src="/img/wpp_icon_branco.svg" alt=""></button> -->
         </section>
 
     </main>
 
     <script src="/js/scriptAvaliacao.js"></script>
 
+    <%- include('../partial/footer.ejs') %>
 
 </body>
 

@@ -154,7 +154,7 @@ body{
     background-color: #F2F2F2;
     color: black;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 550;
     text-align: center ;
     font-family: "Sora", sans-serif;
@@ -403,7 +403,7 @@ line-height: 24px;
       font-family: 'Sora';
       font-style: normal;
       font-weight: 700;
-      font-size: 35px;
+      font-size: 30px;
       line-height: 24px;
       color: #fff;
   
@@ -466,7 +466,7 @@ line-height: 24px;
       font-family: 'Sora';
       font-style: normal;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 1em;
       line-height: 24px;
       /* or 133% */
 
@@ -477,7 +477,7 @@ line-height: 24px;
       font-family: 'Sora';
       font-style: normal;
       font-weight: 300;
-      font-size: 18px;
+      font-size: 1em;
       line-height: 24px;
       /* or 133% */
       

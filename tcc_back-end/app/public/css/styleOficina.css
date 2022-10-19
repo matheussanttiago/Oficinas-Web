@@ -252,6 +252,15 @@ color: #6B6B6B;
     width: 152px;
     margin: auto;
 }
+.content_oficinas p{
+    display: -webkit-box;
+    max-width: 400px;
+    /* height: 100%; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .espec_oficinas{
     width: 168px;
 }

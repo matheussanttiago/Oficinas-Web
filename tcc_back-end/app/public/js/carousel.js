@@ -33,8 +33,10 @@ $(document).ready(function(){
                 settings: {
                     arrows: false,
                     centerMode: true,
-                    centerPadding: '10px',
-                    slidesToShow: 1.03
+                    // centerPadding: '10px',
+                    // slidesToShow: 1.03,
+                    centerPadding: '17.5px',
+                    slidesToShow: 1.05
                 }
             },
             {

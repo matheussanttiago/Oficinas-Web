@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nome do produto</title>
+    <title><%= produto[0].nome_produto %></title>
 
     <!-- LINKS CSS -->
     <link rel="stylesheet" href="/css/styleavaliacao.css">
@@ -178,9 +178,11 @@
                 <h1 class="titulo" id="desc">Descrição</h1>
                 <p><%= produto[0].descricao_prod %></p>
 
-
-                <button class="btn_laranja" id="cta_wpp_pag_laranja"><span>Entrar em contato via Whatsapp</span> <img
+                <a href="https://web.whatsapp.com/send?phone=55<%=dadosAnunciante[0].celular%>" target="_blank">
+                    <button class="btn_laranja" id="cta_wpp_pag_laranja"><span>Entrar em contato via Whatsapp</span> <img
                         src="/img/wpp_icon_branco.svg" alt=""></button>
+                </a>
+                
 
             </div>
         </section>
