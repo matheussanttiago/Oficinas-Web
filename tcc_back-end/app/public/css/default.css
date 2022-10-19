@@ -1269,3 +1269,13 @@ a {
     display: flex;
     font-family: 'Sora', sans-serif;
   }
+
+  .box-anunciante .legenda{
+    display: -webkit-box;
+    max-width: 400px;
+    /* height: 100%; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

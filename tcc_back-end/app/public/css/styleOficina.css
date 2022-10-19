@@ -638,8 +638,10 @@ color: #5e5e5e;
 }
 
 .foto-perfil-oficina{
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    height: 56px;
+    width: 56px;
     border-radius: 50%;
 }
 

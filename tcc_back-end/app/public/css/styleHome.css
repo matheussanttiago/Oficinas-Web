@@ -207,6 +207,14 @@ hr{
     line-height: 24px;
     max-width: 152px;
     color: #727272;
+
+    display: -webkit-box;
+    max-width: 400px;
+    /* height: 100%; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #carousel_oficinas button{
     border: 3px solid var(--cor-principal);
