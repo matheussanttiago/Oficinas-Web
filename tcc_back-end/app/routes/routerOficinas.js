@@ -161,17 +161,21 @@ router.get('/oficina/:nome_tela', async function (req, res) {
 
       // INFORMAÇÕES DAS AVALIAÇÕES
       avaliacoes = await produtosDAO.getAvaliacoes(produtosOfc_avaliacao[k].id_produto)
-      for (let i = 0; i < avaliacoes.length; i++) {
-        nome_avaliador = await produtosDAO.getAvaliador(avaliacoes[i].id_visit);
-        // console.log(nome_avaliador);
-        console.log(nome_avaliador[0].nome);
-
-        nome_produto = await produtosDAO.getNomeProduto(avaliacoes[i].id_produto);
-
-        avaliacoes[i].nome_avaliador = nome_avaliador[0].nome;
-        avaliacoes[i].nome_produto = nome_produto[0].nome_produto;
+      if(avaliacoes.length == 0){
+        arr_avaliacoes = []
+      } else {
+        for (let i = 0; i < avaliacoes.length; i++) {
+          nome_avaliador = await produtosDAO.getAvaliador(avaliacoes[i].id_visit);
+          // console.log(nome_avaliador);
+          console.log(nome_avaliador[0].nome);
+  
+          nome_produto = await produtosDAO.getNomeProduto(avaliacoes[i].id_produto);
+  
+          avaliacoes[i].nome_avaliador = nome_avaliador[0].nome;
+          avaliacoes[i].nome_produto = nome_produto[0].nome_produto;
+        }
+        arr_avaliacoes.push(avaliacoes[0])
       }
-      arr_avaliacoes.push(avaliacoes[0])
     }
     console.log(arr_avaliacoes)
 
