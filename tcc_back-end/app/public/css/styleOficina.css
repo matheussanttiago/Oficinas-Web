@@ -141,7 +141,16 @@ color: #6B6B6B;
 
     cursor: pointer;
 }
-
+pre{
+    font-family: 'Gothic A1';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #727272;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
 
 .img_ofc{
     width: 342px;
@@ -290,14 +299,6 @@ p{
     line-height: 24px;
     color: #727272;
 }
-/* #caracteristicas{
-    font-family: 'Gothic A1';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #727272;
-} */
 #oficinas button{
     border: 3px solid var(--cor-principal);
     background-color: #fff;

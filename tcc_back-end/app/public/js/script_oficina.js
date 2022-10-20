@@ -27,4 +27,3 @@ $(document).ready(function(){
         $('#box_avaliacoes-neg').hide();
     });
 })
-

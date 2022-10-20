@@ -29,6 +29,7 @@
     <script src="js/mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="js/script_menu.js"></script>
+    <script src="js/categoria.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -120,30 +121,28 @@ if(erros) {
                         </div> -->
                         <div class="inputs-container">
                             <div id="box-checkbox">
-                                <div class="line-checkbox">
-                                    <label for="carro">Carros</label>
-                                    <input type="checkbox" name="carro" id="carro">
-                            </div>
-                            <div class="line-checkbox">
-                                    <label for="moto">motos</label>
-                                    <input type="checkbox" name="moto" id="moto">
-                            </div>
-                            <div class="line-checkbox">
-                                    <label for="van">vans</label>
-                                    <input type="checkbox" name="van" id="van">
-                            </div>
-                            <div class="line-checkbox">
-                                    <label for="caminhão">caminhões</label>
-                                    <input type="checkbox" name="caminhao" id="caminhão">
-                            </div>
-                            <div class="line-checkbox">
-                                    <label for="bicicleta">bicicletas</label>
-                                    <input type="checkbox" name="bicicleta" id="bicicleta">
-                            </div>
-                            <div class="line-checkbox">
-                                    <label for="todos">Todos</label>
-                                    <input type="checkbox" name="todos" id="todos">
-                            </div>
+                                <div id="box-checkbox">
+                                    <div>
+                                        <label for="carro" class="line-checkbox" id="cat-carro">Carros</label>
+                                        <input type="checkbox" class="input-cat" name="carro" id="carro">
+                                    </div>
+                                    <div>
+                                        <label for="moto" class="line-checkbox" id="cat-moto">Motos</label>
+                                        <input type="checkbox" class="input-cat" name="moto" id="moto">
+                                    </div>
+                                    <div>
+                                        <label for="van" class="line-checkbox" id="cat-van">Vans</label>
+                                        <input type="checkbox" class="input-cat" name="van" id="van">
+                                    </div>
+                                    <div>
+                                        <label for="caminhao" class="line-checkbox" id="cat-caminhao">Caminhões</label>
+                                        <input type="checkbox" class="input-cat" name="caminhao" id="caminhao">
+                                    </div>
+                                    <div>
+                                        <label for="bicicleta" class="line-checkbox" id="cat-bicicleta">Bicicletas</label>
+                                        <input type="checkbox" class="input-cat" name="bicicleta" id="bicicleta">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="inputs-container container2">
