@@ -50,13 +50,17 @@
 
             <div id="box_servicos">
                 <% for(let i = 0; i < servicos.length; i++) { %>
-                    <div class="melhores-servicos">
-                        <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
-                        <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
-                        <p class="desc_servico" id="desc_servico"><%= servicos[i].descricao_prod %></p>
-                        <button class="preco_servico default_btn">R$<%= String(servicos[i].valor_produto).replace('.', ',') %></button>
-                        <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
-                    </div>
+                        <div>
+                    <a href="/servico/<%= servicos[i].id_produto %>" class="melhores-servicos">
+
+                            <img src="data:image/gif;base64,<%= servicos[i].foto1 %>" alt="Foto do serviço" id="foto-servico">
+                            <h5 class="titulos_servico"><%= servicos[i].nome_produto %></h5>
+                            <p class="desc_servico" id="desc_servico"><%= servicos[i].descricao_prod %></p>
+                            <button class="preco_servico default_btn">R$<%= String(servicos[i].valor_produto).replace('.', ',') %></button>
+                            <img src="img/favorito_icon.svg" alt="Ícone de coração para favoritar serviço" id="favorito">
+                    </a>
+
+                        </div>
                 <% } %>
             </div>
         </section>

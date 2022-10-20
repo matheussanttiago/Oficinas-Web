@@ -220,8 +220,9 @@ router.get('/', async function (req, res) {
 
     // AVALIAÇÕES DE PRODUTOS
     for(let i = 0; i < allProdutos.length; i++){
-      avaliacao_produto = produtosDAO.getAvgAvalia(allProdutos[i].id_produto);
-      if(avaliacao_produto[0] == undefined){
+      avaliacao_produto =  await produtosDAO.getAvgAvalia(allProdutos[i].id_produto);
+      // console.log(avaliacao_produto[0])
+      if(avaliacao_produto[0].media_avaliacao == null){
         allProdutos[i].avaliacao = 5
       } else {
         allProdutos[i].avaliacao = avaliacao_produto[0].media_avaliacao

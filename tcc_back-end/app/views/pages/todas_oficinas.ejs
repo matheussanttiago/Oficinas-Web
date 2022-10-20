@@ -46,28 +46,30 @@
 
             <div id="seus_produtos">
                 <% for(let i = 0; i < oficinas.length; i++) { %>
-                    <div class="box_produto">
-                        <div class="content">
-                            <img class="produto" src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="">
-                            <div class="infos_produto">
-                                <h4 class="tinta"><%= oficinas[i].nome_oficina %></h4>
-                                <h3 class="desc_oficina"><%= oficinas[i].descricao_ofc %></h3>
-                                <div class="local_oficina">
-                                    <img src="img/local_icon.svg" alt="">
-                                    <span class="bairro_oficina"><%= oficinas[i].bairro %></span>
-                                </div>
-                                <div id="notas">
-                                    <div>
-                                        <img src="img/star.svg" alt="" class="star-icon">
-                                        <span class="nota"><%= String(oficinas[i].avg_media_geral).replace('.', ',') %></span>
-                                        <spaan class="num_avaliacao">(<%= oficinas[i].num_avaliacoes %> avaliações)</spaan>
+                    <a href="/oficina/<%= oficinas[i].nome_tela%>" class="box_produto">
+                        <div>
+                            <div class="content">
+                                <img class="produto" src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="">
+                                <div class="infos_produto">
+                                    <h4 class="tinta"><%= oficinas[i].nome_oficina %></h4>
+                                    <h3 class="desc_oficina"><%= oficinas[i].descricao_ofc %></h3>
+                                    <div class="local_oficina">
+                                        <img src="img/local_icon.svg" alt="">
+                                        <span class="bairro_oficina"><%= oficinas[i].bairro %></span>
                                     </div>
-                                    <img src="img/favorito_icon.svg" alt="" class="fav_icon">
-        
+                                    <div id="notas">
+                                        <div>
+                                            <img src="img/star.svg" alt="" class="star-icon">
+                                            <span class="nota"><%= String(oficinas[i].avg_media_geral).replace('.', ',') %></span>
+                                            <spaan class="num_avaliacao">(<%= oficinas[i].num_avaliacoes %> avaliações)</spaan>
+                                        </div>
+                                        <img src="img/favorito_icon.svg" alt="" class="fav_icon">
+            
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <% } %>
             </div>
         </section>
