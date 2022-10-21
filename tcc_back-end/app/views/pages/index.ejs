@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home</title>
+    <title>Oficinas Web</title>
 
     <!-- LINKS CSS -->
     <!-- <link rel="stylesheet" href="css/styleavaliacao.css"> -->
@@ -67,7 +67,9 @@
                 <% for (let i = 0; i < oficinas.length; i++) { %>
                     <a href='oficina/<%=oficinas[i].nome_tela%>' class="carousel">
                         <div class="carrossel_oficinas">
-                            <img src="data:image/gif;base64,<%= oficinas[i].foto1 %>" alt="imagem da oficina" class="img_ofc">
+
+                            <img src="data:image/gif;base64,<%= oficinas[i].foto2 %>" alt="imagem da oficina" class="img_ofc">
+
                             <div class="modal_oficina"></div>
                             <div class="carrossel_infos">
                                 <span class="nome_oficina"><%= oficinas[i].nome_oficina %></span>
@@ -290,7 +292,8 @@
             <img src="img/ilustracao_mecanico.svg" alt="Ilustração de um mecânico" id="ilustracao">
             <div id="infos-planos">
                 <h3>Se junte a nós!</h3>
-                <span>Divulgue a sua oficina no melhor buscador de serviços mêcanicos do país.</span>
+                <span>Oficinas web é uma solução que busca aproximar mecanicos e clientes. 
+                    Venha divulgar a sua oficina no melhor buscador de serviços mecânicos e expanda o seu negócio.</span>
                 <!-- <div id="btn-plans"> -->
                 <button class="default_btn">
                     <a href="login">Saiba Mais</a>
