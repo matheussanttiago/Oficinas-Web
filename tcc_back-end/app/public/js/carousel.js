@@ -6,7 +6,7 @@ $(document).ready(function(){
         slidesToScroll: 1.09,
         // infinite: false,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 3000,
         prevArrow: '<div class="prev-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
         nextArrow: '<div class="next-btn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
         responsive: [

@@ -120,7 +120,7 @@ router.post('/cad_produto', upload.array('add-img'), async (req, res) => {
     // console.log(`esse é o ultido id do insert: ${results.insertId}`);
     // res.redirect(`/dashboard/${nomeTela}`);
     var dadosOficina = await oficinasDAO.getOneOficina(nomeTela);
-    res.render('pages/dashboard', {servicoCad: true, produtoCad: false, oficina: dadosOficina, produtoId})
+    res.render('pages/dashboard', {servicoCad: false, produtoCad: true, oficina: dadosOficina, produtoId})
   } catch (e) {
 
     console.log(e);

@@ -3,6 +3,9 @@ footer{
 	line-height: 1.5;
 	font-family: 'Poppins', sans-serif;
 }
+#logofooter{
+	width: 150px;
+}
 /* *{
 	margin:0;
 	padding:0;
@@ -134,6 +137,12 @@ ul{
   font-size: 14px;
 
 }
+/* .footer__logo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+  } */
 
 
 
